@@ -1,0 +1,14 @@
+1. Landing page:
+- hero
+- about
+- features
+2. Chat steps:
+- job requirments*,
+- nice to have,
+- resposiblities
+- questions difficult level,
+- sample answers (checkbox)
+
+Nice to have:
+- login system
+- previous recruitments process saving
