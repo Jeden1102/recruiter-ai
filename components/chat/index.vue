@@ -27,6 +27,7 @@ const chatTree = ref([
 const inputData = ref("");
 
 async function sendMessage() {
+  console.log("TEARZ");
   try {
     const message = {
       role: "user",

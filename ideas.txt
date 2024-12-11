@@ -1,0 +1,21 @@
+1. Landing page:
+- hero
+- about
+- features
+2. Chat steps:
+- request form :
+ 1.step (radio) - job offer url,
+   2. step:url field
+  -  analyze my CV
+    2. step: file field
+  - job offer custom:
+   2.step :- job requirments (textarea)*,
+   - nice to have (textarea),
+    - resposiblities (textarea)
+3. step: - questions difficult level,
+- sample answers (checkbox)
+- sample requirment task (checkbox)
+
+Nice to have:
+- login system
+- previous recruitments process saving

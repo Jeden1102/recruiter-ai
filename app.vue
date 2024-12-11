@@ -1,5 +1,5 @@
 <template>
   <div>
-    <Chat />
+    <NuxtPage />
   </div>
 </template>
