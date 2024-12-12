@@ -68,6 +68,9 @@
         </FormItem>
       </FormField>
     </template>
+    <Button variant="outline" type="button" @click="emit('back')"
+      >Previous</Button
+    >
     <Button type="submit">Next</Button>
   </form>
 </template>
@@ -92,7 +95,7 @@ const props = defineProps<{
   type: string;
 }>();
 
-const emit = defineEmits(["submit"]);
+const emit = defineEmits(["submit", "back"]);
 
 const prepareSchema = (): ZodType<any, ZodTypeDef, any> => {
   if (props.type === "url") {

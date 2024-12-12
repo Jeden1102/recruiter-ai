@@ -12,7 +12,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 
 const step = ref(0);
 const type = ref("");
@@ -39,47 +38,29 @@ const handleSubmitDetails = (values: any) => {
   details.value = values;
   step.value = ++step.value;
 };
+
+const handleTypeSubmit = (values: any) => {
+  type.value = values.type;
+  step.value = ++step.value;
+};
 </script>
 
 <template>
   <form @submit="onSubmit" enctype="multipart/form-data">
-    <template v-if="step === 0">
-      <FormField v-slot="{ componentField }" type="radio" name="type">
-        <FormItem class="space-y-3">
-          <FormLabel
-            >How would you generate your recruitment questions?</FormLabel
-          >
-
-          <FormControl>
-            <RadioGroup class="flex flex-col space-y-1" v-bind="componentField">
-              <FormItem class="flex items-center space-y-0 gap-x-3">
-                <FormControl>
-                  <RadioGroupItem value="url" />
-                </FormControl>
-                <FormLabel class="font-normal"> Job offer url </FormLabel>
-              </FormItem>
-              <FormItem class="flex items-center space-y-0 gap-x-3">
-                <FormControl>
-                  <RadioGroupItem value="cv" />
-                </FormControl>
-                <FormLabel class="font-normal"> Based on my CV </FormLabel>
-              </FormItem>
-              <FormItem class="flex items-center space-y-0 gap-x-3">
-                <FormControl>
-                  <RadioGroupItem value="custom" />
-                </FormControl>
-                <FormLabel class="font-normal"> Custom settings </FormLabel>
-              </FormItem>
-            </RadioGroup>
-          </FormControl>
-          <FormMessage />
-        </FormItem>
-      </FormField>
-      <Button type="submit"> Next </Button>
-    </template>
-    <template v-if="step === 1">
-      <ChatStepDetails :type="type" @submit="handleSubmitDetails" />
-    </template>
+    <keep-alive>
+      <template v-if="step === 0">
+        <ChatStepType :type="type" @submit="handleTypeSubmit" />
+      </template>
+    </keep-alive>
+    <keep-alive>
+      <template v-if="step === 1">
+        <ChatStepDetails
+          :type="type"
+          @submit="handleSubmitDetails"
+          @back="step--"
+        />
+      </template>
+    </keep-alive>
     {{ details }}
   </form>
 </template>
