@@ -1,5 +1,8 @@
 <template>
-  <div>Index</div>
+  <div>
+    Index
+    <NuxtLink to="/chat">Chat</NuxtLink>
+  </div>
 </template>
 
 <script setup lang="ts"></script>
