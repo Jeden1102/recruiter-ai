@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: false },
-  modules: ["nuxt-chatgpt", "@nuxtjs/tailwindcss", "shadcn-nuxt"],
+  modules: ["nuxt-chatgpt", "@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxt/icon"],
   chatgpt: {
     apiKey: process.env.OPENAI_API_KEY,
   },

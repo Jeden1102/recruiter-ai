@@ -19,10 +19,10 @@
     --border: 240 6% 18%;
     --input: 240 6% 18%;
 
-    --primary: 248 64% 58%;
+    --primary: 240 67% 59%; /* HSL dla #4E4BE4 */
     --primary-foreground: white;
 
-    --secondary: 240 8% 14%;
+    --secondary: 300 94% 68%; /* HSL dla #E862FE */
     --secondary-foreground: 0 0% 98%;
 
     --accent: 248 64% 58%;
@@ -31,7 +31,7 @@
     --destructive: 0 62.8% 40.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --ring: 248 64% 58%; /* Dopasowane do primary */
+    --ring: 240 67% 59%; /* Dopasowane do primary */
 
     --radius: 0.5rem;
   }
@@ -52,10 +52,10 @@
     --border: 240 6% 18%;
     --input: 240 6% 18%;
 
-    --primary: 248 64% 58%;
+    --primary: 240 67% 59%; /* HSL dla #4E4BE4 */
     --primary-foreground: 240 10% 8%;
 
-    --secondary: 240 8% 14%;
+    --secondary: 300 94% 68%; /* HSL dla #E862FE */
     --secondary-foreground: 0 0% 98%;
 
     --accent: 248 64% 58%;
@@ -64,7 +64,7 @@
     --destructive: 0 62.8% 40.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --ring: 248 64% 58%;
+    --ring: 240 67% 59%;
   }
 }
 

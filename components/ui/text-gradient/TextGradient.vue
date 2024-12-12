@@ -1,13 +1,14 @@
 <template>
-  <slot
+  <span
     :class="
       cn(
-        'bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text',
+        'bg-gradient-to-r from-primary to-secondary inline-block text-transparent bg-clip-text',
         props.class
       )
     "
   >
-  </slot>
+    <slot />
+  </span>
 </template>
 
 <script setup lang="ts">

@@ -1,6 +1,9 @@
 <template>
   <form @submit="onSubmit">
     <template v-if="type === 'url'">
+      <TextGradient class="text-2xl mb-4 font-semibold"
+        >Job offer URL</TextGradient
+      >
       <FormField v-slot="{ componentField }" name="url">
         <FormItem class="space-y-3">
           <FormLabel>Type the URL of the job offer</FormLabel>
@@ -17,6 +20,9 @@
     </template>
 
     <template v-if="type === 'cv'">
+      <TextGradient class="text-2xl mb-4 font-semibold"
+        >Based on my CV</TextGradient
+      >
       <FormField v-slot="{ componentField }" name="file">
         <FormItem class="space-y-3">
           <FormLabel>Insert your CV file</FormLabel>
@@ -29,6 +35,9 @@
     </template>
 
     <template v-if="type === 'custom'">
+      <TextGradient class="text-2xl mb-4 font-semibold"
+        >Custom job offer details</TextGradient
+      >
       <FormField v-slot="{ componentField }" name="requirements">
         <FormItem class="space-y-3">
           <FormLabel>Job Requirements</FormLabel>
@@ -68,10 +77,12 @@
         </FormItem>
       </FormField>
     </template>
-    <Button variant="outline" type="button" @click="emit('back')"
-      >Previous</Button
-    >
-    <Button type="submit">Next</Button>
+    <div class="flex gap-4 mt-6">
+      <Button variant="outline" type="button" @click="emit('back')"
+        >Previous</Button
+      >
+      <Button type="submit">Next Step</Button>
+    </div>
   </form>
 </template>
 

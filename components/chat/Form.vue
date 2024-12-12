@@ -3,20 +3,11 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import * as z from "zod";
 
-import { Button } from "@/components/ui/button";
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-
 const step = ref(0);
 const type = ref("");
 
 const details = ref({});
+const general = ref({});
 
 const formSchema = toTypedSchema(
   z.object({
@@ -34,8 +25,12 @@ const onSubmit = handleSubmit((values) => {
 });
 
 const handleSubmitDetails = (values: any) => {
-  console.log(values);
   details.value = values;
+  step.value = ++step.value;
+};
+
+const handleSubmitGeneral = (values: any) => {
+  general.value = values;
   step.value = ++step.value;
 };
 
@@ -59,6 +54,20 @@ const handleTypeSubmit = (values: any) => {
           @submit="handleSubmitDetails"
           @back="step--"
         />
+      </template>
+    </keep-alive>
+    <keep-alive>
+      <template v-if="step === 2">
+        <ChatStepGeneral
+          :type="type"
+          @submit="handleSubmitGeneral"
+          @back="step--"
+        />
+      </template>
+    </keep-alive>
+    <keep-alive>
+      <template v-if="step === 3">
+        <Chat />
       </template>
     </keep-alive>
     {{ details }}

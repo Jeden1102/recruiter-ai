@@ -1,15 +1,13 @@
 <template>
   <form @submit="onSubmit">
     <TextGradient class="text-2xl mb-4 font-semibold"
-      >Questions generation method</TextGradient
+      >General settings</TextGradient
     >
-
     <ChatRadioGroup
-      :options="types"
-      label="How would you generate your recruitment questions?"
-      field="type"
+      :options="options"
+      label="Questions difficulty level"
+      field="general"
     />
-
     <Button type="submit" class="mt-6">Next Step</Button>
   </form>
 </template>
@@ -21,31 +19,30 @@ import * as z from "zod";
 
 const emit = defineEmits(["submit"]);
 
-const types = [
+const options = [
   {
-    value: "url",
-    title: "Job offer url",
-    desc: "Questions generated based on the job offer URL",
-    icon: "carbon:url",
+    value: "easy",
+    title: "Easy",
+    desc: "Questions for entry level candidates",
+    icon: "carbon:skill-level-basic",
   },
   {
-    value: "cv",
-    title: "Based on my CV",
-    desc: "Questions generated baseod on your CV",
-    isCommingSoon: true,
-    icon: "ph:read-cv-logo-thin",
+    value: "intermediate",
+    title: "Intermediate",
+    desc: "More complex questions",
+    icon: "carbon:skill-level-intermediate",
   },
   {
-    value: "custom",
-    title: "Custom settings",
-    desc: "Questions generated based on your own settings",
-    icon: "mdi-light:settings",
+    value: "advanced",
+    title: "Advanced",
+    desc: "The most difficult questions",
+    icon: "carbon:skill-level-advanced",
   },
 ];
 
 const formSchema = toTypedSchema(
   z.object({
-    type: z.string().min(1),
+    general: z.string().min(1),
   })
 );
 
