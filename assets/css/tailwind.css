@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  input,
+  textarea,
+  select {
+    @apply text-base;
+  }
   :root {
     --background: 240 10% 8%; /* Przyjemnie ciemne tło */
     --foreground: 0 0% 98%; /* Jasny tekst */
