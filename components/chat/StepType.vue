@@ -4,7 +4,7 @@
       >Questions generation method</TextGradient
     >
 
-    <ChatRadioGroup
+    <ChatRadios
       :options="types"
       label="How would you generate your recruitment questions?"
       field="type"

@@ -1,28 +1,16 @@
 <script setup lang="ts">
-import { useForm } from "vee-validate";
-import { toTypedSchema } from "@vee-validate/zod";
-import * as z from "zod";
-
 const step = ref(0);
 const type = ref("");
 
-const details = ref({});
-const general = ref({});
+const details = ref<{
+  url?: string;
+  file?: File;
+  requirements?: string;
+  niceToHave?: string;
+  responsibilities?: string;
+}>({});
 
-const formSchema = toTypedSchema(
-  z.object({
-    type: z.string().min(1),
-  })
-);
-
-const { handleSubmit } = useForm({
-  validationSchema: formSchema,
-});
-
-const onSubmit = handleSubmit((values) => {
-  type.value = values.type;
-  step.value = ++step.value;
-});
+const general = ref<{ level?: string; task?: boolean; answers?: boolean }>({});
 
 const handleSubmitDetails = (values: any) => {
   details.value = values;
@@ -41,7 +29,7 @@ const handleTypeSubmit = (values: any) => {
 </script>
 
 <template>
-  <form @submit="onSubmit" enctype="multipart/form-data">
+  <div>
     <keep-alive>
       <template v-if="step === 0">
         <ChatStepType :type="type" @submit="handleTypeSubmit" />
@@ -71,5 +59,7 @@ const handleTypeSubmit = (values: any) => {
       </template>
     </keep-alive>
     {{ details }}
-  </form>
+    {{ general }}
+    {{ type }}
+  </div>
 </template>

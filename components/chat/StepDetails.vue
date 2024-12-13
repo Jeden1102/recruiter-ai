@@ -43,7 +43,7 @@
           <FormLabel>Job Requirements</FormLabel>
           <FormControl>
             <Textarea
-              placeholder="List the job requirements"
+              placeholder="eg. HTML, CSS, JS or English B2 Level, ..."
               v-bind="componentField"
             />
           </FormControl>
@@ -56,7 +56,7 @@
           <FormLabel>Nice to Have</FormLabel>
           <FormControl>
             <Textarea
-              placeholder="List any 'nice to have' skills"
+              placeholder="eg. experience with React, ..."
               v-bind="componentField"
             />
           </FormControl>
@@ -69,7 +69,7 @@
           <FormLabel>Responsibilities</FormLabel>
           <FormControl>
             <Textarea
-              placeholder="List the key responsibilities"
+              placeholder="eg. investigate complex business requirements, ..."
               v-bind="componentField"
             />
           </FormControl>
@@ -124,8 +124,8 @@ const prepareSchema = (): ZodType<any, ZodTypeDef, any> => {
   if (props.type === "custom") {
     return z.object({
       requirements: z.string().max(1024),
-      niceToHave: z.string().max(1024),
-      responsibilities: z.string().max(1024),
+      niceToHave: z.string().max(1024).optional(),
+      responsibilities: z.string().max(1024).optional(),
     });
   }
   return z.object({});

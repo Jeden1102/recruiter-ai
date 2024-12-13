@@ -3,12 +3,47 @@
     <TextGradient class="text-2xl mb-4 font-semibold"
       >General settings</TextGradient
     >
-    <ChatRadioGroup
+    <ChatRadios
       :options="options"
       label="Questions difficulty level"
-      field="general"
+      field="level"
     />
-    <Button type="submit" class="mt-6">Next Step</Button>
+    <FormField v-slot="{ value, handleChange }" type="checkbox" name="answers">
+      <FormItem
+        class="flex flex-row items-start gap-x-3 space-y-0 rounded-md border p-4 shadow my-4"
+      >
+        <FormControl>
+          <Checkbox :checked="value" @update:checked="handleChange" />
+        </FormControl>
+        <div class="space-y-1 leading-none">
+          <FormLabel>Prepare answers</FormLabel>
+          <FormDescription>
+            Prepare sample answers for every question
+          </FormDescription>
+          <FormMessage />
+        </div>
+      </FormItem>
+    </FormField>
+    <FormField v-slot="{ value, handleChange }" type="checkbox" name="task">
+      <FormItem
+        class="flex flex-row items-start gap-x-3 space-y-0 rounded-md border p-4 shadow my-4"
+      >
+        <FormControl>
+          <Checkbox :checked="value" @update:checked="handleChange" />
+        </FormControl>
+        <div class="space-y-1 leading-none">
+          <FormLabel>Recruitment task</FormLabel>
+          <FormDescription> Prepare sample recruitment task </FormDescription>
+          <FormMessage />
+        </div>
+      </FormItem>
+    </FormField>
+    <div class="flex gap-4 mt-6">
+      <Button variant="outline" type="button" @click="emit('back')"
+        >Previous</Button
+      >
+      <Button type="submit">Next Step</Button>
+    </div>
   </form>
 </template>
 
@@ -17,7 +52,7 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import * as z from "zod";
 
-const emit = defineEmits(["submit"]);
+const emit = defineEmits(["submit", "back"]);
 
 const options = [
   {
@@ -42,7 +77,9 @@ const options = [
 
 const formSchema = toTypedSchema(
   z.object({
-    general: z.string().min(1),
+    level: z.string().min(1),
+    answers: z.boolean().default(false).optional(),
+    task: z.boolean().default(false).optional(),
   })
 );
 
@@ -54,11 +91,3 @@ const onSubmit = handleSubmit((values) => {
   emit("submit", values);
 });
 </script>
-
-<style lang="scss">
-button:has(input:checked) ~ label {
-  & > div {
-    @apply border-primary;
-  }
-}
-</style>
