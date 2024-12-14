@@ -1,16 +1,11 @@
 <script setup lang="ts">
+import type { Details, General } from "./types";
 const step = ref(0);
-const type = ref("");
+const type = ref<string>("");
 
-const details = ref<{
-  url?: string;
-  file?: File;
-  requirements?: string;
-  niceToHave?: string;
-  responsibilities?: string;
-}>({});
+const details = ref<Details>({});
 
-const general = ref<{ level?: string; task?: boolean; answers?: boolean }>({});
+const general = ref<General>({});
 
 const handleSubmitDetails = (values: any) => {
   details.value = values;
@@ -55,11 +50,8 @@ const handleTypeSubmit = (values: any) => {
     </keep-alive>
     <keep-alive>
       <template v-if="step === 3">
-        <Chat />
+        <Chat :type="type" :details="details" :general="general" />
       </template>
     </keep-alive>
-    {{ details }}
-    {{ general }}
-    {{ type }}
   </div>
 </template>
