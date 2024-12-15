@@ -38,6 +38,19 @@
       <TextGradient class="text-2xl mb-4 font-semibold"
         >Custom job offer details</TextGradient
       >
+      <FormField v-slot="{ componentField }" name="position">
+        <FormItem class="space-y-3">
+          <FormLabel>Job Position*</FormLabel>
+          <FormControl>
+            <Textarea
+              placeholder="eg. Web Developer, middle school biologist teacher, ..."
+              v-bind="componentField"
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      </FormField>
+
       <FormField v-slot="{ componentField }" name="requirements">
         <FormItem class="space-y-3">
           <FormLabel>Job Requirements</FormLabel>
@@ -123,7 +136,8 @@ const prepareSchema = (): ZodType<any, ZodTypeDef, any> => {
   }
   if (props.type === "custom") {
     return z.object({
-      requirements: z.string().max(1024),
+      position: z.string().max(1024),
+      requirements: z.string().max(1024).optional(),
       niceToHave: z.string().max(1024).optional(),
       responsibilities: z.string().max(1024).optional(),
     });

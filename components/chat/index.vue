@@ -1,21 +1,34 @@
 <template>
-  <Card class="pt-20">
+  <Card>
     <CardContent class="flex flex-col gap-4">
       <div v-if="loading" class="flex justify-center items-center h-20">
         <div class="loader" />
       </div>
 
+      <Alert v-if="isError || data.errorMessage">
+        <AlertTitle>Error</AlertTitle>
+        <AlertDescription>
+          {{
+            data.errorMessage ||
+            `There was an issue generating the response. Please try again later or
+          consider using other questions generation option.`
+          }}
+        </AlertDescription>
+      </Alert>
+
       <div v-if="chatTree.length > 0 && !loading" class="mt-4">
         <Accordion type="single" collapsible>
           <AccordionItem v-for="q in data.questions" :value="q.question">
-            <AccordionTrigger>{{ q.question }}</AccordionTrigger>
+            <AccordionTrigger class="text-left">{{
+              q.question
+            }}</AccordionTrigger>
             <AccordionContent>
               {{ q.answer }}
             </AccordionContent>
           </AccordionItem>
         </Accordion>
 
-        <Card class="mt-4">
+        <Card class="mt-4" v-if="data.task">
           <CardHeader>
             <CardTitle>Recruitment Task</CardTitle>
           </CardHeader>
@@ -40,27 +53,41 @@ const props = defineProps<{
   type: string;
 }>();
 
-const data = ref({ questions: [], task: "" });
+type Question = {
+  question: string;
+  answer: string;
+};
+
+const data = ref<{
+  questions: Question[];
+  task: string;
+  errorMessage: string;
+}>({ questions: [], task: "", errorMessage: "" });
 
 const chatTree = ref([
   {
     role: "system",
     content:
-      "Jesteś asystentem AI, który generuje przykładowe pytania i odpowiedzi na rozmowę o pracę w formacie JSON. Użytkownik poda listę wymagań, a Twoim zadaniem jest zwrócenie odpowiednich danych w postaci struktury JSON. Pytania powinny miec klucze typu 'questions' z obiektami 'question' i 'answer', zas w przypadku dostarczenia zadania rekrutacyjnego, jego klucz powinien byc 'task', juz bez odpowiedzi, jako prosty string",
+      "Jesteś asystentem AI, który generuje przykładowe pytania i odpowiedzi na rozmowę o pracę w formacie JSON. Użytkownik poda listę wymagań, a Twoim zadaniem jest zwrócenie odpowiednich danych w postaci struktury JSON. Pytania powinny miec klucze typu 'questions' z obiektami 'question' i 'answer', zas w przypadku dostarczenia zadania rekrutacyjnego, jego klucz powinien byc 'task', juz bez odpowiedzi, jako prosty string. Nie podawaj tego ```json, tylko wyslij sam JSON, tak bym mogl sobie odpowiedz skonwertowac za pomoca JSON.parse(). W przypadku, gdyby treśc przeslana przez usera nie miala sensu, np. nie istnieje takie stanowisko pracy, wymagania sa nierealne, przeslany plik nie zawiera CV itp. to zwroc pod kluzcem 'error' ifnromacje o bledzie.",
   },
 ]);
 const loading = ref(true);
+const isError = ref(false);
 
 function constructPrompt() {
-  let prompt =
-    "Na podstawie dostarczonych informacji przygotuj listę pytań rekrutacyjnych w formacie JSON. Klucz pytań to 'questions', zawiera on obiekty z kluczemi 'question' oraz 'answer'. Zaś w przypadku dostarczenia zadania rekrutacyjnego, jego klucz powinien byc 'task', ju bez odpowiedzi. Listę pytań przygotuj na bazie informacji:";
+  let prompt = "Listę pytań przygotuj na bazie informacji:";
 
   if (props.type === "url") {
     prompt += ` Przeanalizuj tę ofertę pracy ${props.details.url}.`;
   } else if (props.type === "file") {
     prompt += ` Przeanalizuj zawartość dostarczonego pliku.`;
   } else if (props.type === "custom") {
-    prompt += ` Użyj niestandardowych szczegółów: ${props.details.requirements}, ${props.details.responsibilities}, ${props.details.niceToHave}.`;
+    prompt += `
+    Użyj niestandardowych szczegółów: 
+    Stanowisko: ${props.details.position},
+    Wymagania: ${props.details.requirements},
+    Zadania: ${props.details.responsibilities},
+    Mile widziane:  ${props.details.niceToHave}.`;
   }
 
   if (props.general.level) {
@@ -87,20 +114,20 @@ async function generateQuestions() {
 
     chatTree.value.push(userMessage);
 
-    const response = await chatCompletion(chatTree.value, "gpt-4");
+    const response = await chatCompletion(chatTree.value);
 
     const responseMessage = {
       role: response[0].message.role,
       content: response[0].message.content,
     };
-
     const obj = JSON.parse(responseMessage.content);
     console.log(obj);
     data.value.questions = obj.questions;
     data.value.task = obj.task;
+    data.value.errorMessage = obj.error;
     chatTree.value.push(responseMessage);
   } catch (error) {
-    alert(`Error generating questions: ${error}`);
+    isError.value = true;
   } finally {
     loading.value = false;
   }

@@ -2,6 +2,7 @@ export type Details = {
   url?: string;
   file?: File;
   requirements?: string;
+  position?: string;
   niceToHave?: string;
   responsibilities?: string;
 };

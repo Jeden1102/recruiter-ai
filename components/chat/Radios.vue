@@ -6,7 +6,11 @@
         <RadioGroup class="grid grid-cols-1" v-bind="componentField">
           <FormItem v-for="option in options">
             <FormControl>
-              <RadioGroupItem :value="option.value" class="hidden" />
+              <RadioGroupItem
+                :disabled="option.isCommingSoon"
+                :value="option.value"
+                class="hidden"
+              />
             </FormControl>
             <FormLabel
               class="font-normal cursor-pointer h-full rounded-xl border text-card-foreground shadow bg-zinc-900 relative w-full flex flex-col"
@@ -60,5 +64,9 @@ const props = defineProps<{
 <style lang="scss">
 button:has(input:checked) ~ label {
   @apply border-primary;
+}
+
+button:has(input:disabled) ~ label {
+  @apply opacity-60 cursor-auto;
 }
 </style>
