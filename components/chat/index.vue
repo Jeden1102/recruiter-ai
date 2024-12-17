@@ -12,7 +12,7 @@
       </ChatError>
 
       <div v-if="chatTree.length > 0 && !isLoading && !isError" class="mt-4">
-        <ChatQuestions :questions="data.questions" />
+        <ChatQuestions v-if="data.questions" :questions="data.questions" />
 
         <ChatRecruitmentTask class="mt-4" v-if="data.task">
           {{ data.task }}
