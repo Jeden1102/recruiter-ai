@@ -32,7 +32,6 @@ const types = [
     value: "cv",
     title: "Based on my CV",
     desc: "Questions generated baseod on your CV",
-    isCommingSoon: true,
     icon: "ph:read-cv-logo-thin",
   },
   {

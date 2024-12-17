@@ -83,7 +83,7 @@ const chatTree = ref([
   {
     role: "system",
     content: `
-      Jesteś asystentem AI, który generuje przykładowe pytania i odpowiedzi na rozmowę o pracę w formacie JSON. 
+      Jesteś asystentem AI, który generuje przykładowe pytania i odpowiedzi na rozmowę o pracę w formacie JSON.
       Użytkownik poda listę wymagań, a Twoim zadaniem jest zwrócenie odpowiednich danych w postaci struktury JSON:
       - "questions": lista pytań - każdy obiekt zawiera "question" i "answer" (jesli user poprosi rowniez o przygotowanie listy odpowiedzi).
       - "task": klucz dla zadania rekrutacyjnego (prosty string, bez odpowiedzi).
@@ -97,7 +97,7 @@ const chatTree = ref([
       5. Jeśli użytkownik poprosi o zadanie rekrutacyjne, zaproponuj realistyczne zadanie dopasowane do stanowiska.
       6. Jeśli użytkownik poprosi o odpowiedzi, do kazdego z pytan, napisz odpowiedz w kluczu "answer". Rozwin troche te odpowiedzi do min. 2-3 zdan.
       7. Jesli to mozliwe dla stanowiska, postaraj sie zadac z 2-3 pytania typowo techniczne z wiedzy o umiejetnosciach/technologiach ktore sa wymagane/mile widziane.
-      8. Pamietaj aby odpowiedz byla w formie JSON, tak bym mogl ja wrzucic do JSON.parse().
+      8. WAZNE - Pamietaj aby odpowiedz byla w formie JSON, tak bym mogl ja wrzucic do JSON.parse(). Nie uwzgledniaj tych tagow json.
     `.trim(),
   },
 ]);
@@ -127,7 +127,7 @@ async function constructPrompt() {
       console.log(error);
     }
   } else if (props.type === "file") {
-    prompt += " Przeanalizuj zawartość dostarczonego pliku.";
+    prompt += " Przeanalizuj zawartość dostarczonego pliku CV.";
   } else if (props.type === "custom") {
     prompt += `
       Użyj niestandardowych szczegółów:
@@ -162,6 +162,15 @@ async function constructPrompt() {
   return prompt.trim();
 }
 
+async function fileToBase64(file: File) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+    reader.readAsDataURL(file);
+  });
+}
+
 async function generateQuestions() {
   try {
     const userMessage = {
@@ -171,6 +180,24 @@ async function generateQuestions() {
 
     chatTree.value.push(userMessage);
 
+    if (props.details.file) {
+      const file = await fileToBase64(props.details.file);
+      chatTree.value.push({
+        role: "user",
+        content: [
+          {
+            type: "text",
+            text: "Przeslane CV:",
+          },
+          {
+            type: "image_url",
+            image_url: {
+              url: file,
+            },
+          },
+        ],
+      });
+    }
     const response = await chatCompletion(chatTree.value);
 
     const responseMessage = {

@@ -18,7 +18,6 @@
         </FormItem>
       </FormField>
     </template>
-
     <template v-if="type === 'cv'">
       <TextGradient class="text-2xl mb-4 font-semibold"
         >Based on my CV</TextGradient
@@ -27,7 +26,12 @@
         <FormItem class="space-y-3">
           <FormLabel>Insert your CV file</FormLabel>
           <FormControl>
-            <input type="file" v-bind="componentField" name="file" />
+            <Input
+              class="bg-zinc-700 w-fit"
+              type="file"
+              v-bind="componentField"
+              name="file"
+            />
           </FormControl>
           <FormMessage />
         </FormItem>
@@ -152,7 +156,6 @@ const { handleSubmit } = useForm({
 });
 
 const onSubmit = handleSubmit((values) => {
-  console.log(values);
-  emit("submit", values, "here1");
+  emit("submit", values);
 });
 </script>
