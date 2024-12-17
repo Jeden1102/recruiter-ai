@@ -1,63 +1,29 @@
 <template>
   <Card>
     <CardContent class="flex flex-col gap-4">
-      <div
-        v-if="isLoading"
-        class="flex justify-center items-center flex-col gap-8 py-4"
-      >
-        <Icon
-          name="tabler:loader-3"
-          size="48"
-          class="animate-spin text-primary"
-        />
-        <p>Job is being analyzed</p>
-      </div>
+      <ChatLoader v-if="isLoading" />
 
-      <Alert
-        variant="destructive"
-        class="mt-6"
-        v-if="isError || (data.errorMessage && !data.questions)"
-      >
-        <AlertTitle>Error</AlertTitle>
-        <AlertDescription>
-          {{
-            data.errorMessage ||
-            `There was an issue generating the response. Please try again later or
+      <ChatError v-if="isError || (data.errorMessage && !data.questions)">
+        {{
+          data.errorMessage ||
+          `There was an issue generating the response. Please try again later or
           consider using other questions generation option.`
-          }}
-        </AlertDescription>
-      </Alert>
+        }}
+      </ChatError>
 
       <div v-if="chatTree.length > 0 && !isLoading && !isError" class="mt-4">
-        <Accordion type="single" collapsible>
-          <AccordionItem v-for="q in data.questions" :value="q.question">
-            <AccordionTrigger class="text-left">{{
-              q.question
-            }}</AccordionTrigger>
-            <AccordionContent>
-              {{ q.answer || "Brak odpowiedzi" }}
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <ChatQuestions :questions="data.questions" />
 
-        <Card class="mt-4" v-if="data.task">
-          <CardHeader>
-            <CardTitle class="flex gap-2 items-center">
-              <Icon name="material-symbols:task-rounded" size="24" />
-              Recruitment Task
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            {{ data.task }}
-          </CardContent>
-        </Card>
+        <ChatRecruitmentTask class="mt-4" v-if="data.task">
+          {{ data.task }}
+        </ChatRecruitmentTask>
       </div>
     </CardContent>
   </Card>
 </template>
 
 <script setup lang="ts">
-import type { Details, General } from "./types";
+import type { Details, General, Question } from "./types";
 import { ref, onMounted } from "vue";
 
 const { chatCompletion } = useChatgpt();
@@ -67,11 +33,6 @@ const props = defineProps<{
   details: Details;
   type: string;
 }>();
-
-type Question = {
-  question: string;
-  answer?: string;
-};
 
 const data = ref<{
   questions: Question[];
@@ -162,15 +123,6 @@ async function constructPrompt() {
   return prompt.trim();
 }
 
-async function fileToBase64(file: File) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-    reader.readAsDataURL(file);
-  });
-}
-
 async function generateQuestions() {
   try {
     const userMessage = {
@@ -181,7 +133,7 @@ async function generateQuestions() {
     chatTree.value.push(userMessage);
 
     if (props.details.file) {
-      const file = await fileToBase64(props.details.file);
+      const file = await useFileToBase64(props.details.file);
       chatTree.value.push({
         role: "user",
         content: [
@@ -222,23 +174,3 @@ onMounted(() => {
   generateQuestions();
 });
 </script>
-
-<style scoped>
-.loader {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-top: 4px solid #3498db;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-</style>

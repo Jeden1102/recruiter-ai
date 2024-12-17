@@ -27,12 +27,12 @@ const handleTypeSubmit = (values: any) => {
   <div>
     <keep-alive>
       <template v-if="step === 0">
-        <ChatStepType :type="type" @submit="handleTypeSubmit" />
+        <ChatStepsType :type="type" @submit="handleTypeSubmit" />
       </template>
     </keep-alive>
     <keep-alive>
       <template v-if="step === 1">
-        <ChatStepDetails
+        <ChatStepsDetails
           :type="type"
           @submit="handleSubmitDetails"
           @back="step--"
@@ -41,7 +41,7 @@ const handleTypeSubmit = (values: any) => {
     </keep-alive>
     <keep-alive>
       <template v-if="step === 2">
-        <ChatStepGeneral
+        <ChatStepsGeneral
           :type="type"
           @submit="handleSubmitGeneral"
           @back="step--"

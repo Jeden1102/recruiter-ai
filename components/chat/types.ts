@@ -12,3 +12,8 @@ export type General = {
   task?: boolean;
   answers?: boolean;
 };
+
+export type Question = {
+  question: string;
+  answer?: string;
+};
