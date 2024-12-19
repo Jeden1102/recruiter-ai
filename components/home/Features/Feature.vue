@@ -2,7 +2,7 @@
   <Card class="min-w-[300px] snap-center">
     <CardHeader>
       <CardTitle>
-        <TextGradient class="text-lg">
+        <TextGradient class="text-xl">
           {{ feature.title }}
         </TextGradient>
       </CardTitle>

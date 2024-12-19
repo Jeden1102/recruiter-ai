@@ -1,10 +1,10 @@
 <template>
-  <div class="container pr-0">
+  <div class="container px-0">
     <SectionTitleDescription
       title="Features"
       description="Revolutionating features for recruitment"
     />
-    <div class="flex overflow-x-auto gap-4 snap-x no-scrollbar my-4 pr-4">
+    <div class="flex overflow-x-auto gap-4 snap-x no-scrollbar my-4 px-4">
       <HomeFeaturesFeature v-for="feature in features" :feature="feature" />
     </div>
   </div>

@@ -79,7 +79,7 @@
 
 @layer base {
   * {
-    @apply border-border font-urbanist;
+    @apply border-border font-ubuntu;
   }
   body {
     @apply bg-background text-foreground;

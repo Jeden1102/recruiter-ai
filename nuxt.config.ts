@@ -28,6 +28,8 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       Urbanist: "100..700",
+      Lato: [100, 300, 400, 700],
+      Ubuntu: [300, 400, 500, 700],
     },
   },
 });
