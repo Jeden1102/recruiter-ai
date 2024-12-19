@@ -2,7 +2,14 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: false },
-  modules: ["nuxt-chatgpt", "@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxt/icon"],
+  modules: [
+    "nuxt-chatgpt",
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+    "@nuxt/icon",
+    "@nuxt/image",
+    "@nuxtjs/google-fonts",
+  ],
   chatgpt: {
     apiKey: process.env.OPENAI_API_KEY,
   },
@@ -16,5 +23,11 @@ export default defineNuxtConfig({
      * @default "./components/ui"
      */
     componentDir: "./components/ui",
+  },
+
+  googleFonts: {
+    families: {
+      Urbanist: "100..700",
+    },
   },
 });

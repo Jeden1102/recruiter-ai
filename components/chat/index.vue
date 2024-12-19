@@ -123,6 +123,16 @@ async function constructPrompt() {
   return prompt.trim();
 }
 
+const sanitizeJSON = (content: string) => {
+  let sanitized = content.trim();
+
+  sanitized = sanitized.replaceAll(/```/g, "");
+
+  sanitized = sanitized.replace(/\\(?=")/g, "\\\\");
+
+  return sanitized;
+};
+
 async function generateQuestions() {
   try {
     const userMessage = {
@@ -157,7 +167,7 @@ async function generateQuestions() {
       content: response[0].message.content,
     };
 
-    const obj = JSON.parse(responseMessage.content);
+    const obj = JSON.parse(sanitizeJSON(responseMessage.content));
     data.value.questions = obj.questions;
     data.value.task = obj.task;
     data.value.errorMessage = obj.error;
