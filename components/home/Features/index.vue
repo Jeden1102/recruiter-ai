@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden">
+  <div class="overflow-hidden pb-8">
     <SectionTitleDescription
       title="Features"
       description="Revolutionating features for recruitment"

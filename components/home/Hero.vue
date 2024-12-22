@@ -11,6 +11,9 @@
     <p class="text-center uppercase text-secondary font-semibold">
       Generate questions, find the job of your dream!
     </p>
+    <Button asChild size="lg" class="mt-8">
+      <NuxtLink to="/recruiter">Get started</NuxtLink>
+    </Button>
     <NuxtImg
       src="/images/bubbles.png"
       width="580"
@@ -18,9 +21,6 @@
       alt="Bubbles image"
       class="mt-8"
     />
-    <Button asChild size="lg" class="mt-8">
-      <NuxtLink to="/recruiter">Get started</NuxtLink>
-    </Button>
   </div>
 </template>
 

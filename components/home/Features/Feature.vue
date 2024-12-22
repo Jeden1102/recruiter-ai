@@ -3,7 +3,7 @@
     <div
       :class="
         twMerge(
-          'px-6 flex flex-col gap-4 relative md:flex-row md:items-center md:gap-8 md:py-8 md:justify-between',
+          'flex flex-col gap-4 relative md:flex-row md:items-center md:gap-8 md:py-8 md:justify-between',
           feature.imageFirst && 'md:flex-row-reverse'
         )
       "
