@@ -1,11 +1,15 @@
 <template>
-  <div class="container px-0">
+  <div class="overflow-hidden">
     <SectionTitleDescription
       title="Features"
       description="Revolutionating features for recruitment"
+      class="px-4"
     />
-    <div class="flex overflow-x-auto gap-4 snap-x no-scrollbar my-4 px-4">
-      <HomeFeaturesFeature v-for="feature in features" :feature="feature" />
+    <div class="flex flex-col gap-4 my-4">
+      <HomeFeaturesFeature
+        v-for="(feature, key) in features"
+        :feature="{ ...feature, imageFirst: key % 2 === 0 }"
+      />
     </div>
   </div>
 </template>
@@ -14,27 +18,27 @@
 const features = [
   {
     title: "CV based questions",
-    subtitle: "Easy as 1, 2, 3",
-    description: "Generate questions based on your CV",
-    icon: "ph:read-cv-logo-thin",
+    description:
+      "Harness the power of your CV to generate tailored questions. This feature analyzes the contents of your CV to create relevant and personalized queries.",
+    img: "https://placehold.co/460x500",
   },
   {
     title: "Job offer URL based questions",
-    subtitle: "Just paste the URL",
-    description: "Generate questions based on job offer URL",
-    icon: "carbon:url",
+    description:
+      "Provide a job offer URL and let our system craft questions specific to the role. This ensures that the questions are aligned with the requirements of the job listing.",
+    img: "https://placehold.co/460x500",
   },
   {
     title: "Custom details based questions",
-    subtitle: "For advanced users",
-    description: "Generate questions based on your own settings",
-    icon: "mdi-light:settings",
+    description:
+      "Input your own settings to generate customized questions. This option allows for flexibility and personalization to meet specific recruitment needs.",
+    img: "https://placehold.co/460x500",
   },
   {
     title: "Save your questions",
-    subtitle: "For future use",
-    description: "Save your questions for future use",
-    icon: "material-symbols-light:file-save-outline",
+    description:
+      "Easily save your generated questions for future reference. This feature ensures you have access to your curated list whenever needed.",
+    img: "https://placehold.co/460x500",
   },
 ];
 </script>

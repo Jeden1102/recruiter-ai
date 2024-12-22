@@ -19,12 +19,11 @@
         <NuxtLink @click="toggleMenu" class="nav-link" to="/recruiter"
           >Recruiter</NuxtLink
         >
-        <NuxtLink
-          @click="toggleMenu"
-          class="nav-link bg-primary rounded-md py-2 w-fit px-4"
-          to="/recruiter"
-          >Log In</NuxtLink
-        >
+        <Button as-child class="w-fit">
+          <NuxtLink class="nav-link" @click="toggleMenu" to="/recruiter"
+            >Log In</NuxtLink
+          >
+        </Button>
       </div>
     </Transition>
   </nav>

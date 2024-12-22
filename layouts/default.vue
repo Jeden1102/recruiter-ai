@@ -1,7 +1,9 @@
 <template>
   <div>
     <AppHeader />
-    <slot />
+    <div class="pt-8">
+      <slot />
+    </div>
   </div>
 </template>
 

@@ -1,5 +1,7 @@
 <template>
-  <div class="flex flex-col items-center justify-center gap-4 py-20 container">
+  <div
+    class="flex flex-col items-center justify-center gap-4 pt-12 pb-20 container"
+  >
     <TextGradient>
       <h1 class="text-5xl mb-4">Recruiter AI</h1>
     </TextGradient>
@@ -16,6 +18,9 @@
       alt="Bubbles image"
       class="mt-8"
     />
+    <Button asChild size="lg" class="mt-8">
+      <NuxtLink to="/recruiter">Get started</NuxtLink>
+    </Button>
   </div>
 </template>
 

@@ -17,6 +17,8 @@ module.exports = {
     extend: {
       fontFamily: {
         ubuntu: "Ubuntu",
+        urbanist: "Urbanist",
+        lato: "Lato",
       },
       colors: {
         border: "hsl(var(--border))",
