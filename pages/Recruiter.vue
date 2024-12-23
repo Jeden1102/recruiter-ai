@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container pt-8">
     <Card>
       <CardHeader>
         <CardTitle>AI Recruitment Chat</CardTitle>
@@ -10,7 +10,3 @@
     </Card>
   </div>
 </template>
-
-<script setup lang="ts"></script>
-
-<style scoped></style>

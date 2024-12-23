@@ -1,26 +1,28 @@
 <template>
   <nav>
-    <button @click="toggleMenu">
+    <button @click="toggleMenu" class="md:hidden">
       <AppBurger :is-active="isMenuToggled" />
     </button>
     <Transition>
       <div
-        v-if="isMenuToggled"
+        v-if="isMenuToggled || isDesktop"
         :class="
           twMerge(
-            'absolute left-0 top-16 w-full h-full bg-zinc-950/60 backdrop-blur-md z-10 flex flex-col container gap-6 pt-12 md:static md:w-auto md:h-auto'
+            'absolute left-0 top-16 w-full h-full bg-zinc-950/60 backdrop-blur-md z-10 flex flex-col container gap-6 pt-12 md:static md:w-auto md:h-auto md:bg-transparent md:backdrop-blur-none md:pt-0 md:flex-row md:items-center'
           )
         "
       >
-        <NuxtLink @click="toggleMenu" class="nav-link" to="/">Home</NuxtLink>
-        <NuxtLink @click="toggleMenu" class="nav-link" to="/product"
+        <NuxtLink @click="toggleMenuIfMobile" class="nav-link" to="/"
+          >Home</NuxtLink
+        >
+        <NuxtLink @click="toggleMenuIfMobile" class="nav-link" to="/product"
           >Product</NuxtLink
         >
-        <NuxtLink @click="toggleMenu" class="nav-link" to="/recruiter"
+        <NuxtLink @click="toggleMenuIfMobile" class="nav-link" to="/recruiter"
           >Recruiter</NuxtLink
         >
-        <Button as-child class="w-fit">
-          <NuxtLink class="nav-link" @click="toggleMenu" to="/recruiter"
+        <Button as-child class="w-fit" size="lg">
+          <NuxtLink class="nav-link" @click="toggleMenuIfMobile" to="/recruiter"
             >Log In</NuxtLink
           >
         </Button>
@@ -31,12 +33,34 @@
 
 <script setup lang="ts">
 import { twMerge } from "tailwind-merge";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const isMenuToggled = ref(false);
+const isDesktop = ref(false);
+
 const toggleMenu = () => {
   isMenuToggled.value = !isMenuToggled.value;
-  document.body.classList.toggle("overflow-hidden");
+  document.body.classList.toggle("overflow-hidden", isMenuToggled.value);
 };
+
+const toggleMenuIfMobile = () => {
+  if (!isDesktop.value) {
+    toggleMenu();
+  }
+};
+
+const updateIsDesktop = () => {
+  isDesktop.value = window.innerWidth >= 768;
+};
+
+onMounted(() => {
+  updateIsDesktop();
+  window.addEventListener("resize", updateIsDesktop);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", updateIsDesktop);
+});
 </script>
 
 <style scoped>
