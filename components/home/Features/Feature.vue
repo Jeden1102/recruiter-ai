@@ -22,28 +22,16 @@
         </p>
       </div>
     </div>
-    <div
-      :class="
-        twMerge(
-          'absolute -right-20 bottom-20 w-[200px] h-[200px] pointer-events-none -z-10 opacity-50',
-          feature.imageFirst && 'left-0'
-        )
-      "
-    >
-      <div
-        :class="
-          twMerge(
-            'absolute w-full h-full bg-gradient-radial from-secondary/50 to-transparent blur-2xl',
-            feature.imageFirst && 'from-primary/50'
-          )
-        "
-      ></div>
-    </div>
+    <GradientCircle
+      :position="{ x: feature.imageFirst ? 'left' : 'right', y: 'bottom' }"
+      :variant="feature.imageFirst ? 'primary' : 'secondary'"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { twMerge } from "tailwind-merge";
+import { GradientCircle } from "~/components/ui/gradient-circle";
 
 const props = defineProps<{
   feature: {

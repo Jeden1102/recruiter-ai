@@ -8,7 +8,7 @@
         v-if="isMenuToggled"
         :class="
           twMerge(
-            'absolute left-0 top-16 w-full h-full bg-zinc-950/60 backdrop-blur-md z-10 flex flex-col container gap-6 pt-12'
+            'absolute left-0 top-16 w-full h-full bg-zinc-950/60 backdrop-blur-md z-10 flex flex-col container gap-6 pt-12 md:static md:w-auto md:h-auto'
           )
         "
       >
@@ -35,7 +35,7 @@ import { twMerge } from "tailwind-merge";
 const isMenuToggled = ref(false);
 const toggleMenu = () => {
   isMenuToggled.value = !isMenuToggled.value;
-  document.body.style.overflow = isMenuToggled.value ? "hidden" : "auto";
+  document.body.classList.toggle("overflow-hidden");
 };
 </script>
 

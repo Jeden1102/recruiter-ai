@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center gap-4 pt-12 pb-20 container"
+    class="flex flex-col items-center justify-center gap-4 pt-12 pb-20 container relative"
   >
     <TextGradient>
       <h1 class="text-5xl mb-4">Recruiter AI</h1>
@@ -21,9 +21,16 @@
       alt="Bubbles image"
       class="mt-8"
     />
+    <GradientCircle :position="{ x: 'left', y: 'top' }" variant="primary" />
+    <GradientCircle
+      :position="{ x: 'right', y: 'bottom' }"
+      variant="secondary"
+    />
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { GradientCircle } from "../ui/gradient-circle";
+</script>
 
 <style scoped></style>
