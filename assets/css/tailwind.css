@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow-x: hidden;
+}
+
 @layer base {
   input,
   textarea,
@@ -9,8 +13,8 @@
     @apply text-base;
   }
   :root {
-    --background: 240 10% 8%; /* Przyjemnie ciemne tło */
-    --foreground: 0 0% 98%; /* Jasny tekst */
+    --background: 240 10% 8%;
+    --foreground: 0 0% 98%;
 
     --muted: 240 8% 12%;
     --muted-foreground: 240 5% 64.9%;
@@ -24,10 +28,10 @@
     --border: 240 6% 18%;
     --input: 240 6% 18%;
 
-    --primary: 240 67% 59%; /* HSL dla #4E4BE4 */
+    --primary: 240 67% 59%;
     --primary-foreground: white;
 
-    --secondary: 300 94% 68%; /* HSL dla #E862FE */
+    --secondary: 300 94% 68%;
     --secondary-foreground: 0 0% 98%;
 
     --accent: 248 64% 58%;
@@ -36,7 +40,7 @@
     --destructive: 0 62.8% 40.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --ring: 240 67% 59%; /* Dopasowane do primary */
+    --ring: 240 67% 59%;
 
     --radius: 0.5rem;
   }
@@ -57,10 +61,10 @@
     --border: 240 6% 18%;
     --input: 240 6% 18%;
 
-    --primary: 240 67% 59%; /* HSL dla #4E4BE4 */
+    --primary: 240 67% 59%;
     --primary-foreground: 240 10% 8%;
 
-    --secondary: 300 94% 68%; /* HSL dla #E862FE */
+    --secondary: 300 94% 68%;
     --secondary-foreground: 0 0% 98%;
 
     --accent: 248 64% 58%;
