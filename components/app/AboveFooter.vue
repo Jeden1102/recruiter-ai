@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center gap-4 py-4 container relative overflow-hidden lg:py-12"
+    class="flex flex-col items-center justify-center gap-4 py-4 container relative overflow-hidden lg:py-12 mt-8"
   >
     <p class="flex flex-col items-center text-2xl lg:text-5xl">
       <span class="mb-2 lg:mb-4">Get started with</span>

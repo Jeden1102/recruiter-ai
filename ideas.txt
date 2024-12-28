@@ -19,3 +19,8 @@
 Nice to have:
 - login system
 - previous recruitments process saving
+
+
+ToDo:
+- 4xx pages
+- footer

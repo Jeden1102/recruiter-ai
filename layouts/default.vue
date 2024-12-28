@@ -3,6 +3,7 @@
     <AppHeader />
     <slot />
     <AppAboveFooter />
+    <AppFooter />
   </div>
 </template>
 
