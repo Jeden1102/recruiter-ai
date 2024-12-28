@@ -5,7 +5,7 @@
       description="Revolutionating features for recruitment"
       class="px-4"
     />
-    <div class="flex flex-col gap-4 my-4">
+    <div class="flex flex-col gap-4 mt-8">
       <HomeFeaturesFeature
         v-for="(feature, key) in features"
         :feature="{ ...feature, imageFirst: key % 2 === 0 }"

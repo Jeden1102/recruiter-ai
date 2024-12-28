@@ -8,9 +8,8 @@
       :options="types"
       label="How would you generate your recruitment questions?"
       field="type"
+      v-model="modelValue"
     />
-
-    <Button type="submit" class="mt-6">Next Step</Button>
   </form>
 </template>
 
@@ -20,6 +19,12 @@ import { toTypedSchema } from "@vee-validate/zod";
 import * as z from "zod";
 
 const emit = defineEmits(["submit"]);
+
+const modelValue = ref("");
+
+watch(modelValue, () => {
+  emit("submit", { type: modelValue.value });
+});
 
 const types = [
   {
@@ -41,20 +46,6 @@ const types = [
     icon: "mdi-light:settings",
   },
 ];
-
-const formSchema = toTypedSchema(
-  z.object({
-    type: z.string().min(1),
-  })
-);
-
-const { handleSubmit } = useForm({
-  validationSchema: formSchema,
-});
-
-const onSubmit = handleSubmit((values) => {
-  emit("submit", values);
-});
 </script>
 
 <style lang="scss">

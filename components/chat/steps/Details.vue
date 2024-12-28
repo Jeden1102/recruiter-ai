@@ -27,7 +27,7 @@
           <FormLabel>Insert your CV file</FormLabel>
           <FormControl>
             <Input
-              class="bg-zinc-700 w-fit"
+              class="bg-zinc-700"
               type="file"
               v-bind="componentField"
               name="file"

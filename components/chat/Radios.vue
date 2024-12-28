@@ -3,7 +3,11 @@
     <FormItem class="space-y-3">
       <FormLabel>{{ label }}</FormLabel>
       <FormControl>
-        <RadioGroup class="grid grid-cols-1" v-bind="componentField">
+        <RadioGroup
+          class="grid grid-cols-1"
+          v-bind="componentField"
+          v-model="modelValue"
+        >
           <FormItem v-for="option in options">
             <FormControl>
               <RadioGroupItem
@@ -46,6 +50,8 @@
 
 <script setup lang="ts">
 import Badge from "../ui/badge/Badge.vue";
+
+const modelValue = defineModel<string>();
 
 interface Option {
   value: string;
