@@ -9,7 +9,21 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/image",
     "@nuxtjs/google-fonts",
+    "@nuxtjs/i18n",
   ],
+  i18n: {
+    locales: [
+      {
+        code: "en",
+        name: "English",
+      },
+      {
+        code: "pl",
+        name: "Polski",
+      },
+    ],
+    defaultLocale: "en",
+  },
   chatgpt: {
     apiKey: process.env.OPENAI_API_KEY,
   },

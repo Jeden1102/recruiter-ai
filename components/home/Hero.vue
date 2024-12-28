@@ -6,12 +6,13 @@
       </TextGradient>
       <p class="text-3xl text-center font-light">
         Your AI-powered recruitment assistant
+        {{ $t("message.hello") }}
       </p>
       <p class="text-center uppercase text-secondary font-semibold">
         Generate questions, find the job of your dream!
       </p>
       <Button asChild size="lg" class="mt-8">
-        <NuxtLink to="/recruiter">Get started</NuxtLink>
+        <NuxtLinkLocale to="/recruiter">Get started</NuxtLinkLocale>
       </Button>
       <NuxtImg
         src="/images/bubbles.png"

@@ -2,20 +2,20 @@
   <footer class="bg-zinc-950 flex flex-col">
     <div class="container py-8 flex flex-col md:flex-row gap-4 md:gap-36">
       <div>
-        <NuxtLink to="/">
+        <NuxtLinkLocale to="/">
           <AppLogo />
-        </NuxtLink>
+        </NuxtLinkLocale>
       </div>
       <div class="flex flex-col gap-2">
         <p class="text-lg font-semibold mb-2">Navigation</p>
-        <NuxtLink to="/">Home</NuxtLink>
-        <NuxtLink to="/product">Product</NuxtLink>
-        <NuxtLink to="/recruiter">Recruiter</NuxtLink>
+        <NuxtLinkLocale to="/">Home</NuxtLinkLocale>
+        <NuxtLinkLocale to="/product">Product</NuxtLinkLocale>
+        <NuxtLinkLocale to="/recruiter">Recruiter</NuxtLinkLocale>
       </div>
       <div class="flex flex-col gap-2">
         <p class="text-lg font-semibold mb-2">About</p>
-        <NuxtLink to="/terms">Terms of Service</NuxtLink>
-        <NuxtLink to="/privacy">Privacy Policy</NuxtLink>
+        <NuxtLinkLocale to="/terms">Terms of Service</NuxtLinkLocale>
+        <NuxtLinkLocale to="/privacy">Privacy Policy</NuxtLinkLocale>
       </div>
     </div>
     <div class="container border-t border-zinc-600 py-4 md:pb-8">

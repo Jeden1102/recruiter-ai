@@ -12,20 +12,30 @@
           )
         "
       >
-        <NuxtLink @click="toggleMenuIfMobile" class="nav-link" to="/"
-          >Home</NuxtLink
+        <NuxtLinkLocale @click="toggleMenuIfMobile" class="nav-link" to="/"
+          >Home</NuxtLinkLocale
         >
-        <NuxtLink @click="toggleMenuIfMobile" class="nav-link" to="/product"
-          >Product</NuxtLink
+        <NuxtLinkLocale
+          @click="toggleMenuIfMobile"
+          class="nav-link"
+          to="/product"
+          >Product</NuxtLinkLocale
         >
-        <NuxtLink @click="toggleMenuIfMobile" class="nav-link" to="/recruiter"
-          >Recruiter</NuxtLink
+        <NuxtLinkLocale
+          @click="toggleMenuIfMobile"
+          class="nav-link"
+          to="/recruiter"
+          >Recruiter</NuxtLinkLocale
         >
         <Button as-child class="w-fit" size="lg">
-          <NuxtLink class="nav-link" @click="toggleMenuIfMobile" to="/recruiter"
-            >Log In</NuxtLink
+          <NuxtLinkLocale
+            class="nav-link"
+            @click="toggleMenuIfMobile"
+            to="/recruiter"
+            >Log In</NuxtLinkLocale
           >
         </Button>
+        <AppLanguageSwitcher />
       </div>
     </Transition>
   </nav>

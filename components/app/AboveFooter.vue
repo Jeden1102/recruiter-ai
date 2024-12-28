@@ -13,7 +13,7 @@
       Your AI-powered recruitment assistant
     </p>
     <Button asChild size="lg" class="mt-8">
-      <NuxtLink to="/recruiter">Get started</NuxtLink>
+      <NuxtLinkLocale to="/recruiter">Get started</NuxtLinkLocale>
     </Button>
     <NuxtImg
       src="/images/decorative.svg"

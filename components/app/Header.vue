@@ -1,8 +1,8 @@
 <template>
   <header class="flex items-center justify-between container py-4">
-    <NuxtLink to="/">
+    <NuxtLinkLocale to="/">
       <AppLogo />
-    </NuxtLink>
+    </NuxtLinkLocale>
     <AppNavigation />
   </header>
 </template>
