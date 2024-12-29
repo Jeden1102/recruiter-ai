@@ -29,7 +29,7 @@
         >
           {{ $t("navigation.recruiter") }}
         </NuxtLinkLocale>
-        <Button as-child class="w-fit" size="lg">
+        <Button as-child class="w-fit text-2xl md:text-base" size="lg">
           <NuxtLinkLocale
             class="nav-link"
             @click="toggleMenuIfMobile"

@@ -24,7 +24,7 @@ const handleTypeSubmit = (values: any) => {
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative flex-1">
     <transition name="fade-slide" mode="out-in" appear>
       <div :key="step">
         <template v-if="step === 0">

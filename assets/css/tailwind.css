@@ -96,4 +96,8 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  .slim-container {
+    @apply max-w-[992px];
+  }
 }
