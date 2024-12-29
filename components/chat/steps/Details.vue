@@ -24,7 +24,7 @@
       >
       <FormField v-slot="{ componentField }" name="file">
         <FormItem class="space-y-3">
-          <FormLabel>Insert your CV file</FormLabel>
+          <FormLabel>Insert your CV file (JPG)</FormLabel>
           <FormControl>
             <Input
               class="bg-zinc-700"

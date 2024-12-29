@@ -1,25 +1,23 @@
 <template>
-  <Card>
-    <CardContent class="flex flex-col gap-4">
-      <ChatLoader v-if="isLoading" />
+  <div class="flex flex-col gap-4">
+    <ChatLoader v-if="isLoading" />
 
-      <ChatError v-if="isError || (data.errorMessage && !data.questions)">
-        {{
-          data.errorMessage ||
-          `There was an issue generating the response. Please try again later or
+    <ChatError v-if="isError || (data.errorMessage && !data.questions)">
+      {{
+        data.errorMessage ||
+        `There was an issue generating the response. Please try again later or
           consider using other questions generation option.`
-        }}
-      </ChatError>
+      }}
+    </ChatError>
 
-      <div v-if="chatTree.length > 0 && !isLoading && !isError" class="mt-4">
-        <ChatQuestions v-if="data.questions" :questions="data.questions" />
+    <div v-if="chatTree.length > 0 && !isLoading && !isError" class="mt-4">
+      <ChatQuestions v-if="data.questions" :questions="data.questions" />
 
-        <ChatRecruitmentTask class="mt-4" v-if="data.task">
-          {{ data.task }}
-        </ChatRecruitmentTask>
-      </div>
-    </CardContent>
-  </Card>
+      <ChatRecruitmentTask class="mt-4" v-if="data.task">
+        {{ data.task }}
+      </ChatRecruitmentTask>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

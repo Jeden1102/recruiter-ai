@@ -12,28 +12,31 @@
           )
         "
       >
-        <NuxtLinkLocale @click="toggleMenuIfMobile" class="nav-link" to="/"
-          >Home</NuxtLinkLocale
-        >
+        <NuxtLinkLocale @click="toggleMenuIfMobile" class="nav-link" to="/">
+          {{ $t("navigation.home") }}
+        </NuxtLinkLocale>
         <NuxtLinkLocale
           @click="toggleMenuIfMobile"
           class="nav-link"
           to="/product"
-          >Product</NuxtLinkLocale
         >
+          {{ $t("navigation.product") }}
+        </NuxtLinkLocale>
         <NuxtLinkLocale
           @click="toggleMenuIfMobile"
           class="nav-link"
           to="/recruiter"
-          >Recruiter</NuxtLinkLocale
         >
+          {{ $t("navigation.recruiter") }}
+        </NuxtLinkLocale>
         <Button as-child class="w-fit" size="lg">
           <NuxtLinkLocale
             class="nav-link"
             @click="toggleMenuIfMobile"
             to="/recruiter"
-            >Log In</NuxtLinkLocale
           >
+            {{ $t("common.logIn") }}
+          </NuxtLinkLocale>
         </Button>
         <AppLanguageSwitcher />
       </div>

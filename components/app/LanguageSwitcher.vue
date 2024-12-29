@@ -2,6 +2,8 @@
 const { locale, locales } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 
+console.log(locales.value);
+
 const availableLocales = computed(() => {
   return locales.value.filter((i) => i.code !== locale.value);
 });
@@ -12,7 +14,7 @@ const availableLocales = computed(() => {
     v-for="locale in availableLocales"
     :key="locale.code"
     :to="switchLocalePath(locale.code)"
-    class="uppercase"
+    class="uppercase nav-link"
   >
     {{ locale.code }}
   </NuxtLink>

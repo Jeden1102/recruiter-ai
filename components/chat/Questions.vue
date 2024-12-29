@@ -1,7 +1,9 @@
 <template>
   <Accordion type="single" collapsible>
     <AccordionItem v-for="q in questions" :value="q.question">
-      <AccordionTrigger class="text-left">{{ q.question }}</AccordionTrigger>
+      <AccordionTrigger class="text-left gap-2">{{
+        q.question
+      }}</AccordionTrigger>
       <AccordionContent>
         {{ q.answer || "Brak odpowiedzi" }}
       </AccordionContent>

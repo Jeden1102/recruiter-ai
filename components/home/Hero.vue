@@ -5,14 +5,15 @@
         <h1 class="text-5xl mb-4">Recruiter AI</h1>
       </TextGradient>
       <p class="text-3xl text-center font-light">
-        Your AI-powered recruitment assistant
-        {{ $t("message.hello") }}
+        {{ $t("home.hero.title") }}
       </p>
       <p class="text-center uppercase text-secondary font-semibold">
-        Generate questions, find the job of your dream!
+        {{ $t("home.hero.subtitle") }}
       </p>
       <Button asChild size="lg" class="mt-8">
-        <NuxtLinkLocale to="/recruiter">Get started</NuxtLinkLocale>
+        <NuxtLinkLocale to="/recruiter">
+          {{ $t("common.getStarted") }}
+        </NuxtLinkLocale>
       </Button>
       <NuxtImg
         src="/images/bubbles.png"
