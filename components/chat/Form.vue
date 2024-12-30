@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import type { Details, General } from "./types";
+
+const route = useRoute();
+
 const step = ref(0);
 const type = ref<string>("");
 
@@ -21,6 +24,17 @@ const handleTypeSubmit = (values: any) => {
   type.value = values.type;
   step.value = ++step.value;
 };
+
+const isChatType = (value: string) => {
+  return ["url", "cv", "custom"].includes(value);
+};
+
+onMounted(() => {
+  if (route.query.mode && isChatType(route.query.mode as string)) {
+    type.value = route.query.mode as string;
+    step.value = 1;
+  }
+});
 </script>
 
 <template>

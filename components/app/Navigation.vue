@@ -8,37 +8,37 @@
         v-if="isMenuToggled || isDesktop"
         :class="
           twMerge(
-            'absolute left-0 top-16 w-full h-full bg-zinc-950/60 backdrop-blur-md z-10 flex flex-col container gap-6 pt-12 md:static md:w-auto md:h-auto md:bg-transparent md:backdrop-blur-none md:pt-0 md:flex-row md:items-center'
+            'absolute left-0 top-16 w-full h-full pb-24 bg-zinc-950/60 backdrop-blur-md z-10 flex flex-col container gap-6 pt-12 md:static md:w-auto md:h-auto md:bg-transparent md:backdrop-blur-none md:py-0 md:flex-row md:items-center'
           )
         "
       >
-        <NuxtLinkLocale @click="toggleMenuIfMobile" class="nav-link" to="/">
+        <NuxtLinkLocale
+          @click="toggleMenuIfMobile"
+          class="nav-link link-bg-hover"
+          to="/"
+        >
           {{ $t("navigation.home") }}
         </NuxtLinkLocale>
         <NuxtLinkLocale
           @click="toggleMenuIfMobile"
-          class="nav-link"
+          class="nav-link link-bg-hover"
           to="/product"
         >
           {{ $t("navigation.product") }}
         </NuxtLinkLocale>
         <NuxtLinkLocale
           @click="toggleMenuIfMobile"
-          class="nav-link"
+          class="nav-link link-bg-hover border-b border-zinc-600 pb-6 md:pb-0"
           to="/recruiter"
         >
           {{ $t("navigation.recruiter") }}
         </NuxtLinkLocale>
-        <Button as-child class="w-fit text-2xl md:text-base" size="lg">
-          <NuxtLinkLocale
-            class="nav-link"
-            @click="toggleMenuIfMobile"
-            to="/recruiter"
-          >
-            {{ $t("common.logIn") }}
-          </NuxtLinkLocale>
-        </Button>
         <AppLanguageSwitcher />
+
+        <div class="md:hidden flex gap-4 mt-auto">
+          <NuxtLinkLocale to="/terms">Terms of Service</NuxtLinkLocale>
+          <NuxtLinkLocale to="/privacy">Privacy Policy</NuxtLinkLocale>
+        </div>
       </div>
     </Transition>
   </nav>

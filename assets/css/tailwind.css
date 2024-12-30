@@ -71,10 +71,6 @@
 
     --ring: 240 67% 59%;
   }
-
-  .nav-link {
-    @apply text-3xl md:text-base;
-  }
 }
 
 @layer base {
@@ -100,4 +96,20 @@
   .slim-container {
     @apply max-w-[992px];
   }
+
+  .link-bg-hover {
+    @apply relative after:hidden md:after:block after:content-[''] after:w-0 after:h-full after:-z-10 after:bg-primary after:absolute after:left-0 after:top-0 hover:after:w-full after:transition-all after:duration-200;
+  }
+
+  .nav-link {
+    @apply text-3xl md:text-base md:px-2 md:py-1;
+  }
+}
+
+.nav-link.router-link-active {
+  @apply md:border-primary;
+}
+
+.nav-link {
+  @apply md:border-b-2 md:border-transparent;
 }
