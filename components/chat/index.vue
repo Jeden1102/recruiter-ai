@@ -26,6 +26,8 @@ import { ref, onMounted } from "vue";
 
 const { chatCompletion } = useChatgpt();
 
+const { locale } = useI18n();
+
 const props = defineProps<{
   general: General;
   details: Details;
@@ -57,6 +59,7 @@ const chatTree = ref([
       6. Jeśli użytkownik poprosi o odpowiedzi, do kazdego z pytan, napisz odpowiedz w kluczu "answer". Rozwin troche te odpowiedzi do min. 2-3 zdan.
       7. Jesli to mozliwe dla stanowiska, postaraj sie zadac z 2-3 pytania typowo techniczne z wiedzy o umiejetnosciach/technologiach ktore sa wymagane/mile widziane.
       8. WAZNE - Pamietaj aby odpowiedz byla w formie JSON, tak bym mogl ja wrzucic do JSON.parse(). Nie uwzgledniaj tych tagow json.
+      9. Odpowiedz przygotuj w jezyku ${locale.value}.
     `.trim(),
   },
 ]);
