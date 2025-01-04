@@ -7,15 +7,15 @@
       )
     "
   >
-    <TextGradient class="text-2xl font-semibold"
-      >{{ card.title }}
+    <TextGradient class="text-2xl font-semibold">
+      {{ $t(card.title) }}
     </TextGradient>
-    <p class="text-xl">{{ card.description }}</p>
+    <p class="text-xl">{{ $t(card.description) }}</p>
     <div class="mt-auto">
       <Button asChild class="mt-10 w-fit" size="lg">
-        <NuxtLinkLocale :to="`/recruiter?mode=${card.key}`"
-          >Try out</NuxtLinkLocale
-        >
+        <NuxtLinkLocale :to="`/recruiter?mode=${card.key}`">
+          {{ $t("common.getStarted") }}
+        </NuxtLinkLocale>
       </Button>
     </div>
     <NuxtImg

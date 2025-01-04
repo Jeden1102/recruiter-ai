@@ -21,7 +21,9 @@
             >
               <span class="flex flex-col gap-y-1.5 p-6">
                 <CardTitle class="text-xl"
-                  ><TextGradient>{{ option.title }}</TextGradient></CardTitle
+                  ><TextGradient>{{
+                    $t(option.title)
+                  }}</TextGradient></CardTitle
                 >
               </span>
               <span class="p-6 pt-0">
@@ -31,7 +33,7 @@
                   >Comming soon</Badge
                 >
                 <span class="text-foreground">
-                  <p>{{ option.desc }}</p>
+                  <p>{{ $t(option.desc) }}</p>
                   <Icon
                     v-if="option.icon"
                     :name="option.icon"

@@ -5,7 +5,7 @@
         q.question
       }}</AccordionTrigger>
       <AccordionContent>
-        {{ q.answer || "Brak odpowiedzi" }}
+        {{ q.answer || $t("noAnswer") }}
       </AccordionContent>
     </AccordionItem>
   </Accordion>

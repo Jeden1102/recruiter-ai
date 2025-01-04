@@ -1,8 +1,8 @@
 <template>
   <main class="slim-container container">
     <SectionTitleDescription
-      title="Product"
-      description="Different ways to use Recruiter AI"
+      :title="$t('product.title')"
+      :description="$t('product.description')"
     />
     <ProductCards />
   </main>

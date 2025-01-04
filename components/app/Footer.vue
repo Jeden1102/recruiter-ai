@@ -7,15 +7,23 @@
         </NuxtLinkLocale>
       </div>
       <div class="flex flex-col gap-2">
-        <p class="mb-2 text-lg font-semibold">Navigation</p>
-        <NuxtLinkLocale to="/">Home</NuxtLinkLocale>
-        <NuxtLinkLocale to="/product">Product</NuxtLinkLocale>
-        <NuxtLinkLocale to="/recruiter">Recruiter</NuxtLinkLocale>
+        <p class="mb-2 text-lg font-semibold">
+          {{ $t("footer.navigationTitle") }}
+        </p>
+        <NuxtLinkLocale to="/">{{ $t("navigation.home") }}</NuxtLinkLocale>
+        <NuxtLinkLocale to="/product">{{
+          $t("navigation.product")
+        }}</NuxtLinkLocale>
+        <NuxtLinkLocale to="/recruiter">{{
+          $t("navigation.recruiter")
+        }}</NuxtLinkLocale>
       </div>
       <div class="flex flex-col gap-2">
-        <p class="mb-2 text-lg font-semibold">About</p>
-        <NuxtLinkLocale to="/terms">Terms of Service</NuxtLinkLocale>
-        <NuxtLinkLocale to="/privacy">Privacy Policy</NuxtLinkLocale>
+        <p class="mb-2 text-lg font-semibold">{{ $t("footer.aboutTitle") }}</p>
+        <NuxtLinkLocale to="/terms">{{ $t("footer.terms") }}</NuxtLinkLocale>
+        <NuxtLinkLocale to="/privacy">{{
+          $t("footer.privacy")
+        }}</NuxtLinkLocale>
       </div>
     </div>
     <div class="container border-t border-zinc-600 py-4 md:pb-8">

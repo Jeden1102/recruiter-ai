@@ -16,9 +16,9 @@
         class="rounded-lg"
       />
       <div class="md:max-w-[400px]">
-        <p class="mb-2 text-primary md:text-xl">{{ feature.title }}</p>
+        <p class="mb-2 text-primary md:text-xl">{{ $t(feature.title) }}</p>
         <p class="relative font-urbanist text-xl md:text-2xl lg:text-4xl">
-          {{ feature.description }}
+          {{ $t(feature.description) }}
         </p>
       </div>
     </div>

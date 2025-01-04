@@ -1,16 +1,16 @@
 <template>
   <form @submit="onSubmit">
     <template v-if="type === 'url'">
-      <TextGradient class="mb-4 text-2xl font-semibold"
-        >Job offer URL</TextGradient
-      >
+      <TextGradient class="mb-4 text-2xl font-semibold">
+        {{ $t("form.url.title") }}
+      </TextGradient>
       <FormField v-slot="{ componentField }" name="url">
         <FormItem class="space-y-3">
-          <FormLabel>Type the URL of the job offer</FormLabel>
+          <FormLabel>{{ $t("form.url.label") }}</FormLabel>
           <FormControl>
             <Input
               type="text"
-              placeholder="https://google.com"
+              :placeholder="$t('form.url.placeholder')"
               v-bind="componentField"
             />
           </FormControl>
@@ -19,12 +19,12 @@
       </FormField>
     </template>
     <template v-if="type === 'cv'">
-      <TextGradient class="mb-4 text-2xl font-semibold"
-        >Based on my CV</TextGradient
-      >
+      <TextGradient class="mb-4 text-2xl font-semibold">
+        {{ $t("form.cv.title") }}
+      </TextGradient>
       <FormField v-slot="{ componentField }" name="file">
         <FormItem class="space-y-3">
-          <FormLabel>Insert your CV file (JPG)</FormLabel>
+          <FormLabel>{{ $t("form.cv.label") }}</FormLabel>
           <FormControl>
             <Input
               class="bg-zinc-700"
@@ -39,15 +39,15 @@
     </template>
 
     <template v-if="type === 'custom'">
-      <TextGradient class="mb-4 text-2xl font-semibold"
-        >Custom job offer details</TextGradient
-      >
+      <TextGradient class="mb-4 text-2xl font-semibold">
+        {{ $t("form.custom.title") }}
+      </TextGradient>
       <FormField v-slot="{ componentField }" name="position">
         <FormItem class="space-y-3">
-          <FormLabel>Job Position*</FormLabel>
+          <FormLabel>{{ $t("form.custom.position.label") }}</FormLabel>
           <FormControl>
             <Textarea
-              placeholder="eg. Web Developer, middle school biologist teacher, ..."
+              :placeholder="$t('form.custom.position.placeholder')"
               v-bind="componentField"
             />
           </FormControl>
@@ -57,10 +57,10 @@
 
       <FormField v-slot="{ componentField }" name="requirements">
         <FormItem class="space-y-3">
-          <FormLabel>Job Requirements</FormLabel>
+          <FormLabel>{{ $t("form.custom.requirements.label") }}</FormLabel>
           <FormControl>
             <Textarea
-              placeholder="eg. HTML, CSS, JS or English B2 Level, ..."
+              :placeholder="$t('form.custom.requirements.placeholder')"
               v-bind="componentField"
             />
           </FormControl>
@@ -70,10 +70,10 @@
 
       <FormField v-slot="{ componentField }" name="niceToHave">
         <FormItem class="space-y-3">
-          <FormLabel>Nice to Have</FormLabel>
+          <FormLabel>{{ $t("form.custom.niceToHave.label") }}</FormLabel>
           <FormControl>
             <Textarea
-              placeholder="eg. experience with React, ..."
+              :placeholder="$t('form.custom.niceToHave.placeholder')"
               v-bind="componentField"
             />
           </FormControl>
@@ -83,10 +83,10 @@
 
       <FormField v-slot="{ componentField }" name="responsibilities">
         <FormItem class="space-y-3">
-          <FormLabel>Responsibilities</FormLabel>
+          <FormLabel>{{ $t("form.custom.responsibilities.label") }}</FormLabel>
           <FormControl>
             <Textarea
-              placeholder="eg. investigate complex business requirements, ..."
+              :placeholder="$t('form.custom.responsibilities.placeholder')"
               v-bind="componentField"
             />
           </FormControl>
@@ -95,10 +95,10 @@
       </FormField>
     </template>
     <div class="mt-6 flex gap-4">
-      <Button variant="outline" type="button" @click="emit('back')"
-        >Previous</Button
-      >
-      <Button type="submit">Next Step</Button>
+      <Button variant="outline" type="button" @click="emit('back')">
+        {{ $t("form.buttons.previous") }}
+      </Button>
+      <Button type="submit">{{ $t("form.buttons.next") }}</Button>
     </div>
   </form>
 </template>

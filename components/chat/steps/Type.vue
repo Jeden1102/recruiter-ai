@@ -1,12 +1,12 @@
 <template>
   <form @submit="onSubmit">
-    <TextGradient class="mb-4 text-2xl font-semibold"
-      >Questions generation method</TextGradient
-    >
+    <TextGradient class="mb-4 text-2xl font-semibold">
+      {{ $t("questions.method.title") }}
+    </TextGradient>
 
     <ChatRadios
       :options="types"
-      label="How would you generate your recruitment questions?"
+      :label="$t('questions.method.label')"
       field="type"
       v-model="modelValue"
     />
@@ -14,9 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { useForm } from "vee-validate";
-import { toTypedSchema } from "@vee-validate/zod";
-import * as z from "zod";
+import { ref, watch } from "vue";
 
 const emit = defineEmits(["submit"]);
 
@@ -29,20 +27,20 @@ watch(modelValue, () => {
 const types = [
   {
     value: "url",
-    title: "Job offer url",
-    desc: "Questions generated based on the job offer URL",
+    title: "questions.method.types.url.title",
+    desc: "questions.method.types.url.description",
     icon: "carbon:url",
   },
   {
     value: "cv",
-    title: "Based on my CV",
-    desc: "Questions generated baseod on your CV",
+    title: "questions.method.types.cv.title",
+    desc: "questions.method.types.cv.description",
     icon: "ph:read-cv-logo-thin",
   },
   {
     value: "custom",
-    title: "Custom settings",
-    desc: "Questions generated based on your own settings",
+    title: "questions.method.types.custom.title",
+    desc: "questions.method.types.custom.description",
     icon: "mdi-light:settings",
   },
 ];

@@ -2,7 +2,11 @@
   <div class="flex flex-col gap-4 py-4 md:grid md:grid-cols-2">
     <ProductCard
       v-for="(card, idx) in cards"
-      :card="card"
+      :card="{
+        title: $t(card.title),
+        description: $t(card.description),
+        key: card.key,
+      }"
       :last="idx === cards.length - 1"
     />
   </div>
@@ -11,19 +15,18 @@
 <script setup lang="ts">
 const cards = [
   {
-    title: "CV based questions",
-    description: "Harness the power of your CV to generate tailored questions.",
+    title: "features.cv_questions_title",
+    description: "features.cv_questions_description",
     key: "cv",
   },
   {
-    title: "Job offer URL based questions",
-    description:
-      "Provide a job offer URL and let our system craft questions specific to the role.",
+    title: "features.url_questions_title",
+    description: "features.url_questions_description",
     key: "url",
   },
   {
-    title: "Custom details based questions",
-    description: "Input your own settings to generate customized questions.",
+    title: "features.custom_questions_title",
+    description: "features.custom_questions_description",
     key: "custom",
   },
 ];

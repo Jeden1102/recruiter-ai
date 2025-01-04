@@ -6,6 +6,9 @@
 
 <script setup>
 useHead({
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} | Recruiter AI` : "Recruiter AI";
+  },
   meta: [
     {
       name: "viewport",

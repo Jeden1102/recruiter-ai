@@ -1,10 +1,8 @@
 <template>
   <div class="flex-1 md:py-6">
-    <h1 class="mb-2 text-2xl lg:text-4xl">Title Copy Goes Here Be Awesome</h1>
+    <h1 class="mb-2 text-2xl lg:text-4xl">{{ $t("recruiter.title") }}</h1>
     <p class="font-thin">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi rerum
-      recusandae nesciunt exercitationem. Corporis asperiores corrupti delectus
-      quod, illum repellat?
+      {{ $t("recruiter.description") }}
     </p>
     <NuxtImg
       src="/images/bubbles-2.png"

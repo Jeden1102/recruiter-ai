@@ -26,7 +26,7 @@ onUnmounted(() => {
 <template>
   <div class="flex flex-col items-center justify-center gap-8 py-4">
     <Icon name="tabler:loader-3" size="48" class="animate-spin text-primary" />
-    <p>Job is being analyzed</p>
+    <p>{{ $t("jobAnalysis") }}</p>
 
     <transition-group
       name="skeleton-transition"

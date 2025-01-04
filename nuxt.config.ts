@@ -2,6 +2,11 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: false },
+  runtimeConfig: {
+    public: {
+      APP_BASE_URI: process.env.NUXT_PUBLIC_APP_BASE_URI,
+    },
+  },
   modules: [
     "nuxt-chatgpt",
     "@nuxtjs/tailwindcss",

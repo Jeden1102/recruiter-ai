@@ -36,8 +36,10 @@
         <AppLanguageSwitcher />
 
         <div class="mt-auto flex gap-4 md:hidden">
-          <NuxtLinkLocale to="/terms">Terms of Service</NuxtLinkLocale>
-          <NuxtLinkLocale to="/privacy">Privacy Policy</NuxtLinkLocale>
+          <NuxtLinkLocale to="/terms">{{ $t("footer.terms") }}</NuxtLinkLocale>
+          <NuxtLinkLocale to="/privacy">{{
+            $t("footer.privacy")
+          }}</NuxtLinkLocale>
         </div>
       </div>
     </Transition>
