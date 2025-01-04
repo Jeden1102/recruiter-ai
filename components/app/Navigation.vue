@@ -8,7 +8,7 @@
         v-if="isMenuToggled || isDesktop"
         :class="
           twMerge(
-            'absolute left-0 top-16 w-full h-full pb-24 bg-zinc-950/60 backdrop-blur-md z-10 flex flex-col container gap-6 pt-12 md:static md:w-auto md:h-auto md:bg-transparent md:backdrop-blur-none md:py-0 md:flex-row md:items-center'
+            'container absolute left-0 top-16 z-10 flex h-full w-full flex-col gap-6 bg-zinc-950/60 pb-24 pt-12 backdrop-blur-md md:static md:h-auto md:w-auto md:flex-row md:items-center md:bg-transparent md:py-0 md:backdrop-blur-none',
           )
         "
       >
@@ -35,7 +35,7 @@
         </NuxtLinkLocale>
         <AppLanguageSwitcher />
 
-        <div class="md:hidden flex gap-4 mt-auto">
+        <div class="mt-auto flex gap-4 md:hidden">
           <NuxtLinkLocale to="/terms">Terms of Service</NuxtLinkLocale>
           <NuxtLinkLocale to="/privacy">Privacy Policy</NuxtLinkLocale>
         </div>

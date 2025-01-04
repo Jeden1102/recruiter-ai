@@ -17,7 +17,7 @@
               />
             </FormControl>
             <FormLabel
-              class="font-normal cursor-pointer h-full rounded-xl border text-card-foreground shadow bg-zinc-900 relative w-full flex flex-col"
+              class="relative flex h-full w-full cursor-pointer flex-col rounded-xl border bg-zinc-900 font-normal text-card-foreground shadow"
             >
               <span class="flex flex-col gap-y-1.5 p-6">
                 <CardTitle class="text-xl"
@@ -35,7 +35,7 @@
                   <Icon
                     v-if="option.icon"
                     :name="option.icon"
-                    class="text-4xl mt-2 bg-gradient-to-r from-primary to-secondary"
+                    class="mt-2 bg-gradient-to-r from-primary to-secondary text-4xl"
                   />
                 </span>
               </span>
@@ -73,6 +73,6 @@ button:has(input:checked) ~ label {
 }
 
 button:has(input:disabled) ~ label {
-  @apply opacity-60 cursor-auto;
+  @apply cursor-auto opacity-60;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <main class="container slim-container">
+  <main class="slim-container container">
     <SectionTitleDescription title="Terms" description="Here comes terms" />
   </main>
 </template>

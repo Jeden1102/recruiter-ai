@@ -1,19 +1,19 @@
 <template>
-  <footer class="bg-zinc-950 flex flex-col">
-    <div class="container py-8 flex flex-col md:flex-row gap-4 md:gap-36">
+  <footer class="flex flex-col bg-zinc-950">
+    <div class="container flex flex-col gap-4 py-8 md:flex-row md:gap-36">
       <div>
         <NuxtLinkLocale to="/">
           <AppLogo />
         </NuxtLinkLocale>
       </div>
       <div class="flex flex-col gap-2">
-        <p class="text-lg font-semibold mb-2">Navigation</p>
+        <p class="mb-2 text-lg font-semibold">Navigation</p>
         <NuxtLinkLocale to="/">Home</NuxtLinkLocale>
         <NuxtLinkLocale to="/product">Product</NuxtLinkLocale>
         <NuxtLinkLocale to="/recruiter">Recruiter</NuxtLinkLocale>
       </div>
       <div class="flex flex-col gap-2">
-        <p class="text-lg font-semibold mb-2">About</p>
+        <p class="mb-2 text-lg font-semibold">About</p>
         <NuxtLinkLocale to="/terms">Terms of Service</NuxtLinkLocale>
         <NuxtLinkLocale to="/privacy">Privacy Policy</NuxtLinkLocale>
       </div>

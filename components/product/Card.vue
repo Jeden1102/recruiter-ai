@@ -2,8 +2,8 @@
   <div
     :class="
       twMerge(
-        'rounded-lg bg-zinc-900 border border-zinc-800 flex flex-col py-6 px-4 gap-4 relative overflow-hidden',
-        last && 'md:col-span-2'
+        'relative flex flex-col gap-4 overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-6',
+        last && 'md:col-span-2',
       )
     "
   >
@@ -12,7 +12,7 @@
     </TextGradient>
     <p class="text-xl">{{ card.description }}</p>
     <div class="mt-auto">
-      <Button asChild class="w-fit mt-10" size="lg">
+      <Button asChild class="mt-10 w-fit" size="lg">
         <NuxtLinkLocale :to="`/recruiter?mode=${card.key}`"
           >Try out</NuxtLinkLocale
         >
@@ -23,7 +23,7 @@
       width="200"
       height="200"
       alt="Bubbles image"
-      class="absolute -right-20 -bottom-20 opacity-50"
+      class="absolute -bottom-20 -right-20 opacity-50"
     />
   </div>
 </template>

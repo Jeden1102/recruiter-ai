@@ -1,7 +1,7 @@
 <template>
   <Accordion type="single" collapsible>
     <AccordionItem v-for="q in questions" :value="q.question">
-      <AccordionTrigger class="text-left gap-2">{{
+      <AccordionTrigger class="gap-2 text-left">{{
         q.question
       }}</AccordionTrigger>
       <AccordionContent>

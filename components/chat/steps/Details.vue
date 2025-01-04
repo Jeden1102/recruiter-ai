@@ -1,7 +1,7 @@
 <template>
   <form @submit="onSubmit">
     <template v-if="type === 'url'">
-      <TextGradient class="text-2xl mb-4 font-semibold"
+      <TextGradient class="mb-4 text-2xl font-semibold"
         >Job offer URL</TextGradient
       >
       <FormField v-slot="{ componentField }" name="url">
@@ -19,7 +19,7 @@
       </FormField>
     </template>
     <template v-if="type === 'cv'">
-      <TextGradient class="text-2xl mb-4 font-semibold"
+      <TextGradient class="mb-4 text-2xl font-semibold"
         >Based on my CV</TextGradient
       >
       <FormField v-slot="{ componentField }" name="file">
@@ -39,7 +39,7 @@
     </template>
 
     <template v-if="type === 'custom'">
-      <TextGradient class="text-2xl mb-4 font-semibold"
+      <TextGradient class="mb-4 text-2xl font-semibold"
         >Custom job offer details</TextGradient
       >
       <FormField v-slot="{ componentField }" name="position">
@@ -94,7 +94,7 @@
         </FormItem>
       </FormField>
     </template>
-    <div class="flex gap-4 mt-6">
+    <div class="mt-6 flex gap-4">
       <Button variant="outline" type="button" @click="emit('back')"
         >Previous</Button
       >

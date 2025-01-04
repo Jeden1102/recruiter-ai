@@ -1,13 +1,13 @@
 <template>
-  <div class="py-20 relative overflow-x-hidden">
+  <div class="relative overflow-x-hidden py-20">
     <div class="container flex flex-col items-center justify-center gap-4">
       <TextGradient>
-        <h1 class="text-5xl mb-4">Recruiter AI</h1>
+        <h1 class="mb-4 text-5xl">Recruiter AI</h1>
       </TextGradient>
-      <p class="text-3xl text-center font-light">
+      <p class="text-center text-3xl font-light">
         {{ $t("home.hero.title") }}
       </p>
-      <p class="text-center uppercase text-secondary font-semibold">
+      <p class="text-center font-semibold uppercase text-secondary">
         {{ $t("home.hero.subtitle") }}
       </p>
       <Button asChild size="lg" class="mt-8">
@@ -34,5 +34,3 @@
 <script setup lang="ts">
 import { GradientCircle } from "../ui/gradient-circle";
 </script>
-
-<style scoped></style>

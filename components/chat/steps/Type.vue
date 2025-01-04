@@ -1,6 +1,6 @@
 <template>
   <form @submit="onSubmit">
-    <TextGradient class="text-2xl mb-4 font-semibold"
+    <TextGradient class="mb-4 text-2xl font-semibold"
       >Questions generation method</TextGradient
     >
 

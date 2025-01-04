@@ -12,7 +12,7 @@ const availableLocales = computed(() => {
     v-for="locale in availableLocales"
     :key="locale.code"
     :to="switchLocalePath(locale.code)"
-    class="uppercase nav-link block border-l md:border-zinc-600 md:!pl-6 md:border-b-0"
+    class="nav-link block border-l uppercase md:border-b-0 md:border-zinc-600 md:!pl-6"
   >
     {{ locale.code }}
   </NuxtLink>

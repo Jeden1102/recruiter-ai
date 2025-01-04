@@ -24,23 +24,23 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex justify-center items-center flex-col gap-8 py-4">
+  <div class="flex flex-col items-center justify-center gap-8 py-4">
     <Icon name="tabler:loader-3" size="48" class="animate-spin text-primary" />
     <p>Job is being analyzed</p>
 
     <transition-group
       name="skeleton-transition"
       tag="div"
-      class="w-full flex flex-col gap-3"
+      class="flex w-full flex-col gap-3"
     >
       <div
         v-for="id in skeletons"
         :key="id"
         :class="
           twMerge(
-            'w-full h-12 bg-zinc-600 rounded custom-pulse transition duration-300 ease-in-out transform',
+            'custom-pulse h-12 w-full transform rounded bg-zinc-600 transition duration-300 ease-in-out',
             id % 2 === 0 && 'h-16',
-            id % 3 === 0 && 'h-20'
+            id % 3 === 0 && 'h-20',
           )
         "
       ></div>
@@ -50,16 +50,16 @@ onUnmounted(() => {
 
 <style>
 .skeleton-transition-enter-active {
-  @apply opacity-0 -translate-y-10;
+  @apply -translate-y-10 opacity-0;
 }
 .skeleton-transition-enter-to {
-  @apply opacity-100 translate-y-0;
+  @apply translate-y-0 opacity-100;
 }
 .skeleton-transition-leave-active {
-  @apply opacity-100 translate-y-0;
+  @apply translate-y-0 opacity-100;
 }
 .skeleton-transition-leave-to {
-  @apply opacity-0 -translate-y-10;
+  @apply -translate-y-10 opacity-0;
 }
 
 @keyframes custom-pulse {

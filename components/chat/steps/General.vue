@@ -1,6 +1,6 @@
 <template>
   <form @submit="onSubmit">
-    <TextGradient class="text-2xl mb-4 font-semibold"
+    <TextGradient class="mb-4 text-2xl font-semibold"
       >General settings</TextGradient
     >
     <ChatRadios
@@ -10,7 +10,7 @@
     />
     <FormField v-slot="{ value, handleChange }" type="checkbox" name="answers">
       <FormItem
-        class="flex flex-row items-start gap-x-3 space-y-0 rounded-md border p-4 shadow my-4"
+        class="my-4 flex flex-row items-start gap-x-3 space-y-0 rounded-md border p-4 shadow"
       >
         <FormControl>
           <Checkbox :checked="value" @update:checked="handleChange" />
@@ -26,7 +26,7 @@
     </FormField>
     <FormField v-slot="{ value, handleChange }" type="checkbox" name="task">
       <FormItem
-        class="flex flex-row items-start gap-x-3 space-y-0 rounded-md border p-4 shadow my-4"
+        class="my-4 flex flex-row items-start gap-x-3 space-y-0 rounded-md border p-4 shadow"
       >
         <FormControl>
           <Checkbox :checked="value" @update:checked="handleChange" />
@@ -38,7 +38,7 @@
         </div>
       </FormItem>
     </FormField>
-    <div class="flex gap-4 mt-6">
+    <div class="mt-6 flex gap-4">
       <Button variant="outline" type="button" @click="emit('back')"
         >Previous</Button
       >
@@ -80,7 +80,7 @@ const formSchema = toTypedSchema(
     level: z.string().min(1),
     answers: z.boolean().default(false).optional(),
     task: z.boolean().default(false).optional(),
-  })
+  }),
 );
 
 const { handleSubmit } = useForm({

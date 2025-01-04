@@ -3,24 +3,24 @@
     <div
       :class="
         twMerge(
-          'w-[1.5rem] h-[0.15rem] bg-white rounded-full transition-transform ease-curve-d duration-300 origin-center',
-          isActive && 'rotate-45 translate-y-[0.3rem]'
+          'ease-curve-d h-[0.15rem] w-[1.5rem] origin-center rounded-full bg-white transition-transform duration-300',
+          isActive && 'translate-y-[0.3rem] rotate-45',
         )
       "
     ></div>
     <div
       :class="
         twMerge(
-          'w-[1.5rem] h-[0.15rem] bg-white rounded-full transition-opacity ease-curve-d duration-300',
-          isActive && 'opacity-0'
+          'ease-curve-d h-[0.15rem] w-[1.5rem] rounded-full bg-white transition-opacity duration-300',
+          isActive && 'opacity-0',
         )
       "
     ></div>
     <div
       :class="
         twMerge(
-          'w-[1.5rem] h-[0.15rem] bg-white rounded-full transition-transform ease-curve-d duration-300 origin-center',
-          isActive && '-rotate-45 -translate-y-[0.4rem]'
+          'ease-curve-d h-[0.15rem] w-[1.5rem] origin-center rounded-full bg-white transition-transform duration-300',
+          isActive && '-translate-y-[0.4rem] -rotate-45',
         )
       "
     ></div>

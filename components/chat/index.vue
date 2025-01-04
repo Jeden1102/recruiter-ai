@@ -70,7 +70,7 @@ const isError = ref(false);
 function appendIfDefined(
   baseText: string,
   label: string,
-  value: string | null | undefined
+  value: string | null | undefined,
 ) {
   return value ? `${baseText} ${label}: ${value}.` : baseText;
 }
@@ -96,22 +96,22 @@ async function constructPrompt() {
       ${appendIfDefined(
         "",
         "Stanowisko",
-        props.details.position || "Nie określono"
+        props.details.position || "Nie określono",
       )}
       ${appendIfDefined(
         "",
         "Wymagania",
-        props.details.requirements || "Nie określono"
+        props.details.requirements || "Nie określono",
       )}
       ${appendIfDefined(
         "",
         "Zadania",
-        props.details.responsibilities || "Nie określono"
+        props.details.responsibilities || "Nie określono",
       )}
       ${appendIfDefined(
         "",
         "Mile widziane",
-        props.details.niceToHave || "Nie określono"
+        props.details.niceToHave || "Nie określono",
       )}`;
   }
 
