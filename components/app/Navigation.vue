@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <button @click="toggleMenu" class="md:hidden">
+    <button @click="toggleMenu" class="md:hidden" title="Toggle menu">
       <AppBurger :is-active="isMenuToggled" />
     </button>
     <Transition>
