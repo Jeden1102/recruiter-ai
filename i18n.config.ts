@@ -132,7 +132,8 @@ export default defineI18nConfig(() => ({
         custom_questions_description:
           "Create personalized questions tailored to your specific hiring needs.",
       },
-
+      jobAnalysis: "Job offer is being analyzed",
+      recruitmentTask: "Recruitment Task",
       questions: {
         method: {
           title: "Select Question Method",
@@ -174,12 +175,14 @@ export default defineI18nConfig(() => ({
         product: "Produkt",
         recruiter: "Rekruter",
       },
+      jobAnalysis: "Oferta pracy jest analizowana",
       footer: {
         navigationTitle: "Nawigacja",
         aboutTitle: "O nas",
         terms: "Warunki korzystania",
         privacy: "Polityka prywatności",
       },
+      recruitmentTask: "Zadanie rekrutacyjne",
       form: {
         url: {
           title: "Wprowadź URL",

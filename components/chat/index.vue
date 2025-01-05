@@ -16,6 +16,9 @@
       <ChatRecruitmentTask class="mt-4" v-if="data.task">
         {{ data.task }}
       </ChatRecruitmentTask>
+      <Button v-if="data.questions" @click="generateNewQuestions">
+        Generate new questions // @todo - diasbled on load + loader
+      </Button>
     </div>
   </div>
 </template>
@@ -44,7 +47,7 @@ const chatTree = ref([
   {
     role: "system",
     content: `
-      Jesteś asystentem AI, który generuje przykładowe pytania i odpowiedzi na rozmowę o pracę w formacie JSON.
+      Jesteś asystentem AI, który generuje przykładowe pytania i §odpowiedzi na rozmowę o pracę w formacie JSON.
       Użytkownik poda listę wymagań, a Twoim zadaniem jest zwrócenie odpowiednich danych w postaci struktury JSON:
       - "questions": lista pytań - każdy obiekt zawiera "question" i "answer" (jesli user poprosi rowniez o przygotowanie listy odpowiedzi).
       - "task": klucz dla zadania rekrutacyjnego (prosty string, bez odpowiedzi).
@@ -172,6 +175,34 @@ async function generateQuestions() {
     data.value.questions = obj.questions;
     data.value.task = obj.task;
     data.value.errorMessage = obj.error;
+    chatTree.value.push(responseMessage);
+  } catch (error) {
+    console.log(error);
+    isError.value = true;
+  } finally {
+    isLoading.value = false;
+  }
+}
+
+async function generateNewQuestions() {
+  try {
+    const userMessage = {
+      role: "user",
+      content:
+        "Wygeneruj kolejne 5 pytań na rozmowę o pracę na bazie poprzednich ustaleń. Zachowaj poprzednie ustalenia. Nie generuj nowego zadania rekrutacyjnego.",
+    };
+
+    chatTree.value.push(userMessage);
+
+    const response = await chatCompletion(chatTree.value);
+
+    const responseMessage = {
+      role: response[0].message.role,
+      content: response[0].message.content,
+    };
+
+    const obj = JSON.parse(sanitizeJSON(responseMessage.content));
+    data.value.questions.push(...obj.questions);
     chatTree.value.push(responseMessage);
   } catch (error) {
     console.log(error);

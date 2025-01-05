@@ -24,7 +24,6 @@ export default defineEventHandler(async (event) => {
         .text(),
     };
   } catch (error) {
-    console.log(error, "here", query.uri);
     throw createError({
       statusCode: 400,
       statusMessage: "There was an issue fetching the page",
