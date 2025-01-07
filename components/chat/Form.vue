@@ -59,7 +59,12 @@ onMounted(() => {
           />
         </template>
         <template v-if="step === 3">
-          <Chat :type="type" :details="details" :general="general" />
+          <Chat
+            :type="type"
+            :details="details"
+            :general="general"
+            @reset="step = 0"
+          />
         </template>
       </div>
     </transition>

@@ -2,22 +2,38 @@
   <div class="flex flex-col gap-4">
     <ChatLoader v-if="isLoading" />
 
-    <ChatError v-if="isError || (data.errorMessage && !data.questions)">
-      {{
-        data.errorMessage ||
-        `There was an issue generating the response. Please try again later or
+    <ChatError
+      class="flex flex-col"
+      v-if="isError || (data.errorMessage && !data.questions)"
+    >
+      <p>
+        {{
+          data.errorMessage ||
+          `There was an issue generating the response. Please try again later or
           consider using other questions generation option.`
-      }}
+        }}
+      </p>
+
+      <Button @click="emit('reset')" class="my-2 text-white">Try again</Button>
     </ChatError>
 
     <div v-if="chatTree.length > 0 && !isLoading && !isError" class="mt-4">
-      <ChatQuestions v-if="data.questions" :questions="data.questions" />
+      <ChatQuestions
+        v-if="data.questions"
+        :questions="data.questions"
+        :loading="isLoadingAdditional"
+      />
 
       <ChatRecruitmentTask class="mt-4" v-if="data.task">
         {{ data.task }}
       </ChatRecruitmentTask>
-      <Button v-if="data.questions" @click="generateNewQuestions">
-        Generate new questions // @todo - diasbled on load + loader
+      <Button
+        :disabled="isLoadingAdditional"
+        v-if="data.questions"
+        @click="generateNewQuestions"
+        class="my-4"
+      >
+        Generate new questions
       </Button>
     </div>
   </div>
@@ -30,6 +46,8 @@ import { ref, onMounted } from "vue";
 const { chatCompletion } = useChatgpt();
 
 const { locale } = useI18n();
+
+const emit = defineEmits(["reset"]);
 
 const props = defineProps<{
   general: General;
@@ -50,14 +68,14 @@ const chatTree = ref([
       Jesteś asystentem AI, który generuje przykładowe pytania i §odpowiedzi na rozmowę o pracę w formacie JSON.
       Użytkownik poda listę wymagań, a Twoim zadaniem jest zwrócenie odpowiednich danych w postaci struktury JSON:
       - "questions": lista pytań - każdy obiekt zawiera "question" i "answer" (jesli user poprosi rowniez o przygotowanie listy odpowiedzi).
-      - "task": klucz dla zadania rekrutacyjnego (prosty string, bez odpowiedzi).
+      - "task": klucz dla zadania rekrutacyjnego (prosty string, bez odpowiedzi) - tylko jesli user poprosi o zadanie rekrutacyjne.
       - Jeśli dane wejściowe nie mają sensu, zwróć {"error": "<opis błedu>"}.
       - Dane wejsciowe moga byc niekompletne, wystarczy np. samo stanowisko pracy.
       - Nie zwracaj treści w bloku JSON, odpowiedz samym JSON-em, tak aby można było użyć JSON.parse().
       1. Pytania muszą być specyficzne i szczegółowe – zadawaj pytania otwarte (np. "Jakie znasz klasy w Bootstrap?") zamiast pytań ogólnych (np. "Czy pracowałeś kiedyś z Bootstrap?").
       2. Dostosuj pytania techniczne do szczegółów oferty (np. jeśli wymagana jest znajomość API, pytania mogą dotyczyć metod, bezpieczeństwa lub problemów, które mogą się pojawić przy korzystaniu z API).
       3. Dodaj 2-3 pytania ogólne dotyczące miękkich umiejętności (np. "Jak radzisz sobie z pracą pod presją?").
-      4. Przygotuj **minimum 10 pytań**.
+      4. Przygotuj **dokladnie 10 pytań**.
       5. Jeśli użytkownik poprosi o zadanie rekrutacyjne, zaproponuj realistyczne zadanie dopasowane do stanowiska.
       6. Jeśli użytkownik poprosi o odpowiedzi, do kazdego z pytan, napisz odpowiedz w kluczu "answer". Rozwin troche te odpowiedzi do min. 2-3 zdan.
       7. Jesli to mozliwe dla stanowiska, postaraj sie zadac z 2-3 pytania typowo techniczne z wiedzy o umiejetnosciach/technologiach ktore sa wymagane/mile widziane.
@@ -68,6 +86,7 @@ const chatTree = ref([
 ]);
 
 const isLoading = ref(true);
+const isLoadingAdditional = ref(false);
 const isError = ref(false);
 
 function appendIfDefined(
@@ -119,10 +138,16 @@ async function constructPrompt() {
   }
 
   prompt = appendIfDefined(prompt, "Poziom stanowiska", props.general.level);
-  if (props.general.task)
+  if (props.general.task) {
     prompt += " Uwzględnij propozycję zadania rekrutacyjnego.";
-  if (props.general.answers)
+  } else {
+    prompt += " Nie Uwzględniaj propozycji zadania rekrutacyjnego.";
+  }
+  if (props.general.answers) {
     prompt += " Przygotuj przykładowe odpowiedzi na pytania.";
+  } else {
+    prompt += " Nie przygotuj przykładowych odpowiedzi na pytania.";
+  }
 
   return prompt.trim();
 }
@@ -185,6 +210,8 @@ async function generateQuestions() {
 }
 
 async function generateNewQuestions() {
+  if (isLoadingAdditional.value) return;
+  isLoadingAdditional.value = true;
   try {
     const userMessage = {
       role: "user",
@@ -208,7 +235,7 @@ async function generateNewQuestions() {
     console.log(error);
     isError.value = true;
   } finally {
-    isLoading.value = false;
+    isLoadingAdditional.value = false;
   }
 }
 

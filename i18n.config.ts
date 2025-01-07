@@ -133,6 +133,7 @@ export default defineI18nConfig(() => ({
           "Create personalized questions tailored to your specific hiring needs.",
       },
       jobAnalysis: "Job offer is being analyzed",
+      jobAnalysisNew: "New questions are being generated",
       recruitmentTask: "Recruitment Task",
       questions: {
         method: {
@@ -164,6 +165,7 @@ export default defineI18nConfig(() => ({
         description:
           "Discover the power of AI recruitment and streamline your hiring process.",
       },
+      noAnswer: "No answer",
     },
     pl: {
       common: {
@@ -176,6 +178,8 @@ export default defineI18nConfig(() => ({
         recruiter: "Rekruter",
       },
       jobAnalysis: "Oferta pracy jest analizowana",
+      jobAnalysisNew: "Nowe pytania sa generowane",
+      noAnswer: "Brak odpowiedzi",
       footer: {
         navigationTitle: "Nawigacja",
         aboutTitle: "O nas",
