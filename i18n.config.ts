@@ -11,6 +11,8 @@ export default defineI18nConfig(() => ({
         home: "Home",
         product: "Product",
         recruiter: "Recruiter",
+        login: "Login",
+        logout: "Logout",
       },
       footer: {
         navigationTitle: "Navigation",
@@ -180,6 +182,8 @@ export default defineI18nConfig(() => ({
         home: "Strona główna",
         product: "Produkt",
         recruiter: "Rekruter",
+        login: "Zaloguj",
+        logout: "Wyloguj",
       },
       jobAnalysis: "Trwa analiza oferty pracy",
       jobAnalysisNew: "Generowane są nowe pytania",

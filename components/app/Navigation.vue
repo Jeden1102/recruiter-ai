@@ -28,11 +28,38 @@
         </NuxtLinkLocale>
         <NuxtLinkLocale
           @click="toggleMenuIfMobile"
-          class="nav-link link-bg-hover border-b border-zinc-600 pb-6 md:pb-0"
+          class="nav-link link-bg-hover"
           to="/recruiter"
         >
           {{ $t("navigation.recruiter") }}
         </NuxtLinkLocale>
+
+        <NuxtLinkLocale
+          v-if="!data"
+          @click="toggleMenuIfMobile"
+          class="nav-link link-bg-hover border-b border-zinc-600 pb-6 md:pb-0"
+          to="/login"
+        >
+          {{ $t("navigation.login") }}
+        </NuxtLinkLocale>
+        <DropdownMenu v-else>
+          <DropdownMenuTrigger as-child>
+            <Button variant="outline"> Account </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent class="w-56">
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              <DropdownMenuItem>
+                <NuxtLinkLocale to="/profile"> Profile </NuxtLinkLocale>
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+            <DropdownMenuSeparator />
+            <DropdownMenuSeparator />
+            <DropdownMenuItem @click="logOut"> Log out </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
         <AppLanguageSwitcher />
 
         <div class="mt-auto flex gap-4 md:hidden">
@@ -53,6 +80,11 @@ import { ref, onMounted, onUnmounted } from "vue";
 const isMenuToggled = ref(false);
 const isDesktop = ref(false);
 
+const { data, signOut } = useAuth();
+
+const logOut = () => {
+  signOut();
+};
 const toggleMenu = () => {
   isMenuToggled.value = !isMenuToggled.value;
   document.body.classList.toggle("overflow-hidden", isMenuToggled.value);
