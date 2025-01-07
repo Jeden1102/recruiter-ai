@@ -48,7 +48,7 @@
       <Button variant="outline" type="button" @click="emit('back')">
         {{ $t("form.buttons.previous") }}
       </Button>
-      <Button type="submit">{{ $t("form.buttons.next") }}</Button>
+      <Button type="submit">{{ $t("common.generate") }}</Button>
     </div>
   </form>
 </template>

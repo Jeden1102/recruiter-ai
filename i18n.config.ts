@@ -4,6 +4,8 @@ export default defineI18nConfig(() => ({
       common: {
         getStarted: "Get started",
         logIn: "Log in",
+        generateNew: "Generate new questions",
+        generate: "Generate",
       },
       navigation: {
         home: "Home",
@@ -171,44 +173,46 @@ export default defineI18nConfig(() => ({
       common: {
         getStarted: "Rozpocznij",
         logIn: "Zaloguj się",
+        generateNew: "Generuj nowe pytania",
+        generate: "Generuj",
       },
       navigation: {
         home: "Strona główna",
         product: "Produkt",
         recruiter: "Rekruter",
       },
-      jobAnalysis: "Oferta pracy jest analizowana",
-      jobAnalysisNew: "Nowe pytania sa generowane",
+      jobAnalysis: "Trwa analiza oferty pracy",
+      jobAnalysisNew: "Generowane są nowe pytania",
       noAnswer: "Brak odpowiedzi",
       footer: {
         navigationTitle: "Nawigacja",
         aboutTitle: "O nas",
-        terms: "Warunki korzystania",
+        terms: "Regulamin",
         privacy: "Polityka prywatności",
       },
       recruitmentTask: "Zadanie rekrutacyjne",
       form: {
         url: {
-          title: "Wprowadź URL",
+          title: "Podaj adres URL",
           label: "URL oferty pracy",
-          placeholder: "Wklej tutaj URL oferty pracy",
+          placeholder: "Wklej tutaj adres URL oferty pracy",
         },
         cv: {
           title: "Prześlij swoje CV",
-          label: "Prześlij CV",
+          label: "Dodaj CV",
         },
         custom: {
-          title: "Wprowadź szczegóły",
+          title: "Dodaj szczegóły",
           position: {
             label: "Stanowisko",
             placeholder: "Opisz stanowisko pracy",
           },
           requirements: {
             label: "Wymagania",
-            placeholder: "Wymień wymagania na stanowisko",
+            placeholder: "Wymień wymagania na to stanowisko",
           },
           niceToHave: {
-            label: "Dodatkowe atuty",
+            label: "Mile widziane",
             placeholder:
               "Wymień umiejętności lub doświadczenie, które będą dodatkowym atutem",
           },
@@ -218,7 +222,7 @@ export default defineI18nConfig(() => ({
           },
         },
         buttons: {
-          previous: "Wstecz",
+          previous: "Cofnij",
           next: "Dalej",
         },
       },
@@ -226,102 +230,103 @@ export default defineI18nConfig(() => ({
         general: {
           title: "Ustawienia ogólne",
           questionsDifficulty: {
-            label: "Wybierz trudność pytań",
+            label: "Wybierz poziom trudności pytań",
             options: {
               easy: {
-                title: "Łatwe",
+                title: "Łatwy",
                 description:
-                  "Podstawowe pytania odpowiednie dla początkujących",
+                  "Podstawowe pytania odpowiednie dla początkujących kandydatów",
               },
               intermediate: {
-                title: "Średnie",
+                title: "Średni",
                 description:
                   "Pytania odpowiednie dla kandydatów z pewnym doświadczeniem",
               },
               advanced: {
-                title: "Zaawansowane",
+                title: "Zaawansowany",
                 description: "Trudne pytania dla doświadczonych kandydatów",
               },
             },
           },
           prepareAnswers: {
-            label: "Przygotuj odpowiedzi z wyprzedzeniem",
+            label: "Przygotuj odpowiedzi wcześniej",
             description:
-              "Włącz tę opcję, aby generować odpowiedzi z wyprzedzeniem.",
+              "Włącz tę opcję, aby wygenerować odpowiedzi z wyprzedzeniem.",
           },
           recruitmentTask: {
-            label: "Dołącz zadanie rekrutacyjne",
-            description: "Dołącz zadanie, które oceni umiejętności kandydata.",
+            label: "Dodaj zadanie rekrutacyjne",
+            description:
+              "Dołącz zadanie, które pozwoli ocenić umiejętności kandydata.",
           },
         },
       },
       home: {
         hero: {
-          title: "Odkryj moc rekrutacji AI",
-          subtitle:
-            "Zautomatyzuj swój proces rekrutacyjny i znajdź najlepszych kandydatów w łatwy sposób",
+          title: "Poznaj możliwości rekrutacji z AI",
+          subtitle: "Zautomatyzuj proces rekrutacji i znajdź wymarzoną pracę",
         },
         features: {
           title: "Funkcje",
           description:
-            "Poznaj unikalne funkcje, które sprawiają, że Recruiter AI jest najlepszym rozwiązaniem w procesie rekrutacyjnym.",
-          details: "Więcej szczegółów na temat funkcji",
+            "Sprawdź, co wyróżnia Recruiter AI na tle innych rozwiązań rekrutacyjnych.",
+          details: "Szczegóły funkcji",
           feature1: {
-            title: "Pytania oparte na CV",
+            title: "Pytania na podstawie CV",
             description:
-              "Wykorzystaj moc swojego CV do generowania dopasowanych pytań. Ta funkcja analizuje zawartość Twojego CV, aby tworzyć odpowiednie i spersonalizowane zapytania.",
+              "Wykorzystaj zawartość CV do tworzenia spersonalizowanych pytań, dostosowanych do Twojego profilu.",
           },
           feature2: {
-            title: "Pytania oparte na URL oferty pracy",
+            title: "Pytania na podstawie URL oferty pracy",
             description:
-              "Podaj URL oferty pracy, a nasz system stworzy pytania specyficzne dla danej roli. Dzięki temu pytania będą zgodne z wymaganiami ogłoszenia o pracy.",
+              "Podaj URL ogłoszenia, a system automatycznie wygeneruje pytania dopasowane do wymagań stanowiska.",
           },
           feature3: {
-            title: "Pytania oparte na własnych danych",
+            title: "Pytania na podstawie własnych danych",
             description:
-              "Wprowadź własne ustawienia, aby generować spersonalizowane pytania. Ta opcja pozwala na elastyczność i personalizację w celu dostosowania do specyficznych potrzeb rekrutacyjnych.",
+              "Skonfiguruj własne ustawienia i generuj pytania idealnie dopasowane do potrzeb rekrutacyjnych.",
           },
           feature4: {
-            title: "Zapisz swoje pytania",
+            title: "Zapisuj pytania",
             description:
-              "Łatwo zapisuj wygenerowane pytania do późniejszego wykorzystania. Ta funkcja zapewnia dostęp do zapisanej listy pytań, kiedy tylko będziesz jej potrzebować.",
+              "Zapisz wygenerowane pytania, aby móc do nich wrócić w dowolnym momencie.",
           },
         },
         callToAction: {
-          startWith: "Zacznij z",
-          poweredTool: "Zasilane przez narzędzie AI",
+          startWith: "Rozpocznij z",
+          poweredTool: "Narzędzie wspierane przez AI",
           assistantDescription:
-            "Uczyń proces rekrutacji bardziej efektywnym i skutecznym dzięki naszemu asystentowi AI.",
-          decorativeImageAlt: "Dekoracyjny obrazek tła",
+            "Usprawnij i przyspiesz proces rekrutacyjny dzięki naszemu asystentowi AI.",
+          decorativeImageAlt: "Dekoracyjna grafika w tle",
         },
       },
       features: {
-        cv_questions_title: "Pytania do CV",
+        cv_questions_title: "Pytania oparte na CV",
         cv_questions_description:
-          "Uzyskaj wgląd w CV kandydatów oraz ich doświadczenie.",
-        url_questions_title: "Pytania do URL",
+          "Przeanalizuj CV kandydatów i ich doświadczenie zawodowe.",
+        url_questions_title: "Pytania na podstawie URL",
         url_questions_description:
-          "Oceń kandydatów na podstawie dostarczonego URL oferty pracy.",
+          "Oceń kandydatów na podstawie wymagań w ogłoszeniu o pracę.",
         custom_questions_title: "Pytania niestandardowe",
         custom_questions_description:
-          "Twórz spersonalizowane pytania dostosowane do Twoich specyficznych potrzeb rekrutacyjnych.",
+          "Twórz pytania dopasowane do specyficznych wymagań rekrutacji.",
       },
       questions: {
         method: {
-          title: "Wybierz metodę pytania",
-          label: "Wybierz metodę zadawania pytań",
+          title: "Wybierz sposób zadawania pytań",
+          label: "Wybierz metodę pytań",
           types: {
             url: {
-              title: "Metoda URL",
-              description: "Zadaj pytania na podstawie dostarczonego URL",
+              title: "Na podstawie URL",
+              description:
+                "Generuj pytania na podstawie podanego URL ogłoszenia o pracę",
             },
             cv: {
-              title: "Metoda CV",
-              description: "Zadaj pytania na podstawie CV kandydata",
+              title: "Na podstawie CV",
+              description: "Generuj pytania na podstawie Twojego CV",
             },
             custom: {
-              title: "Metoda niestandardowa",
-              description: "Zadaj pytania, które dostosujesz samodzielnie",
+              title: "Własne pytania",
+              description: "Twórz pytania na podstawie własnych danych",
             },
           },
         },
@@ -329,12 +334,12 @@ export default defineI18nConfig(() => ({
       product: {
         title: "Produkt",
         description:
-          "Odkryj moc rekrutacji AI i zautomatyzuj swoję proces rekrutacyjny.",
+          "Poznaj funkcje, które usprawniają proces rekrutacji z pomocą AI.",
       },
       recruiter: {
         title: "Rekruter",
         description:
-          "Odkryj moc rekrutacji AI i zautomatyzuj swoją rekrutacje.",
+          "Odkryj nowoczesne rozwiązania rekrutacyjne wspierane przez AI.",
       },
     },
   },

@@ -33,7 +33,7 @@
         @click="generateNewQuestions"
         class="my-4"
       >
-        Generate new questions
+        {{ $t("common.generateNew") }}
       </Button>
     </div>
   </div>
