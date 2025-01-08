@@ -17,6 +17,7 @@ const demoCredentials = { username: "test", password: "hunter2" };
   <div>
     <p>Sign-In Options:</p>
     <button @click="signIn('github')">Github</button>
+    <button @click="signIn('linkedin')">Linkedin</button>
     <button @click="signIn('credentials', demoCredentials)">
       Username and Password
     </button>

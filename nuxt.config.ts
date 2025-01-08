@@ -9,6 +9,10 @@ export default defineNuxtConfig({
         clientId: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
       },
+      linkedin: {
+        clientId: process.env.LINKEDIN_CLIENT_ID,
+        clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
+      },
     },
     public: {
       APP_BASE_URI: process.env.NUXT_PUBLIC_APP_BASE_URI,

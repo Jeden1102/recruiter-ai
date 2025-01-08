@@ -1,4 +1,6 @@
 import GithubProvider from "next-auth/providers/github";
+import LinkedInProvider from "next-auth/providers/linkedin";
+
 import { NuxtAuthHandler } from "#auth";
 import Credentials from "next-auth/providers/credentials";
 
@@ -8,6 +10,26 @@ export default NuxtAuthHandler({
     GithubProvider.default({
       clientId: useRuntimeConfig().auth.github.clientId,
       clientSecret: useRuntimeConfig().auth.github.clientSecret,
+    }),
+    LinkedInProvider.default({
+      clientId: useRuntimeConfig().auth.linkedin.clientId,
+      clientSecret: useRuntimeConfig().auth.linkedin.clientSecret,
+      wellKnown:
+        "https://www.linkedin.com/oauth/.well-known/openid-configuration",
+      authorization: {
+        params: {
+          scope: "openid profile email",
+        },
+      },
+      async profile(profile) {
+        return {
+          id: profile.sub,
+          name: profile.name,
+          firstname: profile.given_name,
+          lastname: profile.family_name,
+          email: profile.email,
+        };
+      },
     }),
     Credentials.default({
       name: "Credentials",
@@ -31,4 +53,11 @@ export default NuxtAuthHandler({
       },
     }),
   ],
+  callbacks: {
+    /* on before signin */
+    async signIn({ user, account, profile, email, credentials }) {
+      console.log(user, account, profile, email, credentials, "here");
+      return true;
+    },
+  },
 });
