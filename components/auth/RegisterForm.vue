@@ -22,16 +22,17 @@ const form = useForm({
 });
 
 const onSubmit = form.handleSubmit(async (values) => {
-  const result = await signIn("credentials", {
-    ...values,
-    redirect: false,
+  const response = await $fetch("/api/register", {
+    method: "POST",
+    body: { email: values.email, password: values.password },
   });
 
-  if (result?.error) {
-    console.log(result);
-    responseError.value = result.error;
+  if (response.success) {
+    console.log(response);
+    useRouter().push("/login");
   } else {
-    useRouter().push("/profile");
+    console.log(response);
+    responseError.value = "There was an error creating your account";
   }
 });
 </script>

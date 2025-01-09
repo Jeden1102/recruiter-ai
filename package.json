@@ -15,15 +15,18 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/i18n": "^9.0.0-rc.2",
     "@nuxtjs/tailwindcss": "^6.12.2",
+    "@prisma/client": "^6.2.1",
     "@radix-icons/vue": "^1.0.0",
     "@vee-validate/zod": "^4.14.7",
     "@vueuse/core": "^12.0.0",
+    "bcrypt": "^5.1.1",
     "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.468.0",
     "next-auth": "4.21.1",
     "nuxt": "3.13",
+    "prisma": "^6.2.1",
     "radix-vue": "^1.9.11",
     "shadcn-nuxt": "^0.10.4",
     "tailwind-merge": "^2.5.5",
@@ -35,9 +38,11 @@
   },
   "devDependencies": {
     "@sidebase/nuxt-auth": "^0.10.0",
+    "@types/bcrypt": "^5.0.2",
     "nuxt-chatgpt": "^0.2.5",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
-    "sass-embedded": "^1.82.0"
+    "sass-embedded": "^1.82.0",
+    "ts-node": "^10.9.2"
   }
 }

@@ -1,9 +1,14 @@
 import GithubProvider from "next-auth/providers/github";
 import LinkedInProvider from "next-auth/providers/linkedin";
+import bcrypt from "bcrypt";
 import { loginSchema } from "~~/components/auth/loginSchema";
 
 import { NuxtAuthHandler } from "#auth";
 import Credentials from "next-auth/providers/credentials";
+
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 export default NuxtAuthHandler({
   secret: useRuntimeConfig().authSecret,
@@ -44,7 +49,20 @@ export default NuxtAuthHandler({
             email: credentials?.email,
             password: credentials?.password,
           });
-          return credentials;
+
+          const user = await prisma.user.findUnique({
+            where: { email: credentials?.email },
+          });
+
+          if (
+            user &&
+            user.password &&
+            (await bcrypt.compare(credentials.password, user.password))
+          ) {
+            return { id: user.id, email: user.email };
+          }
+
+          throw new Error("Invalid credentials");
         } catch (error) {
           console.error("Validation error:", error);
           throw new Error("Invalid credentials");
@@ -53,9 +71,34 @@ export default NuxtAuthHandler({
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
-      // console.log(user, account, profile, email, credentials, "here");
+    async signIn({ user, account }) {
+      const existingUser = await prisma.user.findUnique({
+        where: { email: user.email },
+      });
+
+      if (!existingUser) {
+        await prisma.user.create({
+          data: {
+            email: user.email,
+            provider: account.provider,
+            providerAccountId: account.providerAccountId,
+          },
+        });
+      }
+
       return true;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.id;
+      }
+      return session;
     },
   },
   pages: {
