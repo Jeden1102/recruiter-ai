@@ -38,12 +38,10 @@ export default NuxtAuthHandler({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        // Add logic here to look up the user from the credentials supplied
-        const user = { id: "1", name: "J Smith", email: "jsmith@example.com" };
-
-        if (user) {
+        return null;
+        if (credentials) {
           // Any object returned will be saved in `user` property of the JWT
-          return user;
+          return credentials;
         } else {
           // If you return null then an error will be displayed advising the user to check their details.
           return null;
@@ -56,8 +54,11 @@ export default NuxtAuthHandler({
   callbacks: {
     /* on before signin */
     async signIn({ user, account, profile, email, credentials }) {
-      console.log(user, account, profile, email, credentials, "here");
+      // console.log(user, account, profile, email, credentials, "here");
       return true;
     },
+  },
+  pages: {
+    signIn: "/login",
   },
 });
