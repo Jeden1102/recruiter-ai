@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
-import { loginSchema } from "./loginSchema";
+import { registerSchema } from "./registerSchema";
 const { signIn } = useAuth();
 
 import {
@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-const formSchema = toTypedSchema(loginSchema);
+const formSchema = toTypedSchema(registerSchema);
 
 const responseError = ref("");
 
@@ -64,7 +64,20 @@ const onSubmit = form.handleSubmit(async (values) => {
         <FormMessage />
       </FormItem>
     </FormField>
-    <Button type="submit" class="mt-2 w-full"> Login </Button>
+    <FormField v-slot="{ componentField }" name="passwordRepeat">
+      <FormItem>
+        <FormLabel>Password repeat</FormLabel>
+        <FormControl>
+          <Input
+            type="password"
+            placeholder="********"
+            v-bind="componentField"
+          />
+        </FormControl>
+        <FormMessage />
+      </FormItem>
+    </FormField>
+    <Button type="submit" class="mt-2 w-full"> Register </Button>
     <p v-if="responseError" class="text-center text-red-500">
       {{ responseError }}
     </p>
