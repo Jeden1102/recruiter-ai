@@ -22,7 +22,10 @@ definePageMeta({
           <p>{{ data.user.email }}</p>
         </CardTitle>
       </CardHeader>
-      <CardContent> Your recent recruiter AI activity </CardContent>
+      <CardContent>
+        Your recent recruiter AI activity
+        <ProfileChats />
+      </CardContent>
     </Card>
   </main>
 </template>
