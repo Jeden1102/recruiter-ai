@@ -21,18 +21,35 @@ const form = useForm({
   validationSchema: formSchema,
 });
 
-const onSubmit = form.handleSubmit(async (values) => {
-  const response = await $fetch("/api/register", {
-    method: "POST",
-    body: { email: values.email, password: values.password },
-  });
+type Error = {
+  data: {
+    statusMessage: string;
+  };
+};
 
-  if (response.success) {
-    console.log(response);
-    useRouter().push("/login");
-  } else {
-    console.log(response);
-    responseError.value = "There was an error creating your account";
+const onSubmit = form.handleSubmit(async (values) => {
+  try {
+    const response = await $fetch("/api/register", {
+      method: "POST",
+      body: {
+        email: values.email,
+        password: values.password,
+        passwordRepeat: values.passwordRepeat,
+      },
+    });
+
+    await signIn("credentials", {
+      email: values.email,
+      password: values.password,
+      redirect: false,
+    });
+    useRouter().push("/profile");
+  } catch (error: Error | any) {
+    if (error.data && error.data.statusMessage) {
+      responseError.value = error.data.statusMessage;
+    } else {
+      responseError.value = "Something went wrong. Please try again.";
+    }
   }
 });
 </script>

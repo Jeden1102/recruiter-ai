@@ -28,7 +28,6 @@ const onSubmit = form.handleSubmit(async (values) => {
   });
 
   if (result?.error) {
-    console.log(result);
     responseError.value = result.error;
   } else {
     useRouter().push("/profile");

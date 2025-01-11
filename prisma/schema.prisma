@@ -21,3 +21,20 @@ model User {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 }
+
+model Chat {
+  id               String   @id @default(uuid()) @db.Uuid
+  email            String?
+  url              String?
+  position         String?
+  requirements     String?
+  responsibilities String?
+  niceToHave       String?
+  file             String?
+  type             String
+  level            String
+  questions        Json
+  task             Json?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}

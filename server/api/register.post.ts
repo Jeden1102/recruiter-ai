@@ -1,21 +1,38 @@
 import bcrypt from "bcrypt";
 import { PrismaClient } from "@prisma/client";
+import { registerSchema } from "~/components/auth/registerSchema";
 
 const prisma = new PrismaClient();
-// @todo -> refactor validation and logic.
+
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
-  if (!body.email || !body.password) {
-    throw createError({ statusCode: 400, message: "Invalid input" });
-  }
+  const data = registerSchema.parse({
+    email: body?.email,
+    password: body?.password,
+    passwordRepeat: body?.passwordRepeat,
+  });
 
   const existingUser = await prisma.user.findUnique({
     where: { email: body.email },
   });
 
   if (existingUser) {
-    throw createError({ statusCode: 400, message: "Email already in use" });
+    if (existingUser.password !== null) {
+      throw createError({ statusMessage: "E-mail already in use" });
+    } else {
+      // User previously registered without a password - provider.
+      const hashedPassword = await bcrypt.hash(body.password, 10);
+
+      const updatedUser = await prisma.user.update({
+        where: { email: body.email },
+        data: {
+          password: hashedPassword,
+        },
+      });
+
+      return { success: true, user: updatedUser };
+    }
   }
 
   const hashedPassword = await bcrypt.hash(body.password, 10);

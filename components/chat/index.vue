@@ -40,10 +40,12 @@
 </template>
 
 <script setup lang="ts">
+import useSaveChat from "~/composables/useSaveChat";
 import type { Details, General, Question } from "./types";
 import { ref, onMounted } from "vue";
-
 const { chatCompletion } = useChatgpt();
+
+const { data: user } = useAuth();
 
 const { locale } = useI18n();
 
@@ -201,6 +203,23 @@ async function generateQuestions() {
     data.value.task = obj.task;
     data.value.errorMessage = obj.error;
     chatTree.value.push(responseMessage);
+
+    if (!user) return;
+
+    const res = await useSaveChat({
+      type: props.type,
+      questions: data.value.questions,
+      task: data.value.task,
+      requirements: props.details.requirements,
+      responsibilities: props.details.responsibilities,
+      position: props.details.position,
+      niceToHave: props.details.niceToHave,
+      level: props.general.level,
+      file: props.details.file ? await useFileToBase64(props.details.file) : "",
+      url: props.details.url,
+    });
+
+    console.log(res, "here");
   } catch (error) {
     console.log(error);
     isError.value = true;

@@ -10,6 +10,19 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+type TCredentials = {
+  email: string;
+  password: string;
+};
+
+type LinkedInProfile = {
+  sub: string;
+  name: string;
+  given_name: string;
+  family_name: string;
+  email: string;
+};
+
 export default NuxtAuthHandler({
   secret: useRuntimeConfig().authSecret,
   providers: [
@@ -27,7 +40,7 @@ export default NuxtAuthHandler({
           scope: "openid profile email",
         },
       },
-      async profile(profile) {
+      async profile(profile: LinkedInProfile) {
         return {
           id: profile.sub,
           name: profile.name,
@@ -43,7 +56,7 @@ export default NuxtAuthHandler({
         username: { label: "Username", type: "text", placeholder: "jsmith" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials: TCredentials, req: any) {
         try {
           const data = loginSchema.parse({
             email: credentials?.email,
@@ -73,32 +86,20 @@ export default NuxtAuthHandler({
   callbacks: {
     async signIn({ user, account }) {
       const existingUser = await prisma.user.findUnique({
-        where: { email: user.email },
+        where: { email: user.email || "" },
       });
 
       if (!existingUser) {
         await prisma.user.create({
           data: {
-            email: user.email,
-            provider: account.provider,
-            providerAccountId: account.providerAccountId,
+            email: user.email || "",
+            provider: account?.provider,
+            providerAccountId: account?.providerAccountId,
           },
         });
       }
 
       return true;
-    },
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      if (token) {
-        session.user.id = token.id;
-      }
-      return session;
     },
   },
   pages: {
