@@ -1,7 +1,7 @@
 type Chat = {
-  type: string;
+  type?: string;
   questions: object;
-  task: string;
+  task?: string;
   requirements?: string;
   responsibilities?: string;
   position?: string;
@@ -9,6 +9,7 @@ type Chat = {
   file?: string | unknown;
   level?: string;
   url?: string;
+  id?: string;
 };
 
 export default async function (data: Chat) {
@@ -26,6 +27,7 @@ export default async function (data: Chat) {
         level: data.level,
         file: data.file,
         url: data.url,
+        id: data.id,
       },
     });
 

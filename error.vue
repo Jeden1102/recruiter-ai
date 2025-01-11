@@ -11,8 +11,8 @@ const handleError = () => clearError({ redirect: "/" });
 <template>
   <NuxtLayout>
     <div class="flex flex-col items-center gap-4 py-8">
-      <h1 class="text-3xl text-center md:text-4xl lg:text-5xl">
-        Something went wrong
+      <h1 class="text-center text-3xl md:text-4xl lg:text-5xl">
+        {{ props.error?.statusMessage }}
       </h1>
       <TextGradient>
         <h2 class="text-3xl md:text-4xl lg:text-5xl">

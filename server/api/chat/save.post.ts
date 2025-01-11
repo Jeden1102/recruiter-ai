@@ -1,10 +1,12 @@
 import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "#auth";
+import { v4 as uuidv4 } from "uuid";
 
 const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
   try {
+    let chatId = "";
     const session = await getServerSession(event);
 
     if (!session || !session.user) {
@@ -16,23 +18,37 @@ export default defineEventHandler(async (event) => {
 
     const body = await readBody(event);
 
-    const savedChat = await prisma.chat.create({
-      data: {
-        email: session.user.email,
-        type: body.type,
-        questions: body.questions,
-        task: body.task,
-        requirements: body.requirements,
-        responsibilities: body.responsibilities,
-        position: body.position,
-        niceToHave: body.niceToHave,
-        level: body.level,
-        file: body.file,
-        url: body.url,
-      },
-    });
+    if (body.id) {
+      const savedChat = await prisma.chat.update({
+        where: {
+          id: body.id,
+        },
+        data: {
+          questions: body.questions,
+        },
+      });
 
-    return { success: true, id: savedChat.id };
+      chatId = savedChat.id;
+    } else {
+      const savedChat = await prisma.chat.create({
+        data: {
+          email: session.user.email,
+          type: body.type,
+          questions: body.questions,
+          task: body.task,
+          requirements: body.requirements,
+          responsibilities: body.responsibilities,
+          position: body.position,
+          niceToHave: body.niceToHave,
+          level: body.level,
+          file: body.file,
+          url: body.url,
+        },
+      });
+      chatId = savedChat.id;
+    }
+
+    return { success: true, id: chatId };
   } catch (error) {
     console.error("Error saving chat:", error);
     throw createError({

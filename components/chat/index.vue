@@ -51,6 +51,8 @@ const { locale } = useI18n();
 
 const emit = defineEmits(["reset"]);
 
+const chatId = ref("");
+
 const props = defineProps<{
   general: General;
   details: Details;
@@ -161,6 +163,8 @@ const sanitizeJSON = (content: string) => {
 
   sanitized = sanitized.replace(/\\(?=")/g, "\\\\");
 
+  sanitized = sanitized.replace(/,(\s*[}\]])/g, "$1");
+
   return sanitized;
 };
 
@@ -197,14 +201,13 @@ async function generateQuestions() {
       role: response[0].message.role,
       content: response[0].message.content,
     };
-
     const obj = JSON.parse(sanitizeJSON(responseMessage.content));
     data.value.questions = obj.questions;
     data.value.task = obj.task;
     data.value.errorMessage = obj.error;
     chatTree.value.push(responseMessage);
 
-    if (!user) return;
+    if (!user.value) return;
 
     const res = await useSaveChat({
       type: props.type,
@@ -219,7 +222,7 @@ async function generateQuestions() {
       url: props.details.url,
     });
 
-    console.log(res, "here");
+    chatId.value = res || "";
   } catch (error) {
     console.log(error);
     isError.value = true;
@@ -250,6 +253,13 @@ async function generateNewQuestions() {
     const obj = JSON.parse(sanitizeJSON(responseMessage.content));
     data.value.questions.push(...obj.questions);
     chatTree.value.push(responseMessage);
+
+    if (!user.value) return;
+
+    await useSaveChat({
+      questions: data.value.questions,
+      id: chatId.value,
+    });
   } catch (error) {
     console.log(error);
     isError.value = true;
