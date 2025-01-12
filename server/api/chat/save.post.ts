@@ -35,6 +35,7 @@ export default defineEventHandler(async (event) => {
           level: body.level,
           file: body.file,
           url: body.url,
+          title: body.title,
         },
       });
       chatId = savedChat.id;

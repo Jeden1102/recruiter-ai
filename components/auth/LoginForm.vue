@@ -17,11 +17,14 @@ const formSchema = toTypedSchema(loginSchema);
 
 const responseError = ref("");
 
+const isLoading = ref(false);
+
 const form = useForm({
   validationSchema: formSchema,
 });
 
 const onSubmit = form.handleSubmit(async (values) => {
+  isLoading.value = true;
   const result = await signIn("credentials", {
     ...values,
     redirect: false,
@@ -32,6 +35,7 @@ const onSubmit = form.handleSubmit(async (values) => {
   } else {
     useRouter().push("/profile");
   }
+  isLoading.value = false;
 });
 </script>
 
@@ -63,7 +67,14 @@ const onSubmit = form.handleSubmit(async (values) => {
         <FormMessage />
       </FormItem>
     </FormField>
-    <Button type="submit" class="mt-2 w-full"> Login </Button>
+    <Button
+      :loading="isLoading"
+      :disabled="isLoading"
+      type="submit"
+      class="mt-2 w-full"
+    >
+      Login
+    </Button>
     <p v-if="responseError" class="text-center text-red-500">
       {{ responseError }}
     </p>

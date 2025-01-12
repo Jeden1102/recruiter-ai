@@ -10,6 +10,7 @@ type Chat = {
   level?: string;
   url?: string;
   id?: string;
+  title?: string;
 };
 
 export default async function (data: Chat) {
@@ -28,6 +29,7 @@ export default async function (data: Chat) {
         file: data.file,
         url: data.url,
         id: data.id,
+        title: data.title,
       },
     });
 

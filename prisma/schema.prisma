@@ -31,6 +31,7 @@ model Chat {
   responsibilities String?
   niceToHave       String?
   file             String?
+  title            String?
   type             String
   level            String
   questions        Json

@@ -50,8 +50,6 @@ import type { Details, General, Question } from "./types";
 import { ref, onMounted } from "vue";
 const { chatCompletion } = useChatgpt();
 
-const { data: user } = useAuth();
-
 const { locale } = useI18n();
 
 const emit = defineEmits(["reset"]);
@@ -59,7 +57,6 @@ const emit = defineEmits(["reset"]);
 const chatId = ref("");
 
 const chatUri = computed(() => {
-  console.log(chatId.value);
   return `${window.location.href}/${chatId.value}`;
 });
 
@@ -95,6 +92,7 @@ const chatTree = ref([
       7. Jesli to mozliwe dla stanowiska, postaraj sie zadac z 2-3 pytania typowo techniczne z wiedzy o umiejetnosciach/technologiach ktore sa wymagane/mile widziane.
       8. WAZNE - Pamietaj aby odpowiedz byla w formie JSON, tak bym mogl ja wrzucic do JSON.parse(). Nie uwzgledniaj tych tagow json.
       9. Odpowiedz przygotuj w jezyku ${locale.value}.
+      10. W kluczu "title" dodaj tytul, ktory opisuje temat rozmowy - ma to byc prosty, kilkuwyrazowy max. string.
     `.trim(),
   },
 ]);
@@ -228,6 +226,7 @@ async function generateQuestions() {
       level: props.general.level,
       file: props.details.file ? await useFileToBase64(props.details.file) : "",
       url: props.details.url,
+      title: obj.title,
     });
 
     chatId.value = res || "";

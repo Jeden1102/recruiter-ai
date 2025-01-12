@@ -30,55 +30,24 @@ import {
 import { h, ref } from "vue";
 import { valueUpdater } from "~/lib/utils";
 
-export interface Payment {
+export interface Chat {
   id: string;
-  amount: number;
-  status: "pending" | "processing" | "success" | "failed";
+  createdAt: string;
   email: string;
+  title: string;
+  type: string;
 }
 
-const data: Payment[] = [
-  {
-    id: "m5gr84i9",
-    amount: 316,
-    status: "success",
-    email: "ken99@yahoo.com",
-  },
-  {
-    id: "3u1reuv4",
-    amount: 242,
-    status: "success",
-    email: "Abe45@gmail.com",
-  },
-  {
-    id: "derv1ws0",
-    amount: 837,
-    status: "processing",
-    email: "Monserrat44@gmail.com",
-  },
-  {
-    id: "5kma53ae",
-    amount: 874,
-    status: "success",
-    email: "Silas22@gmail.com",
-  },
-  {
-    id: "bhqecj4p",
-    amount: 721,
-    status: "failed",
-    email: "carmella@hotmail.com",
-  },
-];
+const data: Chat[] = await useGetUserChats();
 
-const columns: ColumnDef<Payment>[] = [
+const columns: ColumnDef<Chat>[] = [
   {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) =>
-      h("div", { class: "capitalize" }, row.getValue("status")),
+    accessorKey: "id",
+    header: "ID",
+    cell: ({ row }) => h("div", { class: "capitalize" }, row.getValue("id")),
   },
   {
-    accessorKey: "email",
+    accessorKey: "createdAt",
     header: ({ column }) => {
       return h(
         Button,
@@ -86,22 +55,24 @@ const columns: ColumnDef<Payment>[] = [
           variant: "ghost",
           onClick: () => column.toggleSorting(column.getIsSorted() === "asc"),
         },
-        () => ["Email", h(CaretSortIcon, { class: "ml-2 h-4 w-4" })],
+        () => ["Created", h(CaretSortIcon, { class: "ml-2 h-4 w-4" })],
       );
     },
-    cell: ({ row }) => h("div", { class: "lowercase" }, row.getValue("email")),
+    cell: ({ row }) =>
+      h("div", { class: "lowercase" }, row.getValue("createdAt")),
   },
   {
-    accessorKey: "amount",
-    header: () => h("div", { class: "text-right" }, "Amount"),
+    accessorKey: "title",
+    header: () => h("div", "Title"),
+    cell: ({ row }) => h("div", { class: "lowercase" }, row.getValue("title")),
+  },
+  {
+    accessorKey: "type",
+    header: () => h("div", "Type"),
     cell: ({ row }) => {
-      const amount = Number.parseFloat(row.getValue("amount"));
+      const amount = row.getValue("type");
 
-      // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
+      const formatted = amount;
 
       return h("div", { class: "text-right font-medium" }, formatted);
     },
@@ -155,9 +126,9 @@ const table = useVueTable({
     <div class="flex items-center py-4">
       <Input
         class="max-w-sm"
-        placeholder="Filter emails..."
-        :model-value="table.getColumn('email')?.getFilterValue() as string"
-        @update:model-value="table.getColumn('email')?.setFilterValue($event)"
+        placeholder="Search by title..."
+        :model-value="table.getColumn('title')?.getFilterValue() as string"
+        @update:model-value="table.getColumn('title')?.setFilterValue($event)"
       />
     </div>
     <div class="rounded-md border">

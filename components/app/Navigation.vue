@@ -51,7 +51,9 @@
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <NuxtLinkLocale to="/profile"> Profile </NuxtLinkLocale>
+                <NuxtLinkLocale to="/profile" @click="toggleMenuIfMobile">
+                  Profile
+                </NuxtLinkLocale>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />

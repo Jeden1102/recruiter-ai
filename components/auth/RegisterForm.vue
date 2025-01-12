@@ -17,6 +17,8 @@ const formSchema = toTypedSchema(registerSchema);
 
 const responseError = ref("");
 
+const isLoading = ref(false);
+
 const form = useForm({
   validationSchema: formSchema,
 });
@@ -28,6 +30,7 @@ type Error = {
 };
 
 const onSubmit = form.handleSubmit(async (values) => {
+  isLoading.value = true;
   try {
     const response = await $fetch("/api/register", {
       method: "POST",
@@ -51,6 +54,7 @@ const onSubmit = form.handleSubmit(async (values) => {
       responseError.value = "Something went wrong. Please try again.";
     }
   }
+  isLoading.value = false;
 });
 </script>
 
@@ -95,7 +99,14 @@ const onSubmit = form.handleSubmit(async (values) => {
         <FormMessage />
       </FormItem>
     </FormField>
-    <Button type="submit" class="mt-2 w-full"> Register </Button>
+    <Button
+      :loading="isLoading"
+      :disabled="isLoading"
+      type="submit"
+      class="mt-2 w-full"
+    >
+      Register
+    </Button>
     <p v-if="responseError" class="text-center text-red-500">
       {{ responseError }}
     </p>
