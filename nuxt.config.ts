@@ -27,6 +27,7 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "@nuxtjs/i18n",
     "@sidebase/nuxt-auth",
+    "@stefanobartoletti/nuxt-social-share",
   ],
   auth: {
     isEnabled: true,

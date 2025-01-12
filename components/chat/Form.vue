@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { NuxtLinkLocale } from "#components";
 import type { Details, General } from "./types";
+
+const { data } = useAuth();
 
 const route = useRoute();
 
@@ -68,6 +71,15 @@ onMounted(() => {
         </template>
       </div>
     </transition>
+    <Alert class="mt-8 flex gap-4" v-if="!data">
+      <Icon name="material-symbols:account-circle-full" size="20" />
+      <AlertDescription class="text-base">
+        <AlertTitle>Save your chat history!</AlertTitle>
+        <NuxtLinkLocale to="/login" class="font-semibold text-primary">
+          Create a free account
+        </NuxtLinkLocale>
+      </AlertDescription>
+    </Alert>
   </div>
 </template>
 

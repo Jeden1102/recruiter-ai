@@ -860,7 +860,7 @@
   optionalDependencies:
     ipx "^2.1.0"
 
-"@nuxt/kit@^3.10.3", "@nuxt/kit@^3.11.2", "@nuxt/kit@^3.13.1", "@nuxt/kit@^3.13.2", "@nuxt/kit@^3.14.1592", "@nuxt/kit@latest":
+"@nuxt/kit@^3.10.3", "@nuxt/kit@^3.11.2", "@nuxt/kit@^3.13.1", "@nuxt/kit@^3.13.2", "@nuxt/kit@^3.14.159", "@nuxt/kit@^3.14.1592", "@nuxt/kit@latest":
   version "3.14.1592"
   resolved "https://registry.npmjs.org/@nuxt/kit/-/kit-3.14.1592.tgz"
   integrity sha512-r9r8bISBBisvfcNgNL3dSIQHSBe0v5YkX5zwNblIC2T0CIEgxEVoM5rq9O5wqgb5OEydsHTtT2hL57vdv6VT2w==
@@ -1316,6 +1316,14 @@
   version "2.3.0"
   resolved "https://registry.npmjs.org/@sindresorhus/merge-streams/-/merge-streams-2.3.0.tgz"
   integrity sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==
+
+"@stefanobartoletti/nuxt-social-share@^1.2.0":
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/@stefanobartoletti/nuxt-social-share/-/nuxt-social-share-1.2.1.tgz"
+  integrity sha512-1Ey8vXg+4OXzxZFhSS3IN+DjYQzHMnGs0Jz46g+kOyUZeTI6Lt3cH7rgBnR9gUGFXGerHbGqyEw4IbZ6fnUcww==
+  dependencies:
+    "@nuxt/kit" "^3.14.159"
+    defu "^6.1.4"
 
 "@swc/helpers@^0.5.0":
   version "0.5.15"

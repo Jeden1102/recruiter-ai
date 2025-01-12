@@ -18,6 +18,11 @@
     </ChatError>
 
     <div v-if="chatTree.length > 0 && !isLoading && !isError" class="mt-4">
+      <AppShareable
+        :uri="chatUri"
+        subtitle="Save a link to the result or share on social media"
+        title="Share or save the results"
+      />
       <ChatQuestions
         v-if="data.questions"
         :questions="data.questions"
@@ -52,6 +57,11 @@ const { locale } = useI18n();
 const emit = defineEmits(["reset"]);
 
 const chatId = ref("");
+
+const chatUri = computed(() => {
+  console.log(chatId.value);
+  return `${window.location.href}/${chatId.value}`;
+});
 
 const props = defineProps<{
   general: General;
@@ -207,8 +217,6 @@ async function generateQuestions() {
     data.value.errorMessage = obj.error;
     chatTree.value.push(responseMessage);
 
-    if (!user.value) return;
-
     const res = await useSaveChat({
       type: props.type,
       questions: data.value.questions,
@@ -253,8 +261,6 @@ async function generateNewQuestions() {
     const obj = JSON.parse(sanitizeJSON(responseMessage.content));
     data.value.questions.push(...obj.questions);
     chatTree.value.push(responseMessage);
-
-    if (!user.value) return;
 
     await useSaveChat({
       questions: data.value.questions,

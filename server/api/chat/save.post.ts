@@ -1,6 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "#auth";
-import { v4 as uuidv4 } from "uuid";
 
 const prisma = new PrismaClient();
 
@@ -8,13 +7,6 @@ export default defineEventHandler(async (event) => {
   try {
     let chatId = "";
     const session = await getServerSession(event);
-
-    if (!session || !session.user) {
-      throw createError({
-        statusCode: 401,
-        statusMessage: "Unauthorized",
-      });
-    }
 
     const body = await readBody(event);
 
@@ -32,7 +24,7 @@ export default defineEventHandler(async (event) => {
     } else {
       const savedChat = await prisma.chat.create({
         data: {
-          email: session.user.email,
+          email: session?.user?.email || "",
           type: body.type,
           questions: body.questions,
           task: body.task,
