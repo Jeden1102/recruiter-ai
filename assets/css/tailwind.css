@@ -78,7 +78,12 @@
     @apply border-border font-urbanist;
   }
   body {
-    @apply bg-background text-foreground overflow-x-hidden min-h-screen;
+    @apply min-h-screen overflow-x-hidden bg-background text-foreground;
+  }
+
+  input,
+  textarea {
+    @apply !text-base;
   }
 }
 
@@ -98,11 +103,11 @@
   }
 
   .link-bg-hover {
-    @apply relative after:hidden md:after:block after:content-[''] after:w-0 after:h-full after:-z-10 after:bg-primary after:absolute after:left-0 after:top-0 hover:after:w-full after:transition-all after:duration-200;
+    @apply relative after:absolute after:left-0 after:top-0 after:-z-10 after:hidden after:h-full after:w-0 after:bg-primary after:transition-all after:duration-200 after:content-[''] hover:after:w-full md:after:block;
   }
 
   .nav-link {
-    @apply text-3xl md:text-base md:px-2 md:py-1;
+    @apply text-3xl md:px-2 md:py-1 md:text-base;
   }
 }
 

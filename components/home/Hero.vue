@@ -21,6 +21,7 @@
         height="520"
         alt="Bubbles image"
         class="mt-8"
+        format="webp"
       />
     </div>
     <GradientCircle :position="{ x: 'left', y: 'top' }" variant="primary" />
