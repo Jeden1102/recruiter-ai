@@ -6,6 +6,10 @@ export default defineI18nConfig(() => ({
         logIn: "Log in",
         generateNew: "Generate new questions",
         generate: "Generate",
+        copy: "Copy",
+        copied: "Copied",
+        share: "Share",
+        close: "Close",
       },
       navigation: {
         home: "Home",
@@ -13,6 +17,10 @@ export default defineI18nConfig(() => ({
         recruiter: "Recruiter",
         login: "Login",
         logout: "Logout",
+        profile: "Profile",
+        account: "Account",
+        myAccount: "My account",
+        logOut: "Logout",
       },
       footer: {
         navigationTitle: "Navigation",
@@ -170,6 +178,16 @@ export default defineI18nConfig(() => ({
           "Discover the power of AI recruitment and streamline your hiring process.",
       },
       noAnswer: "No answer",
+      auth: {
+        login: "Login",
+        password: "Password",
+        passwordRepeat: "Password repeat",
+        register: "Register",
+      },
+      share: {
+        title: "Share or save the results",
+        subtitle: "Save a link to the result or share on social media",
+      },
     },
     pl: {
       common: {
@@ -177,6 +195,10 @@ export default defineI18nConfig(() => ({
         logIn: "Zaloguj się",
         generateNew: "Generuj nowe pytania",
         generate: "Generuj",
+        copy: "Kopiuj",
+        copied: "Skopiowano",
+        share: "Udostępnij",
+        close: "Zamknij",
       },
       navigation: {
         home: "Strona główna",
@@ -184,6 +206,10 @@ export default defineI18nConfig(() => ({
         recruiter: "Rekruter",
         login: "Zaloguj",
         logout: "Wyloguj",
+        profile: "Profil",
+        account: "Konto",
+        myAccount: "Moje konto",
+        logOut: "Wyloguj",
       },
       jobAnalysis: "Trwa analiza oferty pracy",
       jobAnalysisNew: "Generowane są nowe pytania",
@@ -344,6 +370,17 @@ export default defineI18nConfig(() => ({
         title: "Rekruter",
         description:
           "Odkryj nowoczesne rozwiązania rekrutacyjne wspierane przez AI.",
+      },
+      auth: {
+        login: "Zaloguj się",
+        password: "Hasło",
+        passwordRepeat: "Powtórz hasło",
+        register: "Zarejestruj się",
+      },
+      share: {
+        title: "Udostępnij lub zapisz wyniki",
+        subtitle:
+          "Zapisz link do wyniku lub udostępnij w mediach społecznościowych",
       },
     },
   },

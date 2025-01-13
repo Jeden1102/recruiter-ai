@@ -19,9 +19,10 @@
 
     <div v-if="chatTree.length > 0 && !isLoading && !isError" class="mt-4">
       <AppShareable
+        v-if="chatId"
         :uri="chatUri"
-        subtitle="Save a link to the result or share on social media"
-        title="Share or save the results"
+        :subtitle="$t('share.subtitle')"
+        :title="$t('share.title')"
       />
       <ChatQuestions
         v-if="data.questions"
@@ -50,8 +51,8 @@
           }"
           @click="emit('reset')"
         />
-
         <ProductCard
+          v-if="!user"
           :card="{
             title: 'Save your chats',
             description: 'Login or create an account to save your chats',

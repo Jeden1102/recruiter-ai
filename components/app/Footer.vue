@@ -27,7 +27,13 @@
       </div>
     </div>
     <div class="container border-t border-zinc-600 py-4 md:pb-8">
-      <p class="text-center text-sm text-zinc-300">© 2023 Recruiter AI</p>
+      <p class="text-center text-sm text-zinc-300">
+        © {{ currentYear }} Recruiter AI
+      </p>
     </div>
   </footer>
 </template>
+
+<script lang="ts" setup>
+const currentYear = new Date().getFullYear();
+</script>

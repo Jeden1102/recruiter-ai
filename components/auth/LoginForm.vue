@@ -56,7 +56,7 @@ const onSubmit = form.handleSubmit(async (values) => {
     </FormField>
     <FormField v-slot="{ componentField }" name="password">
       <FormItem>
-        <FormLabel>Password</FormLabel>
+        <FormLabel>{{ $t("auth.password") }}</FormLabel>
         <FormControl>
           <Input
             type="password"
@@ -73,7 +73,7 @@ const onSubmit = form.handleSubmit(async (values) => {
       type="submit"
       class="mt-2 w-full"
     >
-      Login
+      {{ $t("auth.login") }}
     </Button>
     <p v-if="responseError" class="text-center text-red-500">
       {{ responseError }}

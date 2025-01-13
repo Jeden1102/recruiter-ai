@@ -75,7 +75,7 @@ const onSubmit = form.handleSubmit(async (values) => {
     </FormField>
     <FormField v-slot="{ componentField }" name="password">
       <FormItem>
-        <FormLabel>Password</FormLabel>
+        <FormLabel>{{ $t("auth.password") }}</FormLabel>
         <FormControl>
           <Input
             type="password"
@@ -88,7 +88,7 @@ const onSubmit = form.handleSubmit(async (values) => {
     </FormField>
     <FormField v-slot="{ componentField }" name="passwordRepeat">
       <FormItem>
-        <FormLabel>Password repeat</FormLabel>
+        <FormLabel>{{ $t("auth.passwordRepeat") }}</FormLabel>
         <FormControl>
           <Input
             type="password"
@@ -105,7 +105,7 @@ const onSubmit = form.handleSubmit(async (values) => {
       type="submit"
       class="mt-2 w-full"
     >
-      Register
+      {{ $t("auth.register") }}
     </Button>
     <p v-if="responseError" class="text-center text-red-500">
       {{ responseError }}

@@ -1,18 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { CopyIcon } from "@radix-icons/vue";
 
 const props = defineProps<{
@@ -57,8 +44,8 @@ const copyToClipboard = async () => {
           <Input id="link" :default-value="uri" read-only disabled />
         </div>
         <Button type="button" @click="copyToClipboard">
-          <span v-if="!copied" class="sr-only">Copy</span>
-          <span v-else class="text-xs">Copied!</span>
+          <span v-if="!copied" class="sr-only">{{ $t("common.copy") }}</span>
+          <span v-else class="text-xs">{{ $t("common.copied") }}</span>
           <CopyIcon class="h-4 w-4" />
         </Button>
       </div>
@@ -66,14 +53,14 @@ const copyToClipboard = async () => {
         <ClientOnly>
           <Button v-for="network in networks">
             <SocialShare :network="network" :url="uri">
-              <template #label>Udostępnij</template>
+              <template #label>{{ $t("common.share") }}</template>
             </SocialShare>
           </Button>
         </ClientOnly>
       </div>
       <DialogFooter class="sm:justify-start">
         <DialogClose as-child>
-          <Button type="button"> Close </Button>
+          <Button type="button"> {{ $t("common.close") }} </Button>
         </DialogClose>
       </DialogFooter>
     </DialogContent>

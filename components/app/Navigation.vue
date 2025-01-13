@@ -44,21 +44,25 @@
         </NuxtLinkLocale>
         <DropdownMenu v-else>
           <DropdownMenuTrigger as-child>
-            <Button variant="outline"> Account </Button>
+            <Button variant="outline"> {{ $t("navigation.account") }} </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent class="w-56">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuLabel>{{
+              $t("navigation.myAccount")
+            }}</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <NuxtLinkLocale to="/profile" @click="toggleMenuIfMobile">
-                  Profile
+                  {{ $t("navigation.profile") }}
                 </NuxtLinkLocale>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuSeparator />
-            <DropdownMenuItem @click="logOut"> Log out </DropdownMenuItem>
+            <DropdownMenuItem @click="logOut">
+              {{ $t("navigation.logOut") }}
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 
