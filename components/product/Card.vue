@@ -12,10 +12,21 @@
     </TextGradient>
     <p class="text-xl">{{ $t(card.description) }}</p>
     <div class="mt-auto">
-      <Button asChild class="mt-10 w-fit" size="lg">
+      <Button v-if="card.key" asChild class="mt-10 w-fit" size="lg">
         <NuxtLinkLocale :to="`/recruiter?mode=${card.key}`">
           {{ $t("common.getStarted") }}
         </NuxtLinkLocale>
+      </Button>
+      <Button
+        v-else
+        asChild
+        class="mt-10 w-fit"
+        size="lg"
+        @click="emits('click')"
+      >
+        <NuxtLinkLocaleLocale :to="card.uri || '#'">
+          {{ card.cta }}
+        </NuxtLinkLocaleLocale>
       </Button>
     </div>
     <NuxtImg
@@ -32,7 +43,9 @@
 import { twMerge } from "tailwind-merge";
 
 const props = defineProps<{
-  card: { title: string; description: string; key: string };
+  card: { title: string; description: string; key?: string; uri?: string };
   last: boolean;
 }>();
+
+const emits = defineEmits(["click"]);
 </script>

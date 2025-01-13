@@ -40,6 +40,26 @@
       >
         {{ $t("common.generateNew") }}
       </Button>
+
+      <div class="mt-4 flex flex-col gap-2 md:flex-row">
+        <ProductCard
+          :card="{
+            title: 'New chat',
+            description: 'Try different settings and generate new questions',
+            cta: 'Try new chat',
+          }"
+          @click="emit('reset')"
+        />
+
+        <ProductCard
+          :card="{
+            title: 'Save your chats',
+            description: 'Login or create an account to save your chats',
+            cta: 'Login',
+            uri: '/login',
+          }"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -55,6 +75,8 @@ const { locale } = useI18n();
 const emit = defineEmits(["reset"]);
 
 const chatId = ref("");
+
+const { data: user } = useAuth();
 
 const chatUri = computed(() => {
   return `${window.location.href}/${chatId.value}`;
