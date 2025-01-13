@@ -18,15 +18,15 @@
         </NuxtLinkLocale>
       </Button>
       <Button
-        v-else
+        v-else-if="card.cta"
         asChild
         class="mt-10 w-fit"
         size="lg"
         @click="emits('click')"
       >
-        <NuxtLinkLocaleLocale :to="card.uri || '#'">
+        <NuxtLinkLocale :to="card.uri || '#'">
           {{ card.cta }}
-        </NuxtLinkLocaleLocale>
+        </NuxtLinkLocale>
       </Button>
     </div>
     <NuxtImg
@@ -43,8 +43,14 @@
 import { twMerge } from "tailwind-merge";
 
 const props = defineProps<{
-  card: { title: string; description: string; key?: string; uri?: string };
-  last: boolean;
+  card: {
+    title: string;
+    description: string;
+    key?: string;
+    cta?: string;
+    uri?: string;
+  };
+  last?: boolean;
 }>();
 
 const emits = defineEmits(["click"]);

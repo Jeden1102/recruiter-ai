@@ -29,6 +29,8 @@ import {
 } from "@tanstack/vue-table";
 import { h, ref } from "vue";
 import { valueUpdater } from "~/lib/utils";
+import { NuxtLink } from "#components";
+import Badge from "../ui/badge/Badge.vue";
 
 export interface Chat {
   id: string;
@@ -42,9 +44,9 @@ const data: Chat[] = await useGetUserChats();
 
 const columns: ColumnDef<Chat>[] = [
   {
-    accessorKey: "id",
-    header: "ID",
-    cell: ({ row }) => h("div", { class: "capitalize" }, row.getValue("id")),
+    accessorKey: "title",
+    header: () => h("div", "Title"),
+    cell: ({ row }) => h("div", { class: "w-72" }, row.getValue("title")),
   },
   {
     accessorKey: "createdAt",
@@ -58,24 +60,35 @@ const columns: ColumnDef<Chat>[] = [
         () => ["Created", h(CaretSortIcon, { class: "ml-2 h-4 w-4" })],
       );
     },
-    cell: ({ row }) =>
-      h("div", { class: "lowercase" }, row.getValue("createdAt")),
+    cell: ({ row }) => {
+      const rawDate = row.getValue("createdAt");
+      const formattedDate = new Date(rawDate).toLocaleString("pl-PL", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      return h("div", { class: "lowercase" }, formattedDate);
+    },
   },
   {
-    accessorKey: "title",
-    header: () => h("div", "Title"),
-    cell: ({ row }) => h("div", { class: "lowercase" }, row.getValue("title")),
+    accessorKey: "id",
+    header: "Action",
+    cell: ({ row }) => {
+      const id = row.getValue("id");
+      return h(
+        NuxtLink,
+        { to: `/recruiter/${id}`, class: "text-primary font-bold" },
+        "Preview",
+      );
+    },
   },
   {
     accessorKey: "type",
     header: () => h("div", "Type"),
-    cell: ({ row }) => {
-      const amount = row.getValue("type");
-
-      const formatted = amount;
-
-      return h("div", { class: "text-right font-medium" }, formatted);
-    },
+    cell: ({ row }) => h(Badge, { class: "uppercase" }, row.getValue("type")),
   },
 ];
 
@@ -122,7 +135,7 @@ const table = useVueTable({
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-full" v-if="data.length > 0">
     <div class="flex items-center py-4">
       <Input
         class="max-w-sm"
@@ -195,5 +208,16 @@ const table = useVueTable({
         </Button>
       </div>
     </div>
+  </div>
+  <div v-else class="mt-4">
+    <ProductCard
+      :card="{
+        title: 'Empty chat history',
+        description:
+          'Nothing to worry about... you can start a new chat and find the job of your dreams',
+        cta: 'Start a new chat',
+        uri: '/recruiter',
+      }"
+    />
   </div>
 </template>

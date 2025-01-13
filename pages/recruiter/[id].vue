@@ -41,6 +41,7 @@ try {
   })) as Response;
   questions.value = res.questions;
   task.value = res.task;
+  console.log(res);
 } catch (error) {
   throw createError({
     statusCode: 404,
