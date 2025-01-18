@@ -18,6 +18,7 @@ export default defineNuxtConfig({
       APP_BASE_URI: process.env.NUXT_PUBLIC_APP_BASE_URI,
     },
   },
+  buildModules: ["@nuxtjs/pwa"],
   modules: [
     "nuxt-chatgpt",
     "@nuxtjs/tailwindcss",
@@ -29,6 +30,12 @@ export default defineNuxtConfig({
     "@sidebase/nuxt-auth",
     "@stefanobartoletti/nuxt-social-share",
   ],
+  pwa: {
+    meta: {
+      name: "Recruiter AI",
+      theme_color: "#5050dc",
+    },
+  },
   auth: {
     isEnabled: true,
     disableServerSideAuth: false,

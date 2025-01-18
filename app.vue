@@ -19,8 +19,10 @@ useHead({
 useSeoMeta({
   title: "Home",
   ogTitle: "Home",
-  description: "This is my amazing site, let me tell you all about it.",
-  ogDescription: "This is my amazing site, let me tell you all about it.",
+  description:
+    "Recruiter AI - generate interview questions with the use of AI.",
+  ogDescription:
+    "Recruiter AI - generate interview questions with the use of AI.",
   ogImage: config.public.APP_BASE_URI + "/bubbles.png",
   twitterCard: "summary_large_image",
 });
