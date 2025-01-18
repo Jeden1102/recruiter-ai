@@ -21,6 +21,9 @@
             $t("common.getStarted")
           }}</NuxtLinkLocale>
         </Button>
+        <Button v-if="canInstall" size="lg" class="mt-4" @click="installApp">
+          {{ $t("home.callToAction.installApp") }}
+        </Button>
         <NuxtImg
           src="/images/decorative.svg"
           width="580"
@@ -32,3 +35,28 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { ref, onMounted } from "vue";
+
+const canInstall = ref(true);
+let deferredPrompt: any = null;
+
+onMounted(() => {
+  window.addEventListener("beforeinstallprompt", (e: Event) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    canInstall.value = true;
+  });
+});
+
+const installApp = async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User choice: ${outcome}`);
+    deferredPrompt = null;
+    canInstall.value = false;
+  }
+};
+</script>

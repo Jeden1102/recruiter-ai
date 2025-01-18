@@ -18,7 +18,6 @@ export default defineNuxtConfig({
       APP_BASE_URI: process.env.NUXT_PUBLIC_APP_BASE_URI,
     },
   },
-  buildModules: ["@nuxtjs/pwa"],
   modules: [
     "nuxt-chatgpt",
     "@nuxtjs/tailwindcss",
@@ -29,11 +28,42 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@sidebase/nuxt-auth",
     "@stefanobartoletti/nuxt-social-share",
+    "@vite-pwa/nuxt",
   ],
   pwa: {
-    meta: {
+    manifest: {
       name: "Recruiter AI",
-      theme_color: "#5050dc",
+      short_name: "Recruiter AI",
+      description: "Recruiter AI",
+      icons: [
+        {
+          src: "icons/icon_64x64.png",
+          sizes: "64x64",
+          type: "image/png",
+        },
+        {
+          src: "icons/icon_144x144.png",
+          sizes: "144x144",
+          type: "image/png",
+        },
+        {
+          src: "icons/icon_192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: "icons/icon_512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+      ],
+    },
+    workbox: {
+      navigateFallback: "/",
+    },
+    devOptions: {
+      enabled: true,
+      type: "module",
     },
   },
   auth: {

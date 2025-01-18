@@ -131,6 +131,7 @@ export default defineI18nConfig(() => ({
           assistantDescription:
             "Make the hiring process more efficient and effective with our AI assistant.",
           decorativeImageAlt: "Decorative background image",
+          installApp: "Install app",
         },
       },
       features: {
@@ -327,6 +328,7 @@ export default defineI18nConfig(() => ({
           assistantDescription:
             "Usprawnij i przyspiesz proces rekrutacyjny dzięki naszemu asystentowi AI.",
           decorativeImageAlt: "Dekoracyjna grafika w tle",
+          installApp: "Zainstaluj aplikacje",
         },
       },
       features: {

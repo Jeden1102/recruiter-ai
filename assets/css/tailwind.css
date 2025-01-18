@@ -118,3 +118,7 @@
 .nav-link {
   @apply md:border-b-2 md:border-transparent;
 }
+
+.nuxt-loading-indicator {
+  @apply !bg-gradient-to-r from-primary to-secondary !opacity-100;
+}
