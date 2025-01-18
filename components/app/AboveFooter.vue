@@ -39,7 +39,7 @@
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
 
-const canInstall = ref(true);
+const canInstall = ref(false);
 let deferredPrompt: any = null;
 
 onMounted(() => {
