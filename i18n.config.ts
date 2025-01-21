@@ -14,7 +14,7 @@ export default defineI18nConfig(() => ({
       navigation: {
         home: "Home",
         product: "Product",
-        recruiter: "Recruiter",
+        recruiter: "Candidate Tools",
         login: "Login",
         logout: "Logout",
         profile: "Profile",
@@ -36,7 +36,7 @@ export default defineI18nConfig(() => ({
         },
         cv: {
           title: "Upload your CV",
-          label: "Upload CV",
+          label: "Upload CV (JPG, PNG)",
         },
         custom: {
           title: "Enter Custom Details",
@@ -88,48 +88,48 @@ export default defineI18nConfig(() => ({
             description: "Enable this option to generate answers in advance.",
           },
           recruitmentTask: {
-            label: "Include recruitment task",
-            description: "Include a task that assesses the candidate’s skills.",
+            label: "Include practice task",
+            description: "Include a task to showcase your skills.",
           },
         },
       },
       home: {
         hero: {
-          title: "Discover the power of AI recruitment",
+          title: "Discover the power of AI for your job search",
           subtitle:
-            "Automate your hiring process and find the best candidates effortlessly",
+            "Get personalized questions to prepare for interviews effortlessly",
         },
         features: {
           title: "Features",
           description:
-            "Explore the unique features that make Recruiter AI the best solution for your hiring process.",
+            "Explore the unique features that make this tool perfect for candidates.",
           details: "More details about the features",
           feature1: {
             title: "CV based questions",
             description:
-              "Harness the power of your CV to generate tailored questions. This feature analyzes the contents of your CV to create relevant and personalized queries.",
+              "Generate tailored questions based on your CV to help you prepare effectively.",
           },
           feature2: {
             title: "Job offer URL based questions",
             description:
-              "Provide a job offer URL and let our system craft questions specific to the role. This ensures that the questions are aligned with the requirements of the job listing.",
+              "Input a job offer URL and get questions aligned with the role's requirements.",
           },
           feature3: {
             title: "Custom details based questions",
             description:
-              "Input your own settings to generate customized questions. This option allows for flexibility and personalization to meet specific recruitment needs.",
+              "Add custom details to generate personalized questions that suit your needs.",
           },
           feature4: {
             title: "Save your questions",
             description:
-              "Easily save your generated questions for future reference. This feature ensures you have access to your curated list whenever needed.",
+              "Save your generated questions for future preparation and easy access.",
           },
         },
         callToAction: {
           startWith: "Start with",
           poweredTool: "Powered by AI Tool",
           assistantDescription:
-            "Make the hiring process more efficient and effective with our AI assistant.",
+            "Make your interview preparation efficient and focused with our AI assistant.",
           decorativeImageAlt: "Decorative background image",
           installApp: "Install app",
         },
@@ -137,33 +137,33 @@ export default defineI18nConfig(() => ({
       features: {
         cv_questions_title: "CV Questions",
         cv_questions_description:
-          "Get insights into candidates' resumes and experience.",
+          "Prepare effectively with insights tailored to your resume.",
         url_questions_title: "URL Questions",
         url_questions_description:
-          "Assess candidates based on the provided job URL.",
+          "Get questions based on the provided job description URL.",
         custom_questions_title: "Custom Questions",
         custom_questions_description:
-          "Create personalized questions tailored to your specific hiring needs.",
+          "Generate questions tailored to your specific preparation needs.",
       },
-      jobAnalysis: "Job offer is being analyzed",
-      jobAnalysisNew: "New questions are being generated",
-      recruitmentTask: "Recruitment Task",
+      jobAnalysis: "Analyzing the job offer",
+      jobAnalysisNew: "Generating new questions",
+      recruitmentTask: "Practice Task",
       questions: {
         method: {
           title: "Select Question Method",
-          label: "Choose the method of asking questions",
+          label: "Choose how to generate questions",
           types: {
             url: {
               title: "URL Method",
-              description: "Ask questions based on a URL you provide",
+              description: "Generate questions from a job offer URL",
             },
             cv: {
               title: "CV Method",
-              description: "Ask questions based on the candidate's CV",
+              description: "Generate questions based on your CV",
             },
             custom: {
               title: "Custom Method",
-              description: "Ask questions you customize yourself",
+              description: "Generate personalized questions from custom inputs",
             },
           },
         },
@@ -171,12 +171,12 @@ export default defineI18nConfig(() => ({
       product: {
         title: "Product",
         description:
-          "Explore the unique features that make Recruiter AI the best solution for your hiring process.",
+          "Explore features that make preparing for job interviews easy and effective.",
       },
       recruiter: {
-        title: "Recruiter",
+        title: "Candidate Tools",
         description:
-          "Discover the power of AI recruitment and streamline your hiring process.",
+          "Discover how AI can assist you in preparing for your dream job.",
       },
       noAnswer: "No answer",
       auth: {
@@ -186,8 +186,8 @@ export default defineI18nConfig(() => ({
         register: "Register",
       },
       share: {
-        title: "Share or save the results",
-        subtitle: "Save a link to the result or share on social media",
+        title: "Share or save your results",
+        subtitle: "Save a link to your results or share them online",
       },
     },
     pl: {

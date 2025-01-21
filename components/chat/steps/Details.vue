@@ -123,6 +123,10 @@ const props = defineProps<{
   type: string;
 }>();
 
+const MAX_FILE_SIZE = 500000;
+
+const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
+
 const emit = defineEmits(["submit", "back"]);
 
 const prepareSchema = (): ZodType<any, ZodTypeDef, any> => {
@@ -133,9 +137,16 @@ const prepareSchema = (): ZodType<any, ZodTypeDef, any> => {
   }
   if (props.type === "cv") {
     return z.object({
-      file: z.any().refine((file) => file instanceof File, {
-        message: "File is required",
-      }),
+      file: z
+        .any()
+        .refine((file) => file instanceof File, {
+          message: "File is required",
+        })
+        .refine((file) => file.size <= MAX_FILE_SIZE, `Max file size is 5MB.`)
+        .refine(
+          (file) => ACCEPTED_IMAGE_TYPES.includes(file.type),
+          ".jpg, .jpeg, .png",
+        ),
     });
   }
   if (props.type === "custom") {

@@ -28,7 +28,8 @@
     </div>
     <div class="container border-t border-zinc-600 py-4 md:pb-8">
       <p class="text-center text-sm text-zinc-300">
-        © {{ currentYear }} Recruiter AI
+        © {{ currentYear }} Recruiter AI created by
+        <NuxtLink to="https://github.com/Jeden1102">jeden1102</NuxtLink>
       </p>
     </div>
   </footer>
