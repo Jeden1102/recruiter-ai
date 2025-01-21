@@ -123,7 +123,7 @@ const props = defineProps<{
   type: string;
 }>();
 
-const MAX_FILE_SIZE = 500000;
+const MAX_FILE_SIZE = 200000;
 
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
 
@@ -142,11 +142,12 @@ const prepareSchema = (): ZodType<any, ZodTypeDef, any> => {
         .refine((file) => file instanceof File, {
           message: "File is required",
         })
-        .refine((file) => file.size <= MAX_FILE_SIZE, `Max file size is 5MB.`)
-        .refine(
-          (file) => ACCEPTED_IMAGE_TYPES.includes(file.type),
-          ".jpg, .jpeg, .png",
-        ),
+        .refine((file) => file.size <= MAX_FILE_SIZE, {
+          message: `Max file size is 5MB.`,
+        })
+        .refine((file) => ACCEPTED_IMAGE_TYPES.includes(file.type), {
+          message: "Files of type .jpg, .jpeg, .png are accepted only.",
+        }),
     });
   }
   if (props.type === "custom") {
