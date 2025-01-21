@@ -123,7 +123,7 @@ const props = defineProps<{
   type: string;
 }>();
 
-const MAX_FILE_SIZE = 200000;
+const MAX_FILE_SIZE = 500000;
 
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
 
