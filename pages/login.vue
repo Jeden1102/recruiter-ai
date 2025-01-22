@@ -15,6 +15,12 @@ const providers = [
     icon: "mdi:linkedin",
     className: "bg-blue-600 hover:bg-blue-500",
   },
+    {
+    id: "google",
+    name: "Google",
+    icon: "mdi:google",
+    className: "bg-gray-400 hover:bg-gray-500",
+  },
 ];
 
 definePageMeta({

@@ -1,5 +1,6 @@
 import GithubProvider from "next-auth/providers/github";
 import LinkedInProvider from "next-auth/providers/linkedin";
+import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcrypt";
 import { loginSchema } from "~~/components/auth/loginSchema";
 
@@ -29,6 +30,10 @@ export default NuxtAuthHandler({
     GithubProvider.default({
       clientId: useRuntimeConfig().auth.github.clientId,
       clientSecret: useRuntimeConfig().auth.github.clientSecret,
+    }),
+    GoogleProvider.default({
+      clientId: useRuntimeConfig().auth.google.clientId,
+      clientSecret: useRuntimeConfig().auth.google.clientSecret,
     }),
     LinkedInProvider.default({
       clientId: useRuntimeConfig().auth.linkedin.clientId,

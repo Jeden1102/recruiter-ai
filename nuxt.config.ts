@@ -13,6 +13,10 @@ export default defineNuxtConfig({
         clientId: process.env.LINKEDIN_CLIENT_ID,
         clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
       },
+      google: {
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      },
     },
     public: {
       APP_BASE_URI: process.env.NUXT_PUBLIC_APP_BASE_URI,
