@@ -4,6 +4,12 @@ const { signIn } = useAuth();
 
 const providers = [
   {
+    id: "google",
+    name: "Google",
+    icon: "mdi:google",
+    className: "bg-[#4285F4] hover:bg-[#4285F4]/90",
+  },
+  {
     id: "github",
     name: "Github",
     icon: "mdi:github",
@@ -14,12 +20,6 @@ const providers = [
     name: "LinkedIn",
     icon: "mdi:linkedin",
     className: "bg-blue-600 hover:bg-blue-500",
-  },
-    {
-    id: "google",
-    name: "Google",
-    icon: "mdi:google",
-    className: "bg-gray-400 hover:bg-gray-500",
   },
 ];
 
