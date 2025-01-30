@@ -33,6 +33,7 @@ export default defineNuxtConfig({
     "@sidebase/nuxt-auth",
     "@stefanobartoletti/nuxt-social-share",
     "@vite-pwa/nuxt",
+    "@unlok-co/nuxt-stripe",
   ],
   pwa: {
     manifest: {
@@ -120,6 +121,15 @@ export default defineNuxtConfig({
       Urbanist: "100..700",
       Lato: [100, 300, 400, 700],
       Ubuntu: [300, 400, 500, 700],
+    },
+  },
+
+  stripe: {
+    server: {
+      key: process.env.STRIPE_SECRET_KEY,
+    },
+    client: {
+      key: process.env.STRIPE_PUBLIC_KEY,
     },
   },
 });

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { StripePaymentLink } from "#components";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 const { data } = useAuth();
