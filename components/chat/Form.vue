@@ -1,20 +1,27 @@
 <script setup lang="ts">
-import { NuxtLinkLocale } from "#components";
-import type { Details, General } from "./types";
-
-const { data } = useAuth();
+import type { Details, DifficultLevel, General } from "./types";
+import { Progress } from "@/components/ui/progress";
 
 const route = useRoute();
+
+const STEPS = 5;
 
 const step = ref(0);
 const type = ref<string>("");
 
 const details = ref<Details>({});
 
+const difficultLevel = ref<DifficultLevel>({});
+
 const general = ref<General>({});
 
 const handleSubmitDetails = (values: any) => {
   details.value = values;
+  step.value = ++step.value;
+};
+
+const handleSubmitDifficultLevel = (values: any) => {
+  difficultLevel.value = values;
   step.value = ++step.value;
 };
 
@@ -32,6 +39,10 @@ const isChatType = (value: string) => {
   return ["url", "cv", "custom"].includes(value);
 };
 
+const progressWidth = () => {
+  return ((step.value + 1) / STEPS) * 100;
+};
+
 onMounted(() => {
   if (route.query.mode && isChatType(route.query.mode as string)) {
     type.value = route.query.mode as string;
@@ -43,7 +54,7 @@ onMounted(() => {
 <template>
   <div class="relative flex-1">
     <transition name="fade-slide" mode="out-in" appear>
-      <div :key="step">
+      <div class="flex flex-col gap-4">
         <template v-if="step === 0">
           <ChatStepsType :type="type" @submit="handleTypeSubmit" />
         </template>
@@ -55,20 +66,34 @@ onMounted(() => {
           />
         </template>
         <template v-if="step === 2">
+          <ChatStepsDifficultLevel
+            :type="type"
+            @submit="handleSubmitDifficultLevel"
+            @back="step--"
+          />
+        </template>
+        <template v-if="step === 3">
           <ChatStepsGeneral
             :type="type"
             @submit="handleSubmitGeneral"
             @back="step--"
           />
         </template>
-        <template v-if="step === 3">
+        <template v-if="step === 4">
           <Chat
             :type="type"
             :details="details"
             :general="general"
+            :difficultLevel="difficultLevel"
             @reset="step = 0"
           />
         </template>
+        <div>
+          <p class="my-1 text-center text-sm font-semibold text-primary">
+            {{ step + 1 }} / {{ STEPS }}
+          </p>
+          <Progress :model-value="progressWidth()" />
+        </div>
       </div>
     </transition>
   </div>

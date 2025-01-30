@@ -92,6 +92,9 @@ export default defineI18nConfig(() => ({
             description: "Include a task to showcase your skills.",
           },
         },
+        difficultLevel: {
+          title: "Difficult level",
+        },
       },
       home: {
         hero: {
@@ -289,6 +292,9 @@ export default defineI18nConfig(() => ({
             description:
               "Dołącz zadanie, które pozwoli ocenić umiejętności kandydata.",
           },
+        },
+        difficultLevel: {
+          title: "Poziom trudności",
         },
       },
       home: {

@@ -3,11 +3,6 @@
     <TextGradient class="mb-4 text-2xl font-semibold">
       {{ $t("settings.general.title") }}
     </TextGradient>
-    <ChatRadios
-      :options="options"
-      :label="$t('settings.general.questionsDifficulty.label')"
-      field="level"
-    />
     <FormField v-slot="{ value, handleChange }" type="checkbox" name="answers">
       <FormItem
         class="my-4 flex flex-row items-start gap-x-3 space-y-0 rounded-md border p-4 shadow"
@@ -60,30 +55,8 @@ import * as z from "zod";
 
 const emit = defineEmits(["submit", "back"]);
 
-const options = [
-  {
-    value: "easy",
-    title: "settings.general.questionsDifficulty.options.easy.title",
-    desc: "settings.general.questionsDifficulty.options.easy.description",
-    icon: "carbon:skill-level-basic",
-  },
-  {
-    value: "intermediate",
-    title: "settings.general.questionsDifficulty.options.intermediate.title",
-    desc: "settings.general.questionsDifficulty.options.intermediate.description",
-    icon: "carbon:skill-level-intermediate",
-  },
-  {
-    value: "advanced",
-    title: "settings.general.questionsDifficulty.options.advanced.title",
-    desc: "settings.general.questionsDifficulty.options.advanced.description",
-    icon: "carbon:skill-level-advanced",
-  },
-];
-
 const formSchema = toTypedSchema(
   z.object({
-    level: z.string().min(1),
     answers: z.boolean().default(false).optional(),
     task: z.boolean().default(false).optional(),
   }),

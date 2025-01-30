@@ -8,9 +8,12 @@ export type Details = {
 };
 
 export type General = {
-  level?: string;
   task?: boolean;
   answers?: boolean;
+};
+
+export type DifficultLevel = {
+  level?: string;
 };
 
 export type Question = {

@@ -67,7 +67,7 @@
 
 <script setup lang="ts">
 import useSaveChat from "~/composables/useSaveChat";
-import type { Details, General, Question } from "./types";
+import type { Details, General, Question, DifficultLevel } from "./types";
 import { ref, onMounted } from "vue";
 const { chatCompletion } = useChatgpt();
 
@@ -86,6 +86,7 @@ const chatUri = computed(() => {
 const props = defineProps<{
   general: General;
   details: Details;
+  difficultLevel: DifficultLevel;
   type: string;
 }>();
 
@@ -172,7 +173,11 @@ async function constructPrompt() {
       )}`;
   }
 
-  prompt = appendIfDefined(prompt, "Poziom stanowiska", props.general.level);
+  prompt = appendIfDefined(
+    prompt,
+    "Poziom stanowiska",
+    props.difficultLevel.level,
+  );
   if (props.general.task) {
     prompt += " Uwzględnij propozycję zadania rekrutacyjnego.";
   } else {
@@ -246,7 +251,7 @@ async function generateQuestions() {
       responsibilities: props.details.responsibilities,
       position: props.details.position,
       niceToHave: props.details.niceToHave,
-      level: props.general.level,
+      level: props.difficultLevel.level,
       file: props.details.file ? await useFileToBase64(props.details.file) : "",
       url: props.details.url,
       title: obj.title,
