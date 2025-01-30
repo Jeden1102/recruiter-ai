@@ -36,6 +36,8 @@ export default defineEventHandler(async (event) => {
           file: body.file,
           url: body.url,
           title: body.title,
+          restricted: body.restricted,
+          authorizedEmails: body.authorizedEmails,
         },
       });
       chatId = savedChat.id;

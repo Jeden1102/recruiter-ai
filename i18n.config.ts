@@ -91,6 +91,11 @@ export default defineI18nConfig(() => ({
             label: "Include practice task",
             description: "Include a task to showcase your skills.",
           },
+          private: {
+            label: "Set as private",
+            description:
+              "Set this question set as private. Only you can access it, or the users you invite.",
+          },
         },
         difficultLevel: {
           title: "Difficult level",
@@ -291,6 +296,11 @@ export default defineI18nConfig(() => ({
             label: "Dodaj zadanie rekrutacyjne",
             description:
               "Dołącz zadanie, które pozwoli ocenić umiejętności kandydata.",
+          },
+          private: {
+            label: "Ustaw jako prywatne",
+            description:
+              "Ustaw jako prywatne, jeśli chcesz, by dostęp do utworzonych pytań byl tylko dla Ciebie i dla opcjonalnie dodanych emailow",
           },
         },
         difficultLevel: {

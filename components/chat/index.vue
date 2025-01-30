@@ -1,7 +1,6 @@
 <template>
   <div class="flex flex-col gap-4">
     <ChatLoader v-if="isLoading" />
-
     <ChatError
       class="flex flex-col"
       v-if="isError || (data.errorMessage && !data.questions)"
@@ -255,6 +254,8 @@ async function generateQuestions() {
       file: props.details.file ? await useFileToBase64(props.details.file) : "",
       url: props.details.url,
       title: obj.title,
+      restricted: props.general.restricted,
+      authorizedEmails: props.general.authorizedEmails,
     });
 
     chatId.value = res || "";

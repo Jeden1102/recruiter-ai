@@ -11,26 +11,17 @@ type Chat = {
   url?: string;
   id?: string;
   title?: string;
+  restricted?: boolean;
+  authorizedEmails?: string[];
 };
 
 export default async function (data: Chat) {
   try {
     const res = await $fetch("/api/chat/save", {
       method: "POST",
-      body: {
-        type: data.type,
-        questions: data.questions,
-        task: data.task,
-        requirements: data.requirements,
-        responsibilities: data.responsibilities,
-        position: data.position,
-        niceToHave: data.niceToHave,
-        level: data.level,
-        file: data.file,
-        url: data.url,
-        id: data.id,
-        title: data.title,
-      },
+      body: Object.fromEntries(
+        Object.entries(data).filter(([_, v]) => v !== undefined),
+      ),
     });
 
     return res.id;

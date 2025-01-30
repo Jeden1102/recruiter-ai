@@ -10,6 +10,8 @@ export type Details = {
 export type General = {
   task?: boolean;
   answers?: boolean;
+  restricted?: boolean;
+  authorizedEmails?: string[];
 };
 
 export type DifficultLevel = {

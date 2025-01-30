@@ -35,6 +35,8 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt",
   ],
   pwa: {
+    strategies: "generateSW",
+    registerType: "autoUpdate",
     manifest: {
       name: "Recruiter AI",
       short_name: "Recruiter AI",
@@ -64,9 +66,11 @@ export default defineNuxtConfig({
     },
     workbox: {
       navigateFallback: "/",
+      globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
     },
     devOptions: {
       enabled: true,
+      navigateFallbackAllowlist: [/^\/$/],
       type: "module",
     },
   },

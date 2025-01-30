@@ -26,6 +26,9 @@ export default defineEventHandler(async (event) => {
       });
     }
 
+    // @todo -> add validation
+    console.log(chat.restricted);
+
     return chat;
   } catch (error) {
     throw createError({

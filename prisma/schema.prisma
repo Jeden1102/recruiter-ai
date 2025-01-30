@@ -34,6 +34,8 @@ model Chat {
   title            String?
   type             String
   level            String
+  authorizedEmails String[]
+  restricted       Boolean  @default(false)
   questions        Json
   task             Json?
   createdAt        DateTime @default(now())
