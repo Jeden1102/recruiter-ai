@@ -4,15 +4,6 @@
       <CardContent class="flex flex-col gap-8 py-4">
         <RecruiterHeading :chatData="chatData" />
         <RecruiterCards :chatData="chatData" />
-
-        <ChatQuestions
-          v-if="questions"
-          :questions="questions"
-          :loading="false"
-        />
-        <ChatRecruitmentTask class="mt-4" v-if="task">{{
-          task
-        }}</ChatRecruitmentTask>
         <div class="flex">
           <ClientOnly>
             <AppShareable
@@ -22,6 +13,14 @@
             />
           </ClientOnly>
         </div>
+        <ChatQuestions
+          v-if="questions"
+          :questions="questions"
+          :loading="false"
+        />
+        <ChatRecruitmentTask class="mt-4" v-if="task">{{
+          task
+        }}</ChatRecruitmentTask>
       </CardContent>
     </Card>
   </div>

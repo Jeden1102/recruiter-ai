@@ -4,13 +4,18 @@
       twMerge(
         'relative flex flex-col gap-4 overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-6',
         last && 'md:col-span-2',
+        size === 'sm' && 'gap-3 px-3 py-5',
       )
     "
   >
-    <TextGradient class="text-2xl font-semibold">
+    <TextGradient
+      :class="twMerge('text-2xl font-semibold', size === 'sm' && 'text-xl')"
+    >
       {{ $t(card.title) }}
     </TextGradient>
-    <p class="text-xl">{{ $t(card.description) }}</p>
+    <p :class="twMerge('text-xl', size === 'sm' && 'text-base')">
+      {{ $t(card.description) }}
+    </p>
     <div class="mt-auto">
       <Button v-if="card.key" asChild class="mt-10 w-fit" size="lg">
         <NuxtLinkLocale :to="`/recruiter?mode=${card.key}`">
@@ -51,6 +56,7 @@ const props = defineProps<{
     uri?: string;
   };
   last?: boolean;
+  size?: "sm" | "md";
 }>();
 
 const emits = defineEmits(["click"]);

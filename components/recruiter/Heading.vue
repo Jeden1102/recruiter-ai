@@ -1,11 +1,25 @@
 <template>
   <div class="flex justify-between">
-    <Badge variant="secondary">
-      Status: {{ chatData.restricted ? "Restricted" : "Public" }}
-    </Badge>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger as-child>
+          <Badge variant="outline" class="flex gap-2">
+            Status: {{ chatData.restricted ? "Restricted" : "Public" }}
+            <Icon size="16" name="solar:info-circle-bold" />
+          </Badge>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Add to library</p>
+          @todo add status explanation
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+
     <Dialog v-model:open="isDialogOpen">
       <DialogTrigger as-child>
-        <Button variant="outline"> Edit restrictions </Button>
+        <Button>
+          <Icon name="material-symbols:settings" /> Edit restrictions
+        </Button>
       </DialogTrigger>
       <DialogContent class="sm:max-w-[425px]">
         <DialogHeader>
