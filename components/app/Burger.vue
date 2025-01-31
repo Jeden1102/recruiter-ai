@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { twMerge } from "tailwind-merge";
 
-const props = defineProps<{
+defineProps<{
   isActive: boolean;
 }>();
 </script>

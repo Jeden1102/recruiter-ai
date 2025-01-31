@@ -1,6 +1,6 @@
 <template>
   <div class="slim-container mx-auto pt-8">
-    <Card>
+    <Card v-if="chatData">
       <CardContent class="flex flex-col gap-8 py-4">
         <RecruiterHeading :chatData="chatData" />
         <RecruiterCards :chatData="chatData" />
@@ -31,13 +31,13 @@
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 import type { Question } from "~/components/chat/types";
-import type { Chat } from "~/components/profile/types";
+import type { Chat } from "@/components/chat/types";
 
 useSeoMeta({ title: "Recruiter", ogTitle: "Recruiter" });
 
 const questions = ref<Question[]>([]);
 const task = ref("");
-const chatData = ref<Chat>(null);
+const chatData = ref<Chat | null>(null);
 const route = useRoute();
 
 type Response = {
@@ -60,7 +60,7 @@ try {
   questions.value = res.questions;
   task.value = res.task;
   chatData.value = res;
-} catch (error) {
+} catch (error: any) {
   throw createError({
     statusCode: error.statusCode || 404,
     statusMessage: error.statusMessage || "Chat not found",

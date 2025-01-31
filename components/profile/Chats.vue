@@ -73,7 +73,7 @@ const columns: ColumnDef<Chat>[] = [
       );
     },
     cell: ({ row }) => {
-      const rawDate = row.getValue("createdAt");
+      const rawDate: string = row.getValue("createdAt");
       const formattedDate = new Date(rawDate).toLocaleString("pl-PL", {
         year: "numeric",
         month: "2-digit",

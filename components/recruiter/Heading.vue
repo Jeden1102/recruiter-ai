@@ -62,8 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import type { Chat } from "~/components/profile/types";
+import type { Chat } from "@/components/chat/types";
 import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import * as z from "zod";
@@ -94,13 +93,17 @@ watch(isDialogOpen, (newVal) => {
   if (newVal) {
     resetForm({ values: savedValues.value });
   } else {
-    savedValues.value = { ...values };
+    savedValues.value = {
+      ...(values as { restricted: boolean; authorizedEmails: string[] }),
+    };
   }
 });
 
 const onSubmit = handleSubmit((values) => {
   emit("submit", values);
   //@todo save new restrictions
-  savedValues.value = { ...values };
+  savedValues.value = {
+    ...(values as { restricted: boolean; authorizedEmails: string[] }),
+  };
 });
 </script>

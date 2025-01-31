@@ -1,19 +1,4 @@
-export type Chat = {
-  type?: string;
-  questions: object;
-  task?: string;
-  requirements?: string;
-  responsibilities?: string;
-  position?: string;
-  niceToHave?: string;
-  file?: string | unknown;
-  level?: string;
-  url?: string;
-  id?: string;
-  title?: string;
-  restricted?: boolean;
-  authorizedEmails?: string[];
-};
+import type { Chat } from "@/components/chat/types";
 
 export default async function (data: Chat) {
   try {
