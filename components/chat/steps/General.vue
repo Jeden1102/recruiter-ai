@@ -93,13 +93,6 @@
 import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import * as z from "zod";
-import {
-  TagsInput,
-  TagsInputInput,
-  TagsInputItem,
-  TagsInputItemDelete,
-  TagsInputItemText,
-} from "@/components/ui/tags-input";
 
 const emit = defineEmits(["submit", "back"]);
 

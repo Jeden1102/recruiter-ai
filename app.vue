@@ -1,5 +1,5 @@
 <template>
-  <NuxtLoadingIndicator height="2" color="red" />
+  <NuxtLoadingIndicator :height="2" color="red" />
   <NuxtLayout>
     <VitePwaManifest />
     <NuxtPage />

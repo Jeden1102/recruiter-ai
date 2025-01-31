@@ -44,6 +44,18 @@ const data: Chat[] = await useGetUserChats();
 
 const columns: ColumnDef<Chat>[] = [
   {
+    accessorKey: "id",
+    header: "Action",
+    cell: ({ row }) => {
+      const id = row.getValue("id");
+      return h(
+        NuxtLink,
+        { to: `/recruiter/${id}`, class: "text-primary font-bold" },
+        "Preview",
+      );
+    },
+  },
+  {
     accessorKey: "title",
     header: () => h("div", "Title"),
     cell: ({ row }) => h("div", { class: "w-72" }, row.getValue("title")),
@@ -73,18 +85,7 @@ const columns: ColumnDef<Chat>[] = [
       return h("div", { class: "lowercase" }, formattedDate);
     },
   },
-  {
-    accessorKey: "id",
-    header: "Action",
-    cell: ({ row }) => {
-      const id = row.getValue("id");
-      return h(
-        NuxtLink,
-        { to: `/recruiter/${id}`, class: "text-primary font-bold" },
-        "Preview",
-      );
-    },
-  },
+
   {
     accessorKey: "type",
     header: () => h("div", "Type"),

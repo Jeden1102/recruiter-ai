@@ -7,12 +7,17 @@ export default async function useGetChatById({ id }: Params) {
     const { data, error } = await useFetch(`/api/chat/${id}`);
 
     if (error.value) {
-      throw new Error(error.value.message || "Failed to fetch chat");
+      throw createError({
+        statusCode: error.value.statusCode || 404,
+        statusMessage: error.value.statusMessage || "Chat not found",
+      });
     }
 
     return data.value;
-  } catch (err) {
-    console.error("Error fetching chat:", err);
-    throw new Error(err instanceof Error ? err.message : "Unknown error");
+  } catch (err: any) {
+    throw createError({
+      statusCode: err?.statusCode,
+      statusMessage: err?.statusMessage,
+    });
   }
 }

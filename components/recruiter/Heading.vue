@@ -1,0 +1,106 @@
+<template>
+  <div class="flex justify-between">
+    <Badge variant="secondary">
+      Status: {{ chatData.restricted ? "Restricted" : "Public" }}
+    </Badge>
+    <Dialog v-model:open="isDialogOpen">
+      <DialogTrigger as-child>
+        <Button variant="outline"> Edit restrictions </Button>
+      </DialogTrigger>
+      <DialogContent class="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Edit restrictions</DialogTitle>
+          <DialogDescription>
+            Make changes to the chat restrictions. Click save when you're done.
+          </DialogDescription>
+        </DialogHeader>
+
+        <FormField v-slot="{ value, handleChange }" name="restricted">
+          <FormItem
+            class="my-4 flex flex-row items-start gap-x-3 space-y-0 rounded-md border p-4 shadow"
+          >
+            <FormControl>
+              <Checkbox :checked="value" @update:checked="handleChange" />
+            </FormControl>
+            <div class="space-y-1 leading-none">
+              <FormLabel>{{ $t("settings.general.private.label") }}</FormLabel>
+              <FormDescription>
+                {{ $t("settings.general.private.description") }}
+              </FormDescription>
+              <FormMessage />
+            </div>
+          </FormItem>
+        </FormField>
+
+        <FormField
+          v-slot="{ value }"
+          name="authorizedEmails"
+          v-if="values.restricted"
+        >
+          <FormItem>
+            <FormLabel>Authorized Emails</FormLabel>
+            <FormControl>
+              <TagsInput :model-value="value">
+                <TagsInputItem v-for="item in value" :key="item" :value="item">
+                  <TagsInputItemText />
+                  <TagsInputItemDelete />
+                </TagsInputItem>
+                <TagsInputInput placeholder="john@doe.com" />
+              </TagsInput>
+            </FormControl>
+            <FormDescription> Type the email and press enter </FormDescription>
+            <FormMessage />
+          </FormItem>
+        </FormField>
+
+        <DialogFooter>
+          <Button type="submit" @click="onSubmit"> Save changes </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, watch } from "vue";
+import type { Chat } from "~/components/profile/types";
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
+
+const props = defineProps<{ chatData: Chat }>();
+const emit = defineEmits(["submit"]);
+
+const isDialogOpen = ref(false);
+
+const formSchema = toTypedSchema(
+  z.object({
+    restricted: z.boolean().optional(),
+    authorizedEmails: z.array(z.string()).optional(),
+  }),
+);
+
+const savedValues = ref({
+  restricted: props.chatData.restricted ?? false,
+  authorizedEmails: props.chatData.authorizedEmails ?? [],
+});
+
+const { handleSubmit, values, resetForm } = useForm({
+  validationSchema: formSchema,
+  initialValues: savedValues.value,
+});
+
+watch(isDialogOpen, (newVal) => {
+  if (newVal) {
+    resetForm({ values: savedValues.value });
+  } else {
+    savedValues.value = { ...values };
+  }
+});
+
+const onSubmit = handleSubmit((values) => {
+  emit("submit", values);
+  //@todo save new restrictions
+  savedValues.value = { ...values };
+});
+</script>

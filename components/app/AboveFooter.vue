@@ -54,7 +54,6 @@ const installApp = async () => {
   if (deferredPrompt) {
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User choice: ${outcome}`);
     deferredPrompt = null;
     canInstall.value = false;
   }

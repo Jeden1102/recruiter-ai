@@ -1,4 +1,4 @@
-type Chat = {
+export type Chat = {
   type?: string;
   questions: object;
   task?: string;
