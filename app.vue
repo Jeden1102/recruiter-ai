@@ -1,5 +1,6 @@
 <template>
   <NuxtLoadingIndicator :height="2" color="red" />
+  <Toaster />
   <NuxtLayout>
     <VitePwaManifest />
     <NuxtPage />
@@ -7,6 +8,7 @@
 </template>
 
 <script setup>
+import { Toaster } from "@/components/ui/sonner";
 const config = useRuntimeConfig();
 
 useHead({

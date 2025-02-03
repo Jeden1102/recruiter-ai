@@ -79,6 +79,7 @@
 import type { Chat } from "@/components/chat/types";
 import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
+import { toast } from "vue-sonner";
 import * as z from "zod";
 
 const props = defineProps<{ chatData: Chat }>();
@@ -113,11 +114,24 @@ watch(isDialogOpen, (newVal) => {
   }
 });
 
-const onSubmit = handleSubmit((values) => {
-  emit("submit", values);
-  //@todo save new restrictions
-  savedValues.value = {
-    ...(values as { restricted: boolean; authorizedEmails: string[] }),
-  };
+const onSubmit = handleSubmit(async (values) => {
+  if (props.chatData.id === undefined) return;
+  try {
+    await useUpdateChat({
+      id: props.chatData.id,
+      restricted: values.restricted,
+      authorizedEmails: values.authorizedEmails,
+    });
+    savedValues.value = {
+      ...(values as { restricted: boolean; authorizedEmails: string[] }),
+    };
+    isDialogOpen.value = false;
+
+    toast("Chat restrictions updated", {
+      description: "Chat restrictions updated successfully.",
+    });
+  } catch (error) {
+    console.error("Failed to update chat:", error);
+  }
 });
 </script>
