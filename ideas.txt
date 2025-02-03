@@ -1,26 +1,9 @@
-1. Landing page:
-- hero
-- about
-- features
-2. Chat steps:
-- request form :
- 1.step (radio) - job offer url,
-   2. step:url field
-  -  analyze my CV
-    2. step: file field
-  - job offer custom:
-   2.step :- job requirments (textarea)*,
-   - nice to have (textarea),
-    - resposiblities (textarea)
-3. step: - questions difficult level,
-- sample answers (checkbox)
-- sample requirment task (checkbox)
-
-Nice to have:
-- login system
-- previous recruitments process saving
-
-
-ToDo:
-- 4xx pages
-- footer
+Todo:
+- code refactor
+- error handling checking - aspecially for api endpoints
+- add images to main page features
+- add mailing for account creating
+- add text for terms of service and policy
+- add missing translations
+- seo improvements
+- web core vitals check/improvements
