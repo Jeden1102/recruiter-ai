@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-
 const { data } = useAuth();
 
 definePageMeta({
@@ -14,14 +12,7 @@ definePageMeta({
       :description="data.user.name ?? ''"
     />
     <Card class="my-4">
-      <CardHeader>
-        <CardTitle class="flex flex-col items-center gap-4">
-          <Avatar>
-            <AvatarImage :src="data.user.image ?? ''" alt="@radix-vue" />
-          </Avatar>
-          <p>{{ data.user.email }}</p>
-        </CardTitle>
-      </CardHeader>
+      <ProfileHeader :user="data.user" />
       <CardContent>
         <h2 class="text-2xl">Your recent recruiter AI activity</h2>
         <ProfileChats />

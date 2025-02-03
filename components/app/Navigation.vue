@@ -57,6 +57,14 @@
                   {{ $t("navigation.profile") }}
                 </NuxtLinkLocale>
               </DropdownMenuItem>
+              <DropdownMenuItem>
+                <NuxtLinkLocale
+                  to="/profile/settings"
+                  @click="toggleMenuIfMobile"
+                >
+                  {{ $t("common.settings") }}
+                </NuxtLinkLocale>
+              </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuSeparator />

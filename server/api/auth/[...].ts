@@ -106,6 +106,17 @@ export default NuxtAuthHandler({
 
       return true;
     },
+    async session({ session, user }) {
+      const dbUser = await prisma.user.findUnique({
+        where: { email: session.user?.email || "" },
+      });
+
+      if (dbUser && session.user) {
+        session.user.provider = dbUser.provider || "";
+      }
+
+      return session;
+    },
   },
   pages: {
     signIn: "/login",

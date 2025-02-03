@@ -10,6 +10,7 @@ export default defineI18nConfig(() => ({
         copied: "Copied",
         share: "Share",
         close: "Close",
+        settings: "Settings",
       },
       navigation: {
         home: "Home",
@@ -208,6 +209,7 @@ export default defineI18nConfig(() => ({
         copied: "Skopiowano",
         share: "Udostępnij",
         close: "Zamknij",
+        settings: "Ustawienia",
       },
       navigation: {
         home: "Strona główna",
