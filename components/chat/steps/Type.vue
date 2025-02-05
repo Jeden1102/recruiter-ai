@@ -1,21 +1,4 @@
-<template>
-  <form @submit="onSubmit">
-    <TextGradient class="mb-4 text-2xl font-semibold">
-      {{ $t("questions.method.title") }}
-    </TextGradient>
-
-    <ChatRadios
-      :options="types"
-      :label="$t('questions.method.label')"
-      field="type"
-      v-model="modelValue"
-    />
-  </form>
-</template>
-
 <script setup lang="ts">
-import { ref, watch } from "vue";
-
 const emit = defineEmits(["submit"]);
 
 const modelValue = ref("");
@@ -45,6 +28,21 @@ const types = [
   },
 ];
 </script>
+
+<template>
+  <form @submit="onSubmit">
+    <TextGradient class="mb-4 text-2xl font-semibold">
+      {{ $t("questions.method.title") }}
+    </TextGradient>
+
+    <ChatRadios
+      :options="types"
+      :label="$t('questions.method.label')"
+      field="type"
+      v-model="modelValue"
+    />
+  </form>
+</template>
 
 <style lang="scss">
 button:has(input:checked) ~ label {

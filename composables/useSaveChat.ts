@@ -1,6 +1,6 @@
 import type { Chat } from "@/components/chat/types";
 
-export default async function (data: Pick<Chat, "questions" | "id">) {
+export default async function (data: Chat) {
   try {
     const res = await $fetch("/api/chat/save", {
       method: "POST",

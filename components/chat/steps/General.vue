@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
+
+const emit = defineEmits(["submit", "back"]);
+
+const formSchema = toTypedSchema(
+  z.object({
+    answers: z.boolean().default(false).optional(),
+    task: z.boolean().default(false).optional(),
+    restricted: z.boolean().default(false).optional(),
+    authorizedEmails: z.array(z.string()).optional(),
+  }),
+);
+
+const { handleSubmit, values } = useForm({
+  validationSchema: formSchema,
+  initialValues: {
+    authorizedEmails: [],
+  },
+});
+
+const onSubmit = handleSubmit((values) => {
+  emit("submit", values);
+});
+</script>
+
 <template>
   <form @submit="onSubmit">
     <TextGradient class="mb-4 text-2xl font-semibold">
@@ -88,31 +116,3 @@
     </div>
   </form>
 </template>
-
-<script setup lang="ts">
-import { useForm } from "vee-validate";
-import { toTypedSchema } from "@vee-validate/zod";
-import * as z from "zod";
-
-const emit = defineEmits(["submit", "back"]);
-
-const formSchema = toTypedSchema(
-  z.object({
-    answers: z.boolean().default(false).optional(),
-    task: z.boolean().default(false).optional(),
-    restricted: z.boolean().default(false).optional(),
-    authorizedEmails: z.array(z.string()).optional(),
-  }),
-);
-
-const { handleSubmit, values } = useForm({
-  validationSchema: formSchema,
-  initialValues: {
-    authorizedEmails: [],
-  },
-});
-
-const onSubmit = handleSubmit((values) => {
-  emit("submit", values);
-});
-</script>

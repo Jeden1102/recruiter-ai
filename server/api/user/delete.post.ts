@@ -37,7 +37,7 @@ export default defineEventHandler(async (event) => {
 
     return { success: true };
   } catch (error: any) {
-    console.error("Error deleting user:xx", error);
+    console.error("Error deleting user:", error);
     throw createError({
       statusCode: 401,
       statusMessage: error.statusMessage,

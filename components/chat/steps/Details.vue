@@ -1,3 +1,62 @@
+<script setup lang="ts">
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
+import type { ZodType, ZodTypeDef } from "zod";
+
+const props = defineProps<{
+  type: string;
+}>();
+
+const MAX_FILE_SIZE = 500000;
+
+const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
+
+const emit = defineEmits(["submit", "back"]);
+
+const prepareSchema = (): ZodType<any, ZodTypeDef, any> => {
+  if (props.type === "url") {
+    return z.object({
+      url: z.string().url(),
+    });
+  }
+  if (props.type === "cv") {
+    return z.object({
+      file: z
+        .any()
+        .refine((file) => file instanceof File, {
+          message: "File is required",
+        })
+        .refine((file) => file.size <= MAX_FILE_SIZE, {
+          message: `Max file size is 5MB.`,
+        })
+        .refine((file) => ACCEPTED_IMAGE_TYPES.includes(file.type), {
+          message: "Files of type .jpg, .jpeg, .png are accepted only.",
+        }),
+    });
+  }
+  if (props.type === "custom") {
+    return z.object({
+      position: z.string().max(1024),
+      requirements: z.string().max(1024).optional(),
+      niceToHave: z.string().max(1024).optional(),
+      responsibilities: z.string().max(1024).optional(),
+    });
+  }
+  return z.object({});
+};
+
+const formSchema = toTypedSchema(prepareSchema());
+
+const { handleSubmit } = useForm({
+  validationSchema: formSchema,
+});
+
+const onSubmit = handleSubmit((values) => {
+  emit("submit", values);
+});
+</script>
+
 <template>
   <form @submit="onSubmit">
     <template v-if="type === 'url'">
@@ -102,72 +161,3 @@
     </div>
   </form>
 </template>
-
-<script setup lang="ts">
-import { useForm } from "vee-validate";
-import { toTypedSchema } from "@vee-validate/zod";
-import * as z from "zod";
-import type { ZodType, ZodTypeDef } from "zod";
-
-import { Button } from "@/components/ui/button";
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-
-const props = defineProps<{
-  type: string;
-}>();
-
-const MAX_FILE_SIZE = 500000;
-
-const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
-
-const emit = defineEmits(["submit", "back"]);
-
-const prepareSchema = (): ZodType<any, ZodTypeDef, any> => {
-  if (props.type === "url") {
-    return z.object({
-      url: z.string().url(),
-    });
-  }
-  if (props.type === "cv") {
-    return z.object({
-      file: z
-        .any()
-        .refine((file) => file instanceof File, {
-          message: "File is required",
-        })
-        .refine((file) => file.size <= MAX_FILE_SIZE, {
-          message: `Max file size is 5MB.`,
-        })
-        .refine((file) => ACCEPTED_IMAGE_TYPES.includes(file.type), {
-          message: "Files of type .jpg, .jpeg, .png are accepted only.",
-        }),
-    });
-  }
-  if (props.type === "custom") {
-    return z.object({
-      position: z.string().max(1024),
-      requirements: z.string().max(1024).optional(),
-      niceToHave: z.string().max(1024).optional(),
-      responsibilities: z.string().max(1024).optional(),
-    });
-  }
-  return z.object({});
-};
-
-const formSchema = toTypedSchema(prepareSchema());
-
-const { handleSubmit } = useForm({
-  validationSchema: formSchema,
-});
-
-const onSubmit = handleSubmit((values) => {
-  emit("submit", values);
-});
-</script>

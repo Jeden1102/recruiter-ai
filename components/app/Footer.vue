@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const currentYear = new Date().getFullYear();
+</script>
+
 <template>
   <footer class="flex flex-col bg-zinc-950">
     <div class="container flex flex-col gap-4 py-8 md:flex-row md:gap-36">
@@ -34,7 +38,3 @@
     </div>
   </footer>
 </template>
-
-<script lang="ts" setup>
-const currentYear = new Date().getFullYear();
-</script>

@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="flex-1 flex-col items-center md:py-6">
     <h1 class="mb-2 text-2xl lg:text-4xl">

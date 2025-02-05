@@ -1,3 +1,10 @@
+<script setup lang="ts">
+const props = defineProps<{
+  title: string;
+  description?: string;
+}>();
+</script>
+
 <template>
   <div class="container flex flex-col items-center justify-center">
     <TextGradient>
@@ -8,10 +15,3 @@
     </p>
   </div>
 </template>
-
-<script setup lang="ts">
-const props = defineProps<{
-  title: string;
-  description?: string;
-}>();
-</script>

@@ -1,33 +1,4 @@
-<template>
-  <div class="slim-container mx-auto pt-8">
-    <Card v-if="chatData">
-      <CardContent class="flex flex-col gap-8 py-4">
-        <RecruiterHeading :chatData="chatData" />
-        <RecruiterCards :chatData="chatData" />
-        <div class="flex">
-          <ClientOnly>
-            <AppShareable
-              :uri="chatUri"
-              :subtitle="$t('share.subtitle')"
-              :title="$t('share.title')"
-            />
-          </ClientOnly>
-        </div>
-        <ChatQuestions
-          v-if="questions"
-          :questions="questions"
-          :loading="false"
-        />
-        <ChatRecruitmentTask class="mt-4" v-if="task">{{
-          task
-        }}</ChatRecruitmentTask>
-      </CardContent>
-    </Card>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { ref } from "vue";
 import { useRoute } from "vue-router";
 import type { Question } from "~/components/chat/types";
 import type { Chat } from "@/components/chat/types";
@@ -66,3 +37,31 @@ try {
   });
 }
 </script>
+
+<template>
+  <div class="slim-container mx-auto pt-8">
+    <Card v-if="chatData">
+      <CardContent class="flex flex-col gap-8 py-4">
+        <RecruiterHeading :chatData="chatData" />
+        <RecruiterCards :chatData="chatData" />
+        <div class="flex">
+          <ClientOnly>
+            <AppShareable
+              :uri="chatUri"
+              :subtitle="$t('share.subtitle')"
+              :title="$t('share.title')"
+            />
+          </ClientOnly>
+        </div>
+        <ChatQuestions
+          v-if="questions"
+          :questions="questions"
+          :loading="false"
+        />
+        <ChatRecruitmentTask class="mt-4" v-if="task">{{
+          task
+        }}</ChatRecruitmentTask>
+      </CardContent>
+    </Card>
+  </div>
+</template>

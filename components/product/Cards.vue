@@ -1,17 +1,3 @@
-<template>
-  <div class="flex flex-col gap-4 py-4 md:grid md:grid-cols-2">
-    <ProductCard
-      v-for="(card, idx) in cards"
-      :card="{
-        title: $t(card.title),
-        description: $t(card.description),
-        key: card.key,
-      }"
-      :last="idx === cards.length - 1"
-    />
-  </div>
-</template>
-
 <script setup lang="ts">
 const cards = [
   {
@@ -31,3 +17,17 @@ const cards = [
   },
 ];
 </script>
+
+<template>
+  <div class="flex flex-col gap-4 py-4 md:grid md:grid-cols-2">
+    <ProductCard
+      v-for="(card, idx) in cards"
+      :card="{
+        title: $t(card.title),
+        description: $t(card.description),
+        key: card.key,
+      }"
+      :last="idx === cards.length - 1"
+    />
+  </div>
+</template>

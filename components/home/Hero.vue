@@ -31,7 +31,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-import { GradientCircle } from "../ui/gradient-circle";
-</script>

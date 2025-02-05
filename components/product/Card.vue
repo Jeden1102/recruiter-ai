@@ -1,3 +1,21 @@
+<script setup lang="ts">
+import { twMerge } from "tailwind-merge";
+
+const props = defineProps<{
+  card: {
+    title: string;
+    description: string;
+    key?: string;
+    cta?: string;
+    uri?: string;
+  };
+  last?: boolean;
+  size?: "sm" | "md";
+}>();
+
+const emits = defineEmits(["click"]);
+</script>
+
 <template>
   <div
     :class="
@@ -43,21 +61,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-import { twMerge } from "tailwind-merge";
-
-const props = defineProps<{
-  card: {
-    title: string;
-    description: string;
-    key?: string;
-    cta?: string;
-    uri?: string;
-  };
-  last?: boolean;
-  size?: "sm" | "md";
-}>();
-
-const emits = defineEmits(["click"]);
-</script>

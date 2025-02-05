@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Details, DifficultLevel, General } from "./types";
-import { Progress } from "@/components/ui/progress";
 
 const route = useRoute();
 
@@ -15,22 +14,22 @@ const difficultLevel = ref<DifficultLevel>({});
 
 const general = ref<General>({});
 
-const handleSubmitDetails = (values: any) => {
+const handleSubmitDetails = (values: Details) => {
   details.value = values;
   step.value = ++step.value;
 };
 
-const handleSubmitDifficultLevel = (values: any) => {
+const handleSubmitDifficultLevel = (values: DifficultLevel) => {
   difficultLevel.value = values;
   step.value = ++step.value;
 };
 
-const handleSubmitGeneral = (values: any) => {
+const handleSubmitGeneral = (values: General) => {
   general.value = values;
   step.value = ++step.value;
 };
 
-const handleTypeSubmit = (values: any) => {
+const handleTypeSubmit = (values: { type: string }) => {
   type.value = values.type;
   step.value = ++step.value;
 };

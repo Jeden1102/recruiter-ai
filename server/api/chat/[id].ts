@@ -56,17 +56,7 @@ const isUserAuthorized = async (
   email: string | undefined | null,
   chat: { email: string | null; authorizedEmails: string[] },
 ) => {
-  if (!email) {
-    return false;
-  }
-
-  if (email === chat.email) {
-    return true;
-  }
-
-  if (chat.authorizedEmails.includes(email)) {
-    return true;
-  }
-
-  return false;
+  return Boolean(
+    email && (email === chat.email || chat.authorizedEmails?.includes(email)),
+  );
 };

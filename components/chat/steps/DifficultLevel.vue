@@ -1,22 +1,3 @@
-<template>
-  <form @submit="onSubmit">
-    <TextGradient class="mb-4 text-2xl font-semibold">
-      {{ $t("settings.difficultLevel.title") }}
-    </TextGradient>
-    <ChatRadios
-      :options="options"
-      :label="$t('settings.general.questionsDifficulty.label')"
-      field="level"
-    />
-    <div class="mt-6 flex gap-4">
-      <Button variant="outline" type="button" @click="emit('back')">
-        {{ $t("form.buttons.previous") }}
-      </Button>
-      <Button type="submit">{{ $t("common.generate") }}</Button>
-    </div>
-  </form>
-</template>
-
 <script setup lang="ts">
 import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
@@ -59,3 +40,22 @@ const onSubmit = handleSubmit((values) => {
   emit("submit", values);
 });
 </script>
+
+<template>
+  <form @submit="onSubmit">
+    <TextGradient class="mb-4 text-2xl font-semibold">
+      {{ $t("settings.difficultLevel.title") }}
+    </TextGradient>
+    <ChatRadios
+      :options="options"
+      :label="$t('settings.general.questionsDifficulty.label')"
+      field="level"
+    />
+    <div class="mt-6 flex gap-4">
+      <Button variant="outline" type="button" @click="emit('back')">
+        {{ $t("form.buttons.previous") }}
+      </Button>
+      <Button type="submit">{{ $t("common.generate") }}</Button>
+    </div>
+  </form>
+</template>

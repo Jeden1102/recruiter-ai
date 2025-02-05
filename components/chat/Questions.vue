@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import type { Question } from "./types";
+
+const props = defineProps<{ questions: Question[]; loading: boolean }>();
+</script>
+
 <template>
   <Accordion type="single" collapsible>
     <AccordionItem v-for="(q, key) in questions" :value="q.question">
@@ -21,9 +27,3 @@
     </div>
   </Accordion>
 </template>
-
-<script setup lang="ts">
-import type { Question } from "./types";
-
-const props = defineProps<{ questions: Question[]; loading: boolean }>();
-</script>

@@ -67,7 +67,6 @@
 <script setup lang="ts">
 import useSaveChat from "~/composables/useSaveChat";
 import type { Details, General, Question, DifficultLevel } from "./types";
-import { ref, onMounted } from "vue";
 const { chatCompletion } = useChatgpt();
 
 const { locale } = useI18n();
@@ -99,23 +98,25 @@ const chatTree = ref([
   {
     role: "system",
     content: `
-      Jesteś asystentem AI, który generuje przykładowe pytania i §odpowiedzi na rozmowę o pracę w formacie JSON.
-      Użytkownik poda listę wymagań, a Twoim zadaniem jest zwrócenie odpowiednich danych w postaci struktury JSON:
-      - "questions": lista pytań - każdy obiekt zawiera "question" i "answer" (jesli user poprosi rowniez o przygotowanie listy odpowiedzi).
-      - "task": klucz dla zadania rekrutacyjnego (prosty string, bez odpowiedzi) - tylko jesli user poprosi o zadanie rekrutacyjne.
-      - Jeśli dane wejściowe nie mają sensu, zwróć {"error": "<opis błedu>"}.
-      - Dane wejsciowe moga byc niekompletne, wystarczy np. samo stanowisko pracy.
-      - Nie zwracaj treści w bloku JSON, odpowiedz samym JSON-em, tak aby można było użyć JSON.parse().
-      1. Pytania muszą być specyficzne i szczegółowe – zadawaj pytania otwarte (np. "Jakie znasz klasy w Bootstrap?") zamiast pytań ogólnych (np. "Czy pracowałeś kiedyś z Bootstrap?").
-      2. Dostosuj pytania techniczne do szczegółów oferty (np. jeśli wymagana jest znajomość API, pytania mogą dotyczyć metod, bezpieczeństwa lub problemów, które mogą się pojawić przy korzystaniu z API).
-      3. Dodaj 2-3 pytania ogólne dotyczące miękkich umiejętności (np. "Jak radzisz sobie z pracą pod presją?").
-      4. Przygotuj **dokladnie 10 pytań**.
-      5. Jeśli użytkownik poprosi o zadanie rekrutacyjne, zaproponuj realistyczne zadanie dopasowane do stanowiska.
-      6. Jeśli użytkownik poprosi o odpowiedzi, do kazdego z pytan, napisz odpowiedz w kluczu "answer". Rozwin troche te odpowiedzi do min. 2-3 zdan.
-      7. Jesli to mozliwe dla stanowiska, postaraj sie zadac z 2-3 pytania typowo techniczne z wiedzy o umiejetnosciach/technologiach ktore sa wymagane/mile widziane.
-      8. WAZNE - Pamietaj aby odpowiedz byla w formie JSON, tak bym mogl ja wrzucic do JSON.parse(). Nie uwzgledniaj tych tagow json.
-      9. Odpowiedz przygotuj w jezyku ${locale.value}.
-      10. W kluczu "title" dodaj tytul, ktory opisuje temat rozmowy - ma to byc prosty, kilkuwyrazowy max. string.
+      You are an AI assistant that generates example interview questions and answers in JSON format.
+      The user will provide a list of requirements, and your task is to return structured JSON data:
+      - "questions": a list of questions, where each object contains "question" and "answer" (if the user requests answers).
+      - "task": a key for a coding challenge (a simple string without an answer), but only if the user explicitly asks for a task.
+      - If the input is invalid, return {"error": "<error description>"}.
+      - The input might be incomplete, such as only a job title.
+      - Do not wrap the response in a JSON block; return raw JSON that can be used directly with JSON.parse().
+
+      Guidelines:
+      1. **Generate exactly 10 questions**, with a focus on technical depth and specificity.
+      2. **Ask detailed, open-ended questions** (e.g., "How does the ref function work in Vue?" rather than "Have you used ref in Vue?").
+      3. **Tailor technical questions to the job requirements**, covering topics such as API usage, security concerns, optimization strategies, and debugging common issues.
+      4. Include **1-2 behavioral questions** (e.g., "How do you handle tight deadlines?").
+      5. If a coding challenge is requested, propose a **realistic task relevant to the job**.
+      6. If answers are requested, provide detailed responses (at least 2-3 sentences per answer).
+      7. If possible, include at least **6-7 deep technical questions** covering key technologies/skills required for the role.
+      8. Ensure the response is **valid JSON**, formatted correctly for parsing.
+      9. Generate the response in the language specified by ${locale.value}.
+      10. Add a "title" key summarizing the interview topic in a concise phrase.
     `.trim(),
   },
 ]);

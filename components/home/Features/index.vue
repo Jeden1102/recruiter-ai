@@ -1,19 +1,3 @@
-<template>
-  <div class="overflow-hidden pb-8">
-    <SectionTitleDescription
-      :title="$t('home.features.title')"
-      :description="$t('home.features.description')"
-      class="px-4"
-    />
-    <div class="mt-8 flex flex-col gap-4">
-      <HomeFeaturesFeature
-        v-for="(feature, key) in features"
-        :feature="{ ...feature, imageFirst: key % 2 === 0 }"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const features = [
   {
@@ -38,3 +22,19 @@ const features = [
   },
 ];
 </script>
+
+<template>
+  <div class="overflow-hidden pb-8">
+    <SectionTitleDescription
+      :title="$t('home.features.title')"
+      :description="$t('home.features.description')"
+      class="px-4"
+    />
+    <div class="mt-8 flex flex-col gap-4">
+      <HomeFeaturesFeature
+        v-for="(feature, key) in features"
+        :feature="{ ...feature, imageFirst: key % 2 === 0 }"
+      />
+    </div>
+  </div>
+</template>

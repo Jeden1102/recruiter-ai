@@ -1,3 +1,10 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: "Product",
+  ogTitle: "Product",
+});
+</script>
+
 <template>
   <main class="slim-container container">
     <SectionTitleDescription
@@ -7,9 +14,3 @@
     <ProductCards />
   </main>
 </template>
-<script setup lang="ts">
-useSeoMeta({
-  title: "Product",
-  ogTitle: "Product",
-});
-</script>

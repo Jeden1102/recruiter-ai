@@ -1,3 +1,22 @@
+<script setup lang="ts">
+import { twMerge } from "tailwind-merge";
+
+const props = defineProps<{
+  feature: {
+    title: string;
+    description: string;
+    img: string;
+    imageFirst: boolean;
+  };
+}>();
+</script>
+
+<style scoped>
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+</style>
+
 <template>
   <div class="container relative">
     <div
@@ -28,23 +47,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-import { twMerge } from "tailwind-merge";
-import { GradientCircle } from "~/components/ui/gradient-circle";
-
-const props = defineProps<{
-  feature: {
-    title: string;
-    description: string;
-    img: string;
-    imageFirst: boolean;
-  };
-}>();
-</script>
-
-<style scoped>
-.bg-gradient-radial {
-  background: radial-gradient(circle, var(--tw-gradient-stops));
-}
-</style>

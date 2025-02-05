@@ -1,3 +1,7 @@
+<script setup>
+defineProps({ user: Object });
+</script>
+
 <template>
   <CardHeader>
     <CardTitle class="flex flex-col items-center gap-4">
@@ -8,9 +12,3 @@
     </CardTitle>
   </CardHeader>
 </template>
-
-<script setup>
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-
-defineProps({ user: Object });
-</script>

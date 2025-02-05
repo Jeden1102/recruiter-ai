@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import type { Chat } from "@/components/chat/types";
+
+const props = defineProps<{
+  chatData: Chat;
+}>();
+</script>
+
 <template>
   <div class="grid grid-cols-2 gap-2">
     <ProductCard
@@ -24,11 +32,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-import type { Chat } from "@/components/chat/types";
-
-const props = defineProps<{
-  chatData: Chat;
-}>();
-</script>

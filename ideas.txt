@@ -1,6 +1,4 @@
 Todo:
-- code refactor
-- error handling checking - aspecially for api endpoints
 - add images to main page features
 - add mailing for account creating
 - add text for terms of service and policy

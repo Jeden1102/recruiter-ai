@@ -1,3 +1,25 @@
+<script lang="ts" setup>
+const canInstall = ref(false);
+let deferredPrompt: any = null;
+
+onMounted(() => {
+  window.addEventListener("beforeinstallprompt", (e: Event) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    canInstall.value = true;
+  });
+});
+
+const installApp = async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    canInstall.value = false;
+  }
+};
+</script>
+
 <template>
   <div class="mt-auto">
     <div class="mt-8">
@@ -30,32 +52,9 @@
           height="520"
           :alt="$t('home.callToAction.decorativeImageAlt')"
           class="absolute -bottom-3/4 left-1/2 -z-10 -translate-x-1/2 opacity-20"
+          loading="lazy"
         />
       </div>
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { ref, onMounted } from "vue";
-
-const canInstall = ref(false);
-let deferredPrompt: any = null;
-
-onMounted(() => {
-  window.addEventListener("beforeinstallprompt", (e: Event) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    canInstall.value = true;
-  });
-});
-
-const installApp = async () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    deferredPrompt = null;
-    canInstall.value = false;
-  }
-};
-</script>

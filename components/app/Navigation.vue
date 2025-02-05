@@ -1,3 +1,39 @@
+<script setup lang="ts">
+import { twMerge } from "tailwind-merge";
+
+const isMenuToggled = ref(false);
+const isDesktop = ref(false);
+
+const { data, signOut } = useAuth();
+
+const logOut = () => {
+  signOut();
+};
+const toggleMenu = () => {
+  isMenuToggled.value = !isMenuToggled.value;
+  document.body.classList.toggle("overflow-hidden", isMenuToggled.value);
+};
+
+const toggleMenuIfMobile = () => {
+  if (!isDesktop.value) {
+    toggleMenu();
+  }
+};
+
+const updateIsDesktop = () => {
+  isDesktop.value = window.innerWidth >= 768;
+};
+
+onMounted(() => {
+  updateIsDesktop();
+  window.addEventListener("resize", updateIsDesktop);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", updateIsDesktop);
+});
+</script>
+
 <template>
   <nav>
     <button @click="toggleMenu" class="md:hidden" title="Toggle menu">
@@ -86,43 +122,6 @@
     </Transition>
   </nav>
 </template>
-
-<script setup lang="ts">
-import { twMerge } from "tailwind-merge";
-import { ref, onMounted, onUnmounted } from "vue";
-
-const isMenuToggled = ref(false);
-const isDesktop = ref(false);
-
-const { data, signOut } = useAuth();
-
-const logOut = () => {
-  signOut();
-};
-const toggleMenu = () => {
-  isMenuToggled.value = !isMenuToggled.value;
-  document.body.classList.toggle("overflow-hidden", isMenuToggled.value);
-};
-
-const toggleMenuIfMobile = () => {
-  if (!isDesktop.value) {
-    toggleMenu();
-  }
-};
-
-const updateIsDesktop = () => {
-  isDesktop.value = window.innerWidth >= 768;
-};
-
-onMounted(() => {
-  updateIsDesktop();
-  window.addEventListener("resize", updateIsDesktop);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("resize", updateIsDesktop);
-});
-</script>
 
 <style scoped>
 .v-enter-active,

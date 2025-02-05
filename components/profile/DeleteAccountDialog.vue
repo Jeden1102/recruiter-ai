@@ -1,3 +1,44 @@
+<script setup lang="ts">
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import { toast } from "vue-sonner";
+import * as z from "zod";
+const { data, signOut } = useAuth();
+
+const emit = defineEmits(["submit"]);
+
+const props = defineProps<{ requirePassword: boolean }>();
+
+const isDialogOpen = ref(false);
+
+const formSchema = toTypedSchema(
+  z.object({
+    password: z.string().optional(),
+  }),
+);
+
+const { handleSubmit, values, resetForm } = useForm({
+  validationSchema: formSchema,
+});
+
+const onSubmit = handleSubmit(async (values) => {
+  try {
+    await useDeleteAccount({
+      password: values.password || "",
+    });
+
+    isDialogOpen.value = false;
+
+    signOut();
+  } catch (error: any) {
+    toast("Error", {
+      description:
+        error.statusMessage || "There was an issue deleting account.",
+    });
+  }
+});
+</script>
+
 <template>
   <div class="flex justify-between">
     <Dialog v-model:open="isDialogOpen">
@@ -45,44 +86,3 @@
     </Dialog>
   </div>
 </template>
-
-<script setup lang="ts">
-import { useForm } from "vee-validate";
-import { toTypedSchema } from "@vee-validate/zod";
-import { toast } from "vue-sonner";
-import * as z from "zod";
-const { data, signOut } = useAuth();
-
-const emit = defineEmits(["submit"]);
-
-const props = defineProps<{ requirePassword: boolean }>();
-
-const isDialogOpen = ref(false);
-
-const formSchema = toTypedSchema(
-  z.object({
-    password: z.string().optional(),
-  }),
-);
-
-const { handleSubmit, values, resetForm } = useForm({
-  validationSchema: formSchema,
-});
-
-const onSubmit = handleSubmit(async (values) => {
-  try {
-    await useDeleteAccount({
-      password: values.password || "",
-    });
-
-    isDialogOpen.value = false;
-
-    signOut();
-  } catch (error: any) {
-    toast("Error", {
-      description:
-        error.statusMessage || "There was an issue deleting account.",
-    });
-  }
-});
-</script>

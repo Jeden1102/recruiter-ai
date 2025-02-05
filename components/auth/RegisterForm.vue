@@ -2,16 +2,8 @@
 import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import { registerSchema } from "./registerSchema";
-const { signIn } = useAuth();
 
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+const { signIn } = useAuth();
 
 const formSchema = toTypedSchema(registerSchema);
 
@@ -22,12 +14,6 @@ const isLoading = ref(false);
 const form = useForm({
   validationSchema: formSchema,
 });
-
-type Error = {
-  data: {
-    statusMessage: string;
-  };
-};
 
 const onSubmit = form.handleSubmit(async (values) => {
   isLoading.value = true;
@@ -47,7 +33,7 @@ const onSubmit = form.handleSubmit(async (values) => {
       redirect: false,
     });
     useRouter().push("/profile");
-  } catch (error: Error | any) {
+  } catch (error: any) {
     if (error.data && error.data.statusMessage) {
       responseError.value = error.data.statusMessage;
     } else {

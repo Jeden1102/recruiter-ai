@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { CopyIcon } from "@radix-icons/vue";
 
 const props = defineProps<{

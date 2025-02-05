@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import { twMerge } from "tailwind-merge";
+
+defineProps<{
+  isActive: boolean;
+}>();
+</script>
+
 <template>
   <div class="flex h-4 w-4 flex-col items-center justify-center gap-[0.2rem]">
     <div
@@ -26,11 +34,3 @@
     ></div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { twMerge } from "tailwind-merge";
-
-defineProps<{
-  isActive: boolean;
-}>();
-</script>

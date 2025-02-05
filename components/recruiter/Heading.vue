@@ -1,3 +1,68 @@
+<script setup lang="ts">
+import type { Chat } from "@/components/chat/types";
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import { toast } from "vue-sonner";
+import * as z from "zod";
+
+const { data } = useAuth();
+
+const props = defineProps<{ chatData: Chat }>();
+const emit = defineEmits(["submit"]);
+
+const isDialogOpen = ref(false);
+
+const formSchema = toTypedSchema(
+  z.object({
+    restricted: z.boolean().optional(),
+    authorizedEmails: z.array(z.string()).optional(),
+  }),
+);
+
+const savedValues = ref({
+  restricted: props.chatData.restricted ?? false,
+  authorizedEmails: props.chatData.authorizedEmails ?? [],
+});
+
+const { handleSubmit, values, resetForm } = useForm({
+  validationSchema: formSchema,
+  initialValues: savedValues.value,
+});
+
+watch(isDialogOpen, (newVal) => {
+  if (newVal) {
+    resetForm({ values: savedValues.value });
+  } else {
+    savedValues.value = {
+      ...(values as { restricted: boolean; authorizedEmails: string[] }),
+    };
+  }
+});
+
+const onSubmit = handleSubmit(async (values) => {
+  if (props.chatData.id === undefined) return;
+  try {
+    await useUpdateChat({
+      id: props.chatData.id,
+      restricted: values.restricted,
+      authorizedEmails: values.authorizedEmails,
+    });
+    savedValues.value = {
+      ...(values as { restricted: boolean; authorizedEmails: string[] }),
+    };
+    isDialogOpen.value = false;
+
+    toast("Chat restrictions updated", {
+      description: "Chat restrictions updated successfully.",
+    });
+  } catch (error: any) {
+    toast("Chat restrictions update failed", {
+      description: error.statusMessage,
+    });
+  }
+});
+</script>
+
 <template>
   <div class="flex justify-between">
     <TooltipProvider>
@@ -76,68 +141,3 @@
     </Dialog>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { Chat } from "@/components/chat/types";
-import { useForm } from "vee-validate";
-import { toTypedSchema } from "@vee-validate/zod";
-import { toast } from "vue-sonner";
-import * as z from "zod";
-
-const { data } = useAuth();
-
-const props = defineProps<{ chatData: Chat }>();
-const emit = defineEmits(["submit"]);
-
-const isDialogOpen = ref(false);
-
-const formSchema = toTypedSchema(
-  z.object({
-    restricted: z.boolean().optional(),
-    authorizedEmails: z.array(z.string()).optional(),
-  }),
-);
-
-const savedValues = ref({
-  restricted: props.chatData.restricted ?? false,
-  authorizedEmails: props.chatData.authorizedEmails ?? [],
-});
-
-const { handleSubmit, values, resetForm } = useForm({
-  validationSchema: formSchema,
-  initialValues: savedValues.value,
-});
-
-watch(isDialogOpen, (newVal) => {
-  if (newVal) {
-    resetForm({ values: savedValues.value });
-  } else {
-    savedValues.value = {
-      ...(values as { restricted: boolean; authorizedEmails: string[] }),
-    };
-  }
-});
-
-const onSubmit = handleSubmit(async (values) => {
-  if (props.chatData.id === undefined) return;
-  try {
-    await useUpdateChat({
-      id: props.chatData.id,
-      restricted: values.restricted,
-      authorizedEmails: values.authorizedEmails,
-    });
-    savedValues.value = {
-      ...(values as { restricted: boolean; authorizedEmails: string[] }),
-    };
-    isDialogOpen.value = false;
-
-    toast("Chat restrictions updated", {
-      description: "Chat restrictions updated successfully.",
-    });
-  } catch (error: any) {
-    toast("Chat restrictions update failed", {
-      description: error.statusMessage,
-    });
-  }
-});
-</script>

@@ -1,3 +1,30 @@
+<script setup lang="ts">
+const modelValue = defineModel<string>();
+
+interface Option {
+  value: string;
+  title: string;
+  desc: string;
+  icon?: string;
+  isCommingSoon?: boolean;
+}
+const props = defineProps<{
+  options: Option[];
+  label: string;
+  field: string;
+}>();
+</script>
+
+<style lang="scss">
+button:has(input:checked) ~ label {
+  @apply border-primary;
+}
+
+button:has(input:disabled) ~ label {
+  @apply cursor-auto opacity-60;
+}
+</style>
+
 <template>
   <FormField v-slot="{ componentField }" type="radio" :name="field">
     <FormItem class="space-y-3">
@@ -49,32 +76,3 @@
     </FormItem>
   </FormField>
 </template>
-
-<script setup lang="ts">
-import Badge from "../ui/badge/Badge.vue";
-
-const modelValue = defineModel<string>();
-
-interface Option {
-  value: string;
-  title: string;
-  desc: string;
-  icon?: string;
-  isCommingSoon?: boolean;
-}
-const props = defineProps<{
-  options: Option[];
-  label: string;
-  field: string;
-}>();
-</script>
-
-<style lang="scss">
-button:has(input:checked) ~ label {
-  @apply border-primary;
-}
-
-button:has(input:disabled) ~ label {
-  @apply cursor-auto opacity-60;
-}
-</style>

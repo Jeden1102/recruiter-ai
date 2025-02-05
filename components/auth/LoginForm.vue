@@ -4,15 +4,6 @@ import { toTypedSchema } from "@vee-validate/zod";
 import { loginSchema } from "./loginSchema";
 const { signIn } = useAuth();
 
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-
 const formSchema = toTypedSchema(loginSchema);
 
 const responseError = ref("");

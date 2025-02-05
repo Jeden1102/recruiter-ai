@@ -1,3 +1,10 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: "Recruiter",
+  ogTitle: "Recruiter",
+});
+</script>
+
 <template>
   <div class="container pt-8">
     <Card>
@@ -8,9 +15,3 @@
     </Card>
   </div>
 </template>
-<script setup lang="ts">
-useSeoMeta({
-  title: "Recruiter",
-  ogTitle: "Recruiter",
-});
-</script>
