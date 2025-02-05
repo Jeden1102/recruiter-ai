@@ -29,10 +29,13 @@ const props = defineProps<{
     >
       <NuxtImg
         :src="feature.img"
-        width="460"
-        height="500"
         alt="Feature image"
-        class="rounded-lg"
+        class="my-4 rounded-lg object-cover md:my-0"
+        format="webp"
+        width="560"
+        height="440"
+        loading="lazy"
+        fit="cover"
       />
       <div class="md:max-w-[400px]">
         <p class="mb-2 text-secondary md:text-xl">{{ $t(feature.title) }}</p>

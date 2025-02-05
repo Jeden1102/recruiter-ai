@@ -3,22 +3,22 @@ const features = [
   {
     title: "home.features.feature1.title",
     description: "home.features.feature1.description",
-    img: "https://placehold.co/460x500",
+    img: "/images/feature-1.png",
   },
   {
     title: "home.features.feature2.title",
     description: "home.features.feature2.description",
-    img: "https://placehold.co/460x500",
+    img: "/images/feature-2.png",
   },
   {
     title: "home.features.feature3.title",
     description: "home.features.feature3.description",
-    img: "https://placehold.co/460x500",
+    img: "/images/feature-3.png",
   },
   {
     title: "home.features.feature4.title",
     description: "home.features.feature4.description",
-    img: "https://placehold.co/460x500",
+    img: "/images/feature-4.png",
   },
 ];
 </script>
