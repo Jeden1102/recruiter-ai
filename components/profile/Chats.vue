@@ -35,12 +35,12 @@ import Badge from "../ui/badge/Badge.vue";
 export interface Chat {
   id: string;
   createdAt: string;
-  email: string;
+  email?: string;
   title: string;
   type: string;
 }
 
-const data: Chat[] = await useGetUserChats();
+const data: Chat[] | null = await useGetUserChats();
 
 const columns: ColumnDef<Chat>[] = [
   {
@@ -136,7 +136,7 @@ const table = useVueTable({
 </script>
 
 <template>
-  <div class="w-full" v-if="data.length > 0">
+  <div class="w-full" v-if="data && data.length > 0">
     <div class="flex items-center py-4">
       <Input
         class="max-w-sm"

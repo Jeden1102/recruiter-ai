@@ -8,6 +8,13 @@ export default defineEventHandler(async (event) => {
     const session = await getServerSession(event);
     const body = await readBody(event);
 
+    if (!session?.user.email) {
+      throw createError({
+        statusCode: 403,
+        statusMessage: "Unauthorized",
+      });
+    }
+
     if (!body.id) {
       throw createError({
         statusCode: 400,

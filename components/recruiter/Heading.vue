@@ -14,8 +14,10 @@
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
-
-    <Dialog v-model:open="isDialogOpen">
+    <Dialog
+      v-if="chatData.email && data?.user.email === chatData.email"
+      v-model:open="isDialogOpen"
+    >
       <DialogTrigger as-child>
         <Button>
           <Icon name="material-symbols:settings" /> Edit restrictions
@@ -82,6 +84,8 @@ import { toTypedSchema } from "@vee-validate/zod";
 import { toast } from "vue-sonner";
 import * as z from "zod";
 
+const { data } = useAuth();
+
 const props = defineProps<{ chatData: Chat }>();
 const emit = defineEmits(["submit"]);
 
@@ -130,8 +134,10 @@ const onSubmit = handleSubmit(async (values) => {
     toast("Chat restrictions updated", {
       description: "Chat restrictions updated successfully.",
     });
-  } catch (error) {
-    console.error("Failed to update chat:", error);
+  } catch (error: any) {
+    toast("Chat restrictions update failed", {
+      description: error.statusMessage,
+    });
   }
 });
 </script>

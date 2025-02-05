@@ -7,8 +7,10 @@ export default async function useGetUserChats() {
     }
 
     return data.value;
-  } catch (err) {
-    console.error("Error fetching chat:", err);
-    throw new Error(err instanceof Error ? err.message : "Unknown error");
+  } catch (error: any) {
+    throw createError({
+      statusCode: error?.statusCode,
+      statusMessage: error?.statusMessage,
+    });
   }
 }

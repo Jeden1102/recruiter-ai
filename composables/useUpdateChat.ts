@@ -12,7 +12,10 @@ export default async function useUpdateChat(data: {
     });
 
     return res.chat;
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    throw createError({
+      statusCode: error?.statusCode,
+      statusMessage: error?.statusMessage,
+    });
   }
 }
