@@ -27,12 +27,12 @@ const onSubmit = form.handleSubmit(async (values) => {
       },
     });
 
-    await signIn("credentials", {
-      email: values.email,
-      password: values.password,
-      redirect: false,
-    });
-    useRouter().push("/profile");
+    // await signIn("credentials", {
+    //   email: values.email,
+    //   password: values.password,
+    //   redirect: false,
+    // });
+    // useRouter().push("/profile");
   } catch (error: any) {
     if (error.data && error.data.statusMessage) {
       responseError.value = error.data.statusMessage;

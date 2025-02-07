@@ -33,7 +33,18 @@ export default defineNuxtConfig({
     "@sidebase/nuxt-auth",
     "@stefanobartoletti/nuxt-social-share",
     "@vite-pwa/nuxt",
+    "nuxt-nodemailer",
   ],
+  nodemailer: {
+    from: '"Recruiter AI" <dev@dominikraducki.pl>',
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    secure: true,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  },
   pwa: {
     strategies: "generateSW",
     registerType: "autoUpdate",
