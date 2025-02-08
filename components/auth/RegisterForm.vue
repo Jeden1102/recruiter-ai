@@ -7,7 +7,8 @@ const { signIn } = useAuth();
 
 const formSchema = toTypedSchema(registerSchema);
 
-const responseError = ref("");
+const isError = ref(false);
+const responseMessage = ref("");
 
 const isLoading = ref(false);
 
@@ -27,17 +28,14 @@ const onSubmit = form.handleSubmit(async (values) => {
       },
     });
 
-    // await signIn("credentials", {
-    //   email: values.email,
-    //   password: values.password,
-    //   redirect: false,
-    // });
-    // useRouter().push("/profile");
+    responseMessage.value = response.statusMessage;
+    isError.value = false;
   } catch (error: any) {
+    isError.value = true;
     if (error.data && error.data.statusMessage) {
-      responseError.value = error.data.statusMessage;
+      responseMessage.value = error.data.statusMessage;
     } else {
-      responseError.value = "Something went wrong. Please try again.";
+      responseMessage.value = "Something went wrong. Please try again.";
     }
   }
   isLoading.value = false;
@@ -93,8 +91,10 @@ const onSubmit = form.handleSubmit(async (values) => {
     >
       {{ $t("auth.register") }}
     </Button>
-    <p v-if="responseError" class="text-center text-red-500">
-      {{ responseError }}
-    </p>
+    <Alert :variant="isError && 'destructive'" v-if="responseMessage">
+      <AlertDescription>
+        {{ responseMessage }}
+      </AlertDescription>
+    </Alert>
   </form>
 </template>
