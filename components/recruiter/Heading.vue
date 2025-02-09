@@ -7,6 +7,8 @@ import * as z from "zod";
 
 const { data } = useAuth();
 
+const { t } = useI18n();
+
 const props = defineProps<{ chatData: Chat }>();
 const emit = defineEmits(["submit"]);
 
@@ -52,11 +54,11 @@ const onSubmit = handleSubmit(async (values) => {
     };
     isDialogOpen.value = false;
 
-    toast("Chat restrictions updated", {
-      description: "Chat restrictions updated successfully.",
+    toast(t("chat.restrictionsSuccess.title"), {
+      description: t("chat.restrictionsSuccess.description"),
     });
   } catch (error: any) {
-    toast("Chat restrictions update failed", {
+    toast(t("chat.restrictionsFailed.title"), {
       description: error.statusMessage,
     });
   }
@@ -69,13 +71,30 @@ const onSubmit = handleSubmit(async (values) => {
       <Tooltip>
         <TooltipTrigger as-child>
           <Badge variant="outline" class="flex gap-2">
-            Status: {{ chatData.restricted ? "Restricted" : "Public" }}
+            {{ $t("common.status") }}:
+            {{
+              chatData.restricted
+                ? $t("status.restricted.title")
+                : $t("status.public.title")
+            }}
             <Icon size="16" name="solar:info-circle-bold" />
           </Badge>
         </TooltipTrigger>
         <TooltipContent>
-          <p>Add to library</p>
-          @todo add status explanation
+          <p>
+            <b>
+              {{ $t("status.restricted.title") }}
+            </b>
+            -
+            {{ $t("status.restricted.description") }}
+          </p>
+          <p>
+            <b>
+              {{ $t("status.public.title") }}
+            </b>
+            -
+            {{ $t("status.public.description") }}
+          </p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
@@ -85,14 +104,15 @@ const onSubmit = handleSubmit(async (values) => {
     >
       <DialogTrigger as-child>
         <Button>
-          <Icon name="material-symbols:settings" /> Edit restrictions
+          <Icon name="material-symbols:settings" />
+          {{ $t("chat.restrictionsEdit.title") }}
         </Button>
       </DialogTrigger>
       <DialogContent class="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit restrictions</DialogTitle>
+          <DialogTitle>{{ $t("chat.restrictionsEdit.title") }}</DialogTitle>
           <DialogDescription>
-            Make changes to the chat restrictions. Click save when you're done.
+            {{ $t("chat.restrictionsEdit.description") }}
           </DialogDescription>
         </DialogHeader>
 
@@ -119,7 +139,9 @@ const onSubmit = handleSubmit(async (values) => {
           v-if="values.restricted"
         >
           <FormItem>
-            <FormLabel>Authorized Emails</FormLabel>
+            <FormLabel>{{
+              $t("settings.general.authorizedEmails.label")
+            }}</FormLabel>
             <FormControl>
               <TagsInput :model-value="value">
                 <TagsInputItem v-for="item in value" :key="item" :value="item">
@@ -129,13 +151,17 @@ const onSubmit = handleSubmit(async (values) => {
                 <TagsInputInput placeholder="john@doe.com" />
               </TagsInput>
             </FormControl>
-            <FormDescription> Type the email and press enter </FormDescription>
+            <FormDescription>
+              {{ $t("settings.general.authorizedEmails.description") }}
+            </FormDescription>
             <FormMessage />
           </FormItem>
         </FormField>
 
         <DialogFooter>
-          <Button type="submit" @click="onSubmit"> Save changes </Button>
+          <Button type="submit" @click="onSubmit">
+            {{ $t("common.saveChanges") }}
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

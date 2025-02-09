@@ -3,8 +3,6 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import { registerSchema } from "./registerSchema";
 
-const { signIn } = useAuth();
-
 const formSchema = toTypedSchema(registerSchema);
 
 const isError = ref(false);

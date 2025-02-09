@@ -3,6 +3,7 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import * as z from "zod";
 import type { ZodType, ZodTypeDef } from "zod";
+const { t } = useI18n();
 
 const props = defineProps<{
   type: string;
@@ -25,13 +26,13 @@ const prepareSchema = (): ZodType<any, ZodTypeDef, any> => {
       file: z
         .any()
         .refine((file) => file instanceof File, {
-          message: "File is required",
+          message: t("validations.fileRequired"),
         })
         .refine((file) => file.size <= MAX_FILE_SIZE, {
-          message: `Max file size is 5MB.`,
+          message: t("validations.fileSize", { size: MAX_FILE_SIZE / 1000 }),
         })
         .refine((file) => ACCEPTED_IMAGE_TYPES.includes(file.type), {
-          message: "Files of type .jpg, .jpeg, .png are accepted only.",
+          message: t("validations.fileTypes"),
         }),
     });
   }

@@ -11,6 +11,32 @@ export default defineI18nConfig(() => ({
         share: "Share",
         close: "Close",
         settings: "Settings",
+        additional: "Additional",
+        action: "Action",
+        preview: "Preview",
+        title: "Title",
+        created: "Created",
+        type: "Type",
+        searchByTitle: "Search by title",
+        noResults: "No results",
+        previous: "Previous",
+        next: "Next",
+        author: "Author",
+        level: "Level",
+        status: "Status",
+        profile: "Profile",
+        dateCreated: "Date created",
+        saveChanges: "Save changes",
+      },
+      status: {
+        public: {
+          title: "Public",
+          description: "Anyone can access this question set.",
+        },
+        restricted: {
+          title: "Restricted",
+          description: "Only the author and authorized users can access it.",
+        },
       },
       navigation: {
         home: "Home",
@@ -96,6 +122,10 @@ export default defineI18nConfig(() => ({
             label: "Set as private",
             description:
               "Set this question set as private. Only you can access it, or the users you invite.",
+          },
+          authorizedEmails: {
+            label: "Authorized emails",
+            description: "Type the email and press enter",
           },
         },
         difficultLevel: {
@@ -197,6 +227,60 @@ export default defineI18nConfig(() => ({
       share: {
         title: "Share or save your results",
         subtitle: "Save a link to your results or share them online",
+      },
+      validations: {
+        fileRequired: "File is required",
+        fileSize: "Max file size is {{size}}MB.",
+        fileTypes: "Files of type .jpg, .jpeg, .png are accepted only",
+      },
+      profile: {
+        title: "Profile",
+        recentActivity: "Your recent recruiter AI activity",
+        noChats: {
+          title: "No Chats has been found",
+          description:
+            "Nothing to worry about... you can start a new chat and find the job of your dreams",
+          startNew: "Start a new chat",
+        },
+        deleteAccount: {
+          title: "Delete Account",
+          description:
+            "Warning! All of the data will be permanently deleted. Also all the chats created by you will be deleted.",
+          beCareful: "Be careful!",
+          irreversible: "This action is irreversable",
+        },
+      },
+      profileSettings: {
+        title: "Profile settings",
+        dangerZone: "Danger Zone",
+        recentActivity: "Your recent recruiter AI activity",
+        noChats: {
+          title: "No Chats has been found",
+          description:
+            "Nothing to worry about... you can start a new chat and find the job of your dreams",
+          startNew: "Start a new chat",
+        },
+        deleteAccount: {
+          title: "Delete Account",
+          description:
+            "Warning! All of the data will be permanently deleted. Also all the chats created by you will be deleted.",
+          beCareful: "Be careful!",
+          irreversible: "This action is irreversable",
+        },
+      },
+      chat: {
+        restrictionsSuccess: {
+          title: "Chat restrictions updated",
+          description: "Chat restrictions updated successfully.",
+        },
+        restrictionsFailed: {
+          title: "Chat restrictions update failed",
+        },
+        restrictionsEdit: {
+          title: "Edit restrictions",
+          description:
+            "Make changes to the chat restrictions. Click save when you're done.",
+        },
       },
     },
     pl: {

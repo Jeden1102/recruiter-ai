@@ -43,19 +43,22 @@ const onSubmit = handleSubmit(async (values) => {
   <div class="flex justify-between">
     <Dialog v-model:open="isDialogOpen">
       <DialogTrigger as-child>
-        <Button variant="destructive"> Delete account </Button>
+        <Button variant="destructive">
+          {{ $t("profile.deleteAccount.title") }}
+        </Button>
       </DialogTrigger>
       <DialogContent class="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Delete account</DialogTitle>
+          <DialogTitle>{{ $t("profile.deleteAccount.title") }}</DialogTitle>
           <DialogDescription>
-            Warning! All of the data will be permanently deleted. Also all the
-            chats created by you will be deleted.
+            {{ $t("profile.deleteAccount.description") }}
             <Alert variant="destructive" class="my-2">
               <ExclamationTriangleIcon class="h-4 w-4" />
-              <AlertTitle>Be careful!</AlertTitle>
+              <AlertTitle>{{
+                $t("profile.deleteAccount.beCareful")
+              }}</AlertTitle>
               <AlertDescription>
-                This action is irreversible.
+                {{ $t("profile.deleteAccount.irreversible") }}
               </AlertDescription>
             </Alert>
           </DialogDescription>
@@ -67,7 +70,7 @@ const onSubmit = handleSubmit(async (values) => {
           name="password"
         >
           <FormItem>
-            <FormLabel>Your password</FormLabel>
+            <FormLabel>{{ $t("auth.password") }}</FormLabel>
             <FormControl>
               <Input
                 type="password"
@@ -80,7 +83,9 @@ const onSubmit = handleSubmit(async (values) => {
         </FormField>
 
         <DialogFooter>
-          <Button type="submit" @click="onSubmit"> Save changes </Button>
+          <Button variant="destructive" type="submit" @click="onSubmit">
+            {{ $t("profile.deleteAccount.title") }}
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

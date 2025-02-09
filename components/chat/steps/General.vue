@@ -93,7 +93,9 @@ const onSubmit = handleSubmit((values) => {
       v-if="values.restricted"
     >
       <FormItem>
-        <FormLabel>Authorized Emails</FormLabel>
+        <FormLabel>{{
+          $t("settings.general.authorizedEmails.label")
+        }}</FormLabel>
         <FormControl>
           <TagsInput :model-value="value">
             <TagsInputItem v-for="item in value" :key="item" :value="item">
@@ -104,7 +106,9 @@ const onSubmit = handleSubmit((values) => {
             <TagsInputInput placeholder="john@doe.com" />
           </TagsInput>
         </FormControl>
-        <FormDescription> Type the email and press enter </FormDescription>
+        <FormDescription>
+          {{ $t("settings.general.autorizedEmails.description") }}
+        </FormDescription>
         <FormMessage />
       </FormItem>
     </FormField>

@@ -8,13 +8,13 @@ definePageMeta({
 <template>
   <main class="slim-container container" v-if="data?.user">
     <SectionTitleDescription
-      title="Profiles settings"
+      :title="$t('profileSettings.title')"
       :description="data.user.name ?? ''"
     />
     <Card class="my-4">
       <ProfileHeader :user="data.user" />
       <CardContent>
-        <h2 class="mb-4 text-2xl">Danger zone</h2>
+        <h2 class="mb-4 text-2xl">{{ $t("profileSettings.dangerZone") }}</h2>
         <ProfileDeleteAccountDialog
           :require-password="data.user.provider === ''"
         />

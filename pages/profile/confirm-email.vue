@@ -2,7 +2,10 @@
 const route = useRoute();
 const router = useRouter();
 
-const code: string = route.query.code;
+const code = route.query.code as string;
+
+const responseMessage = ref("");
+const isError = ref(true);
 
 if (!code) {
   useRouter().push("/");
@@ -17,17 +20,15 @@ const confirmEmail = async () => {
       },
     });
 
-    console.log(response);
-    // responseMessage.value = response.statusMessage;
-    // isError.value = false;
+    responseMessage.value = response.message;
+    isError.value = false;
   } catch (error: any) {
-    console.log(error);
-    // isError.value = true;
-    // if (error.data && error.data.statusMessage) {
-    //   responseMessage.value = error.data.statusMessage;
-    // } else {
-    //   responseMessage.value = "Something went wrong. Please try again.";
-    // }
+    isError.value = true;
+    if (error.data && error.data.statusMessage) {
+      responseMessage.value = error.data.statusMessage;
+    } else {
+      responseMessage.value = "Something went wrong. Please try again.";
+    }
   }
 };
 
@@ -35,18 +36,14 @@ confirmEmail();
 </script>
 <template>
   <main class="slim-container container">
-    <SectionTitleDescription
-      title="Email confirmation"
-      description="Email confirmed successfully"
-    />
+    <SectionTitleDescription title="Email confirmation" />
     <Card class="my-4">
       <CardContent class="flex flex-col items-center gap-4 pt-4">
         <p>
-          Your email has been confirmed successfully. Now you can login to your
-          account!
+          {{ responseMessage }}
         </p>
-        <Button asChild>
-          <NuxtLinkLocale to="/login">Log in</NuxtLinkLocale>
+        <Button asChild v-if="!isError">
+          <NuxtLinkLocale to="/login">{{ $t("common.logIn") }}</NuxtLinkLocale>
         </Button>
       </CardContent>
     </Card>

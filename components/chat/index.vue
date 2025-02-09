@@ -134,7 +134,7 @@ function appendIfDefined(
 }
 
 async function constructPrompt() {
-  let prompt = "Listę pytań przygotuj na bazie informacji:";
+  let prompt = "Genarate question based on details:";
 
   if (props.type === "url") {
     try {
@@ -142,51 +142,51 @@ async function constructPrompt() {
         query: { uri: props.details.url },
       });
 
-      prompt += ` Przeanalizuj tę ofertę pracy: ${data.value?.content}`;
+      prompt += ` Analyse this job offer: ${data.value?.content}`;
     } catch (error) {
       console.log(error);
     }
   } else if (props.type === "file") {
-    prompt += " Przeanalizuj zawartość dostarczonego pliku CV.";
+    prompt += " Analyse the CV fle.";
   } else if (props.type === "custom") {
     prompt += `
-      Użyj niestandardowych szczegółów:
+      Analyse the details of the job offer:
       ${appendIfDefined(
         "",
-        "Stanowisko",
-        props.details.position || "Nie określono",
+        "Position",
+        props.details.position || "Not specified",
       )}
       ${appendIfDefined(
         "",
-        "Wymagania",
-        props.details.requirements || "Nie określono",
+        "Requirements",
+        props.details.requirements || "Not specified",
       )}
       ${appendIfDefined(
         "",
-        "Zadania",
-        props.details.responsibilities || "Nie określono",
+        "Tasks",
+        props.details.responsibilities || "Not specified",
       )}
       ${appendIfDefined(
         "",
-        "Mile widziane",
-        props.details.niceToHave || "Nie określono",
+        "Nice to have",
+        props.details.niceToHave || "Not specified",
       )}`;
   }
 
   prompt = appendIfDefined(
     prompt,
-    "Poziom stanowiska",
+    "Position level",
     props.difficultLevel.level,
   );
   if (props.general.task) {
-    prompt += " Uwzględnij propozycję zadania rekrutacyjnego.";
+    prompt += " Include a recruitment task.";
   } else {
-    prompt += " Nie Uwzględniaj propozycji zadania rekrutacyjnego.";
+    prompt += " Don't include a recruitment task.";
   }
   if (props.general.answers) {
-    prompt += " Przygotuj przykładowe odpowiedzi na pytania.";
+    prompt += " Prepare answer in advance.";
   } else {
-    prompt += " Nie przygotuj przykładowych odpowiedzi na pytania.";
+    prompt += " Don't prepare answer in advance.";
   }
 
   return prompt.trim();
@@ -220,7 +220,7 @@ async function generateQuestions() {
         content: [
           {
             type: "text",
-            text: "Przeslane CV:",
+            text: "Included CV:",
           },
           {
             type: "image_url",
@@ -275,7 +275,7 @@ async function generateNewQuestions() {
     const userMessage = {
       role: "user",
       content:
-        "Wygeneruj kolejne 5 pytań na rozmowę o pracę na bazie poprzednich ustaleń. Zachowaj poprzednie ustalenia. Nie generuj nowego zadania rekrutacyjnego.",
+        "Genarate 5 more question based on previous settings. Don't generate new recruitment task.",
     };
 
     chatTree.value.push(userMessage);

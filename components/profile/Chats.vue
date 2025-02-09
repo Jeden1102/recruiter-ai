@@ -40,24 +40,26 @@ export interface Chat {
   type: string;
 }
 
+const { t } = useI18n();
+
 const data: Chat[] = await useGetUserChats();
 
 const columns: ColumnDef<Chat>[] = [
   {
     accessorKey: "id",
-    header: "Action",
+    header: t("common.action"),
     cell: ({ row }) => {
       const id = row.getValue("id");
       return h(
         NuxtLink,
         { to: `/recruiter/${id}`, class: "text-primary font-bold" },
-        "Preview",
+        t("common.preview"),
       );
     },
   },
   {
     accessorKey: "title",
-    header: () => h("div", "Title"),
+    header: () => h("div", t("common.title")),
     cell: ({ row }) => h("div", { class: "w-72" }, row.getValue("title")),
   },
   {
@@ -69,9 +71,13 @@ const columns: ColumnDef<Chat>[] = [
           variant: "ghost",
           onClick: () => column.toggleSorting(column.getIsSorted() === "asc"),
         },
-        () => ["Created", h(CaretSortIcon, { class: "ml-2 h-4 w-4" })],
+        () => [
+          t("common.created"),
+          h(CaretSortIcon, { class: "ml-2 h-4 w-4" }),
+        ],
       );
     },
+
     cell: ({ row }) => {
       const rawDate: string = row.getValue("createdAt");
       const formattedDate = new Date(rawDate).toLocaleString("pl-PL", {
@@ -88,7 +94,7 @@ const columns: ColumnDef<Chat>[] = [
 
   {
     accessorKey: "type",
-    header: () => h("div", "Type"),
+    header: () => h("div", t("common.type")),
     cell: ({ row }) => h(Badge, { class: "uppercase" }, row.getValue("type")),
   },
 ];
@@ -140,7 +146,7 @@ const table = useVueTable({
     <div class="flex items-center py-4">
       <Input
         class="max-w-sm"
-        placeholder="Search by title..."
+        :placeholder="$t('common.searchByTitle')"
         :model-value="table.getColumn('title')?.getFilterValue() as string"
         @update:model-value="table.getColumn('title')?.setFilterValue($event)"
       />
@@ -182,7 +188,7 @@ const table = useVueTable({
 
           <TableRow v-else>
             <TableCell :colspan="columns.length" class="h-24 text-center">
-              No results.
+              {{ $t("common.noResults") }}
             </TableCell>
           </TableRow>
         </TableBody>
@@ -197,7 +203,7 @@ const table = useVueTable({
           :disabled="!table.getCanPreviousPage()"
           @click="table.previousPage()"
         >
-          Previous
+          {{ $t("common.previous") }}
         </Button>
         <Button
           variant="outline"
@@ -205,7 +211,7 @@ const table = useVueTable({
           :disabled="!table.getCanNextPage()"
           @click="table.nextPage()"
         >
-          Next
+          {{ $t("common.next") }}
         </Button>
       </div>
     </div>
@@ -213,10 +219,9 @@ const table = useVueTable({
   <div v-else class="mt-4">
     <ProductCard
       :card="{
-        title: 'Empty chat history',
-        description:
-          'Nothing to worry about... you can start a new chat and find the job of your dreams',
-        cta: 'Start a new chat',
+        title: $t('proflie.noChats.title'),
+        description: $t('proflie.noChats.description'),
+        cta: $t('proflie.noChats.startNew'),
         uri: '/recruiter',
       }"
     />

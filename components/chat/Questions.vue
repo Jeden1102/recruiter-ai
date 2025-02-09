@@ -9,8 +9,9 @@ const props = defineProps<{ questions: Question[]; loading: boolean }>();
     <AccordionItem v-for="(q, key) in questions" :value="q.question">
       <AccordionTrigger class="gap-2 text-left">
         <p>
+          {{ key + 1 }}.
           {{ q.question }}
-          <Badge v-if="key > 9">Additional</Badge>
+          <Badge v-if="key > 9">{{ $t("common.additional") }}</Badge>
         </p>
       </AccordionTrigger>
       <AccordionContent>

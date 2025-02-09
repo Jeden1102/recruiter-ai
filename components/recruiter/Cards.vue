@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { Chat } from "@/components/chat/types";
 
+const { t } = useI18n();
+
 const props = defineProps<{
   chatData: Chat;
 }>();
@@ -9,25 +11,25 @@ const props = defineProps<{
 <template>
   <div class="grid grid-cols-2 gap-2">
     <ProductCard
-      :card="{ title: 'Tytuł', description: chatData.title || '' }"
+      :card="{ title: t('common.title'), description: chatData.title || '' }"
       size="sm"
     />
     <ProductCard
       :card="{
-        title: 'Data utworzenia',
+        title: t('common.dateCreated'),
         description: new Date(chatData.createdAt).toLocaleDateString(),
       }"
       size="sm"
     />
     <ProductCard
       :card="{
-        title: 'Autor',
+        title: t('common.author'),
         description: chatData.email || 'Anonymous',
       }"
       size="sm"
     />
     <ProductCard
-      :card="{ title: 'Poziom trudności', description: chatData.level || '' }"
+      :card="{ title: t('common.level'), description: chatData.level || '' }"
       size="sm"
     />
   </div>
