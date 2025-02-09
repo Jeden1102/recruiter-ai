@@ -13,12 +13,22 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    // @todo update fix
+    const user = await prisma.user.findUnique({
+      where: { emailVerificationCode: body.code, emailVerified: true },
+    });
+
+    if (user) {
+      return {
+        success: true,
+        message:
+          "Email confirmed succesfully. Now you can login to your account!",
+      };
+    }
+
     const updatedUser = await prisma.user.update({
       where: { emailVerificationCode: body.code },
       data: {
         emailVerified: true,
-        emailVerificationCode: "",
       },
     });
 

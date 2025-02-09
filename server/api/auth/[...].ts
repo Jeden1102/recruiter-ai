@@ -72,6 +72,13 @@ export default NuxtAuthHandler({
             where: { email: credentials?.email },
           });
 
+          if (user && !user.emailVerified) {
+            throw createError({
+              statusCode: 500,
+              statusMessage: "Email not verified",
+            });
+          }
+
           if (
             user &&
             user.password &&
@@ -80,10 +87,16 @@ export default NuxtAuthHandler({
             return { id: user.id, email: user.email };
           }
 
-          throw new Error("Invalid credentials");
+          throw createError({
+            statusCode: 500,
+            statusMessage: "Invalid credentials",
+          });
         } catch (error) {
           console.error("Validation error:", error);
-          throw new Error("Invalid credentials");
+          throw createError({
+            statusCode: 500,
+            statusMessage: error.statusMessage,
+          });
         }
       },
     }),
@@ -100,6 +113,7 @@ export default NuxtAuthHandler({
             email: user.email || "",
             provider: account?.provider,
             providerAccountId: account?.providerAccountId,
+            emailVerificationCode: "",
           },
         });
       }
