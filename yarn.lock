@@ -3709,11 +3709,6 @@ devalue@^5.0.0:
   resolved "https://registry.npmjs.org/devalue/-/devalue-5.1.1.tgz"
   integrity sha512-maua5KUiapvEwiEAe+XnlZ3Rh0GD+qI1J/nb9vrJc3muPXvcF/8gXYTWF76+5DAqHyDUtOIImEuo0YKE9mshVw==
 
-diacritics@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/diacritics/-/diacritics-1.3.0.tgz"
-  integrity sha512-wlwEkqcsaxvPJML+rDh/2iS824jbREk6DUMUKkEaSlxdYHeS43cClJtsWglvw2RfeXGm6ohKDqsXteJ5sP5enA==
-
 didyoumean@^1.2.2:
   version "1.2.2"
   resolved "https://registry.npmjs.org/didyoumean/-/didyoumean-1.2.2.tgz"
@@ -4983,13 +4978,6 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-i18n-iso-countries@^7.13.0:
-  version "7.13.0"
-  resolved "https://registry.npmjs.org/i18n-iso-countries/-/i18n-iso-countries-7.13.0.tgz"
-  integrity sha512-pVh4CjdgAHZswI98hzG+1BItQlsQfR+yGDsjDISoWIV/jHDAvCmSyZ5vj2YWwAjfVZ8/BhBDqWcFvuGOyHe4vg==
-  dependencies:
-    diacritics "1.3.0"
-
 iconv-lite@^0.6.3, iconv-lite@0.6.3:
   version "0.6.3"
   resolved "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.6.3.tgz"
@@ -5702,11 +5690,6 @@ kolorist@^1.8.0:
   resolved "https://registry.npmjs.org/kolorist/-/kolorist-1.8.0.tgz"
   integrity sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==
 
-language-list@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/language-list/-/language-list-0.0.3.tgz"
-  integrity sha512-FRRgyVX90UD0GFUPR6/75tbZb65GSfQUBezoka3JBcZJ0WmRnTl24SeZEwXc4sxbGXHVBVTgNsQE/W5S6FrBEQ==
-
 launch-editor@^2.9.1:
   version "2.9.1"
   resolved "https://registry.npmjs.org/launch-editor/-/launch-editor-2.9.1.tgz"
@@ -6361,6 +6344,11 @@ node-releases@^2.0.19:
   resolved "https://registry.npmjs.org/node-releases/-/node-releases-2.0.19.tgz"
   integrity sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==
 
+nodemailer@^6.10.0, nodemailer@^6.6.5, nodemailer@^6.9.13:
+  version "6.10.0"
+  resolved "https://registry.npmjs.org/nodemailer/-/nodemailer-6.10.0.tgz"
+  integrity sha512-SQ3wZCExjeSatLE/HBaXS5vqUOQk6GtBdIIKxiFdmm01mOQZX/POJkO3SUX1wDiYcwUOJwT23scFSC9fY2H8IA==
+
 nopt@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/nopt/-/nopt-5.0.0.tgz"
@@ -6422,6 +6410,13 @@ nuxt-chatgpt@^0.2.5:
     "@nuxt/kit" latest
     defu latest
     openai "4.0.0"
+
+nuxt-nodemailer@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/nuxt-nodemailer/-/nuxt-nodemailer-1.1.2.tgz"
+  integrity sha512-oYi0AnEZu56euRxJ/G7NAQLmRct9ORgKvxF3AcAbVlxfKJJQ7kNPZnlymQbzg9F/SLBlQgSE+mSQR/3Wz6JOIg==
+  dependencies:
+    "@nuxt/kit" "^3.11.2"
 
 nuxt@3.13:
   version "3.13.2"
