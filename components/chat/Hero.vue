@@ -12,6 +12,7 @@
       src="/images/bubbles-2.png"
       width="580"
       height="520"
+      format="webp"
       alt="Bubbles image"
       class="mt-8 w-72 md:w-96"
     />

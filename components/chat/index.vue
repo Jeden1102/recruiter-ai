@@ -13,7 +13,9 @@
         }}
       </p>
 
-      <Button @click="emit('reset')" class="my-2 text-white">Try again</Button>
+      <Button @click="emit('reset')" class="my-2 text-white">{{
+        $t("common.tryAgain")
+      }}</Button>
     </ChatError>
 
     <div v-if="chatTree.length > 0 && !isLoading && !isError" class="mt-4">
@@ -44,18 +46,19 @@
       <div class="mt-4 flex flex-col gap-2 md:flex-row">
         <ProductCard
           :card="{
-            title: 'New chat',
-            description: 'Try different settings and generate new questions',
-            cta: 'Try new chat',
+            title: t('common.newChat'),
+            description: t('product.differentSettings'),
+            cta: t('common.tryAgain'),
           }"
           @click="emit('reset')"
         />
         <ProductCard
           v-if="!user"
+          logInToSave
           :card="{
-            title: 'Save your chats',
-            description: 'Login or create an account to save your chats',
-            cta: 'Login',
+            title: t('product.saveChats'),
+            description: t('product.logInToSave'),
+            cta: t('product.logIn'),
             uri: '/login',
           }"
         />
@@ -68,6 +71,8 @@
 import useSaveChat from "~/composables/useSaveChat";
 import type { Details, General, Question, DifficultLevel } from "./types";
 const { chatCompletion } = useChatgpt();
+
+const { t } = useI18n();
 
 const { locale } = useI18n();
 

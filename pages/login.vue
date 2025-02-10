@@ -25,6 +25,8 @@ const providers = [
 definePageMeta({
   unauthenticatedOnly: true,
 });
+
+useSetPageSeo("login");
 </script>
 
 <template>
@@ -33,14 +35,14 @@ definePageMeta({
     <Card class="mx-auto my-4 max-w-[520px]">
       <CardHeader>
         <CardTitle class="text-center text-2xl font-light">
-          <p>Login to your account</p>
+          <p>{{ $t("login.meta.description") }}</p>
         </CardTitle>
       </CardHeader>
       <CardContent class="flex flex-col gap-2">
         <AuthLoginForm />
         <Separator class="my-4" label="Or" />
         <p class="text-center text-sm font-light">
-          Use one of the following providers
+          {{ $t("login.providers") }}
         </p>
         <Button
           v-for="provider in providers"
@@ -57,7 +59,7 @@ definePageMeta({
         <NuxtLinkLocale
           to="/register"
           class="w-full text-center text-secondary hover:underline"
-          >Don't have an account? Create new one</NuxtLinkLocale
+          >{{ $t("login.noAccount") }}</NuxtLinkLocale
         >
       </CardFooter>
     </Card>

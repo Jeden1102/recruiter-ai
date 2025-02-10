@@ -1,8 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: "Product",
-  ogTitle: "Product",
-});
+useSetPageSeo("product");
 </script>
 
 <template>

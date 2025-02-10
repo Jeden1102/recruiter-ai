@@ -17,7 +17,9 @@ useSeoMeta({
     "Recruiter AI - generate interview questions with the use of AI.",
   ogDescription:
     "Recruiter AI - generate interview questions with the use of AI.",
-  ogImage: config.public.APP_BASE_URI + "/bubbles.png",
+  ogImage: config.public.APP_BASE_URI + "/images/bubbles.png",
+  twitterImage: config.public.APP_BASE_URI + "/images/bubbles.png",
+  icon: config.public.APP_BASE_URI + "/images/bubbles.png",
   twitterCard: "summary_large_image",
 });
 </script>

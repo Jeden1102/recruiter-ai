@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const { data } = useAuth();
 
+useSetPageSeo("profile");
+
 definePageMeta({
   auth: true,
 });

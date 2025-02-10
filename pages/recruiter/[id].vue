@@ -3,7 +3,7 @@ import { useRoute } from "vue-router";
 import type { Question } from "~/components/chat/types";
 import type { Chat } from "@/components/chat/types";
 
-useSeoMeta({ title: "Recruiter", ogTitle: "Recruiter" });
+useSetPageSeo("recruiter");
 
 const questions = ref<Question[]>([]);
 const task = ref("");

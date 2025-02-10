@@ -1,8 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: "Recruiter",
-  ogTitle: "Recruiter",
-});
+useSetPageSeo("recruiter");
 </script>
 
 <template>

@@ -36,7 +36,7 @@ confirmEmail();
 </script>
 <template>
   <main class="slim-container container">
-    <SectionTitleDescription title="Email confirmation" />
+    <SectionTitleDescription :title="$t('confirmEmail.title')" />
     <Card class="my-4">
       <CardContent class="flex flex-col items-center gap-4 pt-4">
         <p>

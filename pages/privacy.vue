@@ -1,12 +1,12 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: "Privacy",
-  ogTitle: "Privacy",
-});
+useSetPageSeo("privacy");
 </script>
 
 <template>
   <main class="slim-container container">
-    <SectionTitleDescription title="Privacy" description="Here comes privacy" />
+    <SectionTitleDescription
+      :title="$t('privacy.meta.title')"
+      :description="$t('privacy.meta.description')"
+    />
   </main>
 </template>

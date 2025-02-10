@@ -27,6 +27,8 @@ export default defineI18nConfig(() => ({
         profile: "Profile",
         dateCreated: "Date created",
         saveChanges: "Save changes",
+        tryAgain: "Try again",
+        newChat: "New chat",
       },
       status: {
         public: {
@@ -54,6 +56,7 @@ export default defineI18nConfig(() => ({
         aboutTitle: "About",
         terms: "Terms of Service",
         privacy: "Privacy Policy",
+        createdBy: "Recruiter AI created by",
       },
       form: {
         url: {
@@ -133,6 +136,11 @@ export default defineI18nConfig(() => ({
         },
       },
       home: {
+        meta: {
+          title: "Home",
+          description:
+            "Get personalized questions to prepare for interviews effortlessly",
+        },
         hero: {
           title: "Discover the power of AI for your job search",
           subtitle:
@@ -173,6 +181,23 @@ export default defineI18nConfig(() => ({
           installApp: "Install app",
         },
       },
+      login: {
+        meta: {
+          title: "Login",
+          description:
+            "Log in to access your account and start preparing for interviews.",
+        },
+        providers: "Use one of the following providers",
+        noAccount: "Don't have an account? Create new one",
+      },
+      register: {
+        meta: {
+          title: "Register",
+          description:
+            "Create a new account and start preparing for interviews.",
+        },
+        haveAccount: "Have an account? Log in",
+      },
       features: {
         cv_questions_title: "CV Questions",
         cv_questions_description:
@@ -183,6 +208,9 @@ export default defineI18nConfig(() => ({
         custom_questions_title: "Custom Questions",
         custom_questions_description:
           "Generate questions tailored to your specific preparation needs.",
+      },
+      confirmEmail: {
+        title: "Confirm your email",
       },
       jobAnalysis: "Analyzing the job offer",
       jobAnalysisNew: "Generating new questions",
@@ -211,11 +239,24 @@ export default defineI18nConfig(() => ({
         title: "Product",
         description:
           "Explore features that make preparing for job interviews easy and effective.",
+        differentSettings: "Try different settings and generate new questions",
+        saveChats: "Save your chats",
+        logInToSave: "Login or create an account to save your chats",
+        meta: {
+          title: "Recruiter",
+          description:
+            "Discover how AI can assist you in preparing for your dream job.",
+        },
       },
       recruiter: {
         title: "Candidate Tools",
         description:
           "Discover how AI can assist you in preparing for your dream job.",
+        meta: {
+          title: "Recruiter",
+          description:
+            "Discover how AI can assist you in preparing for your dream job.",
+        },
       },
       noAnswer: "No answer",
       auth: {
@@ -234,6 +275,11 @@ export default defineI18nConfig(() => ({
         fileTypes: "Files of type .jpg, .jpeg, .png are accepted only",
       },
       profile: {
+        meta: {
+          title: "Profile",
+          description:
+            "Get personalized questions to prepare for interviews effortlessly",
+        },
         title: "Profile",
         recentActivity: "Your recent recruiter AI activity",
         noChats: {
@@ -280,6 +326,18 @@ export default defineI18nConfig(() => ({
           title: "Edit restrictions",
           description:
             "Make changes to the chat restrictions. Click save when you're done.",
+        },
+      },
+      privacy: {
+        meta: {
+          title: "Privacy",
+          description: "Recruiter AI privacy policy",
+        },
+      },
+      terms: {
+        meta: {
+          title: "Terms",
+          description: "Recruiter AI terms",
         },
       },
     },

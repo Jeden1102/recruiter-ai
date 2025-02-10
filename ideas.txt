@@ -1,5 +1,7 @@
 Todo:
 - add missing translations
+- add response language for chat
+- db refactor - user reference on chat table
 - add text for terms of service and policy
 - seo improvements
 - web core vitals check/improvements

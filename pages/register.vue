@@ -2,15 +2,17 @@
 definePageMeta({
   unauthenticatedOnly: true,
 });
+
+useSetPageSeo("register");
 </script>
 
 <template>
   <div class="container mx-auto">
-    <SectionTitleDescription title="Register" />
+    <SectionTitleDescription :title="$t('register.meta.title')" />
     <Card class="mx-auto my-4 max-w-[520px]">
       <CardHeader>
         <CardTitle class="text-center text-2xl font-light">
-          <p>Create new account</p>
+          <p>{{ $t("register.meta.description") }}</p>
         </CardTitle>
       </CardHeader>
       <CardContent class="flex flex-col gap-2">
@@ -20,7 +22,7 @@ definePageMeta({
         <NuxtLinkLocale
           to="/login"
           class="w-full text-center text-secondary hover:underline"
-          >Have an account? Log in</NuxtLinkLocale
+          >{{ $t("register.haveAccount") }}</NuxtLinkLocale
         >
       </CardFooter>
     </Card>
