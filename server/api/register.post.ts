@@ -44,6 +44,7 @@ export default defineEventHandler(async (event) => {
             "Account created. To confirm your account, please check your email.",
         };
       } catch (error) {
+        console.log(error);
         throw createError({
           statusCode: 500,
           statusMessage: "Failed to create the account",
