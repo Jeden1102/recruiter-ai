@@ -74,8 +74,6 @@ const { chatCompletion } = useChatgpt();
 
 const { t } = useI18n();
 
-const { locale } = useI18n();
-
 const emit = defineEmits(["reset"]);
 
 const chatId = ref("");
@@ -120,7 +118,7 @@ const chatTree = ref([
       6. If answers are requested, provide detailed responses (at least 2-3 sentences per answer).
       7. If possible, include at least **6-7 deep technical questions** covering key technologies/skills required for the role.
       8. Ensure the response is **valid JSON**, formatted correctly for parsing.
-      9. Generate the response in the language specified by ${locale.value}.
+      9. Generate the response in the language specified by langcode key:  ${props.general.language}.
       10. Add a "title" key summarizing the interview topic in a concise phrase.
     `.trim(),
   },

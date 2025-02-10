@@ -3,6 +3,8 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import * as z from "zod";
 
+const { locale } = useI18n();
+
 const emit = defineEmits(["submit", "back"]);
 
 const formSchema = toTypedSchema(
@@ -11,15 +13,21 @@ const formSchema = toTypedSchema(
     task: z.boolean().default(false).optional(),
     restricted: z.boolean().default(false).optional(),
     authorizedEmails: z.array(z.string()).optional(),
+    language: z.string(),
   }),
 );
 
-const { handleSubmit, values } = useForm({
+const { handleSubmit, values, setFieldValue } = useForm({
   validationSchema: formSchema,
   initialValues: {
     authorizedEmails: [],
+    language: locale.value,
   },
 });
+
+const selectedLanguage = ref<string>(values.language ?? "EN");
+
+watch(selectedLanguage, (newLang) => setFieldValue("language", newLang));
 
 const onSubmit = handleSubmit((values) => {
   emit("submit", values);
@@ -112,6 +120,7 @@ const onSubmit = handleSubmit((values) => {
         <FormMessage />
       </FormItem>
     </FormField>
+    <ChatLanguageSelector v-model="selectedLanguage" />
     <div class="mt-6 flex gap-4">
       <Button variant="outline" type="button" @click="emit('back')">
         {{ $t("form.buttons.previous") }}

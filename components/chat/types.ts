@@ -12,6 +12,7 @@ export type General = {
   answers?: boolean;
   restricted?: boolean;
   authorizedEmails?: string[];
+  language?: string;
 };
 
 export type DifficultLevel = {
