@@ -120,6 +120,7 @@ const chatTree = ref([
       8. Ensure the response is **valid JSON**, formatted correctly for parsing.
       9. Generate the response in the language specified by langcode key:  ${props.general.language}.
       10. Add a "title" key summarizing the interview topic in a concise phrase.
+      11. If the input is incomplete, and some data are not specified, still generate the response.
     `.trim(),
   },
 ]);

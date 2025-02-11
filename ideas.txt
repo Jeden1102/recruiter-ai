@@ -1,6 +1,4 @@
 Todo:
-- add response language for chat
-- db refactor - user reference on chat table
 - add missing translations - api responses
 - add text for terms of service and policy
 - seo improvements
