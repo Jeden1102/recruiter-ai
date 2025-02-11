@@ -94,6 +94,8 @@ const sendVerificationEmail = async (email: string) => {
       url: `${config.public.APP_BASE_URI}/profile/confirm-email?code=${emailVerificationCode}`,
     });
 
+    //@todo debug account registration
+
     sendMail({
       subject: "Account confirmation",
       to: email,
