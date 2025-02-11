@@ -8,23 +8,21 @@ export default defineEventHandler(async (event) => {
     let chatId = "";
     const session = await getServerSession(event);
 
+    let userId = session?.id;
+
     const body = await readBody(event);
 
     if (body.id) {
       const savedChat = await prisma.chat.update({
-        where: {
-          id: body.id,
-        },
-        data: {
-          questions: body.questions,
-        },
+        where: { id: body.id },
+        data: { questions: body.questions },
       });
 
       chatId = savedChat.id;
     } else {
       const savedChat = await prisma.chat.create({
         data: {
-          email: session?.user?.email || "",
+          userId,
           type: body.type,
           questions: body.questions,
           task: body.task,
@@ -40,6 +38,7 @@ export default defineEventHandler(async (event) => {
           authorizedEmails: body.authorizedEmails,
         },
       });
+
       chatId = savedChat.id;
     }
 

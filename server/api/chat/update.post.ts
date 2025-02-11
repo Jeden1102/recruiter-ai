@@ -8,13 +8,6 @@ export default defineEventHandler(async (event) => {
     const session = await getServerSession(event);
     const body = await readBody(event);
 
-    if (!session?.user.email) {
-      throw createError({
-        statusCode: 403,
-        statusMessage: "Unauthorized",
-      });
-    }
-
     if (!body.id) {
       throw createError({
         statusCode: 400,
@@ -23,7 +16,10 @@ export default defineEventHandler(async (event) => {
     }
 
     const updatedChat = await prisma.chat.update({
-      where: { id: body.id, email: session?.user?.email },
+      where: {
+        id: body.id,
+        userId: session?.user.id,
+      },
       data: {
         restricted: body.restricted,
         authorizedEmails: body.authorizedEmails,

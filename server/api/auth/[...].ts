@@ -117,8 +117,7 @@ export default NuxtAuthHandler({
           },
         });
       }
-
-      return true;
+      return { id: user.id, email: user.email };
     },
     async session({ session, user }) {
       const dbUser = await prisma.user.findUnique({
@@ -129,7 +128,7 @@ export default NuxtAuthHandler({
         session.user.provider = dbUser.provider || "";
       }
 
-      return session;
+      return { ...session, id: dbUser?.id };
     },
   },
   pages: {

@@ -22,11 +22,14 @@ model User {
   updatedAt             DateTime @updatedAt
   emailVerified         Boolean  @default(true)
   emailVerificationCode String   @unique
+
+  chats Chat[]
 }
 
 model Chat {
   id               String   @id @default(uuid()) @db.Uuid
-  email            String?
+  userId           String?  @db.Uuid
+  user             User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
   url              String?
   position         String?
   requirements     String?

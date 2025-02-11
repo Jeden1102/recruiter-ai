@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
   try {
     const chat = await prisma.chat.findUnique({
       where: { id },
+      include: { user: true },
     });
 
     if (!chat) {
@@ -39,7 +40,7 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    if (session?.user?.email !== chat.email) {
+    if (session?.user?.email !== chat.user?.email) {
       delete chat?.authorizedEmails;
     }
 
@@ -54,9 +55,10 @@ export default defineEventHandler(async (event) => {
 
 const isUserAuthorized = async (
   email: string | undefined | null,
-  chat: { email: string | null; authorizedEmails: string[] },
+  chat: { user: { email: string } | null; authorizedEmails: string[] },
 ) => {
   return Boolean(
-    email && (email === chat.email || chat.authorizedEmails?.includes(email)),
+    email &&
+      (email === chat.user?.email || chat.authorizedEmails?.includes(email)),
   );
 };

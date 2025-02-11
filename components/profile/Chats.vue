@@ -35,7 +35,7 @@ import Badge from "../ui/badge/Badge.vue";
 export interface Chat {
   id: string;
   createdAt: string;
-  email: string;
+  userId: string;
   title: string;
   type: string;
 }

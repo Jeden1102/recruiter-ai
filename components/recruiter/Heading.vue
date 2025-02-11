@@ -99,7 +99,7 @@ const onSubmit = handleSubmit(async (values) => {
       </Tooltip>
     </TooltipProvider>
     <Dialog
-      v-if="chatData.email && data?.user.email === chatData.email"
+      v-if="chatData.user && data?.user.email === chatData.user.email"
       v-model:open="isDialogOpen"
     >
       <DialogTrigger as-child>

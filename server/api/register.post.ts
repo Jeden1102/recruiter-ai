@@ -86,15 +86,18 @@ const sendVerificationEmail = async (email: string) => {
 
     const emailVerificationCode = await bcrypt.hash(Date.now().toString(), 10);
 
-    const templatePath = "mail-templates/account-confirmation.html";
-    const templateSource = await readFile(templatePath, "utf8");
+    const templateUrl = `${config.public.APP_BASE_URI}/mail-templates/account-confirmation.html`;
+
+    const response = await fetch(templateUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch email template: ${response.statusText}`);
+    }
+    const templateSource = await response.text();
 
     const template = Handlebars.compile(templateSource);
     const htmlContent = template({
       url: `${config.public.APP_BASE_URI}/profile/confirm-email?code=${emailVerificationCode}`,
     });
-
-    //@todo debug account registration
 
     sendMail({
       subject: "Account confirmation",
@@ -110,6 +113,3 @@ const sendVerificationEmail = async (email: string) => {
     });
   }
 };
-
-// add email confimration logic on account/confirm page
-// add validation methods for accountConfirmed -> for providers skip, for login by email and password check if account is confirmed

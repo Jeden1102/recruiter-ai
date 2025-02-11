@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    await prisma.chat.deleteMany({ where: { email: session.user.email } });
+    await prisma.chat.deleteMany({ where: { userId: session.id } });
     await prisma.user.delete({ where: { email: session.user.email } });
 
     return { success: true };

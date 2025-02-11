@@ -37,8 +37,18 @@ export type Chat = {
   url?: string;
   id?: string;
   title?: string;
-  email?: string;
+  userId?: string;
   restricted?: boolean;
   authorizedEmails?: string[];
   createdAt: string;
+  user?: User;
+};
+
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  avatar: string;
+  role: string;
+  provider: string;
 };

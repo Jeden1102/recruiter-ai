@@ -24,7 +24,7 @@ const props = defineProps<{
     <ProductCard
       :card="{
         title: t('common.author'),
-        description: chatData.email || 'Anonymous',
+        description: chatData?.user.email || 'Anonymous',
       }"
       size="sm"
     />

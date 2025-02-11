@@ -16,11 +16,10 @@ export default defineEventHandler(async (event) => {
 
     const userChats = await prisma.chat.findMany({
       where: {
-        email: session.user.email,
+        userId: session.id,
       },
       select: {
         id: true,
-        email: true,
         type: true,
         createdAt: true,
         title: true,
