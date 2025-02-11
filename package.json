@@ -47,7 +47,6 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@sidebase/nuxt-auth": "^0.10.0",
     "@types/bcrypt": "^5.0.2",
-    "nodemailer": "^6.10.0",
     "nuxt-chatgpt": "^0.2.5",
     "nuxt-nodemailer": "^1.1.2",
     "prettier": "^3.4.2",
