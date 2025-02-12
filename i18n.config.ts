@@ -372,47 +372,74 @@ export default defineI18nConfig(() => ({
       common: {
         getStarted: "Rozpocznij",
         logIn: "Zaloguj się",
-        generateNew: "Generuj nowe pytania",
+        generateNew: "Wygeneruj nowe pytania",
         generate: "Generuj",
         copy: "Kopiuj",
         copied: "Skopiowano",
         share: "Udostępnij",
         close: "Zamknij",
         settings: "Ustawienia",
+        additional: "Dodatkowe",
+        action: "Akcja",
+        preview: "Podgląd",
+        title: "Tytuł",
+        created: "Utworzono",
+        type: "Typ",
+        searchByTitle: "Szukaj po tytule",
+        noResults: "Brak wyników",
+        previous: "Poprzedni",
+        next: "Następny",
+        author: "Autor",
+        level: "Poziom",
+        status: "Status",
+        profile: "Profil",
+        dateCreated: "Data utworzenia",
+        saveChanges: "Zapisz zmiany",
+        tryAgain: "Spróbuj ponownie",
+        newChat: "Nowy czat",
+        selectLanguage: "Wybierz język...",
+        nothingFound: "Nic nie znaleziono",
+      },
+      status: {
+        public: {
+          title: "Publiczny",
+          description: "Każdy może uzyskać dostęp do tego zestawu pytań.",
+        },
+        restricted: {
+          title: "Ograniczony",
+          description: "Dostęp mają tylko autor i upoważnieni użytkownicy.",
+        },
       },
       navigation: {
         home: "Strona główna",
         product: "Produkt",
-        recruiter: "Rekruter",
-        login: "Zaloguj",
+        recruiter: "Narzędzia dla kandydatów",
+        login: "Logowanie",
         logout: "Wyloguj",
         profile: "Profil",
         account: "Konto",
         myAccount: "Moje konto",
         logOut: "Wyloguj",
       },
-      jobAnalysis: "Trwa analiza oferty pracy",
-      jobAnalysisNew: "Generowane są nowe pytania",
-      noAnswer: "Brak odpowiedzi",
       footer: {
         navigationTitle: "Nawigacja",
         aboutTitle: "O nas",
         terms: "Regulamin",
         privacy: "Polityka prywatności",
+        createdBy: "Recruiter AI stworzony przez",
       },
-      recruitmentTask: "Zadanie rekrutacyjne",
       form: {
         url: {
-          title: "Podaj adres URL",
+          title: "Wprowadź URL",
           label: "URL oferty pracy",
-          placeholder: "Wklej tutaj adres URL oferty pracy",
+          placeholder: "Wklej tutaj URL oferty pracy",
         },
         cv: {
           title: "Prześlij swoje CV",
-          label: "Dodaj CV",
+          label: "Prześlij CV (JPG, PNG)",
         },
         custom: {
-          title: "Dodaj szczegóły",
+          title: "Wprowadź własne szczegóły",
           position: {
             label: "Stanowisko",
             placeholder: "Opisz stanowisko pracy",
@@ -424,7 +451,7 @@ export default defineI18nConfig(() => ({
           niceToHave: {
             label: "Mile widziane",
             placeholder:
-              "Wymień umiejętności lub doświadczenie, które będą dodatkowym atutem",
+              "Wymień umiejętności lub doświadczenie, które są mile widziane",
           },
           responsibilities: {
             label: "Obowiązki",
@@ -432,8 +459,8 @@ export default defineI18nConfig(() => ({
           },
         },
         buttons: {
-          previous: "Cofnij",
-          next: "Dalej",
+          previous: "Poprzedni",
+          next: "Następny",
         },
       },
       settings: {
@@ -445,7 +472,7 @@ export default defineI18nConfig(() => ({
               easy: {
                 title: "Łatwy",
                 description:
-                  "Podstawowe pytania odpowiednie dla początkujących kandydatów",
+                  "Podstawowe pytania odpowiednie dla początkujących",
               },
               intermediate: {
                 title: "Średni",
@@ -454,24 +481,27 @@ export default defineI18nConfig(() => ({
               },
               advanced: {
                 title: "Zaawansowany",
-                description: "Trudne pytania dla doświadczonych kandydatów",
+                description: "Wymagające pytania dla doświadczonych kandydatów",
               },
             },
           },
           prepareAnswers: {
-            label: "Przygotuj odpowiedzi wcześniej",
+            label: "Przygotuj odpowiedzi z wyprzedzeniem",
             description:
-              "Włącz tę opcję, aby wygenerować odpowiedzi z wyprzedzeniem.",
+              "Włącz tę opcję, aby generować odpowiedzi z wyprzedzeniem.",
           },
           recruitmentTask: {
             label: "Dodaj zadanie rekrutacyjne",
-            description:
-              "Dołącz zadanie, które pozwoli ocenić umiejętności kandydata.",
+            description: "Dodaj zadanie, aby zaprezentować swoje umiejętności.",
           },
           private: {
             label: "Ustaw jako prywatne",
             description:
-              "Ustaw jako prywatne, jeśli chcesz, by dostęp do utworzonych pytań byl tylko dla Ciebie i dla opcjonalnie dodanych emailow",
+              "Ustaw ten zestaw pytań jako prywatny. Dostęp masz tylko Ty lub zaproszeni użytkownicy.",
+          },
+          authorizedEmails: {
+            label: "Autoryzowane e-maile",
+            description: "Wpisz e-mail i naciśnij enter",
           },
         },
         difficultLevel: {
@@ -479,73 +509,102 @@ export default defineI18nConfig(() => ({
         },
       },
       home: {
+        meta: {
+          title: "Strona główna",
+          description:
+            "Uzyskaj spersonalizowane pytania, aby łatwo przygotować się do rozmów kwalifikacyjnych",
+        },
         hero: {
-          title: "Poznaj możliwości rekrutacji z AI",
-          subtitle: "Zautomatyzuj proces rekrutacji i znajdź wymarzoną pracę",
+          title: "Odkryj moc AI w poszukiwaniu pracy",
+          subtitle:
+            "Uzyskaj spersonalizowane pytania, aby łatwo przygotować się do rozmów kwalifikacyjnych",
         },
         features: {
           title: "Funkcje",
           description:
-            "Sprawdź, co wyróżnia Recruiter AI na tle innych rozwiązań rekrutacyjnych.",
-          details: "Szczegóły funkcji",
+            "Poznaj unikalne funkcje, które sprawiają, że to narzędzie jest idealne dla kandydatów.",
+          details: "Więcej szczegółów o funkcjach",
           feature1: {
             title: "Pytania na podstawie CV",
             description:
-              "Wykorzystaj zawartość CV do tworzenia spersonalizowanych pytań, dostosowanych do Twojego profilu.",
+              "Generuj dopasowane pytania na podstawie Twojego CV, aby skutecznie się przygotować.",
           },
           feature2: {
             title: "Pytania na podstawie URL oferty pracy",
             description:
-              "Podaj URL ogłoszenia, a system automatycznie wygeneruje pytania dopasowane do wymagań stanowiska.",
+              "Podaj URL oferty pracy i uzyskaj pytania zgodne z wymaganiami stanowiska.",
           },
           feature3: {
-            title: "Pytania na podstawie własnych danych",
+            title: "Pytania na podstawie własnych szczegółów",
             description:
-              "Skonfiguruj własne ustawienia i generuj pytania idealnie dopasowane do potrzeb rekrutacyjnych.",
+              "Dodaj własne szczegóły, aby wygenerować spersonalizowane pytania dopasowane do Twoich potrzeb.",
           },
           feature4: {
-            title: "Zapisuj pytania",
+            title: "Zapisz swoje pytania",
             description:
-              "Zapisz wygenerowane pytania, aby móc do nich wrócić w dowolnym momencie.",
+              "Zapisuj wygenerowane pytania, aby móc wrócić do nich później i przygotować się efektywnie.",
           },
         },
         callToAction: {
-          startWith: "Rozpocznij z",
-          poweredTool: "Narzędzie wspierane przez AI",
+          startWith: "Rozpocznij od",
+          poweredTool: "Napędzane przez AI Tool",
           assistantDescription:
-            "Usprawnij i przyspiesz proces rekrutacyjny dzięki naszemu asystentowi AI.",
-          decorativeImageAlt: "Dekoracyjna grafika w tle",
-          installApp: "Zainstaluj aplikacje",
+            "Spraw, by Twoje przygotowania do rozmowy były skuteczne i skoncentrowane dzięki naszemu asystentowi AI.",
+          decorativeImageAlt: "Dekoracyjne tło",
+          installApp: "Zainstaluj aplikację",
         },
       },
+      login: {
+        meta: {
+          title: "Logowanie",
+          description:
+            "Zaloguj się, aby uzyskać dostęp do swojego konta i rozpocząć przygotowania do rozmów kwalifikacyjnych.",
+        },
+        providers: "Użyj jednej z poniższych metod logowania",
+        noAccount: "Nie masz konta? Utwórz nowe",
+      },
+      register: {
+        meta: {
+          title: "Rejestracja",
+          description:
+            "Utwórz nowe konto i rozpocznij przygotowania do rozmów kwalifikacyjnych.",
+        },
+        haveAccount: "Masz już konto? Zaloguj się",
+      },
       features: {
-        cv_questions_title: "Pytania oparte na CV",
+        cv_questions_title: "Pytania na podstawie CV",
         cv_questions_description:
-          "Przeanalizuj CV kandydatów i ich doświadczenie zawodowe.",
+          "Przygotuj się skutecznie dzięki pytaniom dopasowanym do Twojego CV.",
         url_questions_title: "Pytania na podstawie URL",
         url_questions_description:
-          "Oceń kandydatów na podstawie wymagań w ogłoszeniu o pracę.",
+          "Otrzymaj pytania na podstawie podanego URL oferty pracy.",
         custom_questions_title: "Pytania niestandardowe",
         custom_questions_description:
-          "Twórz pytania dopasowane do specyficznych wymagań rekrutacji.",
+          "Generuj pytania dopasowane do Twoich indywidualnych potrzeb przygotowawczych.",
       },
+      confirmEmail: {
+        title: "Potwierdź swój adres e-mail",
+      },
+      jobAnalysis: "Analiza oferty pracy",
+      jobAnalysisNew: "Generowanie nowych pytań",
+      recruitmentTask: "Zadanie praktyczne",
       questions: {
         method: {
-          title: "Wybierz sposób zadawania pytań",
-          label: "Wybierz metodę pytań",
+          title: "Wybierz metodę generowania pytań",
+          label: "Wybierz sposób generowania pytań",
           types: {
             url: {
-              title: "Na podstawie URL",
-              description:
-                "Generuj pytania na podstawie podanego URL ogłoszenia o pracę",
+              title: "Metoda URL",
+              description: "Generuj pytania na podstawie URL oferty pracy",
             },
             cv: {
-              title: "Na podstawie CV",
+              title: "Metoda CV",
               description: "Generuj pytania na podstawie Twojego CV",
             },
             custom: {
-              title: "Własne pytania",
-              description: "Twórz pytania na podstawie własnych danych",
+              title: "Metoda niestandardowa",
+              description:
+                "Generuj spersonalizowane pytania na podstawie własnych danych",
             },
           },
         },
@@ -553,23 +612,133 @@ export default defineI18nConfig(() => ({
       product: {
         title: "Produkt",
         description:
-          "Poznaj funkcje, które usprawniają proces rekrutacji z pomocą AI.",
+          "Poznaj funkcje, które sprawiają, że przygotowanie do rozmów kwalifikacyjnych jest łatwe i efektywne.",
+        differentSettings: "Spróbuj różnych ustawień i generuj nowe pytania",
+        saveChats: "Zapisz swoje czaty",
+        logInToSave: "Zaloguj się lub utwórz konto, aby zapisać swoje czaty",
+        meta: {
+          title: "Rekruter",
+          description:
+            "Odkryj, jak AI może pomóc Ci w przygotowaniach do pracy marzeń.",
+        },
       },
       recruiter: {
-        title: "Rekruter",
+        title: "Narzędzia dla kandydatów",
         description:
-          "Odkryj nowoczesne rozwiązania rekrutacyjne wspierane przez AI.",
+          "Odkryj, jak AI może pomóc Ci w przygotowaniach do pracy marzeń.",
+        meta: {
+          title: "Rekruter",
+          description:
+            "Odkryj, jak AI może pomóc Ci w przygotowaniach do pracy marzeń.",
+        },
       },
+      noAnswer: "Brak odpowiedzi",
       auth: {
-        login: "Zaloguj się",
+        login: "Logowanie",
         password: "Hasło",
         passwordRepeat: "Powtórz hasło",
-        register: "Zarejestruj się",
+        register: "Rejestracja",
       },
       share: {
-        title: "Udostępnij lub zapisz wyniki",
-        subtitle:
-          "Zapisz link do wyniku lub udostępnij w mediach społecznościowych",
+        title: "Udostępnij lub zapisz swoje wyniki",
+        subtitle: "Zapisz link do swoich wyników lub udostępnij je online",
+      },
+      validations: {
+        fileRequired: "Plik jest wymagany",
+        fileSize: "Maksymalny rozmiar pliku to {{size}}MB.",
+        fileTypes: "Akceptowane są tylko pliki typu .jpg, .jpeg, .png",
+      },
+      profile: {
+        meta: {
+          title: "Profil",
+          description:
+            "Uzyskaj spersonalizowane pytania, aby łatwo przygotować się do rozmów kwalifikacyjnych",
+        },
+        title: "Profil",
+        recentActivity: "Twoja ostatnia aktywność w Recruiter AI",
+        noChats: {
+          title: "Brak znalezionych czatów",
+          description:
+            "Nie martw się... możesz rozpocząć nowy czat i znaleźć pracę swoich marzeń",
+          startNew: "Rozpocznij nowy czat",
+        },
+        deleteAccount: {
+          title: "Usuń konto",
+          description:
+            "Uwaga! Wszystkie dane zostaną trwale usunięte. Zostaną również usunięte wszystkie czaty utworzone przez Ciebie.",
+          beCareful: "Uważaj!",
+          irreversible: "Ta akcja jest nieodwracalna",
+        },
+      },
+      profileSettings: {
+        title: "Ustawienia profilu",
+        dangerZone: "Strefa ryzyka",
+        recentActivity: "Twoja ostatnia aktywność w Recruiter AI",
+        noChats: {
+          title: "Brak znalezionych czatów",
+          description:
+            "Nie martw się... możesz rozpocząć nowy czat i znaleźć pracę swoich marzeń",
+          startNew: "Rozpocznij nowy czat",
+        },
+        deleteAccount: {
+          title: "Usuń konto",
+          description:
+            "Uwaga! Wszystkie dane zostaną trwale usunięte. Zostaną również usunięte wszystkie czaty utworzone przez Ciebie.",
+          beCareful: "Uważaj!",
+          irreversible: "Ta akcja jest nieodwracalna",
+        },
+      },
+      chat: {
+        restrictionsSuccess: {
+          title: "Ograniczenia czatu zaktualizowane",
+          description: "Ograniczenia czatu zostały pomyślnie zaktualizowane.",
+        },
+        restrictionsFailed: {
+          title: "Aktualizacja ograniczeń czatu nie powiodła się",
+        },
+        restrictionsEdit: {
+          title: "Edytuj ograniczenia",
+          description:
+            "Wprowadź zmiany w ograniczeniach czatu. Kliknij Zapisz, gdy skończysz.",
+        },
+      },
+      privacy: {
+        meta: {
+          title: "Prywatność",
+          description: "Polityka prywatności Recruiter AI",
+        },
+      },
+      terms: {
+        meta: {
+          title: "Warunki",
+          description: "Warunki użytkowania Recruiter AI",
+        },
+      },
+      apiResponses: {
+        emailNotVerified: "E-mail niezweryfikowany",
+        invalidCredentials: "Nieprawidłowe dane logowania",
+        chatNotFound: "Czat nie znaleziony",
+        chatNowAllowed: "Nie masz uprawnień do dostępu do tego czatu",
+        somethingWentWrong: "Coś poszło nie tak",
+        missingCode: "Brak kodu",
+        emailConfirmed:
+          "E-mail został pomyślnie potwierdzony. Teraz możesz zalogować się do swojego konta!",
+        failedToConfirmEmail: "Nie udało się potwierdzić e-maila",
+        invalidChatId: "Nieprawidłowe ID czatu",
+        failedToSaveChat: "Nie udało się zapisać czatu",
+        chatIdRequired: "ID czatu jest wymagane",
+        updateChatFailed: "Aktualizacja czatu nie powiodła się",
+        userNotAuthenticated: "Użytkownik nie jest uwierzytelniony",
+        failedToFetchUserChats: "Nie udało się pobrać czatów użytkownika",
+        incorrectPassword: "Nieprawidłowe hasło",
+        missingUri: "Brak URI",
+        issueFetchingPage: "Problem z pobraniem strony",
+        emailTaken: "E-mail jest już zajęty",
+        accountCreated:
+          "Konto zostało pomyślnie utworzone. Aby potwierdzić konto, sprawdź swój e-mail.",
+        failedToCreateAccount: "Nie udało się utworzyć konta",
+        failedToSendVerificationEmail:
+          "Nie udało się wysłać e-maila weryfikacyjnego",
       },
     },
   },

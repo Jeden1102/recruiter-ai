@@ -1,5 +1,3 @@
 Todo:
-- add missing translations - api responses
-- add text for terms of service and policy
 - seo improvements
 - web core vitals check/improvements
