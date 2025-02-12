@@ -273,7 +273,7 @@ export default defineI18nConfig(() => ({
       },
       validations: {
         fileRequired: "File is required",
-        fileSize: "Max file size is {{size}}MB.",
+        fileSize: "Max file size is {size}MB.",
         fileTypes: "Files of type .jpg, .jpeg, .png are accepted only",
       },
       profile: {
@@ -645,7 +645,7 @@ export default defineI18nConfig(() => ({
       },
       validations: {
         fileRequired: "Plik jest wymagany",
-        fileSize: "Maksymalny rozmiar pliku to {{size}}MB.",
+        fileSize: "Maksymalny rozmiar pliku to {size}MB.",
         fileTypes: "Akceptowane są tylko pliki typu .jpg, .jpeg, .png",
       },
       profile: {
