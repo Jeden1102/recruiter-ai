@@ -43,6 +43,7 @@ const progressWidth = () => {
 };
 
 onMounted(() => {
+  console.log(route.query.mode, "here");
   if (route.query.mode && isChatType(route.query.mode as string)) {
     type.value = route.query.mode as string;
     step.value = 1;
@@ -52,49 +53,51 @@ onMounted(() => {
 
 <template>
   <div class="relative flex-1">
-    <transition name="fade-slide" mode="out-in" appear>
-      <div class="flex flex-col gap-4">
-        <template v-if="step === 0">
-          <ChatStepsType :type="type" @submit="handleTypeSubmit" />
-        </template>
-        <template v-if="step === 1">
-          <ChatStepsDetails
-            :type="type"
-            @submit="handleSubmitDetails"
-            @back="step--"
-          />
-        </template>
-        <template v-if="step === 2">
-          <ChatStepsDifficultLevel
-            :type="type"
-            @submit="handleSubmitDifficultLevel"
-            @back="step--"
-          />
-        </template>
-        <template v-if="step === 3">
-          <ChatStepsGeneral
-            :type="type"
-            @submit="handleSubmitGeneral"
-            @back="step--"
-          />
-        </template>
-        <template v-if="step === 4">
-          <Chat
-            :type="type"
-            :details="details"
-            :general="general"
-            :difficultLevel="difficultLevel"
-            @reset="step = 0"
-          />
-        </template>
-        <div>
-          <p class="my-1 text-center text-sm font-semibold text-primary">
-            {{ step + 1 }} / {{ STEPS }}
-          </p>
-          <Progress :model-value="progressWidth()" />
+    <ClientOnly>
+      <transition name="fade-slide" mode="out-in" appear>
+        <div class="flex flex-col gap-4">
+          <template v-if="step === 0">
+            <ChatStepsType :type="type" @submit="handleTypeSubmit" />
+          </template>
+          <template v-if="step === 1">
+            <ChatStepsDetails
+              :type="type"
+              @submit="handleSubmitDetails"
+              @back="step--"
+            />
+          </template>
+          <template v-if="step === 2">
+            <ChatStepsDifficultLevel
+              :type="type"
+              @submit="handleSubmitDifficultLevel"
+              @back="step--"
+            />
+          </template>
+          <template v-if="step === 3">
+            <ChatStepsGeneral
+              :type="type"
+              @submit="handleSubmitGeneral"
+              @back="step--"
+            />
+          </template>
+          <template v-if="step === 4">
+            <Chat
+              :type="type"
+              :details="details"
+              :general="general"
+              :difficultLevel="difficultLevel"
+              @reset="step = 0"
+            />
+          </template>
+          <div>
+            <p class="my-1 text-center text-sm font-semibold text-primary">
+              {{ step + 1 }} / {{ STEPS }}
+            </p>
+            <Progress :model-value="progressWidth()" />
+          </div>
         </div>
-      </div>
-    </transition>
+      </transition>
+    </ClientOnly>
   </div>
 </template>
 
