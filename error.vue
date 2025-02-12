@@ -12,14 +12,16 @@ const handleError = () => clearError({ redirect: "/" });
   <NuxtLayout>
     <div class="flex flex-col items-center gap-4 py-8">
       <h1 class="text-center text-3xl md:text-4xl lg:text-5xl">
-        {{ props.error?.statusMessage }}
+        {{
+          $t(props.error?.statusMessage || "apiResponses.somethingWentWrong")
+        }}
       </h1>
       <TextGradient>
         <h2 class="text-3xl md:text-4xl lg:text-5xl">
           {{ error?.statusCode }}
         </h2>
       </TextGradient>
-      <Button @click="handleError">Take me home</Button>
+      <Button @click="handleError">{{ $t("navigation.home") }}</Button>
     </div>
   </NuxtLayout>
 </template>

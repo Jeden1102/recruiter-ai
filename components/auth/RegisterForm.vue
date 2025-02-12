@@ -3,6 +3,8 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import { registerSchema } from "./registerSchema";
 
+const { t } = useI18n();
+
 const formSchema = toTypedSchema(registerSchema);
 
 const isError = ref(false);
@@ -26,12 +28,12 @@ const onSubmit = form.handleSubmit(async (values) => {
       },
     });
 
-    responseMessage.value = response.statusMessage;
+    responseMessage.value = t(response.statusMessage);
     isError.value = false;
   } catch (error: any) {
     isError.value = true;
     if (error.data && error.data.statusMessage) {
-      responseMessage.value = error.data.statusMessage;
+      responseMessage.value = t(error.data.statusMessage);
     } else {
       responseMessage.value = "Something went wrong. Please try again.";
     }

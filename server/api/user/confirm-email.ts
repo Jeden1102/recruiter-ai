@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   if (!body.code) {
     throw createError({
       statusCode: 400,
-      statusMessage: "Missing code parameter",
+      statusMessage: "apiResponses.missingCode",
     });
   }
 
@@ -20,8 +20,7 @@ export default defineEventHandler(async (event) => {
     if (user) {
       return {
         success: true,
-        message:
-          "Email confirmed succesfully. Now you can login to your account!",
+        message: "apiResponses.emailConfirmed",
       };
     }
 
@@ -34,14 +33,13 @@ export default defineEventHandler(async (event) => {
 
     return {
       success: true,
-      message:
-        "Email confirmed succesfully. Now you can login to your account!",
+      message: "apiResponses.emailConfirmed",
     };
   } catch (error) {
     console.log(error);
     throw createError({
       statusCode: 500,
-      statusMessage: "Failed confirming the email",
+      statusMessage: "apiResponses.failedToConfirmEmail",
     });
   }
 });

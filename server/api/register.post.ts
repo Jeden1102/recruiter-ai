@@ -1,7 +1,6 @@
 import bcrypt from "bcrypt";
 import { PrismaClient } from "@prisma/client";
 import { registerSchema } from "~/components/auth/registerSchema";
-import { readFile } from "fs/promises";
 import Handlebars from "handlebars";
 
 const prisma = new PrismaClient();
@@ -21,7 +20,7 @@ export default defineEventHandler(async (event) => {
 
   if (existingUser) {
     if (existingUser.password !== null) {
-      throw createError({ statusMessage: "E-mail already in use" });
+      throw createError({ statusMessage: "apiResponses.emailTaken" });
     } else {
       // User previously registered without a password - provider.
       const hashedPassword = await bcrypt.hash(body.password, 10);
@@ -40,14 +39,13 @@ export default defineEventHandler(async (event) => {
 
         return {
           success: true,
-          message:
-            "Account created. To confirm your account, please check your email.",
+          message: "apiResponses.accountCreated",
         };
       } catch (error) {
         console.log(error);
         throw createError({
           statusCode: 500,
-          statusMessage: "Failed to create the account",
+          statusMessage: "apiResponses.failedToCreateAccount",
         });
       }
     }
@@ -68,13 +66,12 @@ export default defineEventHandler(async (event) => {
     });
     return {
       success: true,
-      statusMessage:
-        "Account created. To confirm your account, please check your email.",
+      statusMessage: "apiResponses.accountCreated",
     };
   } catch (error) {
     throw createError({
       statusCode: 500,
-      statusMessage: "Failed to create the account",
+      statusMessage: "apiResponses.failedToCreateAccount",
     });
   }
 });
@@ -109,7 +106,7 @@ const sendVerificationEmail = async (email: string) => {
   } catch (error) {
     throw createError({
       statusCode: 500,
-      statusMessage: "Failed to send the confirmation email.",
+      statusMessage: "apiResponses.failedToSendVerificationEmail",
     });
   }
 };

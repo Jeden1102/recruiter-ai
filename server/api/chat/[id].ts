@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
   if (!id || id.length !== 36) {
     throw createError({
       statusCode: 400,
-      statusMessage: "Invalid chat ID",
+      statusMessage: "apiResponses.invalidChatId",
     });
   }
 
@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
     if (!chat) {
       throw createError({
         statusCode: 404,
-        statusMessage: "Chat not found",
+        statusMessage: "apiResponses.chatNotFound",
       });
     }
 
@@ -36,7 +36,7 @@ export default defineEventHandler(async (event) => {
     if (!isAuthorized) {
       throw createError({
         statusCode: 403,
-        statusMessage: "You are not allowed to access this chat",
+        statusMessage: "apiResponses.chatNotAllowed",
       });
     }
 
@@ -48,7 +48,7 @@ export default defineEventHandler(async (event) => {
   } catch (error: any) {
     throw createError({
       statusCode: error?.statusCode || 500,
-      statusMessage: error.statusMessage || "Something went wrong",
+      statusMessage: error.statusMessage || "apiResponses.somethingWentWrong",
     });
   }
 });

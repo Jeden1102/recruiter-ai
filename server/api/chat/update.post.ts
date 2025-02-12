@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
     if (!body.id) {
       throw createError({
         statusCode: 400,
-        statusMessage: "Chat ID is required",
+        statusMessage: "apiResponses.chatIdRequired",
       });
     }
 
@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
     console.error("Error updating chat:", error);
     throw createError({
       statusCode: 500,
-      statusMessage: "Failed to update chat.",
+      statusMessage: "apiResponses.updateChatFailed",
     });
   }
 });

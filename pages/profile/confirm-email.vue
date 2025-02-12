@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
 const route = useRoute();
 const router = useRouter();
 
@@ -25,7 +27,7 @@ const confirmEmail = async () => {
   } catch (error: any) {
     isError.value = true;
     if (error.data && error.data.statusMessage) {
-      responseMessage.value = error.data.statusMessage;
+      responseMessage.value = t(error.data.statusMessage);
     } else {
       responseMessage.value = "Something went wrong. Please try again.";
     }

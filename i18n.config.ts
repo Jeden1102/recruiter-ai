@@ -29,6 +29,8 @@ export default defineI18nConfig(() => ({
         saveChanges: "Save changes",
         tryAgain: "Try again",
         newChat: "New chat",
+        selectLanguage: "Select language...",
+        nothingFound: "Nothing found",
       },
       status: {
         public: {
@@ -339,6 +341,31 @@ export default defineI18nConfig(() => ({
           title: "Terms",
           description: "Recruiter AI terms",
         },
+      },
+      apiResponses: {
+        emailNotVerified: "Email not verified",
+        invalidCredentials: "Invalid credentials",
+        chatNotFound: "Chat not found",
+        chatNowAllowed: "You are not allowed to access this chat",
+        somethingWentWrong: "Something went wrong",
+        missingCode: "Missing code",
+        emailConfirmed:
+          "Email confirmed succesfully. Now you can login to your account!",
+        failedToConfirmEmail: "Failed to confirm email",
+        invalidChatId: "Invalid chat id",
+        failedToSaveChat: "Failed to save chat",
+        chatIdRequired: "Chat id is required",
+        updateChatFailed: "Update chat failed",
+        userNotAuthenticated: "User is not authenticated",
+        failedToFetchUserChats: "Failed to fetch user chats",
+        incorrectPassword: "Incorrect password",
+        missingUri: "Missing uri",
+        issueFetchingPage: "Issue fetching page",
+        emailTaken: "Email is already taken",
+        accountCreated:
+          "Account created successfully. To confirm your account, please check your email.",
+        failedToCreateAccount: "Failed to create account",
+        failedToSendVerificationEmail: "Failed to send verification email",
       },
     },
     pl: {

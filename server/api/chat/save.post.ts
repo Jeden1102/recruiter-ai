@@ -47,7 +47,7 @@ export default defineEventHandler(async (event) => {
     console.error("Error saving chat:", error);
     throw createError({
       statusCode: 500,
-      statusMessage: "Failed to save chat to the database.",
+      statusMessage: "apiResponses.failedToSaveChat",
     });
   }
 });

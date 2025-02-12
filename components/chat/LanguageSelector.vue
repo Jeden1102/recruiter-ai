@@ -1,17 +1,4 @@
 <script setup lang="ts">
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { CaretSortIcon, CheckIcon } from "@radix-icons/vue";
 import { twMerge } from "tailwind-merge";
 import languages from "@cospired/i18n-iso-languages";
@@ -21,16 +8,20 @@ languages.registerLocale(en);
 
 const model = defineModel<string>({ required: true });
 
+const open = ref(false);
+
 const allLanguages = computed(() =>
   Object.entries(languages.getNames("en")).map(([code, name]) => ({
     label: name,
     value: code,
   })),
 );
+
+console.log(allLanguages);
 </script>
 
 <template>
-  <Popover>
+  <Popover v-model:open="open">
     <PopoverTrigger as-child>
       <Button
         variant="outline"
@@ -39,22 +30,25 @@ const allLanguages = computed(() =>
       >
         {{
           allLanguages.find((lang) => lang.value === model)?.label ||
-          "Select language..."
+          $t("common.selectLanguage")
         }}
         <CaretSortIcon class="ml-2 h-4 w-4 shrink-0 opacity-50" />
       </Button>
     </PopoverTrigger>
     <PopoverContent class="w-[200px] p-0">
       <Command>
-        <CommandInput placeholder="Search language..." />
-        <CommandEmpty>Nothing found.</CommandEmpty>
+        <CommandInput :placeholder="$t('common.selectLanguage')" />
+        <CommandEmpty>{{ $t("common.selectLanguage") }}</CommandEmpty>
         <CommandList>
           <CommandGroup>
             <CommandItem
               v-for="language in allLanguages"
               :key="language.value"
               :value="language.label"
-              @select="model = language.value"
+              @select="
+                model = language.value;
+                open = false;
+              "
             >
               {{ language.label }}
               <CheckIcon

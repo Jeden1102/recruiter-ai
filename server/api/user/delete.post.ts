@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     if (!session) {
       throw createError({
         statusCode: 401,
-        statusMessage: "Unauthorized",
+        statusMessage: "apiResponses.userNotAuthenticated",
       });
     }
 
@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
     ) {
       throw createError({
         statusCode: 401,
-        statusMessage: "Incorrect password",
+        statusMessage: "apiResponses.incorrectPassword",
       });
     }
 

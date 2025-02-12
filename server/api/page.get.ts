@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   if (!query.uri) {
     throw createError({
       statusCode: 400,
-      statusMessage: "Missing uri parameter",
+      statusMessage: "apiResponses.missingUri",
     });
   }
 
@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
   } catch (error) {
     throw createError({
       statusCode: 400,
-      statusMessage: "There was an issue fetching the page",
+      statusMessage: "apiResponses.issueFetchingPage",
     });
   }
 });

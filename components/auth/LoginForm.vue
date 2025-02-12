@@ -2,6 +2,9 @@
 import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import { loginSchema } from "./loginSchema";
+
+const { t } = useI18n();
+
 const { signIn } = useAuth();
 
 const formSchema = toTypedSchema(loginSchema);
@@ -22,7 +25,7 @@ const onSubmit = form.handleSubmit(async (values) => {
   });
 
   if (result?.error) {
-    responseError.value = result.error;
+    responseError.value = t(result.error);
   } else {
     useRouter().push("/profile");
   }

@@ -1,4 +1,6 @@
 <script setup>
+const { locale } = useI18n();
+
 const config = useRuntimeConfig();
 
 useHead({
@@ -6,17 +8,13 @@ useHead({
     return titleChunk ? `${titleChunk} | Recruiter AI` : "Recruiter AI";
   },
   htmlAttrs: {
-    lang: "en",
+    lang: locale.value,
   },
 });
 
+useSetPageSeo("home");
+
 useSeoMeta({
-  title: "Home",
-  ogTitle: "Home",
-  description:
-    "Recruiter AI - generate interview questions with the use of AI.",
-  ogDescription:
-    "Recruiter AI - generate interview questions with the use of AI.",
   ogImage: config.public.APP_BASE_URI + "/images/bubbles.png",
   twitterImage: config.public.APP_BASE_URI + "/images/bubbles.png",
   icon: config.public.APP_BASE_URI + "/images/bubbles.png",

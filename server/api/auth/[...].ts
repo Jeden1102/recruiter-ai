@@ -75,7 +75,7 @@ export default NuxtAuthHandler({
           if (user && !user.emailVerified) {
             throw createError({
               statusCode: 500,
-              statusMessage: "Email not verified",
+              statusMessage: "apiResponses.emailNotVerified",
             });
           }
 
@@ -89,13 +89,13 @@ export default NuxtAuthHandler({
 
           throw createError({
             statusCode: 500,
-            statusMessage: "Invalid credentials",
+            statusMessage: "apiResponses.invalidCredentials",
           });
         } catch (error) {
           console.error("Validation error:", error);
           throw createError({
             statusCode: 500,
-            statusMessage: error.statusMessage,
+            statusMessage: error?.statusMessage,
           });
         }
       },

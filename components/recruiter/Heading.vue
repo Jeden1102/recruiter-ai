@@ -59,7 +59,7 @@ const onSubmit = handleSubmit(async (values) => {
     });
   } catch (error: any) {
     toast(t("chat.restrictionsFailed.title"), {
-      description: error.statusMessage,
+      description: t(error.statusMessage),
     });
   }
 });

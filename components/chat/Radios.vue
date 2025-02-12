@@ -15,16 +15,6 @@ const props = defineProps<{
 }>();
 </script>
 
-<style lang="scss">
-button:has(input:checked) ~ label {
-  @apply border-primary;
-}
-
-button:has(input:disabled) ~ label {
-  @apply cursor-auto opacity-60;
-}
-</style>
-
 <template>
   <FormField v-slot="{ componentField }" type="radio" :name="field">
     <FormItem class="space-y-3">
@@ -76,3 +66,13 @@ button:has(input:disabled) ~ label {
     </FormItem>
   </FormField>
 </template>
+
+<style lang="scss">
+button:has(input:checked) ~ label {
+  @apply border-primary;
+}
+
+button:has(input:disabled) ~ label {
+  @apply cursor-auto opacity-60;
+}
+</style>

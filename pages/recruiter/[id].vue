@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { useRoute } from "vue-router";
 import type { Question } from "~/components/chat/types";
 import type { Chat } from "@/components/chat/types";
 
 useSetPageSeo("recruiter");
+
+const { t } = useI18n();
 
 const questions = ref<Question[]>([]);
 const task = ref("");
@@ -33,7 +34,7 @@ try {
 } catch (error: any) {
   throw createError({
     statusCode: error.statusCode || 404,
-    statusMessage: error.statusMessage || "Chat not found",
+    statusMessage: t(error.statusMessage) || "Chat not found",
   });
 }
 </script>

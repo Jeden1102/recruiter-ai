@@ -3,6 +3,9 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import { toast } from "vue-sonner";
 import * as z from "zod";
+
+const { t } = useI18n();
+
 const { data, signOut } = useAuth();
 
 const emit = defineEmits(["submit"]);
@@ -33,7 +36,7 @@ const onSubmit = handleSubmit(async (values) => {
   } catch (error: any) {
     toast("Error", {
       description:
-        error.statusMessage || "There was an issue deleting account.",
+        t(error.statusMessage) || "There was an issue deleting account.",
     });
   }
 });

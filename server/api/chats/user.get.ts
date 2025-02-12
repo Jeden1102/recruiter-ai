@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     if (!session?.user?.email) {
       throw createError({
         statusCode: 401,
-        statusMessage: "User not authenticated",
+        statusMessage: "apiResponses.userNotAuthenticated",
       });
     }
 
@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
     console.error("Error fetching user chats:", error);
     throw createError({
       statusCode: 500,
-      statusMessage: "Failed to fetch user chats",
+      statusMessage: "apiResponses.failedToFetchUserChats",
     });
   }
 });
