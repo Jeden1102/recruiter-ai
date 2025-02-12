@@ -78,6 +78,19 @@ export default defineNuxtConfig({
     workbox: {
       navigateFallback: undefined,
       globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
+      runtimeCaching: [
+        {
+          urlPattern: /mail-templates/,
+          handler: "NetworkFirst",
+          options: {
+            cacheName: "mail-templates-cache",
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24,
+            },
+          },
+        },
+      ],
     },
     devOptions: {
       enabled: true,
