@@ -17,7 +17,12 @@ const allLanguages = computed(() =>
   })),
 );
 
-console.log(allLanguages);
+onMounted(() => {
+  const lang = allLanguages.value.find((lang) => lang.value === model.value);
+  if (lang) {
+    model.value = lang.label;
+  }
+});
 </script>
 
 <template>
@@ -29,7 +34,7 @@ console.log(allLanguages);
         class="w-[200px] justify-between"
       >
         {{
-          allLanguages.find((lang) => lang.value === model)?.label ||
+          allLanguages.find((lang) => lang.label === model)?.label ||
           $t("common.selectLanguage")
         }}
         <CaretSortIcon class="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -46,7 +51,7 @@ console.log(allLanguages);
               :key="language.value"
               :value="language.label"
               @select="
-                model = language.value;
+                model = language.label;
                 open = false;
               "
             >
