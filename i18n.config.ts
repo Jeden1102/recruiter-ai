@@ -335,11 +335,65 @@ export default defineI18nConfig(() => ({
           title: "Privacy",
           description: "Recruiter AI privacy policy",
         },
+        sections: {
+          intro: {
+            title: "Introduction",
+            content:
+              "We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information.",
+          },
+          dataCollection: {
+            title: "Data Collection",
+            content:
+              "We collect information such as your name, email, and chat history when you register and use our service.",
+          },
+          dataUsage: {
+            title: "How We Use Your Data",
+            content:
+              "Your data is used to provide personalized experiences, improve our services, and ensure account security.",
+          },
+          dataSharing: {
+            title: "Data Sharing",
+            content:
+              "We do not share your personal data with third parties, except as required by law.",
+          },
+          security: {
+            title: "Security Measures",
+            content:
+              "We take appropriate measures to protect your data from unauthorized access, alteration, or destruction.",
+          },
+        },
       },
       terms: {
         meta: {
           title: "Terms",
           description: "Recruiter AI terms",
+        },
+        sections: {
+          acceptance: {
+            title: "Acceptance of Terms",
+            content:
+              "By using our service, you agree to comply with these terms.",
+          },
+          userResponsibilities: {
+            title: "User Responsibilities",
+            content:
+              "Users must provide accurate information and comply with applicable laws.",
+          },
+          account: {
+            title: "Account Registration and Security",
+            content:
+              "Users are responsible for maintaining the security of their accounts.",
+          },
+          termination: {
+            title: "Termination of Service",
+            content:
+              "We reserve the right to suspend or terminate accounts violating our terms.",
+          },
+          limitation: {
+            title: "Limitation of Liability",
+            content:
+              "We are not responsible for any damages arising from the use of our service.",
+          },
         },
       },
       apiResponses: {
@@ -707,11 +761,65 @@ export default defineI18nConfig(() => ({
           title: "Prywatność",
           description: "Polityka prywatności Recruiter AI",
         },
+        sections: {
+          intro: {
+            title: "Wstęp",
+            content:
+              "Szanujemy Twoją prywatność i zobowiązujemy się do ochrony Twoich danych osobowych. Niniejsza polityka prywatności wyjaśnia, jak zbieramy, wykorzystujemy i zabezpieczamy Twoje informacje.",
+          },
+          dataCollection: {
+            title: "Zbieranie Danych",
+            content:
+              "Zbieramy informacje, takie jak imię, adres e-mail i historię czatów, gdy rejestrujesz się i korzystasz z naszego serwisu.",
+          },
+          dataUsage: {
+            title: "Jak Wykorzystujemy Twoje Dane",
+            content:
+              "Twoje dane są wykorzystywane do personalizacji doświadczeń, ulepszania naszych usług oraz zapewnienia bezpieczeństwa konta.",
+          },
+          dataSharing: {
+            title: "Udostępnianie Danych",
+            content:
+              "Nie udostępniamy Twoich danych osobowych stronom trzecim, z wyjątkiem sytuacji wymaganych przez prawo.",
+          },
+          security: {
+            title: "Środki Bezpieczeństwa",
+            content:
+              "Podejmujemy odpowiednie środki w celu ochrony Twoich danych przed nieautoryzowanym dostępem, modyfikacją lub zniszczeniem.",
+          },
+        },
       },
       terms: {
         meta: {
           title: "Warunki",
           description: "Warunki użytkowania Recruiter AI",
+        },
+        sections: {
+          acceptance: {
+            title: "Akceptacja Warunków",
+            content:
+              "Korzystając z naszego serwisu, zgadzasz się na przestrzeganie niniejszych warunków.",
+          },
+          userResponsibilities: {
+            title: "Obowiązki Użytkownika",
+            content:
+              "Użytkownicy muszą podawać dokładne informacje i przestrzegać obowiązujących przepisów.",
+          },
+          account: {
+            title: "Rejestracja i Bezpieczeństwo Konta",
+            content:
+              "Użytkownicy są odpowiedzialni za bezpieczeństwo swoich kont.",
+          },
+          termination: {
+            title: "Zakończenie Świadczenia Usług",
+            content:
+              "Zastrzegamy sobie prawo do zawieszenia lub usunięcia kont naruszających regulamin.",
+          },
+          limitation: {
+            title: "Ograniczenie Odpowiedzialności",
+            content:
+              "Nie ponosimy odpowiedzialności za jakiekolwiek szkody wynikające z korzystania z naszej usługi.",
+          },
         },
       },
       apiResponses: {
