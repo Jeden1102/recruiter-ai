@@ -29,7 +29,7 @@ import {
 } from "@tanstack/vue-table";
 import { h, ref } from "vue";
 import { valueUpdater } from "~/lib/utils";
-import { NuxtLink } from "#components";
+import { NuxtLinkLocale } from "#components";
 import Badge from "../ui/badge/Badge.vue";
 
 export interface Chat {
@@ -51,7 +51,7 @@ const columns: ColumnDef<Chat>[] = [
     cell: ({ row }) => {
       const id = row.getValue("id");
       return h(
-        NuxtLink,
+        NuxtLinkLocale,
         { to: `/recruiter/${id}`, class: "text-primary font-bold" },
         t("common.preview"),
       );

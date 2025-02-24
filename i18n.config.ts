@@ -1723,5 +1723,437 @@ export default defineI18nConfig(() => ({
           "Échec de l'envoi de l'email de vérification",
       },
     },
+    es: {
+      common: {
+        getStarted: "Comenzar",
+        logIn: "Iniciar sesión",
+        generateNew: "Generar nuevas preguntas",
+        generate: "Generar",
+        copy: "Copiar",
+        copied: "Copiado",
+        share: "Compartir",
+        close: "Cerrar",
+        settings: "Configuración",
+        additional: "Adicional",
+        action: "Acción",
+        preview: "Vista previa",
+        title: "Título",
+        created: "Creado",
+        type: "Tipo",
+        searchByTitle: "Buscar por título",
+        noResults: "No hay resultados",
+        previous: "Anterior",
+        next: "Siguiente",
+        author: "Autor",
+        level: "Nivel",
+        status: "Estado",
+        profile: "Perfil",
+        dateCreated: "Fecha de creación",
+        saveChanges: "Guardar cambios",
+        tryAgain: "Intentar de nuevo",
+        newChat: "Nuevo chat",
+        selectLanguage: "Seleccionar idioma...",
+        nothingFound: "Nada encontrado",
+      },
+      status: {
+        public: {
+          title: "Público",
+          description: "Cualquiera puede acceder a este conjunto de preguntas.",
+        },
+        restricted: {
+          title: "Restringido",
+          description:
+            "Solo el autor y los usuarios autorizados pueden acceder.",
+        },
+      },
+      navigation: {
+        home: "Inicio",
+        product: "Producto",
+        recruiter: "Herramientas para candidatos",
+        login: "Iniciar sesión",
+        logout: "Cerrar sesión",
+        profile: "Perfil",
+        account: "Cuenta",
+        myAccount: "Mi cuenta",
+        logOut: "Cerrar sesión",
+        language: "Idioma",
+      },
+      footer: {
+        navigationTitle: "Navegación",
+        aboutTitle: "Acerca de",
+        terms: "Términos de servicio",
+        privacy: "Política de privacidad",
+        createdBy: "Recruiter AI creado por",
+      },
+      form: {
+        url: {
+          title: "Introducir una URL",
+          label: "URL de la oferta de trabajo",
+          placeholder: "Pegue la URL de la oferta de trabajo aquí",
+        },
+        cv: {
+          title: "Subir tu CV",
+          label: "Subir CV (JPG, PNG)",
+        },
+        custom: {
+          title: "Introducir detalles personalizados",
+          position: {
+            label: "Puesto de trabajo",
+            placeholder: "Describa el puesto de trabajo",
+          },
+          requirements: {
+            label: "Requisitos",
+            placeholder: "Enumere los requisitos para el puesto",
+          },
+          niceToHave: {
+            label: "Deseable",
+            placeholder:
+              "Enumere habilidades o experiencias que sean deseables",
+          },
+          responsibilities: {
+            label: "Responsabilidades",
+            placeholder: "Describa las responsabilidades para este puesto",
+          },
+        },
+        buttons: {
+          previous: "Anterior",
+          next: "Siguiente",
+        },
+      },
+      settings: {
+        general: {
+          title: "Configuración general",
+          questionsDifficulty: {
+            label: "Seleccionar la dificultad de las preguntas",
+            options: {
+              easy: {
+                title: "Fácil",
+                description: "Preguntas básicas adecuadas para principiantes",
+              },
+              intermediate: {
+                title: "Intermedio",
+                description:
+                  "Preguntas adecuadas para candidatos con algo de experiencia",
+              },
+              advanced: {
+                title: "Avanzado",
+                description:
+                  "Preguntas desafiantes para candidatos experimentados",
+              },
+            },
+          },
+          prepareAnswers: {
+            label: "Preparar respuestas por adelantado",
+            description:
+              "Active esta opción para generar respuestas por adelantado.",
+          },
+          recruitmentTask: {
+            label: "Incluir tarea práctica",
+            description: "Incluya una tarea para mostrar sus habilidades.",
+          },
+          private: {
+            label: "Establecer como privado",
+            description:
+              "Establezca este conjunto de preguntas como privado. Solo usted o los usuarios que invite pueden acceder.",
+          },
+          authorizedEmails: {
+            label: "Correos electrónicos autorizados",
+            description: "Escriba el correo electrónico y presione Enter",
+          },
+        },
+        difficultLevel: {
+          title: "Nivel de dificultad",
+        },
+      },
+      home: {
+        meta: {
+          title: "Inicio",
+          description:
+            "Obtenga preguntas personalizadas para prepararse para entrevistas sin esfuerzo",
+        },
+        hero: {
+          title: "Descubra el poder de la IA para su búsqueda de empleo",
+          subtitle:
+            "Obtenga preguntas personalizadas para prepararse para entrevistas sin esfuerzo",
+        },
+        features: {
+          title: "Características",
+          description:
+            "Descubra las características únicas que hacen que esta herramienta sea perfecta para los candidatos.",
+          details: "Más detalles sobre las características",
+          feature1: {
+            title: "Preguntas basadas en el CV",
+            description:
+              "Genere preguntas personalizadas basadas en su CV para ayudarle a prepararse de manera efectiva.",
+          },
+          feature2: {
+            title: "Preguntas basadas en la URL de la oferta de trabajo",
+            description:
+              "Introduzca una URL de oferta de trabajo y obtenga preguntas alineadas con los requisitos del puesto.",
+          },
+          feature3: {
+            title: "Preguntas basadas en detalles personalizados",
+            description:
+              "Agregue detalles personalizados para generar preguntas adaptadas a sus necesidades.",
+          },
+          feature4: {
+            title: "Guarde sus preguntas",
+            description:
+              "Guarde sus preguntas generadas para una preparación futura y un acceso fácil.",
+          },
+        },
+        callToAction: {
+          startWith: "Comience con",
+          poweredTool: "Impulsado por la herramienta de IA",
+          assistantDescription:
+            "Haga que su preparación para entrevistas sea eficiente y enfocada con nuestro asistente de IA.",
+          decorativeImageAlt: "Imagen de fondo decorativa",
+          installApp: "Instalar la aplicación",
+        },
+      },
+      login: {
+        meta: {
+          title: "Iniciar sesión",
+          description:
+            "Inicie sesión para acceder a su cuenta y comenzar a prepararse para entrevistas.",
+        },
+        providers: "Use uno de los siguientes proveedores",
+        noAccount: "¿No tiene una cuenta? Cree una",
+      },
+      register: {
+        meta: {
+          title: "Registrarse",
+          description:
+            "Cree una nueva cuenta y comience a prepararse para entrevistas.",
+        },
+        haveAccount: "¿Tiene una cuenta? Inicie sesión",
+      },
+      features: {
+        cv_questions_title: "Preguntas basadas en el CV",
+        cv_questions_description:
+          "Prepárese de manera efectiva con insights adaptados a su CV.",
+        url_questions_title: "Preguntas basadas en la URL",
+        url_questions_description:
+          "Obtenga preguntas basadas en la URL de la descripción del puesto proporcionada.",
+        custom_questions_title: "Preguntas personalizadas",
+        custom_questions_description:
+          "Genere preguntas adaptadas a sus necesidades específicas de preparación.",
+      },
+      confirmEmail: {
+        title: "Confirme su correo electrónico",
+      },
+      jobAnalysis: "Analizando la oferta de trabajo",
+      jobAnalysisNew: "Generando nuevas preguntas",
+      recruitmentTask: "Tarea práctica",
+      questions: {
+        method: {
+          title: "Seleccionar el método de preguntas",
+          label: "Elija cómo generar preguntas",
+          types: {
+            url: {
+              title: "Método URL",
+              description:
+                "Genere preguntas a partir de una URL de oferta de trabajo",
+            },
+            cv: {
+              title: "Método CV",
+              description: "Genere preguntas basadas en su CV",
+            },
+            custom: {
+              title: "Método personalizado",
+              description:
+                "Genere preguntas personalizadas a partir de entradas personalizadas",
+            },
+          },
+        },
+      },
+      product: {
+        title: "Producto",
+        description:
+          "Descubra las características que hacen que la preparación para entrevistas de trabajo sea fácil y efectiva.",
+        differentSettings:
+          "Pruebe diferentes configuraciones y genere nuevas preguntas",
+        saveChats: "Guarde sus chats",
+        logInToSave: "Inicie sesión o cree una cuenta para guardar sus chats",
+        meta: {
+          title: "Recruiter",
+          description:
+            "Descubra cómo la IA puede ayudarle a prepararse para el trabajo de sus sueños.",
+        },
+      },
+      recruiter: {
+        title: "Herramientas para candidatos",
+        description:
+          "Descubra cómo la IA puede ayudarle a prepararse para el trabajo de sus sueños.",
+        meta: {
+          title: "Recruiter",
+          description:
+            "Descubra cómo la IA puede ayudarle a prepararse para el trabajo de sus sueños.",
+        },
+      },
+      noAnswer: "Sin respuesta",
+      auth: {
+        login: "Iniciar sesión",
+        password: "Contraseña",
+        passwordRepeat: "Repetir contraseña",
+        register: "Registrarse",
+      },
+      share: {
+        title: "Compartir o guardar sus resultados",
+        subtitle: "Guarde un enlace a sus resultados o compártalos en línea",
+      },
+      validations: {
+        fileRequired: "El archivo es requerido",
+        fileSize: "El tamaño máximo del archivo es de {size}MB.",
+        fileTypes: "Solo se aceptan archivos de tipo .jpg, .jpeg, .png",
+      },
+      profile: {
+        meta: {
+          title: "Perfil",
+          description:
+            "Obtenga preguntas personalizadas para prepararse para entrevistas sin esfuerzo",
+        },
+        title: "Perfil",
+        recentActivity: "Su actividad reciente con Recruiter AI",
+        noChats: {
+          title: "No se encontraron chats",
+          description:
+            "Nada de qué preocuparse... puede comenzar un nuevo chat y encontrar el trabajo de sus sueños",
+          startNew: "Comenzar un nuevo chat",
+        },
+        deleteAccount: {
+          title: "Eliminar cuenta",
+          description:
+            "¡Advertencia! Todos los datos se eliminarán permanentemente. También se eliminarán todos los chats creados por usted.",
+          beCareful: "¡Tenga cuidado!",
+          irreversible: "Esta acción es irreversible",
+        },
+      },
+      profileSettings: {
+        title: "Configuración del perfil",
+        dangerZone: "Zona de peligro",
+        recentActivity: "Su actividad reciente con Recruiter AI",
+        noChats: {
+          title: "No se encontraron chats",
+          description:
+            "Nada de qué preocuparse... puede comenzar un nuevo chat y encontrar el trabajo de sus sueños",
+          startNew: "Comenzar un nuevo chat",
+        },
+        deleteAccount: {
+          title: "Eliminar cuenta",
+          description:
+            "¡Advertencia! Todos los datos se eliminarán permanentemente. También se eliminarán todos los chats creados por usted.",
+          beCareful: "¡Tenga cuidado!",
+          irreversible: "Esta acción es irreversible",
+        },
+      },
+      chat: {
+        restrictionsSuccess: {
+          title: "Restricciones del chat actualizadas",
+          description:
+            "Las restricciones del chat se actualizaron correctamente.",
+        },
+        restrictionsFailed: {
+          title: "Error al actualizar las restricciones del chat",
+        },
+        restrictionsEdit: {
+          title: "Editar restricciones",
+          description:
+            "Realice cambios en las restricciones del chat. Haga clic en Guardar cuando haya terminado.",
+        },
+      },
+      privacy: {
+        meta: {
+          title: "Privacidad",
+          description: "Política de privacidad de Recruiter AI",
+        },
+        sections: {
+          intro: {
+            title: "Introducción",
+            content:
+              "Respetamos su privacidad y nos comprometemos a proteger sus datos personales. Esta política de privacidad explica cómo recopilamos, usamos y protegemos su información.",
+          },
+          dataCollection: {
+            title: "Recopilación de datos",
+            content:
+              "Recopilamos información como su nombre, correo electrónico y historial de chat cuando se registra y utiliza nuestro servicio.",
+          },
+          dataUsage: {
+            title: "Cómo usamos sus datos",
+            content:
+              "Sus datos se utilizan para proporcionar experiencias personalizadas, mejorar nuestros servicios y garantizar la seguridad de su cuenta.",
+          },
+          dataSharing: {
+            title: "Compartir datos",
+            content:
+              "No compartimos sus datos personales con terceros, excepto cuando la ley lo exige.",
+          },
+          security: {
+            title: "Medidas de seguridad",
+            content:
+              "Tomamos medidas apropiadas para proteger sus datos contra el acceso no autorizado, la alteración o la destrucción.",
+          },
+        },
+      },
+      terms: {
+        meta: {
+          title: "Términos",
+          description: "Términos de Recruiter AI",
+        },
+        sections: {
+          acceptance: {
+            title: "Aceptación de los términos",
+            content:
+              "Al usar nuestro servicio, usted acepta cumplir con estos términos.",
+          },
+          userResponsibilities: {
+            title: "Responsabilidades del usuario",
+            content:
+              "Los usuarios deben proporcionar información precisa y cumplir con las leyes aplicables.",
+          },
+          account: {
+            title: "Registro y seguridad de la cuenta",
+            content:
+              "Los usuarios son responsables de mantener la seguridad de sus cuentas.",
+          },
+          termination: {
+            title: "Terminación del servicio",
+            content:
+              "Nos reservamos el derecho de suspender o terminar cuentas que violen nuestros términos.",
+          },
+          limitation: {
+            title: "Limitación de responsabilidad",
+            content:
+              "No somos responsables de ningún daño derivado del uso de nuestro servicio.",
+          },
+        },
+      },
+      apiResponses: {
+        emailNotVerified: "Correo electrónico no verificado",
+        invalidCredentials: "Credenciales inválidas",
+        chatNotFound: "Chat no encontrado",
+        chatNowAllowed: "No tiene permiso para acceder a este chat",
+        somethingWentWrong: "Algo salió mal",
+        missingCode: "Código faltante",
+        emailConfirmed:
+          "Correo electrónico confirmado con éxito. ¡Ahora puede iniciar sesión en su cuenta!",
+        failedToConfirmEmail: "Error al confirmar el correo electrónico",
+        invalidChatId: "ID de chat inválido",
+        failedToSaveChat: "Error al guardar el chat",
+        chatIdRequired: "Se requiere el ID del chat",
+        updateChatFailed: "Error al actualizar el chat",
+        userNotAuthenticated: "El usuario no está autenticado",
+        failedToFetchUserChats: "Error al obtener los chats del usuario",
+        incorrectPassword: "Contraseña incorrecta",
+        missingUri: "URI faltante",
+        issueFetchingPage: "Problema al obtener la página",
+        emailTaken: "El correo electrónico ya está en uso",
+        accountCreated:
+          "Cuenta creada con éxito. Para confirmar su cuenta, revise su correo electrónico.",
+        failedToCreateAccount: "Error al crear la cuenta",
+        failedToSendVerificationEmail:
+          "Error al enviar el correo electrónico de verificación",
+      },
+    },
   },
 }));
