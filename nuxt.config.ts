@@ -37,6 +37,7 @@ export default defineNuxtConfig({
     "@stefanobartoletti/nuxt-social-share",
     "@vite-pwa/nuxt",
     "nuxt-nodemailer",
+    "@nuxtjs/sitemap",
     "@sentry/nuxt/module",
   ],
 
