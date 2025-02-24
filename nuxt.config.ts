@@ -125,6 +125,18 @@ export default defineNuxtConfig({
         code: "pl",
         name: "Polski",
       },
+      {
+        code: "de",
+        name: "Deutsch",
+      },
+      {
+        code: "fr",
+        name: "Français",
+      },
+      {
+        code: "es",
+        name: "Español",
+      },
     ],
     defaultLocale: "en",
   },

@@ -52,6 +52,7 @@ export default defineI18nConfig(() => ({
         account: "Account",
         myAccount: "My account",
         logOut: "Logout",
+        language: "Language",
       },
       footer: {
         navigationTitle: "Navigation",
@@ -137,6 +138,7 @@ export default defineI18nConfig(() => ({
           title: "Difficult level",
         },
       },
+
       home: {
         meta: {
           title: "Home",
@@ -474,6 +476,7 @@ export default defineI18nConfig(() => ({
         account: "Konto",
         myAccount: "Moje konto",
         logOut: "Wyloguj",
+        language: "Język",
       },
       footer: {
         navigationTitle: "Nawigacja",
@@ -847,6 +850,442 @@ export default defineI18nConfig(() => ({
         failedToCreateAccount: "Nie udało się utworzyć konta",
         failedToSendVerificationEmail:
           "Nie udało się wysłać e-maila weryfikacyjnego",
+      },
+    },
+    de: {
+      common: {
+        getStarted: "Loslegen",
+        logIn: "Anmelden",
+        generateNew: "Neue Fragen generieren",
+        generate: "Generieren",
+        copy: "Kopieren",
+        copied: "Kopiert",
+        share: "Teilen",
+        close: "Schließen",
+        settings: "Einstellungen",
+        additional: "Zusätzlich",
+        action: "Aktion",
+        preview: "Vorschau",
+        title: "Titel",
+        created: "Erstellt",
+        type: "Typ",
+        searchByTitle: "Nach Titel suchen",
+        noResults: "Keine Ergebnisse",
+        previous: "Zurück",
+        next: "Weiter",
+        author: "Autor",
+        level: "Level",
+        status: "Status",
+        profile: "Profil",
+        dateCreated: "Erstellungsdatum",
+        saveChanges: "Änderungen speichern",
+        tryAgain: "Erneut versuchen",
+        newChat: "Neuer Chat",
+        selectLanguage: "Sprache auswählen...",
+        nothingFound: "Nichts gefunden",
+      },
+      status: {
+        public: {
+          title: "Öffentlich",
+          description: "Jeder kann auf diesen Fragenkatalog zugreifen.",
+        },
+        restricted: {
+          title: "Eingeschränkt",
+          description:
+            "Nur der Autor und autorisierte Benutzer können darauf zugreifen.",
+        },
+      },
+      navigation: {
+        home: "Startseite",
+        product: "Produkt",
+        recruiter: "Kandidatentools",
+        login: "Anmelden",
+        logout: "Abmelden",
+        profile: "Profil",
+        account: "Konto",
+        myAccount: "Mein Konto",
+        logOut: "Abmelden",
+        language: "Sprache",
+      },
+      footer: {
+        navigationTitle: "Navigation",
+        aboutTitle: "Über uns",
+        terms: "Nutzungsbedingungen",
+        privacy: "Datenschutzrichtlinie",
+        createdBy: "Recruiter AI erstellt von",
+      },
+      form: {
+        url: {
+          title: "URL eingeben",
+          label: "Stellenangebot-URL",
+          placeholder: "Fügen Sie hier die URL des Stellenangebots ein",
+        },
+        cv: {
+          title: "Lebenslauf hochladen",
+          label: "Lebenslauf hochladen (JPG, PNG)",
+        },
+        custom: {
+          title: "Benutzerdefinierte Details eingeben",
+          position: {
+            label: "Stellenbezeichnung",
+            placeholder: "Beschreiben Sie die Stellenbezeichnung",
+          },
+          requirements: {
+            label: "Anforderungen",
+            placeholder: "Listen Sie die Anforderungen für die Rolle auf",
+          },
+          niceToHave: {
+            label: "Nice-to-Have",
+            placeholder:
+              "Listen Sie Fähigkeiten oder Erfahrungen auf, die von Vorteil sind",
+          },
+          responsibilities: {
+            label: "Verantwortlichkeiten",
+            placeholder:
+              "Beschreiben Sie die Verantwortlichkeiten für diese Rolle",
+          },
+        },
+        buttons: {
+          previous: "Zurück",
+          next: "Weiter",
+        },
+      },
+      settings: {
+        general: {
+          title: "Allgemeine Einstellungen",
+          questionsDifficulty: {
+            label: "Fragenschwierigkeit auswählen",
+            options: {
+              easy: {
+                title: "Einfach",
+                description:
+                  "Grundlegende Fragen, die für Anfänger geeignet sind",
+              },
+              intermediate: {
+                title: "Mittel",
+                description:
+                  "Fragen, die für Kandidaten mit etwas Erfahrung geeignet sind",
+              },
+              advanced: {
+                title: "Fortgeschritten",
+                description: "Herausfordernde Fragen für erfahrene Kandidaten",
+              },
+            },
+          },
+          prepareAnswers: {
+            label: "Antworten im Voraus vorbereiten",
+            description:
+              "Aktivieren Sie diese Option, um Antworten im Voraus zu generieren.",
+          },
+          recruitmentTask: {
+            label: "Übungsaufgabe einbeziehen",
+            description:
+              "Beziehen Sie eine Aufgabe ein, um Ihre Fähigkeiten zu zeigen.",
+          },
+          private: {
+            label: "Als privat festlegen",
+            description:
+              "Legen Sie diesen Fragenkatalog als privat fest. Nur Sie oder die von Ihnen eingeladenen Benutzer können darauf zugreifen.",
+          },
+          authorizedEmails: {
+            label: "Autorisierte E-Mails",
+            description:
+              "Geben Sie die E-Mail-Adresse ein und drücken Sie die Eingabetaste",
+          },
+        },
+        difficultLevel: {
+          title: "Schwierigkeitsgrad",
+        },
+      },
+      home: {
+        meta: {
+          title: "Startseite",
+          description:
+            "Erhalten Sie personalisierte Fragen, um sich mühelos auf Vorstellungsgespräche vorzubereiten",
+        },
+        hero: {
+          title: "Entdecken Sie die Kraft der KI für Ihre Jobsuche",
+          subtitle:
+            "Erhalten Sie personalisierte Fragen, um sich mühelos auf Vorstellungsgespräche vorzubereiten",
+        },
+        features: {
+          title: "Funktionen",
+          description:
+            "Entdecken Sie die einzigartigen Funktionen, die dieses Tool perfekt für Kandidaten machen.",
+          details: "Weitere Details zu den Funktionen",
+          feature1: {
+            title: "Fragen basierend auf dem Lebenslauf",
+            description:
+              "Generieren Sie maßgeschneiderte Fragen basierend auf Ihrem Lebenslauf, um sich effektiv vorzubereiten.",
+          },
+          feature2: {
+            title: "Fragen basierend auf der Stellenangebot-URL",
+            description:
+              "Geben Sie eine Stellenangebot-URL ein und erhalten Sie Fragen, die auf die Anforderungen der Rolle abgestimmt sind.",
+          },
+          feature3: {
+            title: "Fragen basierend auf benutzerdefinierten Details",
+            description:
+              "Fügen Sie benutzerdefinierte Details hinzu, um personalisierte Fragen zu generieren, die Ihren Bedürfnissen entsprechen.",
+          },
+          feature4: {
+            title: "Speichern Sie Ihre Fragen",
+            description:
+              "Speichern Sie Ihre generierten Fragen für die zukünftige Vorbereitung und den einfachen Zugriff.",
+          },
+        },
+        callToAction: {
+          startWith: "Beginnen Sie mit",
+          poweredTool: "Unterstützt durch KI-Tool",
+          assistantDescription:
+            "Machen Sie Ihre Vorbereitung auf Vorstellungsgespräche effizient und fokussiert mit unserem KI-Assistenten.",
+          decorativeImageAlt: "Dekoratives Hintergrundbild",
+          installApp: "App installieren",
+        },
+      },
+      login: {
+        meta: {
+          title: "Anmelden",
+          description:
+            "Melden Sie sich an, um auf Ihr Konto zuzugreifen und mit der Vorbereitung auf Vorstellungsgespräche zu beginnen.",
+        },
+        providers: "Verwenden Sie einen der folgenden Anbieter",
+        noAccount: "Kein Konto? Erstellen Sie ein neues",
+      },
+      register: {
+        meta: {
+          title: "Registrieren",
+          description:
+            "Erstellen Sie ein neues Konto und beginnen Sie mit der Vorbereitung auf Vorstellungsgespräche.",
+        },
+        haveAccount: "Haben Sie ein Konto? Melden Sie sich an",
+      },
+      features: {
+        cv_questions_title: "Lebenslauf-Fragen",
+        cv_questions_description:
+          "Bereiten Sie sich effektiv mit auf Ihren Lebenslauf zugeschnittenen Einblicken vor.",
+        url_questions_title: "URL-Fragen",
+        url_questions_description:
+          "Erhalten Sie Fragen basierend auf der bereitgestellten Stellenbeschreibungs-URL.",
+        custom_questions_title: "Benutzerdefinierte Fragen",
+        custom_questions_description:
+          "Generieren Sie Fragen, die auf Ihre spezifischen Vorbereitungsbedürfnisse zugeschnitten sind.",
+      },
+      confirmEmail: {
+        title: "Bestätigen Sie Ihre E-Mail",
+      },
+      jobAnalysis: "Analyse des Stellenangebots",
+      jobAnalysisNew: "Neue Fragen generieren",
+      recruitmentTask: "Übungsaufgabe",
+      questions: {
+        method: {
+          title: "Fragenmethode auswählen",
+          label: "Wählen Sie, wie Fragen generiert werden sollen",
+          types: {
+            url: {
+              title: "URL-Methode",
+              description: "Generieren Sie Fragen aus einer Stellenangebot-URL",
+            },
+            cv: {
+              title: "Lebenslauf-Methode",
+              description:
+                "Generieren Sie Fragen basierend auf Ihrem Lebenslauf",
+            },
+            custom: {
+              title: "Benutzerdefinierte Methode",
+              description:
+                "Generieren Sie personalisierte Fragen aus benutzerdefinierten Eingaben",
+            },
+          },
+        },
+      },
+      product: {
+        title: "Produkt",
+        description:
+          "Entdecken Sie Funktionen, die die Vorbereitung auf Vorstellungsgespräche einfach und effektiv machen.",
+        differentSettings:
+          "Probieren Sie verschiedene Einstellungen aus und generieren Sie neue Fragen",
+        saveChats: "Speichern Sie Ihre Chats",
+        logInToSave:
+          "Melden Sie sich an oder erstellen Sie ein Konto, um Ihre Chats zu speichern",
+        meta: {
+          title: "Recruiter",
+          description:
+            "Entdecken Sie, wie KI Ihnen bei der Vorbereitung auf Ihren Traumjob helfen kann.",
+        },
+      },
+      recruiter: {
+        title: "Kandidatentools",
+        description:
+          "Entdecken Sie, wie KI Ihnen bei der Vorbereitung auf Ihren Traumjob helfen kann.",
+        meta: {
+          title: "Recruiter",
+          description:
+            "Entdecken Sie, wie KI Ihnen bei der Vorbereitung auf Ihren Traumjob helfen kann.",
+        },
+      },
+      noAnswer: "Keine Antwort",
+      auth: {
+        login: "Anmelden",
+        password: "Passwort",
+        passwordRepeat: "Passwort wiederholen",
+        register: "Registrieren",
+      },
+      share: {
+        title: "Teilen oder speichern Sie Ihre Ergebnisse",
+        subtitle:
+          "Speichern Sie einen Link zu Ihren Ergebnissen oder teilen Sie sie online",
+      },
+      validations: {
+        fileRequired: "Datei ist erforderlich",
+        fileSize: "Die maximale Dateigröße beträgt {size}MB.",
+        fileTypes: "Es werden nur Dateien vom Typ .jpg, .jpeg, .png akzeptiert",
+      },
+      profile: {
+        meta: {
+          title: "Profil",
+          description:
+            "Erhalten Sie personalisierte Fragen, um sich mühelos auf Vorstellungsgespräche vorzubereiten",
+        },
+        title: "Profil",
+        recentActivity: "Ihre letzten Aktivitäten mit Recruiter AI",
+        noChats: {
+          title: "Keine Chats gefunden",
+          description:
+            "Kein Grund zur Sorge... Sie können einen neuen Chat starten und den Job Ihrer Träume finden",
+          startNew: "Starten Sie einen neuen Chat",
+        },
+        deleteAccount: {
+          title: "Konto löschen",
+          description:
+            "Warnung! Alle Daten werden dauerhaft gelöscht. Auch alle von Ihnen erstellten Chats werden gelöscht.",
+          beCareful: "Seien Sie vorsichtig!",
+          irreversible: "Diese Aktion ist unwiderruflich",
+        },
+      },
+      profileSettings: {
+        title: "Profileinstellungen",
+        dangerZone: "Gefahrenzone",
+        recentActivity: "Ihre letzten Aktivitäten mit Recruiter AI",
+        noChats: {
+          title: "Keine Chats gefunden",
+          description:
+            "Kein Grund zur Sorge... Sie können einen neuen Chat starten und den Job Ihrer Träume finden",
+          startNew: "Starten Sie einen neuen Chat",
+        },
+        deleteAccount: {
+          title: "Konto löschen",
+          description:
+            "Warnung! Alle Daten werden dauerhaft gelöscht. Auch alle von Ihnen erstellten Chats werden gelöscht.",
+          beCareful: "Seien Sie vorsichtig!",
+          irreversible: "Diese Aktion ist unwiderruflich",
+        },
+      },
+      chat: {
+        restrictionsSuccess: {
+          title: "Chat-Einschränkungen aktualisiert",
+          description: "Chat-Einschränkungen erfolgreich aktualisiert.",
+        },
+        restrictionsFailed: {
+          title: "Aktualisierung der Chat-Einschränkungen fehlgeschlagen",
+        },
+        restrictionsEdit: {
+          title: "Einschränkungen bearbeiten",
+          description:
+            "Nehmen Sie Änderungen an den Chat-Einschränkungen vor. Klicken Sie auf Speichern, wenn Sie fertig sind.",
+        },
+      },
+      privacy: {
+        meta: {
+          title: "Datenschutz",
+          description: "Datenschutzrichtlinie von Recruiter AI",
+        },
+        sections: {
+          intro: {
+            title: "Einführung",
+            content:
+              "Wir respektieren Ihre Privatsphäre und sind bestrebt, Ihre persönlichen Daten zu schützen. Diese Datenschutzrichtlinie erklärt, wie wir Ihre Informationen sammeln, verwenden und schützen.",
+          },
+          dataCollection: {
+            title: "Datensammlung",
+            content:
+              "Wir sammeln Informationen wie Ihren Namen, Ihre E-Mail-Adresse und Ihren Chat-Verlauf, wenn Sie sich registrieren und unseren Dienst nutzen.",
+          },
+          dataUsage: {
+            title: "Wie wir Ihre Daten verwenden",
+            content:
+              "Ihre Daten werden verwendet, um personalisierte Erfahrungen zu bieten, unsere Dienste zu verbessern und die Kontosicherheit zu gewährleisten.",
+          },
+          dataSharing: {
+            title: "Weitergabe von Daten",
+            content:
+              "Wir geben Ihre persönlichen Daten nicht an Dritte weiter, es sei denn, dies ist gesetzlich vorgeschrieben.",
+          },
+          security: {
+            title: "Sicherheitsmaßnahmen",
+            content:
+              "Wir ergreifen angemessene Maßnahmen, um Ihre Daten vor unbefugtem Zugriff, Änderung oder Zerstörung zu schützen.",
+          },
+        },
+      },
+      terms: {
+        meta: {
+          title: "Nutzungsbedingungen",
+          description: "Nutzungsbedingungen von Recruiter AI",
+        },
+        sections: {
+          acceptance: {
+            title: "Annahme der Bedingungen",
+            content:
+              "Durch die Nutzung unseres Dienstes erklären Sie sich mit diesen Bedingungen einverstanden.",
+          },
+          userResponsibilities: {
+            title: "Benutzerverantwortlichkeiten",
+            content:
+              "Benutzer müssen genaue Informationen bereitstellen und die geltenden Gesetze einhalten.",
+          },
+          account: {
+            title: "Kontoregistrierung und Sicherheit",
+            content:
+              "Benutzer sind für die Sicherheit ihrer Konten verantwortlich.",
+          },
+          termination: {
+            title: "Beendigung des Dienstes",
+            content:
+              "Wir behalten uns das Recht vor, Konten zu sperren oder zu kündigen, die gegen unsere Bedingungen verstoßen.",
+          },
+          limitation: {
+            title: "Haftungsbeschränkung",
+            content:
+              "Wir sind nicht verantwortlich für Schäden, die durch die Nutzung unseres Dienstes entstehen.",
+          },
+        },
+      },
+      apiResponses: {
+        emailNotVerified: "E-Mail nicht verifiziert",
+        invalidCredentials: "Ungültige Anmeldedaten",
+        chatNotFound: "Chat nicht gefunden",
+        chatNowAllowed: "Sie haben keinen Zugriff auf diesen Chat",
+        somethingWentWrong: "Etwas ist schiefgelaufen",
+        missingCode: "Fehlender Code",
+        emailConfirmed:
+          "E-Mail erfolgreich bestätigt. Sie können sich jetzt in Ihr Konto einloggen!",
+        failedToConfirmEmail: "Bestätigung der E-Mail fehlgeschlagen",
+        invalidChatId: "Ungültige Chat-ID",
+        failedToSaveChat: "Speichern des Chats fehlgeschlagen",
+        chatIdRequired: "Chat-ID ist erforderlich",
+        updateChatFailed: "Aktualisierung des Chats fehlgeschlagen",
+        userNotAuthenticated: "Benutzer ist nicht authentifiziert",
+        failedToFetchUserChats: "Abrufen der Benutzerchats fehlgeschlagen",
+        incorrectPassword: "Falsches Passwort",
+        missingUri: "Fehlende URI",
+        issueFetchingPage: "Problem beim Abrufen der Seite",
+        emailTaken: "E-Mail ist bereits vergeben",
+        accountCreated:
+          "Konto erfolgreich erstellt. Um Ihr Konto zu bestätigen, überprüfen Sie bitte Ihre E-Mail.",
+        failedToCreateAccount: "Erstellung des Kontos fehlgeschlagen",
+        failedToSendVerificationEmail:
+          "Senden der Bestätigungs-E-Mail fehlgeschlagen",
       },
     },
   },

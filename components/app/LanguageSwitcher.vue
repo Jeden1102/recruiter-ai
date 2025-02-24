@@ -8,12 +8,24 @@ const availableLocales = computed(() => {
 </script>
 
 <template>
-  <NuxtLink
-    v-for="locale in availableLocales"
-    :key="locale.code"
-    :to="switchLocalePath(locale.code)"
-    class="nav-link block border-l uppercase md:border-b-0 md:border-zinc-600 md:!pl-6"
-  >
-    {{ locale.code }}
-  </NuxtLink>
+  <DropdownMenu>
+    <DropdownMenuTrigger as-child>
+      <Button variant="outline">
+        <Icon name="material-symbols:language" />
+        {{ locale.toUpperCase() }}
+      </Button>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent>
+      <DropdownMenuGroup>
+        <DropdownMenuItem v-for="locale in availableLocales" :key="locale.code">
+          <NuxtLink
+            :to="switchLocalePath(locale.code)"
+            @click="toggleMenuIfMobile"
+          >
+            {{ locale.name }}
+          </NuxtLink>
+        </DropdownMenuItem>
+      </DropdownMenuGroup>
+    </DropdownMenuContent>
+  </DropdownMenu>
 </template>
