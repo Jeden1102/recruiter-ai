@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
+
   runtimeConfig: {
     authSecret: process.env.AUTH_SECRET,
     auth: {
@@ -20,8 +21,10 @@ export default defineNuxtConfig({
     },
     public: {
       APP_BASE_URI: process.env.NUXT_PUBLIC_APP_BASE_URI,
+      DSN: process.env.NUXT_PUBLIC_DSN,
     },
   },
+
   modules: [
     "nuxt-chatgpt",
     "@nuxtjs/tailwindcss",
@@ -34,7 +37,9 @@ export default defineNuxtConfig({
     "@stefanobartoletti/nuxt-social-share",
     "@vite-pwa/nuxt",
     "nuxt-nodemailer",
+    "@sentry/nuxt/module",
   ],
+
   nodemailer: {
     from: '"Recruiter AI" <dev@dominikraducki.pl>',
     host: process.env.SMTP_HOST,
@@ -45,6 +50,7 @@ export default defineNuxtConfig({
       pass: process.env.SMTP_PASS,
     },
   },
+
   pwa: {
     strategies: "generateSW",
     registerType: "autoUpdate",
@@ -98,6 +104,7 @@ export default defineNuxtConfig({
       type: "module",
     },
   },
+
   auth: {
     isEnabled: true,
     disableServerSideAuth: false,
@@ -114,6 +121,7 @@ export default defineNuxtConfig({
       enableOnWindowFocus: true,
     },
   },
+
   i18n: {
     vueI18n: "./i18n.config.ts",
     locales: [
@@ -140,9 +148,11 @@ export default defineNuxtConfig({
     ],
     defaultLocale: "en",
   },
+
   chatgpt: {
     apiKey: process.env.OPENAI_API_KEY,
   },
+
   shadcn: {
     /**
      * Prefix for all the imported component
@@ -161,5 +171,18 @@ export default defineNuxtConfig({
       Lato: [100, 300, 400, 700],
       Ubuntu: [300, 400, 500, 700],
     },
+  },
+
+  sentry: {
+    sourceMapsUploadOptions: {
+      org: "klusownicy",
+      project: "recruiter",
+    },
+
+    autoInjectServerSentry: "top-level-import",
+  },
+
+  sourcemap: {
+    client: "hidden",
   },
 });

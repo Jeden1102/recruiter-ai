@@ -1,5 +1,19 @@
 <script setup lang="ts">
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
+
 const emit = defineEmits(["submit"]);
+
+const formSchema = toTypedSchema(
+  z.object({
+    type: z.string(),
+  }),
+);
+
+const { handleSubmit, values } = useForm({
+  validationSchema: formSchema,
+});
 
 const modelValue = ref("");
 
