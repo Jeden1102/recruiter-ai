@@ -2,7 +2,7 @@
   <div class="relative overflow-x-hidden py-20">
     <div class="container flex flex-col items-center justify-center gap-4">
       <TextGradient>
-        <h1 class="mb-4 text-5xl">Recruiter AI</h1>
+        <h1 class="mb-4 text-5xl">Aipplied</h1>
       </TextGradient>
       <p class="text-center text-3xl font-light">
         {{ $t("home.hero.title") }}

@@ -1,5 +1,9 @@
 <template>
   <span class="text-xl">
-    Recruiter<TextGradient class="font-bold">AI</TextGradient>
+    <TextGradient class="font-bold">AI</TextGradient>pplied
+    <Icon
+      class="bg-gradient-to-r from-primary to-secondary"
+      name="hugeicons:job-search"
+    />
   </span>
 </template>

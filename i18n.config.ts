@@ -59,7 +59,7 @@ export default defineI18nConfig(() => ({
         aboutTitle: "About",
         terms: "Terms of Service",
         privacy: "Privacy Policy",
-        createdBy: "Recruiter AI created by",
+        createdBy: "Aipplied created by",
       },
       form: {
         url: {
@@ -285,7 +285,7 @@ export default defineI18nConfig(() => ({
             "Get personalized questions to prepare for interviews effortlessly",
         },
         title: "Profile",
-        recentActivity: "Your recent recruiter AI activity",
+        recentActivity: "Your recent Aipplied activity",
         noChats: {
           title: "No Chats has been found",
           description:
@@ -303,7 +303,7 @@ export default defineI18nConfig(() => ({
       profileSettings: {
         title: "Profile settings",
         dangerZone: "Danger Zone",
-        recentActivity: "Your recent recruiter AI activity",
+        recentActivity: "Your recent Aipplied activity",
         noChats: {
           title: "No Chats has been found",
           description:
@@ -335,7 +335,7 @@ export default defineI18nConfig(() => ({
       privacy: {
         meta: {
           title: "Privacy",
-          description: "Recruiter AI privacy policy",
+          description: "Aipplied privacy policy",
         },
         sections: {
           intro: {
@@ -368,7 +368,7 @@ export default defineI18nConfig(() => ({
       terms: {
         meta: {
           title: "Terms",
-          description: "Recruiter AI terms",
+          description: "Aipplied terms",
         },
         sections: {
           acceptance: {
@@ -483,7 +483,7 @@ export default defineI18nConfig(() => ({
         aboutTitle: "O nas",
         terms: "Regulamin",
         privacy: "Polityka prywatności",
-        createdBy: "Recruiter AI stworzony przez",
+        createdBy: "Aipplied stworzony przez",
       },
       form: {
         url: {
@@ -712,7 +712,7 @@ export default defineI18nConfig(() => ({
             "Uzyskaj spersonalizowane pytania, aby łatwo przygotować się do rozmów kwalifikacyjnych",
         },
         title: "Profil",
-        recentActivity: "Twoja ostatnia aktywność w Recruiter AI",
+        recentActivity: "Twoja ostatnia aktywność w Aipplied",
         noChats: {
           title: "Brak znalezionych czatów",
           description:
@@ -730,7 +730,7 @@ export default defineI18nConfig(() => ({
       profileSettings: {
         title: "Ustawienia profilu",
         dangerZone: "Strefa ryzyka",
-        recentActivity: "Twoja ostatnia aktywność w Recruiter AI",
+        recentActivity: "Twoja ostatnia aktywność w Aipplied",
         noChats: {
           title: "Brak znalezionych czatów",
           description:
@@ -762,7 +762,7 @@ export default defineI18nConfig(() => ({
       privacy: {
         meta: {
           title: "Prywatność",
-          description: "Polityka prywatności Recruiter AI",
+          description: "Polityka prywatności Aipplied",
         },
         sections: {
           intro: {
@@ -795,7 +795,7 @@ export default defineI18nConfig(() => ({
       terms: {
         meta: {
           title: "Warunki",
-          description: "Warunki użytkowania Recruiter AI",
+          description: "Warunki użytkowania Aipplied",
         },
         sections: {
           acceptance: {
@@ -912,7 +912,7 @@ export default defineI18nConfig(() => ({
         aboutTitle: "Über uns",
         terms: "Nutzungsbedingungen",
         privacy: "Datenschutzrichtlinie",
-        createdBy: "Recruiter AI erstellt von",
+        createdBy: "Aipplied erstellt von",
       },
       form: {
         url: {
@@ -1148,7 +1148,7 @@ export default defineI18nConfig(() => ({
             "Erhalten Sie personalisierte Fragen, um sich mühelos auf Vorstellungsgespräche vorzubereiten",
         },
         title: "Profil",
-        recentActivity: "Ihre letzten Aktivitäten mit Recruiter AI",
+        recentActivity: "Ihre letzten Aktivitäten mit Aipplied",
         noChats: {
           title: "Keine Chats gefunden",
           description:
@@ -1166,7 +1166,7 @@ export default defineI18nConfig(() => ({
       profileSettings: {
         title: "Profileinstellungen",
         dangerZone: "Gefahrenzone",
-        recentActivity: "Ihre letzten Aktivitäten mit Recruiter AI",
+        recentActivity: "Ihre letzten Aktivitäten mit Aipplied",
         noChats: {
           title: "Keine Chats gefunden",
           description:
@@ -1198,7 +1198,7 @@ export default defineI18nConfig(() => ({
       privacy: {
         meta: {
           title: "Datenschutz",
-          description: "Datenschutzrichtlinie von Recruiter AI",
+          description: "Datenschutzrichtlinie von Aipplied",
         },
         sections: {
           intro: {
@@ -1231,7 +1231,7 @@ export default defineI18nConfig(() => ({
       terms: {
         meta: {
           title: "Nutzungsbedingungen",
-          description: "Nutzungsbedingungen von Recruiter AI",
+          description: "Nutzungsbedingungen von Aipplied",
         },
         sections: {
           acceptance: {
@@ -1348,7 +1348,7 @@ export default defineI18nConfig(() => ({
         aboutTitle: "À propos",
         terms: "Conditions d'utilisation",
         privacy: "Politique de confidentialité",
-        createdBy: "Recruiter AI créé par",
+        createdBy: "Aipplied créé par",
       },
       form: {
         url: {
@@ -1581,7 +1581,7 @@ export default defineI18nConfig(() => ({
             "Obtenez des questions personnalisées pour vous préparer aux entretiens sans effort",
         },
         title: "Profil",
-        recentActivity: "Votre activité récente avec Recruiter AI",
+        recentActivity: "Votre activité récente avec Aipplied",
         noChats: {
           title: "Aucun chat trouvé",
           description:
@@ -1599,7 +1599,7 @@ export default defineI18nConfig(() => ({
       profileSettings: {
         title: "Paramètres du profil",
         dangerZone: "Zone dangereuse",
-        recentActivity: "Votre activité récente avec Recruiter AI",
+        recentActivity: "Votre activité récente avec Aipplied",
         noChats: {
           title: "Aucun chat trouvé",
           description:
@@ -1632,7 +1632,7 @@ export default defineI18nConfig(() => ({
       privacy: {
         meta: {
           title: "Confidentialité",
-          description: "Politique de confidentialité de Recruiter AI",
+          description: "Politique de confidentialité de Aipplied",
         },
         sections: {
           intro: {
@@ -1665,7 +1665,7 @@ export default defineI18nConfig(() => ({
       terms: {
         meta: {
           title: "Conditions d'utilisation",
-          description: "Conditions d'utilisation de Recruiter AI",
+          description: "Conditions d'utilisation de Aipplied",
         },
         sections: {
           acceptance: {
@@ -1783,7 +1783,7 @@ export default defineI18nConfig(() => ({
         aboutTitle: "Acerca de",
         terms: "Términos de servicio",
         privacy: "Política de privacidad",
-        createdBy: "Recruiter AI creado por",
+        createdBy: "Aipplied creado por",
       },
       form: {
         url: {
@@ -2014,7 +2014,7 @@ export default defineI18nConfig(() => ({
             "Obtenga preguntas personalizadas para prepararse para entrevistas sin esfuerzo",
         },
         title: "Perfil",
-        recentActivity: "Su actividad reciente con Recruiter AI",
+        recentActivity: "Su actividad reciente con Aipplied",
         noChats: {
           title: "No se encontraron chats",
           description:
@@ -2032,7 +2032,7 @@ export default defineI18nConfig(() => ({
       profileSettings: {
         title: "Configuración del perfil",
         dangerZone: "Zona de peligro",
-        recentActivity: "Su actividad reciente con Recruiter AI",
+        recentActivity: "Su actividad reciente con Aipplied",
         noChats: {
           title: "No se encontraron chats",
           description:
@@ -2065,7 +2065,7 @@ export default defineI18nConfig(() => ({
       privacy: {
         meta: {
           title: "Privacidad",
-          description: "Política de privacidad de Recruiter AI",
+          description: "Política de privacidad de Aipplied",
         },
         sections: {
           intro: {
@@ -2098,7 +2098,7 @@ export default defineI18nConfig(() => ({
       terms: {
         meta: {
           title: "Términos",
-          description: "Términos de Recruiter AI",
+          description: "Términos de Aipplied",
         },
         sections: {
           acceptance: {

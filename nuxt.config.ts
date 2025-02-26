@@ -42,7 +42,7 @@ export default defineNuxtConfig({
   ],
 
   nodemailer: {
-    from: '"Recruiter AI" <dev@dominikraducki.pl>',
+    from: '"Aipplied" <dev@dominikraducki.pl>',
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
     secure: true,
@@ -56,9 +56,9 @@ export default defineNuxtConfig({
     strategies: "generateSW",
     registerType: "autoUpdate",
     manifest: {
-      name: "Recruiter AI",
-      short_name: "Recruiter AI",
-      description: "Recruiter AI",
+      name: "Aipplied",
+      short_name: "Aipplied",
+      description: "Aipplied",
       icons: [
         {
           src: "icons/icon_64x64.png",

@@ -14,24 +14,33 @@ const difficultLevel = ref<DifficultLevel>({});
 
 const general = ref<General>({});
 
+const nextStep = () => {
+  step.value = ++step.value;
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+};
+
 const handleSubmitDetails = (values: Details) => {
   details.value = values;
-  step.value = ++step.value;
+  nextStep();
 };
 
 const handleSubmitDifficultLevel = (values: DifficultLevel) => {
   difficultLevel.value = values;
-  step.value = ++step.value;
+  nextStep();
 };
 
 const handleSubmitGeneral = (values: General) => {
   general.value = values;
-  step.value = ++step.value;
+  nextStep();
 };
 
 const handleTypeSubmit = (values: { type: string }) => {
   type.value = values.type;
-  step.value = ++step.value;
+  nextStep();
 };
 
 const isChatType = (value: string) => {

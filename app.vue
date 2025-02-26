@@ -5,7 +5,7 @@ const config = useRuntimeConfig();
 
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} | Recruiter AI` : "Recruiter AI";
+    return titleChunk ? `${titleChunk} | Aipplied` : "Aipplied";
   },
   htmlAttrs: {
     lang: locale.value,
