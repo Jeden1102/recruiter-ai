@@ -83,6 +83,7 @@ const sendVerificationEmail = async (email: string) => {
 
     const emailVerificationCode = await bcrypt.hash(Date.now().toString(), 10);
 
+    console.log('HERE', `${config.public.APP_BASE_URI}/mail-templates/account-confirmation.html`)
     const templateUrl = `${config.public.APP_BASE_URI}/mail-templates/account-confirmation.html`;
 
     const response = await fetch(templateUrl);
