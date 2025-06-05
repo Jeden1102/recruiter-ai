@@ -1,0 +1,386 @@
+{
+    "common": {
+      "getStarted": "Commencer",
+      "logIn": "Se connecter",
+      "generateNew": "Générer de nouvelles questions",
+      "generate": "Générer",
+      "copy": "Copier",
+      "copied": "Copié",
+      "share": "Partager",
+      "close": "Fermer",
+      "settings": "Paramètres",
+      "additional": "Supplémentaire",
+      "action": "Action",
+      "preview": "Aperçu",
+      "title": "Titre",
+      "created": "Créé",
+      "type": "Type",
+      "searchByTitle": "Rechercher par titre",
+      "noResults": "Aucun résultat",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "author": "Auteur",
+      "level": "Niveau",
+      "status": "Statut",
+      "profile": "Profil",
+      "dateCreated": "Date de création",
+      "saveChanges": "Enregistrer les modifications",
+      "tryAgain": "Réessayer",
+      "newChat": "Nouveau chat",
+      "selectLanguage": "Sélectionner la langue...",
+      "nothingFound": "Rien trouvé"
+    },
+    "status": {
+      "public": {
+        "title": "Public",
+        "description": "Tout le monde peut accéder à ce jeu de questions."
+      },
+      "restricted": {
+        "title": "Restreint",
+        "description": "Seul l'auteur et les utilisateurs autorisés peuvent y accéder."
+      }
+    },
+    "navigation": {
+      "home": "Accueil",
+      "product": "Produit",
+      "recruiter": "Outils pour candidats",
+      "login": "Connexion",
+      "logout": "Déconnexion",
+      "profile": "Profil",
+      "account": "Compte",
+      "myAccount": "Mon compte",
+      "logOut": "Déconnexion",
+      "language": "Langue"
+    },
+    "footer": {
+      "navigationTitle": "Navigation",
+      "aboutTitle": "À propos",
+      "terms": "Conditions d'utilisation",
+      "privacy": "Politique de confidentialité",
+      "createdBy": "Aipplied créé par"
+    },
+    "form": {
+      "url": {
+        "title": "Entrer une URL",
+        "label": "URL de l'offre d'emploi",
+        "placeholder": "Collez l'URL de l'offre d'emploi ici"
+      },
+      "cv": {
+        "title": "Télécharger votre CV",
+        "label": "Télécharger le CV (JPG, PNG)"
+      },
+      "custom": {
+        "title": "Entrer des détails personnalisés",
+        "position": {
+          "label": "Poste",
+          "placeholder": "Décrivez le poste"
+        },
+        "requirements": {
+          "label": "Exigences",
+          "placeholder": "Listez les exigences pour le rôle"
+        },
+        "niceToHave": {
+          "label": "Nice-to-Have",
+          "placeholder": "Listez les compétences ou expériences qui sont un plus"
+        },
+        "responsibilities": {
+          "label": "Responsabilités",
+          "placeholder": "Décrivez les responsabilités pour ce rôle"
+        }
+      },
+      "buttons": {
+        "previous": "Précédent",
+        "next": "Suivant"
+      }
+    },
+    "settings": {
+      "general": {
+        "title": "Paramètres généraux",
+        "questionsDifficulty": {
+          "label": "Sélectionner la difficulté des questions",
+          "options": {
+            "easy": {
+              "title": "Facile",
+              "description": "Questions de base adaptées aux débutants"
+            },
+            "intermediate": {
+              "title": "Intermédiaire",
+              "description": "Questions adaptées aux candidats ayant une certaine expérience"
+            },
+            "advanced": {
+              "title": "Avancé",
+              "description": "Questions difficiles pour les candidats expérimentés"
+            }
+          }
+        },
+        "prepareAnswers": {
+          "label": "Préparer les réponses à l'avance",
+          "description": "Activez cette option pour générer les réponses à l'avance."
+        },
+        "recruitmentTask": {
+          "label": "Inclure une tâche pratique",
+          "description": "Incluez une tâche pour montrer vos compétences."
+        },
+        "private": {
+          "label": "Définir comme privé",
+          "description": "Définissez ce jeu de questions comme privé. Seul vous ou les utilisateurs que vous invitez pouvez y accéder."
+        },
+        "authorizedEmails": {
+          "label": "Emails autorisés",
+          "description": "Tapez l'email et appuyez sur Entrée"
+        }
+      },
+      "difficultLevel": {
+        "title": "Niveau de difficulté"
+      }
+    },
+    "home": {
+      "meta": {
+        "title": "Accueil",
+        "description": "Obtenez des questions personnalisées pour vous préparer aux entretiens sans effort"
+      },
+      "hero": {
+        "title": "Découvrez la puissance de l'IA pour votre recherche d'emploi",
+        "subtitle": "Obtenez des questions personnalisées pour vous préparer aux entretiens sans effort"
+      },
+      "features": {
+        "title": "Fonctionnalités",
+        "description": "Découvrez les fonctionnalités uniques qui rendent cet outil parfait pour les candidats.",
+        "details": "Plus de détails sur les fonctionnalités",
+        "feature1": {
+          "title": "Questions basées sur le CV",
+          "description": "Générez des questions sur mesure basées sur votre CV pour vous aider à vous préparer efficacement."
+        },
+        "feature2": {
+          "title": "Questions basées sur l'URL de l'offre d'emploi",
+          "description": "Entrez une URL d'offre d'emploi et obtenez des questions alignées sur les exigences du rôle."
+        },
+        "feature3": {
+          "title": "Questions basées sur des détails personnalisés",
+          "description": "Ajoutez des détails personnalisés pour générer des questions adaptées à vos besoins."
+        },
+        "feature4": {
+          "title": "Enregistrez vos questions",
+          "description": "Enregistrez vos questions générées pour une préparation future et un accès facile."
+        }
+      },
+      "callToAction": {
+        "startWith": "Commencez avec",
+        "poweredTool": "Propulsé par l'outil IA",
+        "assistantDescription": "Rendez votre préparation aux entretiens efficace et ciblée avec notre assistant IA.",
+        "decorativeImageAlt": "Image de fond décorative",
+        "installApp": "Installer l'application"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Connexion",
+        "description": "Connectez-vous pour accéder à votre compte et commencer à vous préparer aux entretiens."
+      },
+      "providers": "Utilisez l'un des fournisseurs suivants",
+      "noAccount": "Vous n'avez pas de compte ? Créez-en un"
+    },
+    "register": {
+      "meta": {
+        "title": "S'inscrire",
+        "description": "Créez un nouveau compte et commencez à vous préparer aux entretiens."
+      },
+      "haveAccount": "Vous avez un compte ? Connectez-vous"
+    },
+    "features": {
+      "cv_questions_title": "Questions basées sur le CV",
+      "cv_questions_description": "Préparez-vous efficacement avec des insights adaptés à votre CV.",
+      "url_questions_title": "Questions basées sur l'URL",
+      "url_questions_description": "Obtenez des questions basées sur l'URL de la description de poste fournie.",
+      "custom_questions_title": "Questions personnalisées",
+      "custom_questions_description": "Générez des questions adaptées à vos besoins spécifiques de préparation."
+    },
+    "confirmEmail": {
+      "title": "Confirmez votre email"
+    },
+    "jobAnalysis": "Analyse de l'offre d'emploi",
+    "jobAnalysisNew": "Génération de nouvelles questions",
+    "recruitmentTask": "Tâche pratique",
+    "questions": {
+      "method": {
+        "title": "Sélectionner la méthode de question",
+        "label": "Choisissez comment générer les questions",
+        "types": {
+          "url": {
+            "title": "Méthode URL",
+            "description": "Générez des questions à partir d'une URL d'offre d'emploi"
+          },
+          "cv": {
+            "title": "Méthode CV",
+            "description": "Générez des questions basées sur votre CV"
+          },
+          "custom": {
+            "title": "Méthode personnalisée",
+            "description": "Générez des questions personnalisées à partir d'entrées personnalisées"
+          }
+        }
+      }
+    },
+    "product": {
+      "title": "Produit",
+      "description": "Découvrez les fonctionnalités qui rendent la préparation aux entretiens d'embauche facile et efficace.",
+      "differentSettings": "Essayez différents paramètres et générez de nouvelles questions",
+      "saveChats": "Enregistrez vos chats",
+      "logInToSave": "Connectez-vous ou créez un compte pour enregistrer vos chats",
+      "meta": {
+        "title": "Recruiter",
+        "description": "Découvrez comment l'IA peut vous aider à préparer votre emploi de rêve."
+      }
+    },
+    "recruiter": {
+      "title": "Outils pour candidats",
+      "description": "Découvrez comment l'IA peut vous aider à préparer votre emploi de rêve.",
+      "meta": {
+        "title": "Recruiter",
+        "description": "Découvrez comment l'IA peut vous aider à préparer votre emploi de rêve."
+      }
+    },
+    "noAnswer": "Pas de réponse",
+    "auth": {
+      "login": "Connexion",
+      "password": "Mot de passe",
+      "passwordRepeat": "Répéter le mot de passe",
+      "register": "S'inscrire"
+    },
+    "share": {
+      "title": "Partager ou enregistrer vos résultats",
+      "subtitle": "Enregistrez un lien vers vos résultats ou partagez-les en ligne"
+    },
+    "validations": {
+      "fileRequired": "Le fichier est requis",
+      "fileSize": "La taille maximale du fichier est de {size}MB.",
+      "fileTypes": "Seuls les fichiers de type .jpg, .jpeg, .png sont acceptés"
+    },
+    "profile": {
+      "meta": {
+        "title": "Profil",
+        "description": "Obtenez des questions personnalisées pour vous préparer aux entretiens sans effort"
+      },
+      "title": "Profil",
+      "recentActivity": "Votre activité récente avec Aipplied",
+      "noChats": {
+        "title": "Aucun chat trouvé",
+        "description": "Rien à craindre... vous pouvez commencer un nouveau chat et trouver l'emploi de vos rêves",
+        "startNew": "Commencer un nouveau chat"
+      },
+      "deleteAccount": {
+        "title": "Supprimer le compte",
+        "description": "Attention ! Toutes les données seront définitivement supprimées. Tous les chats créés par vous seront également supprimés.",
+        "beCareful": "Soyez prudent !",
+        "irreversible": "Cette action est irréversible"
+      }
+    },
+    "profileSettings": {
+      "title": "Paramètres du profil",
+      "dangerZone": "Zone dangereuse",
+      "recentActivity": "Votre activité récente avec Aipplied",
+      "noChats": {
+        "title": "Aucun chat trouvé",
+        "description": "Rien à craindre... vous pouvez commencer un nouveau chat et trouver l'emploi de vos rêves",
+        "startNew": "Commencer un nouveau chat"
+      },
+      "deleteAccount": {
+        "title": "Supprimer le compte",
+        "description": "Attention ! Toutes les données seront définitivement supprimées. Tous les chats créés par vous seront également supprimés.",
+        "beCareful": "Soyez prudent !",
+        "irreversible": "Cette action est irréversible"
+      }
+    },
+    "chat": {
+      "restrictionsSuccess": {
+        "title": "Restrictions du chat mises à jour",
+        "description": "Les restrictions du chat ont été mises à jour avec succès."
+      },
+      "restrictionsFailed": {
+        "title": "Échec de la mise à jour des restrictions du chat"
+      },
+      "restrictionsEdit": {
+        "title": "Modifier les restrictions",
+        "description": "Apportez des modifications aux restrictions du chat. Cliquez sur Enregistrer lorsque vous avez terminé."
+      }
+    },
+    "privacy": {
+      "meta": {
+        "title": "Confidentialité",
+        "description": "Politique de confidentialité de Aipplied"
+      },
+      "sections": {
+        "intro": {
+          "title": "Introduction",
+          "content": "Nous respectons votre vie privée et nous engageons à protéger vos données personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations."
+        },
+        "dataCollection": {
+          "title": "Collecte de données",
+          "content": "Nous collectons des informations telles que votre nom, votre email et votre historique de chat lorsque vous vous inscrivez et utilisez notre service."
+        },
+        "dataUsage": {
+          "title": "Comment nous utilisons vos données",
+          "content": "Vos données sont utilisées pour fournir des expériences personnalisées, améliorer nos services et assurer la sécurité de votre compte."
+        },
+        "dataSharing": {
+          "title": "Partage de données",
+          "content": "Nous ne partageons pas vos données personnelles avec des tiers, sauf si la loi l'exige."
+        },
+        "security": {
+          "title": "Mesures de sécurité",
+          "content": "Nous prenons des mesures appropriées pour protéger vos données contre tout accès non autorisé, modification ou destruction."
+        }
+      }
+    },
+    "terms": {
+      "meta": {
+        "title": "Conditions d'utilisation",
+        "description": "Conditions d'utilisation de Aipplied"
+      },
+      "sections": {
+        "acceptance": {
+          "title": "Acceptation des conditions",
+          "content": "En utilisant notre service, vous acceptez de respecter ces conditions."
+        },
+        "userResponsibilities": {
+          "title": "Responsabilités de l'utilisateur",
+          "content": "Les utilisateurs doivent fournir des informations exactes et se conformer aux lois applicables."
+        },
+        "account": {
+          "title": "Inscription et sécurité du compte",
+          "content": "Les utilisateurs sont responsables de la sécurité de leurs comptes."
+        },
+        "termination": {
+          "title": "Résiliation du service",
+          "content": "Nous nous réservons le droit de suspendre ou de résilier les comptes violant nos conditions."
+        },
+        "limitation": {
+          "title": "Limitation de responsabilité",
+          "content": "Nous ne sommes pas responsables des dommages résultant de l'utilisation de notre service."
+        }
+      }
+    },
+    "apiResponses": {
+      "emailNotVerified": "Email non vérifié",
+      "invalidCredentials": "Identifiants invalides",
+      "chatNotFound": "Chat non trouvé",
+      "chatNowAllowed": "Vous n'êtes pas autorisé à accéder à ce chat",
+      "somethingWentWrong": "Quelque chose s'est mal passé",
+      "missingCode": "Code manquant",
+      "emailConfirmed": "Email confirmé avec succès. Vous pouvez maintenant vous connecter à votre compte !",
+      "failedToConfirmEmail": "Échec de la confirmation de l'email",
+      "invalidChatId": "ID de chat invalide",
+      "failedToSaveChat": "Échec de l'enregistrement du chat",
+      "chatIdRequired": "L'ID de chat est requis",
+      "updateChatFailed": "Échec de la mise à jour du chat",
+      "userNotAuthenticated": "L'utilisateur n'est pas authentifié",
+      "failedToFetchUserChats": "Échec de la récupération des chats de l'utilisateur",
+      "incorrectPassword": "Mot de passe incorrect",
+      "missingUri": "URI manquante",
+      "issueFetchingPage": "Problème lors de la récupération de la page",
+      "emailTaken": "Email déjà utilisé",
+      "accountCreated": "Compte créé avec succès. Pour confirmer votre compte, veuillez vérifier votre email.",
+      "failedToCreateAccount": "Échec de la création du compte",
+      "failedToSendVerificationEmail": "Échec de l'envoi de l'email de vérification"
+    }
+}

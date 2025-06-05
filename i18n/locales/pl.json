@@ -1,0 +1,386 @@
+{
+    "common": {
+      "getStarted": "Rozpocznij",
+      "logIn": "Zaloguj się",
+      "generateNew": "Wygeneruj nowe pytania",
+      "generate": "Generuj",
+      "copy": "Kopiuj",
+      "copied": "Skopiowano",
+      "share": "Udostępnij",
+      "close": "Zamknij",
+      "settings": "Ustawienia",
+      "additional": "Dodatkowe",
+      "action": "Akcja",
+      "preview": "Podgląd",
+      "title": "Tytuł",
+      "created": "Utworzono",
+      "type": "Typ",
+      "searchByTitle": "Szukaj po tytule",
+      "noResults": "Brak wyników",
+      "previous": "Poprzedni",
+      "next": "Następny",
+      "author": "Autor",
+      "level": "Poziom",
+      "status": "Status",
+      "profile": "Profil",
+      "dateCreated": "Data utworzenia",
+      "saveChanges": "Zapisz zmiany",
+      "tryAgain": "Spróbuj ponownie",
+      "newChat": "Nowy czat",
+      "selectLanguage": "Wybierz język...",
+      "nothingFound": "Nic nie znaleziono"
+    },
+    "status": {
+      "public": {
+        "title": "Publiczny",
+        "description": "Każdy może uzyskać dostęp do tego zestawu pytań."
+      },
+      "restricted": {
+        "title": "Ograniczony",
+        "description": "Dostęp mają tylko autor i upoważnieni użytkownicy."
+      }
+    },
+    "navigation": {
+      "home": "Strona główna",
+      "product": "Produkt",
+      "recruiter": "Narzędzia dla kandydatów",
+      "login": "Logowanie",
+      "logout": "Wyloguj",
+      "profile": "Profil",
+      "account": "Konto",
+      "myAccount": "Moje konto",
+      "logOut": "Wyloguj",
+      "language": "Język"
+    },
+    "footer": {
+      "navigationTitle": "Nawigacja",
+      "aboutTitle": "O nas",
+      "terms": "Regulamin",
+      "privacy": "Polityka prywatności",
+      "createdBy": "Aipplied stworzony przez"
+    },
+    "form": {
+      "url": {
+        "title": "Wprowadź URL",
+        "label": "URL oferty pracy",
+        "placeholder": "Wklej tutaj URL oferty pracy"
+      },
+      "cv": {
+        "title": "Prześlij swoje CV",
+        "label": "Prześlij CV (JPG, PNG)"
+      },
+      "custom": {
+        "title": "Wprowadź własne szczegóły",
+        "position": {
+          "label": "Stanowisko",
+          "placeholder": "Opisz stanowisko pracy"
+        },
+        "requirements": {
+          "label": "Wymagania",
+          "placeholder": "Wymień wymagania na to stanowisko"
+        },
+        "niceToHave": {
+          "label": "Mile widziane",
+          "placeholder": "Wymień umiejętności lub doświadczenie, które są mile widziane"
+        },
+        "responsibilities": {
+          "label": "Obowiązki",
+          "placeholder": "Opisz obowiązki na tym stanowisku"
+        }
+      },
+      "buttons": {
+        "previous": "Poprzedni",
+        "next": "Następny"
+      }
+    },
+    "settings": {
+      "general": {
+        "title": "Ustawienia ogólne",
+        "questionsDifficulty": {
+          "label": "Wybierz poziom trudności pytań",
+          "options": {
+            "easy": {
+              "title": "Łatwy",
+              "description": "Podstawowe pytania odpowiednie dla początkujących"
+            },
+            "intermediate": {
+              "title": "Średni",
+              "description": "Pytania odpowiednie dla kandydatów z pewnym doświadczeniem"
+            },
+            "advanced": {
+              "title": "Zaawansowany",
+              "description": "Wymagające pytania dla doświadczonych kandydatów"
+            }
+          }
+        },
+        "prepareAnswers": {
+          "label": "Przygotuj odpowiedzi z wyprzedzeniem",
+          "description": "Włącz tę opcję, aby generować odpowiedzi z wyprzedzeniem."
+        },
+        "recruitmentTask": {
+          "label": "Dodaj zadanie rekrutacyjne",
+          "description": "Dodaj zadanie, aby zaprezentować swoje umiejętności."
+        },
+        "private": {
+          "label": "Ustaw jako prywatne",
+          "description": "Ustaw ten zestaw pytań jako prywatny. Dostęp masz tylko Ty lub zaproszeni użytkownicy."
+        },
+        "authorizedEmails": {
+          "label": "Autoryzowane e-maile",
+          "description": "Wpisz e-mail i naciśnij enter"
+        }
+      },
+      "difficultLevel": {
+        "title": "Poziom trudności"
+      }
+    },
+    "home": {
+      "meta": {
+        "title": "Strona główna",
+        "description": "Uzyskaj spersonalizowane pytania, aby łatwo przygotować się do rozmów kwalifikacyjnych"
+      },
+      "hero": {
+        "title": "Odkryj moc AI w poszukiwaniu pracy",
+        "subtitle": "Uzyskaj spersonalizowane pytania, aby łatwo przygotować się do rozmów kwalifikacyjnych"
+      },
+      "features": {
+        "title": "Funkcje",
+        "description": "Poznaj unikalne funkcje, które sprawiają, że to narzędzie jest idealne dla kandydatów.",
+        "details": "Więcej szczegółów o funkcjach",
+        "feature1": {
+          "title": "Pytania na podstawie CV",
+          "description": "Generuj dopasowane pytania na podstawie Twojego CV, aby skutecznie się przygotować."
+        },
+        "feature2": {
+          "title": "Pytania na podstawie URL oferty pracy",
+          "description": "Podaj URL oferty pracy i uzyskaj pytania zgodne z wymaganiami stanowiska."
+        },
+        "feature3": {
+          "title": "Pytania na podstawie własnych szczegółów",
+          "description": "Dodaj własne szczegóły, aby wygenerować spersonalizowane pytania dopasowane do Twoich potrzeb."
+        },
+        "feature4": {
+          "title": "Zapisz swoje pytania",
+          "description": "Zapisuj wygenerowane pytania, aby móc wrócić do nich później i przygotować się efektywnie."
+        }
+      },
+      "callToAction": {
+        "startWith": "Rozpocznij od",
+        "poweredTool": "Napędzane przez AI Tool",
+        "assistantDescription": "Spraw, by Twoje przygotowania do rozmowy były skuteczne i skoncentrowane dzięki naszemu asystentowi AI.",
+        "decorativeImageAlt": "Dekoracyjne tło",
+        "installApp": "Zainstaluj aplikację"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Logowanie",
+        "description": "Zaloguj się, aby uzyskać dostęp do swojego konta i rozpocząć przygotowania do rozmów kwalifikacyjnych."
+      },
+      "providers": "Użyj jednej z poniższych metod logowania",
+      "noAccount": "Nie masz konta? Utwórz nowe"
+    },
+    "register": {
+      "meta": {
+        "title": "Rejestracja",
+        "description": "Utwórz nowe konto i rozpocznij przygotowania do rozmów kwalifikacyjnych."
+      },
+      "haveAccount": "Masz już konto? Zaloguj się"
+    },
+    "features": {
+      "cv_questions_title": "Pytania na podstawie CV",
+      "cv_questions_description": "Przygotuj się skutecznie dzięki pytaniom dopasowanym do Twojego CV.",
+      "url_questions_title": "Pytania na podstawie URL",
+      "url_questions_description": "Otrzymaj pytania na podstawie podanego URL oferty pracy.",
+      "custom_questions_title": "Pytania niestandardowe",
+      "custom_questions_description": "Generuj pytania dopasowane do Twoich indywidualnych potrzeb przygotowawczych."
+    },
+    "confirmEmail": {
+      "title": "Potwierdź swój adres e-mail"
+    },
+    "jobAnalysis": "Analiza oferty pracy",
+    "jobAnalysisNew": "Generowanie nowych pytań",
+    "recruitmentTask": "Zadanie praktyczne",
+    "questions": {
+      "method": {
+        "title": "Wybierz metodę generowania pytań",
+        "label": "Wybierz sposób generowania pytań",
+        "types": {
+          "url": {
+            "title": "Metoda URL",
+            "description": "Generuj pytania na podstawie URL oferty pracy"
+          },
+          "cv": {
+            "title": "Metoda CV",
+            "description": "Generuj pytania na podstawie Twojego CV"
+          },
+          "custom": {
+            "title": "Metoda niestandardowa",
+            "description": "Generuj spersonalizowane pytania na podstawie własnych danych"
+          }
+        }
+      }
+    },
+    "product": {
+      "title": "Produkt",
+      "description": "Poznaj funkcje, które sprawiają, że przygotowanie do rozmów kwalifikacyjnych jest łatwe i efektywne.",
+      "differentSettings": "Spróbuj różnych ustawień i generuj nowe pytania",
+      "saveChats": "Zapisz swoje czaty",
+      "logInToSave": "Zaloguj się lub utwórz konto, aby zapisać swoje czaty",
+      "meta": {
+        "title": "Rekruter",
+        "description": "Odkryj, jak AI może pomóc Ci w przygotowaniach do pracy marzeń."
+      }
+    },
+    "recruiter": {
+      "title": "Narzędzia dla kandydatów",
+      "description": "Odkryj, jak AI może pomóc Ci w przygotowaniach do pracy marzeń.",
+      "meta": {
+        "title": "Rekruter",
+        "description": "Odkryj, jak AI może pomóc Ci w przygotowaniach do pracy marzeń."
+      }
+    },
+    "noAnswer": "Brak odpowiedzi",
+    "auth": {
+      "login": "Logowanie",
+      "password": "Hasło",
+      "passwordRepeat": "Powtórz hasło",
+      "register": "Rejestracja"
+    },
+    "share": {
+      "title": "Udostępnij lub zapisz swoje wyniki",
+      "subtitle": "Zapisz link do swoich wyników lub udostępnij je online"
+    },
+    "validations": {
+      "fileRequired": "Plik jest wymagany",
+      "fileSize": "Maksymalny rozmiar pliku to {size}MB.",
+      "fileTypes": "Akceptowane są tylko pliki typu .jpg, .jpeg, .png"
+    },
+    "profile": {
+      "meta": {
+        "title": "Profil",
+        "description": "Uzyskaj spersonalizowane pytania, aby łatwo przygotować się do rozmów kwalifikacyjnych"
+      },
+      "title": "Profil",
+      "recentActivity": "Twoja ostatnia aktywność w Aipplied",
+      "noChats": {
+        "title": "Brak znalezionych czatów",
+        "description": "Nie martw się... możesz rozpocząć nowy czat i znaleźć pracę swoich marzeń",
+        "startNew": "Rozpocznij nowy czat"
+      },
+      "deleteAccount": {
+        "title": "Usuń konto",
+        "description": "Uwaga! Wszystkie dane zostaną trwale usunięte. Zostaną również usunięte wszystkie czaty utworzone przez Ciebie.",
+        "beCareful": "Uważaj!",
+        "irreversible": "Ta akcja jest nieodwracalna"
+      }
+    },
+    "profileSettings": {
+      "title": "Ustawienia profilu",
+      "dangerZone": "Strefa ryzyka",
+      "recentActivity": "Twoja ostatnia aktywność w Aipplied",
+      "noChats": {
+        "title": "Brak znalezionych czatów",
+        "description": "Nie martw się... możesz rozpocząć nowy czat i znaleźć pracę swoich marzeń",
+        "startNew": "Rozpocznij nowy czat"
+      },
+      "deleteAccount": {
+        "title": "Usuń konto",
+        "description": "Uwaga! Wszystkie dane zostaną trwale usunięte. Zostaną również usunięte wszystkie czaty utworzone przez Ciebie.",
+        "beCareful": "Uważaj!",
+        "irreversible": "Ta akcja jest nieodwracalna"
+      }
+    },
+    "chat": {
+      "restrictionsSuccess": {
+        "title": "Ograniczenia czatu zaktualizowane",
+        "description": "Ograniczenia czatu zostały pomyślnie zaktualizowane."
+      },
+      "restrictionsFailed": {
+        "title": "Aktualizacja ograniczeń czatu nie powiodła się"
+      },
+      "restrictionsEdit": {
+        "title": "Edytuj ograniczenia",
+        "description": "Wprowadź zmiany w ograniczeniach czatu. Kliknij Zapisz, gdy skończysz."
+      }
+    },
+    "privacy": {
+      "meta": {
+        "title": "Prywatność",
+        "description": "Polityka prywatności Aipplied"
+      },
+      "sections": {
+        "intro": {
+          "title": "Wstęp",
+          "content": "Szanujemy Twoją prywatność i zobowiązujemy się do ochrony Twoich danych osobowych. Niniejsza polityka prywatności wyjaśnia, jak zbieramy, wykorzystujemy i zabezpieczamy Twoje informacje."
+        },
+        "dataCollection": {
+          "title": "Zbieranie Danych",
+          "content": "Zbieramy informacje, takie jak imię, adres e-mail i historię czatów, gdy rejestrujesz się i korzystasz z naszego serwisu."
+        },
+        "dataUsage": {
+          "title": "Jak Wykorzystujemy Twoje Dane",
+          "content": "Twoje dane są wykorzystywane do personalizacji doświadczeń, ulepszania naszych usług oraz zapewnienia bezpieczeństwa konta."
+        },
+        "dataSharing": {
+          "title": "Udostępnianie Danych",
+          "content": "Nie udostępniamy Twoich danych osobowych stronom trzecim, z wyjątkiem sytuacji wymaganych przez prawo."
+        },
+        "security": {
+          "title": "Środki Bezpieczeństwa",
+          "content": "Podejmujemy odpowiednie środki w celu ochrony Twoich danych przed nieautoryzowanym dostępem, modyfikacją lub zniszczeniem."
+        }
+      }
+    },
+    "terms": {
+      "meta": {
+        "title": "Warunki",
+        "description": "Warunki użytkowania Aipplied"
+      },
+      "sections": {
+        "acceptance": {
+          "title": "Akceptacja Warunków",
+          "content": "Korzystając z naszego serwisu, zgadzasz się na przestrzeganie niniejszych warunków."
+        },
+        "userResponsibilities": {
+          "title": "Obowiązki Użytkownika",
+          "content": "Użytkownicy muszą podawać dokładne informacje i przestrzegać obowiązujących przepisów."
+        },
+        "account": {
+          "title": "Rejestracja i Bezpieczeństwo Konta",
+          "content": "Użytkownicy są odpowiedzialni za bezpieczeństwo swoich kont."
+        },
+        "termination": {
+          "title": "Zakończenie Świadczenia Usług",
+          "content": "Zastrzegamy sobie prawo do zawieszenia lub usunięcia kont naruszających regulamin."
+        },
+        "limitation": {
+          "title": "Ograniczenie Odpowiedzialności",
+          "content": "Nie ponosimy odpowiedzialności za jakiekolwiek szkody wynikające z korzystania z naszej usługi."
+        }
+      }
+    },
+    "apiResponses": {
+      "emailNotVerified": "E-mail niezweryfikowany",
+      "invalidCredentials": "Nieprawidłowe dane logowania",
+      "chatNotFound": "Czat nie znaleziony",
+      "chatNowAllowed": "Nie masz uprawnień do dostępu do tego czatu",
+      "somethingWentWrong": "Coś poszło nie tak",
+      "missingCode": "Brak kodu",
+      "emailConfirmed": "E-mail został pomyślnie potwierdzony. Teraz możesz zalogować się do swojego konta!",
+      "failedToConfirmEmail": "Nie udało się potwierdzić e-maila",
+      "invalidChatId": "Nieprawidłowe ID czatu",
+      "failedToSaveChat": "Nie udało się zapisać czatu",
+      "chatIdRequired": "ID czatu jest wymagane",
+      "updateChatFailed": "Aktualizacja czatu nie powiodła się",
+      "userNotAuthenticated": "Użytkownik nie jest uwierzytelniony",
+      "failedToFetchUserChats": "Nie udało się pobrać czatów użytkownika",
+      "incorrectPassword": "Nieprawidłowe hasło",
+      "missingUri": "Brak URI",
+      "issueFetchingPage": "Problem z pobraniem strony",
+      "emailTaken": "E-mail jest już zajęty",
+      "accountCreated": "Konto zostało pomyślnie utworzone. Aby potwierdzić konto, sprawdź swój e-mail.",
+      "failedToCreateAccount": "Nie udało się utworzyć konta",
+      "failedToSendVerificationEmail": "Nie udało się wysłać e-maila weryfikacyjnego"
+    }
+}

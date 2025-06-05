@@ -1,0 +1,386 @@
+{
+    "common": {
+      "getStarted": "Get started",
+      "logIn": "Log in",
+      "generateNew": "Generate new questions",
+      "generate": "Generate",
+      "copy": "Copy",
+      "copied": "Copied",
+      "share": "Share",
+      "close": "Close",
+      "settings": "Settings",
+      "additional": "Additional",
+      "action": "Action",
+      "preview": "Preview",
+      "title": "Title",
+      "created": "Created",
+      "type": "Type",
+      "searchByTitle": "Search by title",
+      "noResults": "No results",
+      "previous": "Previous",
+      "next": "Next",
+      "author": "Author",
+      "level": "Level",
+      "status": "Status",
+      "profile": "Profile",
+      "dateCreated": "Date created",
+      "saveChanges": "Save changes",
+      "tryAgain": "Try again",
+      "newChat": "New chat",
+      "selectLanguage": "Select language...",
+      "nothingFound": "Nothing found"
+    },
+    "status": {
+      "public": {
+        "title": "Public",
+        "description": "Anyone can access this question set."
+      },
+      "restricted": {
+        "title": "Restricted",
+        "description": "Only the author and authorized users can access it."
+      }
+    },
+    "navigation": {
+      "home": "Home",
+      "product": "Product",
+      "recruiter": "Candidate Tools",
+      "login": "Login",
+      "logout": "Logout",
+      "profile": "Profile",
+      "account": "Account",
+      "myAccount": "My account",
+      "logOut": "Logout",
+      "language": "Language"
+    },
+    "footer": {
+      "navigationTitle": "Navigation",
+      "aboutTitle": "About",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "createdBy": "Aipplied created by"
+    },
+    "form": {
+      "url": {
+        "title": "Enter a URL",
+        "label": "Job Offer URL",
+        "placeholder": "Paste job offer URL here"
+      },
+      "cv": {
+        "title": "Upload your CV",
+        "label": "Upload CV (JPG, PNG)"
+      },
+      "custom": {
+        "title": "Enter Custom Details",
+        "position": {
+          "label": "Job Position",
+          "placeholder": "Describe the job position"
+        },
+        "requirements": {
+          "label": "Requirements",
+          "placeholder": "List the requirements for the role"
+        },
+        "niceToHave": {
+          "label": "Nice to Have",
+          "placeholder": "List skills or experience that are nice to have"
+        },
+        "responsibilities": {
+          "label": "Responsibilities",
+          "placeholder": "Describe the responsibilities for this role"
+        }
+      },
+      "buttons": {
+        "previous": "Previous",
+        "next": "Next"
+      }
+    },
+    "settings": {
+      "general": {
+        "title": "General Settings",
+        "questionsDifficulty": {
+          "label": "Select question difficulty",
+          "options": {
+            "easy": {
+              "title": "Easy",
+              "description": "Basic questions suitable for beginners"
+            },
+            "intermediate": {
+              "title": "Intermediate",
+              "description": "Questions suitable for candidates with some experience"
+            },
+            "advanced": {
+              "title": "Advanced",
+              "description": "Challenging questions for experienced candidates"
+            }
+          }
+        },
+        "prepareAnswers": {
+          "label": "Prepare answers in advance",
+          "description": "Enable this option to generate answers in advance."
+        },
+        "recruitmentTask": {
+          "label": "Include practice task",
+          "description": "Include a task to showcase your skills."
+        },
+        "private": {
+          "label": "Set as private",
+          "description": "Set this question set as private. Only you can access it, or the users you invite."
+        },
+        "authorizedEmails": {
+          "label": "Authorized emails",
+          "description": "Type the email and press enter"
+        }
+      },
+      "difficultLevel": {
+        "title": "Difficult level"
+      }
+    },
+    "home": {
+      "meta": {
+        "title": "Home",
+        "description": "Get personalized questions to prepare for interviews effortlessly"
+      },
+      "hero": {
+        "title": "Discover the power of AI for your job search",
+        "subtitle": "Get personalized questions to prepare for interviews effortlessly"
+      },
+      "features": {
+        "title": "Features",
+        "description": "Explore the unique features that make this tool perfect for candidates.",
+        "details": "More details about the features",
+        "feature1": {
+          "title": "CV based questions",
+          "description": "Generate tailored questions based on your CV to help you prepare effectively."
+        },
+        "feature2": {
+          "title": "Job offer URL based questions",
+          "description": "Input a job offer URL and get questions aligned with the role's requirements."
+        },
+        "feature3": {
+          "title": "Custom details based questions",
+          "description": "Add custom details to generate personalized questions that suit your needs."
+        },
+        "feature4": {
+          "title": "Save your questions",
+          "description": "Save your generated questions for future preparation and easy access."
+        }
+      },
+      "callToAction": {
+        "startWith": "Start with",
+        "poweredTool": "Powered by AI Tool",
+        "assistantDescription": "Make your interview preparation efficient and focused with our AI assistant.",
+        "decorativeImageAlt": "Decorative background image",
+        "installApp": "Install app"
+      }
+    },
+    "login": {
+      "meta": {
+        "title": "Login",
+        "description": "Log in to access your account and start preparing for interviews."
+      },
+      "providers": "Use one of the following providers",
+      "noAccount": "Don't have an account? Create new one"
+    },
+    "register": {
+      "meta": {
+        "title": "Register",
+        "description": "Create a new account and start preparing for interviews."
+      },
+      "haveAccount": "Have an account? Log in"
+    },
+    "features": {
+      "cv_questions_title": "CV Questions",
+      "cv_questions_description": "Prepare effectively with insights tailored to your resume.",
+      "url_questions_title": "URL Questions",
+      "url_questions_description": "Get questions based on the provided job description URL.",
+      "custom_questions_title": "Custom Questions",
+      "custom_questions_description": "Generate questions tailored to your specific preparation needs."
+    },
+    "confirmEmail": {
+      "title": "Confirm your email"
+    },
+    "jobAnalysis": "Analyzing the job offer",
+    "jobAnalysisNew": "Generating new questions",
+    "recruitmentTask": "Practice Task",
+    "questions": {
+      "method": {
+        "title": "Select Question Method",
+        "label": "Choose how to generate questions",
+        "types": {
+          "url": {
+            "title": "URL Method",
+            "description": "Generate questions from a job offer URL"
+          },
+          "cv": {
+            "title": "CV Method",
+            "description": "Generate questions based on your CV"
+          },
+          "custom": {
+            "title": "Custom Method",
+            "description": "Generate personalized questions from custom inputs"
+          }
+        }
+      }
+    },
+    "product": {
+      "title": "Product",
+      "description": "Explore features that make preparing for job interviews easy and effective.",
+      "differentSettings": "Try different settings and generate new questions",
+      "saveChats": "Save your chats",
+      "logInToSave": "Login or create an account to save your chats",
+      "meta": {
+        "title": "Recruiter",
+        "description": "Discover how AI can assist you in preparing for your dream job."
+      }
+    },
+    "recruiter": {
+      "title": "Candidate Tools",
+      "description": "Discover how AI can assist you in preparing for your dream job.",
+      "meta": {
+        "title": "Recruiter",
+        "description": "Discover how AI can assist you in preparing for your dream job."
+      }
+    },
+    "noAnswer": "No answer",
+    "auth": {
+      "login": "Login",
+      "password": "Password",
+      "passwordRepeat": "Password repeat",
+      "register": "Register"
+    },
+    "share": {
+      "title": "Share or save your results",
+      "subtitle": "Save a link to your results or share them online"
+    },
+    "validations": {
+      "fileRequired": "File is required",
+      "fileSize": "Max file size is {size}MB.",
+      "fileTypes": "Files of type .jpg, .jpeg, .png are accepted only"
+    },
+    "profile": {
+      "meta": {
+        "title": "Profile",
+        "description": "Get personalized questions to prepare for interviews effortlessly"
+      },
+      "title": "Profile",
+      "recentActivity": "Your recent Aipplied activity",
+      "noChats": {
+        "title": "No Chats has been found",
+        "description": "Nothing to worry about... you can start a new chat and find the job of your dreams",
+        "startNew": "Start a new chat"
+      },
+      "deleteAccount": {
+        "title": "Delete Account",
+        "description": "Warning! All of the data will be permanently deleted. Also all the chats created by you will be deleted.",
+        "beCareful": "Be careful!",
+        "irreversible": "This action is irreversable"
+      }
+    },
+    "profileSettings": {
+      "title": "Profile settings",
+      "dangerZone": "Danger Zone",
+      "recentActivity": "Your recent Aipplied activity",
+      "noChats": {
+        "title": "No Chats has been found",
+        "description": "Nothing to worry about... you can start a new chat and find the job of your dreams",
+        "startNew": "Start a new chat"
+      },
+      "deleteAccount": {
+        "title": "Delete Account",
+        "description": "Warning! All of the data will be permanently deleted. Also all the chats created by you will be deleted.",
+        "beCareful": "Be careful!",
+        "irreversible": "This action is irreversable"
+      }
+    },
+    "chat": {
+      "restrictionsSuccess": {
+        "title": "Chat restrictions updated",
+        "description": "Chat restrictions updated successfully."
+      },
+      "restrictionsFailed": {
+        "title": "Chat restrictions update failed"
+      },
+      "restrictionsEdit": {
+        "title": "Edit restrictions",
+        "description": "Make changes to the chat restrictions. Click save when you're done."
+      }
+    },
+    "privacy": {
+      "meta": {
+        "title": "Privacy",
+        "description": "Aipplied privacy policy"
+      },
+      "sections": {
+        "intro": {
+          "title": "Introduction",
+          "content": "We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information."
+        },
+        "dataCollection": {
+          "title": "Data Collection",
+          "content": "We collect information such as your name, email, and chat history when you register and use our service."
+        },
+        "dataUsage": {
+          "title": "How We Use Your Data",
+          "content": "Your data is used to provide personalized experiences, improve our services, and ensure account security."
+        },
+        "dataSharing": {
+          "title": "Data Sharing",
+          "content": "We do not share your personal data with third parties, except as required by law."
+        },
+        "security": {
+          "title": "Security Measures",
+          "content": "We take appropriate measures to protect your data from unauthorized access, alteration, or destruction."
+        }
+      }
+    },
+    "terms": {
+      "meta": {
+        "title": "Terms",
+        "description": "Aipplied terms"
+      },
+      "sections": {
+        "acceptance": {
+          "title": "Acceptance of Terms",
+          "content": "By using our service, you agree to comply with these terms."
+        },
+        "userResponsibilities": {
+          "title": "User Responsibilities",
+          "content": "Users must provide accurate information and comply with applicable laws."
+        },
+        "account": {
+          "title": "Account Registration and Security",
+          "content": "Users are responsible for maintaining the security of their accounts."
+        },
+        "termination": {
+          "title": "Termination of Service",
+          "content": "We reserve the right to suspend or terminate accounts violating our terms."
+        },
+        "limitation": {
+          "title": "Limitation of Liability",
+          "content": "We are not responsible for any damages arising from the use of our service."
+        }
+      }
+    },
+    "apiResponses": {
+      "emailNotVerified": "Email not verified",
+      "invalidCredentials": "Invalid credentials",
+      "chatNotFound": "Chat not found",
+      "chatNowAllowed": "You are not allowed to access this chat",
+      "somethingWentWrong": "Something went wrong",
+      "missingCode": "Missing code",
+      "emailConfirmed": "Email confirmed succesfully. Now you can login to your account!",
+      "failedToConfirmEmail": "Failed to confirm email",
+      "invalidChatId": "Invalid chat id",
+      "failedToSaveChat": "Failed to save chat",
+      "chatIdRequired": "Chat id is required",
+      "updateChatFailed": "Update chat failed",
+      "userNotAuthenticated": "User is not authenticated",
+      "failedToFetchUserChats": "Failed to fetch user chats",
+      "incorrectPassword": "Incorrect password",
+      "missingUri": "Missing uri",
+      "issueFetchingPage": "Issue fetching page",
+      "emailTaken": "Email is already taken",
+      "accountCreated": "Account created successfully. To confirm your account, please check your email.",
+      "failedToCreateAccount": "Failed to create account",
+      "failedToSendVerificationEmail": "Failed to send verification email"
+    }
+  }
