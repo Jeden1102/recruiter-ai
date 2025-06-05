@@ -83,21 +83,12 @@ const sendVerificationEmail = async (email: string) => {
 
     const emailVerificationCode = await bcrypt.hash(Date.now().toString(), 10);
 
-    console.log('HERE', `${config.public.APP_BASE_URI}/mail-templates/account-confirmation.html`)
-    const templateUrl = `${config.public.APP_BASE_URI}/mail-templates/account-confirmation.html`;
+    const confirmationUrl = `${config.public.APP_BASE_URI}/profile/confirm-email?code=${emailVerificationCode}`;
+    const htmlContent = `
+      <p>Your confirmation link: <a href="${confirmationUrl}">Click here to confirm your account</a></p>
+    `;
 
-    const response = await fetch(templateUrl);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch email template: ${response.statusText}`);
-    }
-    const templateSource = await response.text();
-
-    const template = Handlebars.compile(templateSource);
-    const htmlContent = template({
-      url: `${config.public.APP_BASE_URI}/profile/confirm-email?code=${emailVerificationCode}`,
-    });
-
-    sendMail({
+    await sendMail({
       subject: "Account confirmation",
       to: email,
       html: htmlContent,
